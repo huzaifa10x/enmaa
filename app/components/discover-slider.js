@@ -4,15 +4,16 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
 import { Menu, Plus } from "lucide-react"
-import image1 from "@/public/images/imgi_24_slide01.webp"
+// import image1 from "@/public/images/imgi_24_slide01.webp"
 import image2 from "@/public/images/imgi_25_slide02.webp"
+import image3 from "@/public/images/image.webp"
 
 const slides = [
     {
         id: 1,
         title: "DISCOVER",
         subtitle: "DISCOVER CASE",
-        background: image1,
+        background: image3,
     },
     {
         id: 2,
@@ -24,7 +25,7 @@ const slides = [
         id: 3,
         title: "CREATE",
         subtitle: "CREATE CASE",
-        background: image1,
+        background: image3,
     },
 ]
 
