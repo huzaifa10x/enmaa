@@ -3,10 +3,15 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
-import { Menu, Plus } from "lucide-react"
+import { ChevronDown, Menu, Plus } from "lucide-react"
 // import image1 from "@/public/images/imgi_24_slide01.webp"
 import image2 from "@/public/images/imgi_25_slide02.webp"
 import image3 from "@/public/images/image.webp"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import Image from "next/image"
+import Logo from "@/public/images/Logo.webp"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 
 const slides = [
     {
@@ -29,11 +34,32 @@ const slides = [
     },
 ]
 
+gsap.registerPlugin(ScrollTrigger)
+
+
 export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
     const sliderRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
+    const [activeItem, setActiveItem] = useState("HOME")
+
+    useEffect(() => {
+        const section = sliderRef.current
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "bottom top", // jab agla section top touch kare
+            pin: true,
+            pinSpacing: false, // extra space na chhode → agla section overlap karega
+        })
+
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill())
+        }
+    }, [])
+
 
     useEffect(() => {
         // Initial animation
@@ -80,6 +106,36 @@ export default function DiscoverSlider() {
         })
     }
 
+    const navItems = [
+        { name: "HOME", href: "/" },
+        { name: "ABOUT", href: "/about" },
+        { name: "ROOMS", href: "/rooms" },
+        {
+            name: "RECREATION",
+            href: "/recreation",
+            hasDropdown: true,
+            items: ["Spa & Wellness", "Pool & Beach", "Activities", "Dining"],
+        },
+        {
+            name: "RECONNECTION",
+            href: "/reconnection",
+            hasDropdown: true,
+            items: ["Events", "Meetings", "Weddings", "Conferences"],
+        },
+        {
+            name: "QUICK LINKS",
+            href: "/quick-links",
+            hasDropdown: true,
+            items: ["Contact", "Gallery", "Reviews", "Location"],
+        },
+        {
+            name: "ENGLISH",
+            href: "#",
+            hasDropdown: true,
+            items: ["English", "Español", "Français", "Deutsch"],
+        },
+    ]
+
     return (
         <div ref={sliderRef} className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
@@ -90,41 +146,81 @@ export default function DiscoverSlider() {
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
-            {/* Navigation */}
-            <nav className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-8">
-                {/* Logo */}
-                <div className="flex items-center">
-                    <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                        <div className="w-8 h-8 bg-white rounded-sm transform rotate-45" />
+            <div className="absolute top-0 left-0 right-0 z-50 flex lg:justify-center">
+                <nav className="flex items-center justify-between px-4 w-full py-6">
+                    {/* Logo */}
+                    <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 relative">
+                            <Image
+                                src={Logo}
+                                height={100}
+                                width={100}
+                                alt="Logo"
+                            />
+                        </div>
                     </div>
-                </div>
 
-                {/* Hamburger Menu */}
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                    <Menu className="h-6 w-6" />
-                </Button>
-            </nav>
+                    {/* Navigation Menu */}
+                    <div className="hidden lg:flex items-center space-x-8">
+                        {navItems.map((item) => (
+                            <div key={item.name} className="relative">
+                                {item.hasDropdown ? (
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button
+                                                variant="ghost"
+                                                className={`text-white hover:text-yellow-400 hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-yellow-400" : ""
+                                                    }`}
+                                                onClick={() => setActiveItem(item.name)}
+                                            >
+                                                {item.name}
+                                                <ChevronDown className="ml-1 h-3 w-3" />
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent className="bg-black/90 backdrop-blur-sm border-white/20">
+                                            {item.items?.map((subItem) => (
+                                                <DropdownMenuItem key={subItem} className="text-white hover:text-yellow-400 hover:bg-white/10">
+                                                    {subItem}
+                                                </DropdownMenuItem>
+                                            ))}
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                ) : (
+                                    <Button
+                                        variant="ghost"
+                                        className={`text-white hover:text-yellow-400 hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-yellow-400" : ""
+                                            }`}
+                                        onClick={() => setActiveItem(item.name)}
+                                    >
+                                        {item.name}
+                                    </Button>
+                                )}
+                            </div>
+                        ))}
+                    </div>
 
-            {/* All Cases Button - improved contrast with darker background */}
-            <div className="absolute top-8 right-8 z-20">
-                <Button
-                    variant="outline"
-                    className="bg-black/30 backdrop-blur-sm border-white/40 text-white hover:bg-black/50 rounded-full px-6 font-medium"
-                >
-                    ALL CASES
-                    <Plus className="ml-2 h-4 w-4" />
-                </Button>
-            </div>
+                    {/* Book Now Button */}
+                    <Button className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-amber-700 text-black font-semibold px-8 py-3 rounded-full text-sm tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl">
+                        BOOK NOW
+                    </Button>
 
-            {/* Follow Us - Vertical Text */}
-            <div className="absolute left-8 top-1/2 -translate-y-1/2 z-20">
-                <div className="writing-mode-vertical text-white/60 text-sm tracking-widest font-light">FOLLOW US</div>
+                    {/* Mobile Menu Button (for smaller screens) */}
+                    <div className="lg:hidden">
+                        <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                            <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+                                <div className="w-full h-0.5 bg-white"></div>
+                                <div className="w-full h-0.5 bg-white"></div>
+                                <div className="w-full h-0.5 bg-white"></div>
+                            </div>
+                        </Button>
+                    </div>
+                </nav>
             </div>
 
             {/* Main Content */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
-                    <h1 ref={titleRef} className="text-8xl md:text-9xl font-black text-white mb-4 tracking-tight">
+                    <h1 ref={titleRef} className="text-5xl md:text-9xl font-black text-white mb-4 tracking-tight">
                         {slides[currentSlide].title}
                     </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
