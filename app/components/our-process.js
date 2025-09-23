@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { gsap } from "gsap"
@@ -46,6 +46,43 @@ const slides = [
 export default function OurProcess() {
 
     const pinSection = useRef(null)
+    const [current, setCurrent] = useState(0)
+    const contentRef = useRef(null)
+    const imageRef = useRef(null)
+
+    const goToSlide = useCallback((index, direction = 1) => {
+        const newIndex = (index + slides.length) % slides.length
+
+        gsap.fromTo(
+            contentRef.current,
+            { opacity: 0, x: direction === 1 ? 100 : -100 },
+            { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }
+        )
+
+        gsap.fromTo(
+            imageRef.current,
+            { opacity: 0, x: direction === 1 ? -100 : 100 },
+            { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }
+        )
+
+        setCurrent(newIndex)
+    }, [])
+
+    const nextSlide = useCallback(() => {
+        goToSlide(current + 1, 1)
+    }, [current, goToSlide])
+
+    const prevSlide = useCallback(() => {
+        goToSlide(current - 1, -1)
+    }, [current, goToSlide])
+
+    // autoplay
+    useEffect(() => {
+        const interval = setInterval(nextSlide, 5000)
+        return () => clearInterval(interval)
+    }, [nextSlide]) // ✅ ab safe hai
+
+    // pin section
     useEffect(() => {
         const section = pinSection.current
 
@@ -54,7 +91,7 @@ export default function OurProcess() {
             start: "top top",
             end: "bottom top",
             pin: true,
-            pinSpacing: false, // 👈 isko true rakho taki horizontal scroll aur ye section clash na kare
+            pinSpacing: false,
         })
 
         return () => {
@@ -62,39 +99,12 @@ export default function OurProcess() {
         }
     }, [])
 
+    // return (
+    //     <section ref={pinSection} className="h-screen">
+    //         {/* Slider content here */}
+    //     </section>
+    // )
 
-    const [current, setCurrent] = useState(0)
-    const contentRef = useRef(null)
-    const imageRef = useRef(null)
-
-    const goToSlide = (index, direction = 1) => {
-        const newIndex = (index + slides.length) % slides.length
-
-        // Animate content out
-        gsap.fromTo(
-            contentRef.current,
-            { opacity: 0, x: direction === 1 ? 100 : -100 },
-            { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }
-        )
-
-        // Animate image
-        gsap.fromTo(
-            imageRef.current,
-            { opacity: 0, x: direction === 1 ? -100 : 100 },
-            { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }
-        )
-
-        setCurrent(newIndex)
-    }
-
-    const nextSlide = () => goToSlide(current + 1, 1)
-    const prevSlide = () => goToSlide(current - 1, -1)
-
-    // autoplay
-    useEffect(() => {
-        const interval = setInterval(nextSlide, 5000)
-        return () => clearInterval(interval)
-    }, [current])
 
     return (
         <div ref={pinSection} className="relative w-full h-screen overflow-hidden rounded-t-[50px] !z-50 bg-gray-100">

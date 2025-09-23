@@ -44,7 +44,7 @@ const designSolutions = [
 ]
 
 export default function DesignSolutions() {
-    const [hoveredId, setHoveredId] = useState(1)
+    const [hoveredId, setHoveredId] = useState(0)
 
 
     const pinSection = useRef(null)
