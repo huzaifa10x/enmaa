@@ -44,7 +44,7 @@ export default function FAQ({ faqData, faqHeading }) {
             <div className="container mx-auto lg:px-12 px-6 py-8 sm:py-12 bg-transparent">
                 <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
                     <div className="lg:pr-8">
-                        <h2 className="md:text-7xl text-3xl text-gray-900 leading-tight mb-6">FAQ'S</h2>
+                        <h2 className="md:text-7xl text-3xl text-gray-900 leading-tight mb-6">FAQ&apos;S</h2>
                         <p className="text-gray-600 text-base sm:text-lg leading-relaxed">Got questions? We’ve got answers. Here’s everything you need to know about working with us.</p>
                     </div>
 
