@@ -265,9 +265,9 @@ function TestimonialSlider() {
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: "bottom top",
+            end: () => `+=${section.scrollHeight}`, // 👈 dynamic height
             pin: true,
-            pinSpacing: false, // 👈 isko true rakho taki horizontal scroll aur ye section clash na kare
+            pinSpacing: true, // 👈 spacing enable kardo
         })
 
         return () => {
@@ -276,7 +276,7 @@ function TestimonialSlider() {
     }, [])
 
     return (
-        <div ref={pinSection} className="bg-stone-100 py-16 px-4 relative rounded-t-[50px] !z-[70]">
+        <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto">
             <div className="max-w-6xl mx-auto text-center">
                 <div className="mb-16">
                     <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-4">Streamline Your Team</h1>

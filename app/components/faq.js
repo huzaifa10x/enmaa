@@ -27,7 +27,7 @@ export default function FAQ({ faqData, faqHeading }) {
     }, [])
 
 
-    const [openItems, setOpenItems] = useState(new Set([2])) // TMJ Specialist is open by default
+    const [openItems, setOpenItems] = useState(new Set([1]))
 
     const toggleItem = (id) => {
         const newOpenItems = new Set(openItems)
