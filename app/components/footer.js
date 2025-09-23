@@ -8,7 +8,7 @@ import bg from "@/public/images/image452423.webp"
 
 export default function Footer() {
     return (
-        <footer className="bg-neutral-800 rounded-t-[50px] h-screen !z-[80] text-white relative">
+        <footer className="bg-[#264395] rounded-t-[50px] h-screen !z-[80] text-white relative">
 
             {/* <Image
                 src={bg}
@@ -66,11 +66,11 @@ export default function Footer() {
                     {/* Email Signup */}
                     <div className="space-y-4">
                         <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
-                        <div className="flex border-transparent border border-b-gray-600">
+                        <div className="flex border-transparent border border-b-gray-400">
                             <Input
                                 type="email"
                                 placeholder="Enter your Email"
-                                className="bg-transparent rounded-0 border-transparent text-white placeholder:text-gray-500 focus:border-white"
+                                className="bg-transparent rounded-0 border-transparent text-white placeholder:text-gray-400 focus:border-white"
                             />
                             <Button size="icon" className="bg-transparent text-white">
                                 <ArrowRight className="h-4 w-4" />

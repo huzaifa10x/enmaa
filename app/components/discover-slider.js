@@ -50,9 +50,9 @@ export default function DiscoverSlider() {
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: "bottom top", // jab agla section top touch kare
+            end: "bottom top",
             pin: true,
-            pinSpacing: false, // extra space na chhode → agla section overlap karega
+            pinSpacing: false,
         })
 
         return () => {
@@ -169,7 +169,7 @@ export default function DiscoverSlider() {
                                         <DropdownMenuTrigger asChild>
                                             <Button
                                                 variant="ghost"
-                                                className={`text-white hover:text-yellow-400 hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-yellow-400" : ""
+                                                className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-[#01b2eb]" : ""
                                                     }`}
                                                 onClick={() => setActiveItem(item.name)}
                                             >
@@ -179,7 +179,7 @@ export default function DiscoverSlider() {
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent className="bg-black/90 backdrop-blur-sm border-white/20">
                                             {item.items?.map((subItem) => (
-                                                <DropdownMenuItem key={subItem} className="text-white hover:text-yellow-400 hover:bg-white/10">
+                                                <DropdownMenuItem key={subItem} className="text-white hover:text-[#01b2eb] hover:bg-white/10">
                                                     {subItem}
                                                 </DropdownMenuItem>
                                             ))}
@@ -188,7 +188,7 @@ export default function DiscoverSlider() {
                                 ) : (
                                     <Button
                                         variant="ghost"
-                                        className={`text-white hover:text-yellow-400 hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-yellow-400" : ""
+                                        className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-[#01b2eb]" : ""
                                             }`}
                                         onClick={() => setActiveItem(item.name)}
                                     >
@@ -200,7 +200,7 @@ export default function DiscoverSlider() {
                     </div>
 
                     {/* Book Now Button */}
-                    <Button className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-amber-700 text-black font-semibold px-8 py-3 rounded-full text-sm tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <Button className="bg-[#264395] hover:bg-[#01b2eb] text-white font-semibold px-8 py-3 rounded-full text-sm tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl">
                         BOOK NOW
                     </Button>
 
@@ -220,7 +220,7 @@ export default function DiscoverSlider() {
             {/* Main Content */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
-                    <h1 ref={titleRef} className="text-5xl md:text-9xl font-black text-white mb-4 tracking-tight">
+                    <h1 ref={titleRef} className="text-5xl md:text-9xl font-black bg-gradient-to-r from-[#01b2eb] to-[#264395] bg-clip-text text-transparent mb-4 tracking-tight">
                         {slides[currentSlide].title}
                     </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
@@ -230,7 +230,7 @@ export default function DiscoverSlider() {
             </div>
 
             {/* Bottom Navigation */}
-            <div className="absolute bottom-8 left-0 right-0 z-20">
+            <div className="absolute bottom-16 left-0 right-0 z-20">
                 <div className="flex items-center justify-between px-8">
                     {/* Slide Indicators */}
                     <div className="flex items-center space-x-8">

@@ -67,12 +67,12 @@ export default function DesignSolutions() {
 
 
     return (
-        <section ref={pinSection} className="bg-neutral-800 h-screen relative flex items-center rounded-t-[50px] text-white py-16 px-6 !z-40">
+        <section ref={pinSection} className="bg-[#264395] h-screen relative flex items-center rounded-t-[50px] text-white py-16 px-6 !z-40">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Design Solutions</h2>
-                    <p className="text-gray-400 text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p>
+                    <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p>
                 </div>
 
                 {/* Design Solutions List */}
@@ -82,7 +82,7 @@ export default function DesignSolutions() {
                             key={solution.id}
                             className={cn(
                                 "relative overflow-hidden transition-all duration-500 ease-in-out cursor-pointer border-b border-gray-700 last:border-b-0",
-                                hoveredId === solution.id ? "bg-neutral-800 py-8" : "py-6 hover:bg-gray-800/30",
+                                hoveredId === solution.id ? "bg-[#264395] py-8" : "py-6 hover:bg-gray-800/30",
                             )}
                             onMouseEnter={() => setHoveredId(solution.id)}
                             onMouseLeave={() => setHoveredId(null)}
@@ -91,7 +91,7 @@ export default function DesignSolutions() {
                                 {/* Number and Title */}
                                 <div className="flex-1">
                                     <div className="flex items-center gap-6 mb-4">
-                                        <span className="text-2xl md:text-3xl font-bold text-gray-400">{solution.number}</span>
+                                        <span className="text-2xl md:text-3xl font-bold text-[#01b2eb]">{solution.number}</span>
                                         <h3 className="text-2xl md:text-3xl font-bold">{solution.title}</h3>
                                     </div>
 

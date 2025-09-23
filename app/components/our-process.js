@@ -112,7 +112,7 @@ export default function OurProcess() {
                 {/* Left Content */}
                 <div className="flex flex-col justify-center items-start px-8 md:px-16 lg:px-24 text-left" ref={contentRef}>
                     <div className="mb-3">Our Process</div>
-                    <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    <h1 className="text-4xl md:text-6xl font-bold text-[#264395] mb-6">
                         {slides[current].title}
                     </h1>
                     <p className="text-lg md:text-xl text-gray-600 mb-8">

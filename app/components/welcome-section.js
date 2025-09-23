@@ -60,7 +60,7 @@ export default function WelcomeSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 w-full">
                     {/* Left side - Heading */}
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-3xl lg:text-6xl xl:text-5xl font-bold text-black leading-tight font-sans">
+                        <h1 className="text-3xl lg:text-6xl xl:text-5xl font-bold text-[#264395] leading-tight font-sans">
                             Welcome To <br /> Enmaa Engineering <br /> Consultants
                         </h1>
                     </div>
@@ -90,13 +90,13 @@ export default function WelcomeSection() {
                                     data-value="10"
                                     className="text-7xl lg:text-8xl xl:text-9xl font-light text-transparent mb-4"
                                     style={{
-                                        WebkitTextStroke: "2px #333",
+                                        WebkitTextStroke: "2px #264395",
                                         fontFamily: "system-ui",
                                     }}
                                 >
                                     0
                                 </div>
-                                <p className="text-xs lg:text-sm text-gray-600 tracking-[0.15em] font-medium">
+                                <p className="text-xs lg:text-sm text-[#264395] tracking-[0.15em] font-medium">
                                     YEARS OF EXPERIENCE
                                 </p>
                             </div>
@@ -106,13 +106,13 @@ export default function WelcomeSection() {
                                     data-value="17"
                                     className="text-7xl lg:text-8xl xl:text-9xl font-light text-transparent mb-4"
                                     style={{
-                                        WebkitTextStroke: "2px #333",
+                                        WebkitTextStroke: "2px #264395",
                                         fontFamily: "system-ui",
                                     }}
                                 >
                                     0
                                 </div>
-                                <p className="text-xs lg:text-sm text-gray-600 tracking-[0.15em] font-medium">
+                                <p className="text-xs lg:text-sm text-[#264395] tracking-[0.15em] font-medium">
                                     YEARS OF EXPERIENCE
                                 </p>
                             </div>
@@ -122,13 +122,13 @@ export default function WelcomeSection() {
                                     data-value="55"
                                     className="text-7xl lg:text-8xl xl:text-9xl font-light text-transparent mb-4"
                                     style={{
-                                        WebkitTextStroke: "2px #333",
+                                        WebkitTextStroke: "2px #264395",
                                         fontFamily: "system-ui",
                                     }}
                                 >
                                     0
                                 </div>
-                                <p className="text-xs lg:text-sm text-gray-600 tracking-[0.15em] font-medium">
+                                <p className="text-xs lg:text-sm text-[#264395] tracking-[0.15em] font-medium">
                                     COMPLETED PROJECTS
                                 </p>
                             </div>

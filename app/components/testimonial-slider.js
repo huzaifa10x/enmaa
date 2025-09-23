@@ -265,9 +265,9 @@ function TestimonialSlider() {
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: () => `+=${section.scrollHeight}`, // 👈 dynamic height
+            end: "bottom", // 👈 dynamic height
             pin: true,
-            pinSpacing: true, // 👈 spacing enable kardo
+            pinSpacing: false, // 👈 spacing enable kardo
         })
 
         return () => {
@@ -279,12 +279,12 @@ function TestimonialSlider() {
         <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto">
             <div className="max-w-6xl mx-auto text-center">
                 <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-4">Streamline Your Team</h1>
-                    <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Supercharge Your Workflow</h2>
-                    <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    <h1 className="text-5xl md:text-6xl font-light text-[#01b2eb] mb-4">Streamline Your Team</h1>
+                    <h2 className="text-5xl md:text-6xl font-bold text-[#264395] mb-6">Supercharge Your Workflow</h2>
+                    <p className="text-lg text-[#01b2eb] mb-8 max-w-2xl mx-auto">
                         All-in-one platform to plan, collaborate, and deliver — faster and smarter.
                     </p>
-                    <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <Button className="bg-[#264395] hover:bg-[#01b2eb] text-white px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
                         Get started for Free
                     </Button>
                 </div>

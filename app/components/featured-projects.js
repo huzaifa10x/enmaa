@@ -68,7 +68,7 @@ export default function FeaturedProjects() {
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">Featured Projects</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-[#264395] mb-6 text-balance">Featured Projects</h1>
                     <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-lg leading-relaxed text-pretty">
                         Explore A Collection Of High-Quality, Innovative Designs Crafted To Elevate Brands And Captivate Audiences.
                         Each Project Reflects Our Commitment To Creativity And Excellence.
@@ -76,7 +76,7 @@ export default function FeaturedProjects() {
                     <Button
                         variant="outline"
                         size="lg"
-                        className="px-8 py-3 text-sm font-medium tracking-wide uppercase border-gray-300 hover:bg-gray-50 bg-transparent"
+                        className="px-8 py-3 text-sm font-medium tracking-wide uppercase text-[#264395] border-[#264395] hover:bg-gray-50 bg-transparent"
                     >
                         VIEW PORTFOLIO
                     </Button>
@@ -102,7 +102,7 @@ export default function FeaturedProjects() {
 
                                 <div className="p-4 bg-white">
                                     <div className="flex justify-between items-center">
-                                        <h3 className="text-lg font-semibold text-gray-900 tracking-wide">{project.title}</h3>
+                                        <h3 className="text-lg font-semibold text-[#264395] tracking-wide">{project.title}</h3>
                                         <Button variant="ghost" size="sm" className="text-gray-600 bg-neutral-100 hover:text-gray-900 text-sm font-medium">
                                             Case Details
                                         </Button>
