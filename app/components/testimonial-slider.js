@@ -154,7 +154,6 @@ function TestimonialSlider() {
             const el = slides[i]
             if (!el) return
             const vals = getTransformValues(member.position)
-            // immediate zIndex (can't animate zIndex)
             el.style.zIndex = vals.zIndex
 
             if (animate) {
