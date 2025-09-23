@@ -279,7 +279,7 @@ function TestimonialSlider() {
         <div ref={pinSection} className="bg-stone-100 py-16 px-4 relative rounded-t-[50px] !z-[70]">
             <div className="max-w-6xl mx-auto text-center">
                 <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-4">Streamline Your Team,</h1>
+                    <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-4">Streamline Your Team</h1>
                     <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Supercharge Your Workflow</h2>
                     <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                         All-in-one platform to plan, collaborate, and deliver — faster and smarter.
@@ -336,7 +336,7 @@ function TestimonialSlider() {
                     </div>
 
                     <div ref={testimonialRef} className="mt-8 max-w-2xl mx-auto">
-                        <p className="text-xl text-gray-700 italic mb-4">"{teamMembers[currentIndex].testimonial}"</p>
+                        <p className="text-xl text-gray-700 italic mb-4">{teamMembers[currentIndex].testimonial}</p>
                         <div className="text-gray-600">
                             <p className="font-semibold">{teamMembers[currentIndex].name}</p>
                             <p className="text-sm">{teamMembers[currentIndex].role}</p>
