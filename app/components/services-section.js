@@ -91,7 +91,7 @@ export default function ServicesSection() {
 
 
     return (
-        <section ref={sectionRef} className="flex flex-col h-screen items-start justify-center rounded-t-[50px] bg-[#264395] relative overflow-hidden z-20 py-30">
+        <section ref={sectionRef} className="flex flex-col h-screen items-start justify-center rounded-t-[50px] bg-gradient-to-r from-[#01b2eb] to-[#264395] relative overflow-hidden z-20 py-30">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight font-sans ml-10 mb-10">
                 Our Services
             </h2>

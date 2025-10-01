@@ -200,7 +200,7 @@ export default function DiscoverSlider() {
                     </div>
 
                     {/* Book Now Button */}
-                    <Button className="bg-[#264395] hover:bg-[#01b2eb] text-white font-semibold px-8 py-3 rounded-full text-sm tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <Button className="bg-gradient-to-r from-[#01b2eb] to-[#264395] hover:bg-[#264395] text-white font-semibold px-8 py-3 rounded-full text-sm tracking-wide duration-300 shadow-lg hover:shadow-xl">
                         BOOK NOW
                     </Button>
 

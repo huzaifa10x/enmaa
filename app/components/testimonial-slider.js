@@ -80,10 +80,15 @@ function TestimonialSlider() {
     const getTransformValues = (position) => {
         const angle = position * 12
         const translateZ = Math.abs(position) * -60
-        const translateX = position * 140
-        const scale = 1 - Math.abs(position) * 0.08
-        const opacity = Math.abs(position) > 2 ? 0.2 : 1 - Math.abs(position) * 0.15
+        const translateX = position * 170
+        let scale = 1 - Math.abs(position) * 0.03
+        const opacity = Math.abs(position) > 2 ? 0.2 : 1 - Math.abs(position) * 0.25
         const zIndex = 10 - Math.abs(position)
+
+        // 🔥 center slide ke liye extra scale
+        if (position === 0) {
+            scale = 1.35
+        }
 
         return {
             x: translateX,
@@ -302,23 +307,23 @@ function TestimonialSlider() {
                     >
                         <div className="absolute inset-0 flex items-center justify-center">
                             {getVisibleMembers().map((member) => (
-                                // ⚠️ use stable key (member.id) so DOM nodes update instead of remount
                                 <div
                                     key={member.id}
-                                    className="slide-item absolute"
+                                    className={`slide-item absolute ${member.position === 0 ? "shadow-3xl" : ""}`}
                                     style={{ willChange: "transform, opacity" }}
                                 >
                                     <div className="w-48 h-64 rounded-2xl overflow-hidden shadow-2xl bg-white hover:shadow-3xl transition-all duration-300 cursor-pointer">
                                         <Image
                                             src={member.image || "/placeholder.svg"}
                                             alt={member.name}
-                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                            className={`w-full h-full object-cover transition-transform duration-500 ${member.position === 0 ? "scale-105" : "hover:scale-125"}`}
                                             height={300}
                                             width={300}
                                         />
                                     </div>
                                 </div>
                             ))}
+
                         </div>
 
                         <button

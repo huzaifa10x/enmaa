@@ -9,7 +9,6 @@ import Footer from "./components/footer";
 import FAQ from "./components/faq";
 import OurProcess from "./components/our-process";
 
-
 export default function Home() {
 
   const faqData = [
@@ -52,9 +51,8 @@ export default function Home() {
       <ServicesSection />
       <FeaturedProjects />
       <DesignSolutions />
-      <OurProcess/>
-      <FAQ
-        faqData={faqData} />
+      <OurProcess />
+      <FAQ faqData={faqData} />
       <TestimonialSlider />
       <Footer />
     </main>
