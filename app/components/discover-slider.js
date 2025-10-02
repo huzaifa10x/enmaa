@@ -5,7 +5,8 @@ import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, Plus } from "lucide-react"
 // import image1 from "@/public/images/imgi_24_slide01.webp"
-import image2 from "@/public/images/imgi_25_slide02.webp"
+import image1 from "@/public/images/image65452.webp"
+import image2 from "@/public/images/image452423.webp"
 import image3 from "@/public/images/image.webp"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import Image from "next/image"
@@ -18,7 +19,7 @@ const slides = [
         id: 1,
         title: "DISCOVER",
         subtitle: "DISCOVER CASE",
-        background: image3,
+        background: image1,
     },
     {
         id: 2,
@@ -88,7 +89,6 @@ export default function DiscoverSlider() {
     }
 
     const animateSlideChange = (newIndex) => {
-        // Animate out current content
         gsap.to([titleRef.current, subtitleRef.current], {
             opacity: 0,
             y: -30,
@@ -96,40 +96,46 @@ export default function DiscoverSlider() {
             ease: "power2.in",
             onComplete: () => {
                 setCurrentSlide(newIndex)
-                // Animate in new content
                 gsap.fromTo(
                     [titleRef.current, subtitleRef.current],
                     { opacity: 0, y: 30 },
-                    { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        stagger: 0.1,
+                    },
                 )
             },
         })
     }
 
+    // Autoplay logic
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const nextIndex = (currentSlide + 1) % slides.length
+            animateSlideChange(nextIndex)
+        }, 5000)
+
+        return () => clearInterval(interval)
+    }, [currentSlide])
+
+
     const navItems = [
         { name: "HOME", href: "/" },
-        { name: "ABOUT", href: "/about" },
-        { name: "ROOMS", href: "/rooms" },
+        { name: "ABOUT", href: "/" },
         {
-            name: "RECREATION",
-            href: "/recreation",
+            name: "Project Map",
+            href: "/",
             hasDropdown: true,
             items: ["Spa & Wellness", "Pool & Beach", "Activities", "Dining"],
         },
         {
-            name: "RECONNECTION",
-            href: "/reconnection",
-            hasDropdown: true,
-            items: ["Events", "Meetings", "Weddings", "Conferences"],
+            name: "Our Project", href: "/"
         },
         {
-            name: "QUICK LINKS",
-            href: "/quick-links",
-            hasDropdown: true,
-            items: ["Contact", "Gallery", "Reviews", "Location"],
-        },
-        {
-            name: "ENGLISH",
+            name: "Our Services",
             href: "#",
             hasDropdown: true,
             items: ["English", "Español", "Français", "Deutsch"],
@@ -260,18 +266,10 @@ export default function DiscoverSlider() {
 
                     {/* Navigation Buttons */}
                     <div className="flex items-center space-x-6">
-                        <Button
-                            variant="ghost"
-                            onClick={prevSlide}
-                            className="text-white hover:bg-white/10 text-sm tracking-wider font-light"
-                        >
+                        <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
                             PREV
                         </Button>
-                        <Button
-                            variant="ghost"
-                            onClick={nextSlide}
-                            className="text-white hover:bg-white/10 text-sm tracking-wider font-light"
-                        >
+                        <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
                             NEXT
                         </Button>
                     </div>

@@ -53,7 +53,6 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#264395] rounded-t-[50px]  !z-[80] text-white relative">
-
             {/* <Image
                 src={bg}
                 height={300}
@@ -65,7 +64,7 @@ export default function Footer() {
             {/* Navigation */}
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
-                    <nav className="flex justify-center space-x-24">
+                    <nav className="md:flex justify-center space-x-24">
                         <a href="#" className="text-white hover:text-gray-300 transition-colors">
                             Home
                         </a>

@@ -107,7 +107,7 @@ export default function OurProcess() {
 
 
     return (
-        <div ref={pinSection} className="relative w-full h-screen overflow-hidden rounded-t-[50px] !z-50 bg-gray-100">
+        <div ref={pinSection} className="relative overflow-x-hidden w-full h-screen overflow-hidden rounded-t-[50px] !z-50 bg-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                 {/* Left Content */}
                 <div className="flex flex-col justify-center items-start px-8 md:px-16 lg:px-24 text-left" ref={contentRef}>

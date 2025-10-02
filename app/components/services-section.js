@@ -91,7 +91,7 @@ export default function ServicesSection() {
 
 
     return (
-        <section ref={sectionRef} className="flex flex-col h-screen items-start justify-center rounded-t-[50px] bg-gradient-to-r from-[#01b2eb] to-[#264395] relative overflow-hidden z-20 py-30">
+        <section ref={sectionRef} className="flex overflow-x-hidden flex-col h-screen items-start justify-center rounded-t-[50px] bg-gradient-to-r from-[#01b2eb] to-[#264395] relative overflow-hidden z-20 py-30">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight font-sans ml-10 mb-10">
                 Our Services
             </h2>
@@ -100,7 +100,7 @@ export default function ServicesSection() {
                 {services.map((service) => (
                     <div
                         key={service.id}
-                        className="service-card relative md:w-[400px] md:h-[400px] w-[200px] h-[200px] bg-neutral-900 overflow-hidden rounded-2xl origin-center"
+                        className="service-card group relative md:w-[400px] md:h-[400px] w-[200px] h-[200px] bg-neutral-900 overflow-hidden rounded-2xl origin-center"
                     >
                         {/* Image */}
                         <div className="absolute inset-0">
@@ -112,12 +112,11 @@ export default function ServicesSection() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                         </div>
 
-                        {/* Text Overlay (sirf active card par dikhega) */}
-                        <div className="card-content absolute bottom-8 left-6 right-6 z-10">
+                        <div className=" absolute bottom-8 left-6 right-6 z-10">
                             <h3 className="md:text-3xl font-semibold text-white mb-2">
                                 {service.title}
                             </h3>
-                            <p className="text-white md:text-lg text-sm">{service.desc}</p>
+                            <p className="card-content text-white md:text-lg text-sm">{service.desc}</p>
                         </div>
                     </div>
                 ))}

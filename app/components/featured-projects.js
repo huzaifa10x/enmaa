@@ -11,32 +11,32 @@ gsap.registerPlugin(ScrollTrigger)
 
 const locations = [
     {
-        id: "dubai-mainland",
-        name: "Dubai Mainland",
-        description: "Operate anywhere in Dubai with 100% foreign ownership",
+        id: "dubai",
+        name: "Dubai",
+        description: "",
         icon: Building2,
-        features: ["100% Foreign Ownership", "Local Market Access", "No Currency Restrictions"],
+        features: [],
         coordinates: { x: 65, y: 45 },
     },
     {
-        id: "abu-dhabi-mainland",
-        name: "Abu Dhabi Mainland",
+        id: "abu-dhabi",
+        name: "Abu Dhabi",
         description: "Capital city advantages with mainland benefits",
         icon: MapPin,
         features: ["Government Proximity", "Oil & Gas Sector", "Strategic Location"],
         coordinates: { x: 25, y: 55 },
     },
     {
-        id: "adgm",
-        name: "Abu Dhabi Global Market (ADGM)",
+        id: "Sharja",
+        name: "Sharja",
         description: "International financial center with English common law",
         icon: Globe,
         features: ["Financial Services Hub", "English Common Law", "Regulatory Excellence"],
         coordinates: { x: 25, y: 50 },
     },
     {
-        id: "international",
-        name: "International",
+        id: "Ajman",
+        name: "Ajman",
         description: "Global business setup and expansion services",
         icon: Briefcase,
         features: ["Worldwide Presence", "Cross-border Solutions", "Global Compliance"],
@@ -94,19 +94,16 @@ export default function LocationsSection() {
                                                 <Icon className={`h-5 w-5 ${isSelected ? "text-primary-foreground" : "text-primary"}`} />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <h3
-                                                    className={`font-semibold text-sm mb-1 ${isSelected ? "text-primary-foreground" : "text-foreground"
-                                                        }`}
-                                                >
+                                                <h3 className={`font-semibold text-sm mb-1 ${isSelected ? "text-primary-foreground" : "text-foreground"}`}>
                                                     {location.name}
                                                 </h3>
-                                                <p
+                                                {/* <p
                                                     className={`text-xs leading-relaxed ${isSelected ? "text-primary-foreground/80" : "text-muted-foreground"
                                                         }`}
                                                 >
                                                     {location.description}
-                                                </p>
-                                                <div className="flex flex-wrap gap-1 mt-2">
+                                                </p> */}
+                                                {/* <div className="flex flex-wrap gap-1 mt-2">
                                                     {location.features.slice(0, 2).map((feature, index) => (
                                                         <Badge
                                                             key={index}
@@ -116,7 +113,7 @@ export default function LocationsSection() {
                                                             {feature}
                                                         </Badge>
                                                     ))}
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                     </Card>

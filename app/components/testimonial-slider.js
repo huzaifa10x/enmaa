@@ -17,38 +17,38 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 const teamMembers = [
     {
         id: 1,
-        name: "Sarah Johnson",
-        role: "Product Manager",
+        name: "Eng. Husam Khattab ",
+        role: "IT Manager",
         image: image1,
         testimonial: "This platform has revolutionized how our team collaborates. The real-time features are incredible!",
     },
     {
         id: 2,
-        name: "Marcus Chen",
-        role: "Software Engineer",
+        name: "Mirza Maaz",
+        role: "",
         image: image2,
-        testimonial: "Task tracking has never been easier. I can focus on coding while staying organized.",
+        testimonial: "From townhouse to luxury villa, from small building to high rise, Enmaa engineering consultants are available to cater all your design layout needs. One of the most professional team with humble attitude. Situated in the heart of Sharjah.They have already finished numerous projects with top clients and contractors.Two thumbs up.",
     },
     {
         id: 3,
-        name: "Emily Rodriguez",
-        role: "UX Designer",
+        name: "Anfal Al Ali",
+        role: "",
         image: image3,
-        testimonial: "The performance insights help us make data-driven decisions every day.",
+        testimonial: "Project delay of 3 years and till date not complete. No follow-up and they have no clue at what stage the project is at. No clue about what was the last agreed action. And the design has many faults which for a architects for many year of experience it’s unacceptable",
     },
     {
         id: 4,
-        name: "David Thompson",
-        role: "Marketing Director",
+        name: "Ansam",
+        role: "Marketing Manager",
         image: image4,
         testimonial: "Our workflow efficiency has increased by 40% since implementing this solution.",
     },
     {
         id: 5,
-        name: "Lisa Park",
-        role: "Operations Lead",
+        name: "Fatima Al Zarouni",
+        role: "",
         image: image5,
-        testimonial: "The collaboration tools have brought our remote team closer together than ever.",
+        testimonial: "The best consulting company, very cooperative from the start with Eng. Shatha and the rest of the engineers. Many thanks to all of you 🌷🌷",
     },
     {
         id: 6,
@@ -281,16 +281,16 @@ function TestimonialSlider() {
     }, [])
 
     return (
-        <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto">
+        <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto overflow-x-hidden">
             <div className="max-w-6xl mx-auto text-center">
                 <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-light text-[#01b2eb] mb-4">Streamline Your Team</h1>
-                    <h2 className="text-5xl md:text-6xl font-bold text-[#264395] mb-6">Supercharge Your Workflow</h2>
-                    <p className="text-lg text-[#01b2eb] mb-8 max-w-2xl mx-auto">
+                    <h1 className="text-5xl md:text-6xl font-light text-[#01b2eb] mb-4">Trusted by Our Clients</h1>
+                    <h2 className="text-5xl md:text-6xl font-bold text-[#264395] mb-6">Real feedback from clients who rely on our expertise.</h2>
+                    {/* <p className="text-lg text-[#01b2eb] mb-8 max-w-2xl mx-auto">
                         All-in-one platform to plan, collaborate, and deliver — faster and smarter.
-                    </p>
+                    </p> */}
                     <Button className="bg-[#264395] hover:bg-[#01b2eb] text-white px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                        Get started for Free
+                        Get started
                     </Button>
                 </div>
 
