@@ -52,7 +52,7 @@ export default function Footer() {
     }
 
     return (
-        <footer className="bg-[#264395] rounded-t-[50px]  !z-[80] text-white relative">
+        <footer id="bookNow" className="bg-[#264395] rounded-t-[50px]  !z-[80] text-white relative">
             {/* <Image
                 src={bg}
                 height={300}
@@ -111,7 +111,7 @@ export default function Footer() {
                                                 className="h-12 pl-11 bg-white/10 border-white/20 text-white placeholder:text-slate-300 focus:bg-white/20 focus:border-white/40 transition-all"
                                                 required
                                             />
-                                            <div className="absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">NAME</div>
+                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">NAME</div>
                                         </div>
                                     </div>
 
@@ -129,7 +129,7 @@ export default function Footer() {
                                                 className="h-12 pl-11 bg-white/10 border-white/20 text-white placeholder:text-slate-300 focus:bg-white/20 focus:border-white/40 transition-all"
                                                 required
                                             />
-                                            <div className="absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
+                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
                                                 NUMBER
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@ export default function Footer() {
                                                 min={new Date().toISOString().split("T")[0]}
                                                 required
                                             />
-                                            <div className="absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">DATE</div>
+                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">DATE</div>
                                         </div>
                                     </div>
 
@@ -171,7 +171,7 @@ export default function Footer() {
                                                     ))}
                                                 </SelectContent>
                                             </Select>
-                                            <div className="absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">TIME</div>
+                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">TIME</div>
                                         </div>
                                     </div>
 
@@ -193,7 +193,7 @@ export default function Footer() {
                                                     ))}
                                                 </SelectContent>
                                             </Select>
-                                            <div className="absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
+                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
                                                 BRANCH
                                             </div>
                                         </div>

@@ -27,8 +27,8 @@ const locations = [
         coordinates: { x: 25, y: 55 },
     },
     {
-        id: "Sharja",
-        name: "Sharja",
+        id: "Sharjah",
+        name: "Sharjah",
         description: "International financial center with English common law",
         icon: Globe,
         features: ["Financial Services Hub", "English Common Law", "Regulatory Excellence"],
@@ -73,7 +73,7 @@ export default function LocationsSection() {
                     {/* Left Section - Location Tabs */}
                     <div className="space-y-4">
                         <div className="mb-6">
-                            <h2 className="text-xl font-semibold text-foreground mb-2">Available Locations</h2>
+                            <h2 className="text-xl font-semibold text-foreground mb-2">Office Locations</h2>
                             <p className="text-sm text-muted-foreground">Choose from our premium business jurisdictions</p>
                         </div>
 
@@ -126,10 +126,10 @@ export default function LocationsSection() {
                     <div className="space-y-4">
                         <div className="mb-6">
                             <h2 className="text-xl font-semibold text-foreground mb-2">Location Overview</h2>
-                            <p className="text-sm text-muted-foreground">Interactive map showing your selected jurisdiction</p>
+                            <p className="text-sm text-muted-foreground">map showing your selected jurisdiction</p>
                         </div>
 
-                        <Card className="p-6 h-[500px] relative overflow-hidden">
+                        <Card className="p-6 h-[310px] relative overflow-hidden">
                             {/* UAE Map Illustration */}
                             <div className="relative w-full h-full bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg border-2 border-dashed border-slate-200">
                                 {/* Map Background */}

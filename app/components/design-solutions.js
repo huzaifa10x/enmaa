@@ -72,7 +72,7 @@ export default function DesignSolutions() {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Design Solutions</h2>
-                    <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p>
+                    {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
                 </div>
 
                 {/* Design Solutions List */}
