@@ -316,19 +316,19 @@ function TestimonialSlider() {
                                         <Image
                                             src={member.image || "/placeholder.svg"}
                                             alt={member.name}
-                                            className={`w-full h-full object-cover transition-transform duration-500 ${member.position === 0 ? "scale-105" : "hover:scale-125"}`}
+                                            className={`w-full h-full object-cover transition-transform duration-500 ${member.position === 0 ? "" : ""}`}
                                             height={300}
                                             width={300}
                                         />
                                     </div>
                                 </div>
                             ))}
-
                         </div>
 
                         <button
                             onClick={prevSlide}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300
+                            hover:scale-110 hover:shadow-xl"
                         >
                             <ChevronLeft className="w-6 h-6 text-gray-700" />
                         </button>

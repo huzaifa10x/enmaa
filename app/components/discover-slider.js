@@ -173,8 +173,7 @@ export default function DiscoverSlider() {
                                 {item.hasDropdown ? (
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button
-                                                variant="ghost"
+                                            <Button variant="ghost"
                                                 className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-[#01b2eb]" : ""
                                                     }`}
                                                 onClick={() => setActiveItem(item.name)}
@@ -229,7 +228,7 @@ export default function DiscoverSlider() {
             {/* Main Content */}
             <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
-                    <h1 ref={titleRef} className="text-5xl md:text-9xl font-black bg-gradient-to-r from-[#01b2eb] to-[#264395] bg-clip-text text-transparent mb-4 tracking-tight">
+                    <h1 ref={titleRef} className="text-5xl md:text-9xl text-white font-black  mb-4 tracking-tight">
                         {slides[currentSlide].title}
                     </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
