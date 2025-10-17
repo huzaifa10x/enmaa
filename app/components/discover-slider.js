@@ -153,7 +153,7 @@ export default function DiscoverSlider() {
             </div>
 
             <div className="absolute top-0 left-0 right-0 z-50 flex lg:justify-center">
-                <nav className="flex items-center justify-between px-4 w-full py-6">
+                <nav className="max-w-7xl flex items-center justify-between px-4 w-full py-6">
                     {/* Logo */}
                     <div className="flex items-center space-x-3">
                         <div className="w-12 h-12 relative">
@@ -207,7 +207,7 @@ export default function DiscoverSlider() {
                     {/* Book Now Button */}
 
                     <a href="#bookNow">
-                        <Button className="bg-gradient-to-r from-[#01b2eb] to-[#264395] hover:bg-[#264395] text-white font-semibold px-8 py-3 rounded-full text-sm tracking-wide duration-300 shadow-lg hover:shadow-xl">
+                        <Button className="bg-gradient-to-r from-[#01b2eb] to-primary hover:bg-primary text-white font-semibold px-8 py-3 rounded-full text-sm tracking-wide duration-300 shadow-lg hover:shadow-xl">
                             BOOK NOW
                         </Button>
                     </a>

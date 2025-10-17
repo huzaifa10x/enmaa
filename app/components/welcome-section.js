@@ -3,6 +3,9 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Image from "next/image"
+import buildingProp from "@/public/images/building-prop.webp"
+import buildingProp2 from "@/public/images/building-prop2.webp"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,7 +16,7 @@ export default function WelcomeSection() {
     useEffect(() => {
         const section = sectionRef.current
 
-        // pin section
+        // pin sectione
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
@@ -52,16 +55,30 @@ export default function WelcomeSection() {
     }, [])
 
     return (
-        <section
-            ref={sectionRef}
-            className="bg-gray-50 h-screen relative z-10 -mt-7 rounded-t-[50px]"
-        >
-            <div className="container mx-auto px-12 py-20 h-full flex items-center">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 w-full">
+        <section ref={sectionRef} className="bg-gray-50 h-screen relative z-10 -mt-7 rounded-t-[50px]">
+
+            <Image
+                src={buildingProp}
+                width={800}
+                height={200}
+                alt=""
+                className="absolute right-0 bottom-0"
+            />
+
+            <Image
+                src={buildingProp2}
+                width={500}
+                height={200}
+                alt=""
+                className="absolute left-0 top-0"
+            />
+            <div className="max-w-7xl relative z-10 mx-auto px-12 py-20 h-full flex items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
                     {/* Left side - Heading */}
-                    <div className="flex flex-col justify-center">
-                        <h1 className="text-3xl lg:text-6xl xl:text-5xl font-bold text-[#264395] leading-tight font-sans">
-                            Welcome To <br /> Enmaa Engineering <br /> Consultants
+                    <div className="">
+                        <div className="border rounded-full border-black px-4 tracking-widest text-sm inline-block mb-3">ABOUT US</div>
+                        <h1 className="text-3xl lg:text-6xl xl:text-5xl leading-tight font-sans">
+                            Welcome To <br /> <span className="text-primary font-bold">Enmaa Engineering</span> <br /> Consultants
                         </h1>
                     </div>
 
@@ -75,7 +92,6 @@ export default function WelcomeSection() {
                         </p>
 
                         <div className="flex items-center space-x-6">
-                            <div className="h-px bg-gray-400 flex-1"></div>
                             <button className="text-sm text-gray-600 hover:text-black transition-colors duration-300 tracking-[0.2em] font-medium">
                                 READ TO LEARN
                             </button>
@@ -88,15 +104,15 @@ export default function WelcomeSection() {
                                 <div
                                     ref={(el) => (countersRef.current[0] = el)}
                                     data-value="10"
-                                    className="text-7xl lg:text-8xl xl:text-9xl font-light text-transparent mb-4"
+                                    className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent -mb-4 font-ps"
                                     style={{
-                                        WebkitTextStroke: "2px #264395",
+                                        WebkitTextStroke: "2px #565656",
                                         fontFamily: "system-ui",
                                     }}
                                 >
                                     0
                                 </div>
-                                <p className="text-xs lg:text-sm text-[#264395] tracking-[0.15em] font-medium">
+                                <p className="text-xs lg:text-sm text-[#565656] tracking-[0.15em] font-medium">
                                     YEARS OF EXPERIENCE
                                 </p>
                             </div>
@@ -104,15 +120,15 @@ export default function WelcomeSection() {
                                 <div
                                     ref={(el) => (countersRef.current[1] = el)}
                                     data-value="17"
-                                    className="text-7xl lg:text-8xl xl:text-9xl font-light text-transparent mb-4"
+                                    className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent -mb-4 font-ps"
                                     style={{
-                                        WebkitTextStroke: "2px #264395",
+                                        WebkitTextStroke: "2px #565656",
                                         fontFamily: "system-ui",
                                     }}
                                 >
                                     0
                                 </div>
-                                <p className="text-xs lg:text-sm text-[#264395] tracking-[0.15em] font-medium">
+                                <p className="text-xs lg:text-sm text-[#565656] tracking-[0.15em] font-medium">
                                     YEARS OF EXPERIENCE
                                 </p>
                             </div>
@@ -120,15 +136,15 @@ export default function WelcomeSection() {
                                 <div
                                     ref={(el) => (countersRef.current[2] = el)}
                                     data-value="55"
-                                    className="text-7xl lg:text-8xl xl:text-9xl font-light text-transparent mb-4"
+                                    className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent -mb-4 font-ps"
                                     style={{
-                                        WebkitTextStroke: "2px #264395",
+                                        WebkitTextStroke: "2px #565656",
                                         fontFamily: "system-ui",
                                     }}
                                 >
                                     0
                                 </div>
-                                <p className="text-xs lg:text-sm text-[#264395] tracking-[0.15em] font-medium">
+                                <p className="text-xs lg:text-sm text-[#565656] tracking-[0.15em] font-medium">
                                     COMPLETED PROJECTS
                                 </p>
                             </div>

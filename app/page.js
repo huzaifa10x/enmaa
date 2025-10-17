@@ -1,4 +1,3 @@
-import Image from "next/image";
 import DiscoverSlider from "./components/discover-slider";
 import WelcomeSection from "./components/welcome-section";
 import ServicesSection from "./components/services-section";
@@ -8,9 +7,10 @@ import TestimonialSlider from "./components/testimonial-slider";
 import Footer from "./components/footer";
 import FAQ from "./components/faq";
 import OurProcess from "./components/our-process";
+import ProjectsScroller from "./components/projects-scroller";
+import OurProjects from "./components/our-projects";
 
 export default function Home() {
-
   const faqData = [
     {
       id: 1,
@@ -49,11 +49,14 @@ export default function Home() {
       <DiscoverSlider />
       <WelcomeSection />
       <ServicesSection />
+      <OurProcess />
+      {/* <ProjectSlider /> */}
+      <OurProjects />
       <FeaturedProjects />
       <DesignSolutions />
-      <OurProcess />
       <FAQ faqData={faqData} />
       <TestimonialSlider />
+      <ProjectsScroller />
       <Footer />
     </main>
   );

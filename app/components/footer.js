@@ -52,7 +52,7 @@ export default function Footer() {
     }
 
     return (
-        <footer id="bookNow" className="bg-[#264395] rounded-t-[50px]  !z-[80] text-white relative">
+        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] !z-[80] text-white relative">
             {/* <Image
                 src={bg}
                 height={300}
@@ -203,7 +203,7 @@ export default function Footer() {
                                     <div className="flex-shrink-0">
                                         <Button
                                             type="submit"
-                                            className="h-12 px-8 bg-gradient-to-r from-[#01b2eb] to-[#264395] hover:bg-[#264395] text-white text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+                                            className="h-12 px-8 bg-gradient-to-r from-[#01b2eb] to-primary hover:bg-primary text-white text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
                                         >
                                             BOOK
                                         </Button>

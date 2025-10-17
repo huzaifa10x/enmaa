@@ -29,9 +29,9 @@ const locations = [
     {
         id: "Sharjah",
         name: "Sharjah",
-        description: "International financial center with English common law",
+        description: "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
         icon: Globe,
-        features: ["Financial Services Hub", "English Common Law", "Regulatory Excellence"],
+        features: ["View Projects"],
         coordinates: { x: 25, y: 50 },
     },
     {
@@ -68,12 +68,12 @@ export default function LocationsSection() {
 
     return (
         <section ref={sectionRef} className="py-20">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
                     {/* Left Section - Location Tabs */}
                     <div className="space-y-4">
                         <div className="mb-6">
-                            <h2 className="text-xl font-semibold text-foreground mb-2">Office Locations</h2>
+                            <h2 className="text-4xl md:text-5xl text-foreground mb-2">Office <span className="text-primary font-bold">Locations</span></h2>
                             <p className="text-sm text-muted-foreground">Choose from our premium business jurisdictions</p>
                         </div>
 
@@ -85,7 +85,7 @@ export default function LocationsSection() {
                                 return (
                                     <Card
                                         key={location.id}
-                                        className={`p-4 cursor-pointer transition-all duration-200 hover:shadow-md ${isSelected ? "bg-gradient-to-r from-[#01b2eb] to-[#264395] text-primary-foreground  shadow-lg" : "bg-card hover:bg-accent"
+                                        className={`p-4 cursor-pointer transition-all duration-200 hover:shadow-md ${isSelected ? "bg-gradient-to-r from-[#01b2eb] to-primary text-primary-foreground  shadow-lg" : "bg-card hover:bg-accent"
                                             }`}
                                         onClick={() => setSelectedLocation(location.id)}
                                     >

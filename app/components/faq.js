@@ -1,80 +1,99 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
+import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import faqImg from "@/public/images/image22342.webp"
 
-gsap.registerPlugin(ScrollTrigger)
-
-
-export default function FAQ({ faqData, faqHeading }) {
-    const pinSection = useRef(null)
-    useEffect(() => {
-        const section = pinSection.current
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false, // 👈 isko true rakho taki horizontal scroll aur ye section clash na kare
-        })
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
-        }
-    }, [])
-
-
+export default function FAQ({ faqData }) {
     const [openItems, setOpenItems] = useState(new Set([1]))
 
     const toggleItem = (id) => {
         const newOpenItems = new Set(openItems)
-        if (newOpenItems.has(id)) {
-            newOpenItems.delete(id)
-        } else {
-            newOpenItems.add(id)
-        }
+        if (newOpenItems.has(id)) newOpenItems.delete(id)
+        else newOpenItems.add(id)
         setOpenItems(newOpenItems)
     }
 
     return (
-        <section ref={pinSection} className="!z-[60] h-screen flex items-center bg-white rounded-t-[50px] overflow-hidden">
-            <div className="container mx-auto lg:px-12 px-6 py-8 sm:py-12 bg-transparent">
-                <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-                    <div className="lg:pr-8">
-                        <h2 className="md:text-7xl text-3xl text-[#264395] leading-tight mb-6">FAQ&apos;S</h2>
-                        <p className="text-gray-600 text-base sm:text-lg leading-relaxed">Got questions? We’ve got answers. Here’s everything you need to know about working with us.</p>
-                    </div>
+        <section className="bg-white rounded-t-[50px] overflow-hidden py-20">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
-                    <div className="space-y-4 col-span-2">
-                        {faqData.map((item) => (
-                            <div key={item.id} className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                <div className="flex justify-around items-start">
+                    <div className="border rounded-full border-black px-4 tracking-widest inline-block">Design Solutions</div>
+
+                    <div className="mb-16">
+                        <h2 className="text-4xl md:text-5xl mb-4 text-balance">Quick and clear <span className="text-primary font-bold">answers <br/> to your key</span> questions</h2>
+                        {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
+                    </div>
+                </div>
+
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+                    {/* LEFT SIDE - FAQ LIST */}
+                    <div className="lg:col-span-2 space-y-6">
+                        {faqData.map((item, index) => (
+                            <div key={item.id} className="border-b border-gray-200 pb-4">
                                 <button
                                     onClick={() => toggleItem(item.id)}
-                                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                                    className="w-full flex items-start justify-between text-left group"
                                 >
-                                    <span className="text-gray-900 font-medium text-sm sm:text-base pr-4">{item.question}</span>
-                                    <div className="flex-shrink-0">
-                                        {openItems.has(item.id) ? (
-                                            <Minus className="w-5 h-5 text-gray-600" />
-                                        ) : (
-                                            <Plus className="w-5 h-5 text-gray-600" />
-                                        )}
+                                    <div className="flex gap-5 items-start">
+                                        <span className="text-gray-400 font-semibold text-lg md:text-xl leading-none mt-1">
+                                            {String(index + 1).padStart(2, "0")}
+                                        </span>
+                                        <h3
+                                            className={`text-base sm:text-lg md:text-xl font-medium transition-colors duration-300 ${openItems.has(item.id)
+                                                ? "text-sky-600"
+                                                : "text-gray-900 group-hover:text-sky-600"
+                                                }`}
+                                        >
+                                            {item.question}
+                                        </h3>
                                     </div>
+                                    <span className="ml-4 mt-1 flex-shrink-0">
+                                        {openItems.has(item.id) ? (
+                                            <Minus className="w-5 h-5 text-sky-600" />
+                                        ) : (
+                                            <Plus className="w-5 h-5 text-gray-500 group-hover:text-sky-600 transition" />
+                                        )}
+                                    </span>
                                 </button>
 
                                 <div
-                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${openItems.has(item.id) ? "max-h-2/3 opacity-100" : "max-h-0 opacity-0"
+                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${openItems.has(item.id)
+                                        ? "max-h-40 opacity-100 mt-3"
+                                        : "max-h-0 opacity-0"
                                         }`}
                                 >
-                                    <div className="px-6 pb-4 pt-2">
-                                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: item.answer }}></p>
-                                    </div>
+                                    <p
+                                        className="text-gray-600 text-sm md:text-base ml-9 pr-8 leading-relaxed"
+                                        dangerouslySetInnerHTML={{ __html: item.answer }}
+                                    ></p>
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* RIGHT SIDE - IMAGE + TEXT */}
+                    <div className="flex flex-col items-center text-center lg:text-left">
+                        <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-2xl overflow-hidden mb-6">
+                            <Image
+                                src={faqImg}
+                                alt="FAQ side image"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <div>
+                            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                                Still Looking For Answers?
+                            </h3>
+                            <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-sm">
+                                Our team will guide you through our design process,
+                                project specifications and cost estimate.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

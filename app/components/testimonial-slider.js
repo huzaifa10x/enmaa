@@ -2,67 +2,42 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import image1 from "@/public/images/person/professional-man-in-dark-shirt-smiling.jpg"
-import image2 from "@/public/images/person/professional-man-in-pink-shirt.jpg"
-import image3 from "@/public/images/person/professional-man-with-glasses-in-pink-shirt-smilin.jpg"
-import image4 from "@/public/images/person/smiling-curly-woman.png"
-import image5 from "@/public/images/person/smiling-professional-woman.png"
-import image6 from "@/public/images/person/professional-woman-short-hair-smile.png"
-import image7 from "@/public/images/person/professional-man-with-beard-in-orange-shirt.jpg"
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import image1 from "@/public/images/person/professional-man-with-glasses-in-pink-shirt-smilin.jpg"
+import image2 from "@/public/images/person/professional-man-in-pink-shirt-smiling - Copy.jpg"
+import image3 from "@/public/images/person/smiling-curly-woman.png"
+import image4 from "@/public/images/person/smiling-professional-woman.png"
+import bg from "@/public/images/bg-prop422.webp"
+import quot from "@/public/images/quots.webp"
 import { gsap } from "gsap"
 import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants"
 
-const teamMembers = [
+const testimonials = [
     {
         id: 1,
-        name: "Eng. Husam Khattab ",
-        role: "IT Manager",
+        text: "From townhouse to luxury villa, from small building to high rise, Ermaa engineering consultants are available to cater all your design layout needs. One of the most professional team with humble attitude.",
+        author: "Mirza Maaz",
         image: image1,
-        testimonial: "This platform has revolutionized how our team collaborates. The real-time features are incredible!",
     },
     {
         id: 2,
-        name: "Mirza Maaz",
-        role: "",
+        text: "Exceptional service and attention to detail. The team went above and beyond to ensure our project was completed on time and within budget.",
+        author: "Sarah Johnson",
         image: image2,
-        testimonial: "From townhouse to luxury villa, from small building to high rise, Enmaa engineering consultants are available to cater all your design layout needs. One of the most professional team with humble attitude. Situated in the heart of Sharjah.They have already finished numerous projects with top clients and contractors.Two thumbs up.",
     },
     {
         id: 3,
-        name: "Anfal Al Ali",
-        role: "",
+        text: "Outstanding architectural solutions. Their innovative approach transformed our vision into reality with remarkable precision.",
+        author: "Ahmed Hassan",
         image: image3,
-        testimonial: "Project delay of 3 years and till date not complete. No follow-up and they have no clue at what stage the project is at. No clue about what was the last agreed action. And the design has many faults which for a architects for many year of experience it’s unacceptable",
     },
     {
         id: 4,
-        name: "Ansam",
-        role: "Marketing Manager",
+        text: "Professional, reliable, and creative. Ermaa has been our trusted partner for multiple projects over the years.",
+        author: "Emma Wilson",
         image: image4,
-        testimonial: "Our workflow efficiency has increased by 40% since implementing this solution.",
-    },
-    {
-        id: 5,
-        name: "Fatima Al Zarouni",
-        role: "",
-        image: image5,
-        testimonial: "The best consulting company, very cooperative from the start with Eng. Shatha and the rest of the engineers. Many thanks to all of you 🌷🌷",
-    },
-    {
-        id: 6,
-        name: "James Wilson",
-        role: "Tech Lead",
-        image: image6,
-        testimonial: "Project delivery times have improved significantly with these tracking features.",
-    },
-    {
-        id: 7,
-        name: "Alex Kumar",
-        role: "Data Analyst",
-        image: image7,
-        testimonial: "The analytics dashboard provides exactly the insights we need to optimize performance.",
     },
 ]
 
@@ -70,198 +45,22 @@ const teamMembers = [
 gsap.registerPlugin(ScrollTrigger)
 
 function TestimonialSlider() {
+
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-    const sliderRef = useRef(null)
-    const testimonialRef = useRef(null)
-    const dotsRef = useRef(null)
 
-    // helper: numeric transform values for GSAP
-    const getTransformValues = (position) => {
-        const angle = position * 12
-        const translateZ = Math.abs(position) * -60
-        const translateX = position * 170
-        let scale = 1 - Math.abs(position) * 0.03
-        const opacity = Math.abs(position) > 2 ? 0.2 : 1 - Math.abs(position) * 0.25
-        const zIndex = 10 - Math.abs(position)
-
-        // 🔥 center slide ke liye extra scale
-        if (position === 0) {
-            scale = 1.35
-        }
-
-        return {
-            x: translateX,
-            z: translateZ,
-            rotationY: angle,
-            scale,
-            opacity,
-            zIndex,
-        }
+    const goToPrevious = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1))
     }
 
-    // returns array of visible members (center +/- 3)
-    const getVisibleMembers = () => {
-        const visible = []
-        for (let i = -3; i <= 3; i++) {
-            const index = (currentIndex + i + teamMembers.length) % teamMembers.length
-            visible.push({
-                ...teamMembers[index],
-                position: i,
-            })
-        }
-        return visible
+    const goToNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
     }
 
-    // animate testimonial text + update dots
-    const animateSlideTransition = (newIndex, direction = 1) => {
-        const tl = gsap.timeline()
-
-        tl.to(testimonialRef.current, {
-            opacity: 0,
-            x: direction === 1 ? -50 : 50,
-            duration: 0.35,
-            ease: "power2.inOut",
-        }).to(
-            testimonialRef.current,
-            {
-                opacity: 1,
-                x: 0,
-                duration: 0.45,
-                ease: "power2.out",
-            },
-            0.25,
-        )
-
-        // dots
-        if (dotsRef.current) {
-            gsap.to(dotsRef.current.children, {
-                scale: 1,
-                duration: 0.18,
-                ease: "power2.out",
-            })
-            gsap.to(dotsRef.current.children[newIndex], {
-                scale: 1.4,
-                duration: 0.28,
-                ease: "back.out(1.6)",
-            })
-        }
-    }
-
-    // animate the card positions using GSAP
-    const updateSlides = (animate = true) => {
-        const slides = sliderRef.current?.querySelectorAll(".slide-item")
-        if (!slides || slides.length === 0) return
-
-        const visible = getVisibleMembers()
-
-        visible.forEach((member, i) => {
-            const el = slides[i]
-            if (!el) return
-            const vals = getTransformValues(member.position)
-            el.style.zIndex = vals.zIndex
-
-            if (animate) {
-                gsap.to(el, {
-                    duration: 0.8,
-                    x: vals.x,
-                    z: vals.z,
-                    rotationY: vals.rotationY,
-                    scale: vals.scale,
-                    opacity: vals.opacity,
-                    ease: "power3.out",
-                    overwrite: true,
-                })
-            } else {
-                gsap.set(el, {
-                    x: vals.x,
-                    z: vals.z,
-                    rotationY: vals.rotationY,
-                    scale: vals.scale,
-                    opacity: vals.opacity,
-                })
-            }
-        })
-    }
-
-    // autoplay
-    useEffect(() => {
-        if (!isAutoPlaying) return
-
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => {
-                const newIndex = (prev + 1) % teamMembers.length
-                // animate testimonial immediately for snappy feel
-                animateSlideTransition(newIndex, 1)
-                return newIndex
-            })
-        }, 4000)
-
-        return () => clearInterval(interval)
-    }, [isAutoPlaying])
-
-    // initial layout on mount
-    useEffect(() => {
-        // small timeout to ensure DOM nodes exist
-        const id = setTimeout(() => {
-            updateSlides(false)
-            // initial dot scale
-            if (dotsRef.current) {
-                gsap.set(dotsRef.current.children, { scale: 1 })
-                gsap.set(dotsRef.current.children[currentIndex], { scale: 1.4 })
-            }
-        }, 30)
-        return () => clearTimeout(id)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    // animate slides whenever currentIndex changes
-    useEffect(() => {
-        updateSlides(true)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentIndex])
-
-    const nextSlide = () => {
-        const newIndex = (currentIndex + 1) % teamMembers.length
-        setCurrentIndex(newIndex)
-        animateSlideTransition(newIndex, 1)
-        setIsAutoPlaying(false)
-    }
-
-    const prevSlide = () => {
-        const newIndex = (currentIndex - 1 + teamMembers.length) % teamMembers.length
-        setCurrentIndex(newIndex)
-        animateSlideTransition(newIndex, -1)
-        setIsAutoPlaying(false)
-    }
-
-    const handleMouseEnter = () => {
-        setIsAutoPlaying(false)
-        gsap.to(sliderRef.current?.querySelectorAll(".slide-item"), {
-            scale: "1.09",
-            duration: 0.28,
-            ease: "power2.out",
-            overwrite: true,
-        })
-    }
-
-    const handleMouseLeave = () => {
-        setIsAutoPlaying(true)
-        gsap.to(sliderRef.current?.querySelectorAll(".slide-item"), {
-            scale: 1,
-            duration: 0.28,
-            ease: "power2.out",
-            overwrite: true,
-        })
-    }
-
-    const handleDotClick = (index) => {
-        if (index === currentIndex) return
-        const direction = index > currentIndex ? 1 : -1
+    const goToSlide = (index) => {
         setCurrentIndex(index)
-        animateSlideTransition(index, direction)
-        setIsAutoPlaying(false)
     }
+
+    const currentTestimonial = testimonials[currentIndex]
 
     const pinSection = useRef(null)
     useEffect(() => {
@@ -281,83 +80,107 @@ function TestimonialSlider() {
     }, [])
 
     return (
-        <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto overflow-x-hidden">
-            <div className="max-w-6xl mx-auto text-center">
-                <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-light text-[#01b2eb] mb-4">Trusted by Our Clients</h1>
-                    <h2 className="text-5xl md:text-6xl font-bold text-[#264395] mb-6">Real feedback from clients who rely on our expertise.</h2>
-                    {/* <p className="text-lg text-[#01b2eb] mb-8 max-w-2xl mx-auto">
-                        All-in-one platform to plan, collaborate, and deliver — faster and smarter.
-                    </p> */}
-                    <Button className="bg-[#264395] hover:bg-[#01b2eb] text-white px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                        Get started
-                    </Button>
+        // <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto overflow-x-hidden">
+        <div className="bg-stone-100 py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-x-hidden no-scrollbar">
+            <Image
+                src={bg}
+                width={200}
+                height={200}
+                alt=""
+                className="w-full h-full absolute"
+            />
+            <div className="flex justify-evenly items-start w-full">
+                <div className="border rounded-full border-black px-4 tracking-widest inline-block">Testimonials</div>
+
+                <div className="mb-">
+                    <h2 className="text-4xl md:text-5xl mb-4 text-balance">What Our <span className="text-primary font-bold">Client’s Say</span> our </h2>
+                    {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
+                </div>
+                <div></div>
+            </div>
+
+            <div className="w-full max-w-4xl mx-auto px-4 py-12 relative z-10">
+                {/* Quote Icon */}
+                <div className="flex justify-center">
+                    <Image
+                        src={quot}
+                        width={100}
+                        height={100}
+                        alt=""
+                        className="mb-10"
+                    />
                 </div>
 
-                <div className="relative">
-                    <div
-                        ref={sliderRef}
-                        className="relative h-80 mx-auto"
-                        style={{
-                            perspective: "1200px",
-                            perspectiveOrigin: "center center",
-                        }}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                {/* Testimonial Content */}
+                <div className="text-center mb-8">
+                    <p className="text-lg text-foreground mb-6 leading-relaxed">{currentTestimonial.text}</p>
+                    <h3 className="text-xl font-semibold text-foreground">{currentTestimonial.author}</h3>
+                </div>
+
+                {/* Navigation Arrows */}
+                <div className="flex items-center justify-between mb-12">
+                    {/* <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full bg-transparent"
+                        aria-label="Previous testimonial"
+                        >
+                        <ChevronLeft className="h-5 w-5" />
+                    </Button> */}
+                    <button
+                        onClick={goToPrevious}
+                        className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
                     >
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            {getVisibleMembers().map((member) => (
-                                <div
-                                    key={member.id}
-                                    className={`slide-item absolute ${member.position === 0 ? "shadow-3xl" : ""}`}
-                                    style={{ willChange: "transform, opacity" }}
-                                >
-                                    <div className="w-48 h-64 rounded-2xl overflow-hidden shadow-2xl bg-white hover:shadow-3xl transition-all duration-300 cursor-pointer">
-                                        <Image
-                                            src={member.image || "/placeholder.svg"}
-                                            alt={member.name}
-                                            className={`w-full h-full object-cover transition-transform duration-500 ${member.position === 0 ? "" : ""}`}
-                                            height={300}
-                                            width={300}
-                                        />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <ArrowLeft />
+                    </button>
 
-                        <button
-                            onClick={prevSlide}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300
-                            hover:scale-110 hover:shadow-xl"
+                    <div className="flex-1" />
+
+                    {/* <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full bg-transparent"
+                        aria-label="Next testimonial"
                         >
-                            <ChevronLeft className="w-6 h-6 text-gray-700" />
-                        </button>
+                        <ChevronRight className="h-5 w-5" />
+                    </Button> */}
+
+                    <button
+                        onClick={goToNext}
+                        className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                    >
+                        <ArrowRight />
+                    </button>
+
+                </div>
+
+                {/* Profile Pictures with Blur Effect */}
+                <div className="flex items-center justify-center">
+                    {testimonials.map((testimonial, index) => (
                         <button
-                            onClick={nextSlide}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                            key={testimonial.id}
+                            onClick={() => goToSlide(index)}
+                            className={`relative transition-all duration-300 ${index === currentIndex ? "scale-100" : "scale-75"}`}
+                            aria-label={`Go to ${testimonial.author}'s testimonial`}
                         >
-                            <ChevronRight className="w-6 h-6 text-gray-700" />
-                        </button>
-                    </div>
-
-                    <div ref={testimonialRef} className="mt-8 max-w-2xl mx-auto">
-                        <p className="text-xl text-gray-700 italic mb-4">{teamMembers[currentIndex].testimonial}</p>
-                        <div className="text-gray-600">
-                            <p className="font-semibold">{teamMembers[currentIndex].name}</p>
-                            <p className="text-sm">{teamMembers[currentIndex].role}</p>
-                        </div>
-                    </div>
-
-                    <div ref={dotsRef} className="flex justify-center space-x-2 mt-6">
-                        {teamMembers.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handleDotClick(index)}
-                                className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${index === currentIndex ? "bg-gray-800 w-8 shadow-md" : "bg-gray-400 w-2 hover:bg-gray-600"
+                            <Image
+                                src={testimonial.image || "/placeholder.svg"}
+                                alt={testimonial.author}
+                                className={`h-16 w-16 rounded-full object-cover border-2 transition-all duration-300 ${index === currentIndex ? "blur-none opacity-100 border-orange-400" : "blur-[2px] border-0 opacity-100"
                                     }`}
                             />
-                        ))}
-                    </div>
+                        </button>
+                    ))}
+                </div>
+
+                {/* Navigation Dots */}
+                <div className="flex items-center justify-center gap-4 mt-8 text-sm text-muted-foreground">
+                    <button onClick={goToPrevious} className="font-semibold hover:text-foreground transition-colors">
+                        . Previous
+                    </button>
+                    <button onClick={goToNext} className="font-bold text-primary hover:text-foreground transition-colors">
+                        Next .
+                    </button>
                 </div>
             </div>
         </div>

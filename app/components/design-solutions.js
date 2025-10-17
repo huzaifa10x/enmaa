@@ -50,29 +50,31 @@ export default function DesignSolutions() {
     const pinSection = useRef(null)
     useEffect(() => {
         const section = pinSection.current
-
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: "bottom top",
+            end: "bottom bottom",
             pin: true,
-            pinSpacing: false, // 👈 isko true rakho taki horizontal scroll aur ye section clash na kare
+            pinSpacing: false,
         })
-
         return () => {
             ScrollTrigger.getAll().forEach((t) => t.kill())
         }
     }, [])
 
 
-
     return (
-        <section ref={pinSection} className="bg-[#264395] h-screen relative flex items-center rounded-t-[50px] text-white py-16 px-6 !z-40">
+        <section className="bg-neutral-800 relative flex items-center rounded-t-[50px] text-white py-16 px-6 !z-40">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Design Solutions</h2>
-                    {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
+
+                <div className="flex justify-around items-start">
+                    <div className="border rounded-full border-white px-4 tracking-widest inline-block">Design Solutions</div>
+
+                    <div className="mb-16">
+                        <h2 className="text-4xl md:text-5xl mb-4 text-balance">Description <br /> <span className="text-primary font-bold">Architecture process</span> <br /> for exceptional results.</h2>
+                        {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
+                    </div>
                 </div>
 
                 {/* Design Solutions List */}
@@ -82,7 +84,7 @@ export default function DesignSolutions() {
                             key={solution.id}
                             className={cn(
                                 "relative overflow-hidden transition-all duration-500 ease-in-out cursor-pointer border-b border-gray-700 last:border-b-0",
-                                hoveredId === solution.id ? "bg-[#264395] py-8" : "py-6 hover:bg-gray-800/30",
+                                hoveredId === solution.id ? "bg-neutral-800 py-8" : "py-6 hover:bg-gray-800/30",
                             )}
                             onMouseEnter={() => setHoveredId(solution.id)}
                             onMouseLeave={() => setHoveredId(null)}
