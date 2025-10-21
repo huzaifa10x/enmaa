@@ -53,9 +53,25 @@ export default function DesignSolutions() {
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: "bottom bottom",
+            end: "bottom top",
             pin: true,
             pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
         })
         return () => {
             ScrollTrigger.getAll().forEach((t) => t.kill())
@@ -64,7 +80,7 @@ export default function DesignSolutions() {
 
 
     return (
-        <section className="bg-neutral-800 relative flex items-center rounded-t-[50px] text-white py-16 px-6 !z-40">
+        <section ref={pinSection} className="bg-neutral-800 relative h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 px-6 !z-[80]">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
 

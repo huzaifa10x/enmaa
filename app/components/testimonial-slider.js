@@ -69,9 +69,25 @@ function TestimonialSlider() {
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: "bottom", // 👈 dynamic height
+            end: "bottom top",
             pin: true,
-            pinSpacing: false, // 👈 spacing enable kardo
+            pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
         })
 
         return () => {
@@ -80,14 +96,14 @@ function TestimonialSlider() {
     }, [])
 
     return (
-        // <div ref={pinSection} className="bg-stone-100 h-screen py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-y-auto overflow-x-hidden">
-        <div className="bg-stone-100 py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-x-hidden no-scrollbar">
+        <div ref={pinSection} className="bg-stone-100 px-4 h-screen relative flex flex-col justify-center rounded-t-[50px] !z-[90] overflow-x-hidden">
+            {/* // <div className="bg-stone-100 py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-x-hidden no-scrollbar"> */}
             <Image
                 src={bg}
                 width={200}
                 height={200}
                 alt=""
-                className="w-full h-full absolute"
+                className="w-full h-full absolute left-0"
             />
             <div className="flex justify-evenly items-start w-full">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">Testimonials</div>

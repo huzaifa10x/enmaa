@@ -9,6 +9,7 @@ import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
+
 const STEPS = [
     {
         id: 1,
@@ -36,8 +37,7 @@ const STEPS = [
 function StepRow({ step, reverseOnDesktop }) {
     return (
         <div className="relative">
-            <div
-                className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 md:block"
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 md:block"
                 aria-hidden="true"
             >
                 <div className="h-full border-l border-border" />
@@ -48,8 +48,8 @@ function StepRow({ step, reverseOnDesktop }) {
                 {step.id}
             </div>
             <div className={`grid items-center gap-6 md:grid-cols-2 md:gap-10 ${reverseOnDesktop
-                    ? "md:[&>*:first-child]:col-start-2 md:[&>*:last-child]:col-start-1"
-                    : ""}`}
+                ? "md:[&>*:first-child]:col-start-2 md:[&>*:last-child]:col-start-1"
+                : ""}`}
             >
 
                 <div className="relative">
@@ -85,15 +85,30 @@ export default function OurProcess() {
             end: "bottom top",
             pin: true,
             pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
         })
-
         return () => {
             ScrollTrigger.getAll().forEach((t) => t.kill())
         }
     }, [])
 
     return (
-        <div ref={pinSection} className="relative overflow-x-hidden w-full h-screen overflow-y-auto rounded-t-[50px] !z-50 bg-gray-100">
+        <div className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
             {/* <div ref={pinSection} className="relative bg-white overflow-x-hidden w-full overflow-hidden rounded-t-[50px] !z-50"> */}
             <div className="mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}

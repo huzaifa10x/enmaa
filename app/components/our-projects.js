@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import image1 from "@/public/images/image532.webp"
 import image2 from "@/public/images/image31323.webp"
@@ -8,6 +8,10 @@ import image4 from "@/public/images/image23245.webp"
 import image5 from "@/public/images/image2433.webp"
 import bgProp from "@/public/images/bg-prop.webp"
 import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import gsap from "gsap"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const items = [
     {
@@ -38,6 +42,39 @@ const items = [
 ]
 
 export default function OurProjects() {
+    const sectionRef = useRef(null)
+    useEffect(() => {
+        const section = sectionRef.current
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
+        })
+
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill())
+        }
+    }, [])
+
     const [index, setIndex] = useState(0)
 
     // Auto rotate
@@ -54,27 +91,27 @@ export default function OurProjects() {
 
         switch (diff) {
             case 0: // main
-                return "z-30 scale-130 opacity-100 translate-x-0"
+                return "z-30 lg:scale-130 md:scale-60 opacity-100 translate-x-0"
             case 1: // right
-                return "z-20 scale-100 opacity-100 translate-x-[18em]"
+                return "z-20 lg:scale-100 md:scale-40 opacity-100 !md:translate-x-[5me] translate-x-[18em]"
             case 2: // far right (slightly visible)
-                return "z-10 scale-80 opacity-100 translate-x-[28em]"
+                return "z-10 lg:scale-80 md:scale-30 opacity-100 !md:translate-x-[8me] translate-x-[28em]"
             case items.length - 1: // left
-                return "z-20 scale-100 opacity-100 -translate-x-[18em]"
+                return "z-20 lg:scale-100 md:scale-40 opacity-100 !md:-translate-x-[5me] -translate-x-[18em]"
             case items.length - 2: // far left (slightly visible)
-                return "z-10 scale-80 opacity-100 -translate-x-[28em]"
+                return "z-10 lg:scale-80 md:scale-30 opacity-100 !md:translate-x-[8me] -translate-x-[28em]"
             default:
-                return "opacity-0 scale-50"
+                return "opacity-0 lg:scale-50 md:scale-30"
         }
     }
 
     return (
-        <section className="relative w-full h-screen flex flex-col items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200">
-            <div className="flex justify-evenly items-start w-full">
+        <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
+            <div className="flex justify-evenly flex-wrap items-start w-full">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROJECTS</div>
 
                 <div className="mb-16">
-                    <h2 className="text-4xl md:text-5xl mb-4 text-balance">Creative <span className="text-primary font-bold">projects that <br/> define</span> our style</h2>
+                    <h2 className="text-4xl md:text-5xl mb-4 text-balance">Creative <span className="text-primary font-bold">projects that <br /> define</span> our style</h2>
                 </div>
             </div>
 
@@ -86,7 +123,7 @@ export default function OurProjects() {
                 className="absolute w-full h-full"
             />
             {/* Carousel container */}
-            <div className="relative w-[42em] h-[25em] flex items-center justify-center">
+            <div className="relative w-[40em] h-[25em] flex items-center justify-center">
                 <ul className="relative w-full h-full flex items-center justify-center">
                     {items.map((item, i) => (
                         <li

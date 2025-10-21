@@ -151,6 +151,22 @@ export default function ServicesSection() {
             end: "bottom top",
             pin: true,
             pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
         })
 
         return () => {

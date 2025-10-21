@@ -1,62 +1,55 @@
+'use client'
+
+
 import { Card } from "@/components/ui/card"
-import image1 from "@/public/images/image2342.webp"
-import image2 from "@/public/images/image234223.webp"
-import image3 from "@/public/images/image3455.webp"
-import image4 from "@/public/images/image65452.webp"
+import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
+import image3 from "@/public/images/projects/1438-17.jpg"
+import image4 from "@/public/images/projects/1438-19.jpg"
+import image5 from "@/public/images/projects/1841-01.jpg"
+import image6 from "@/public/images/projects/1841-02.jpg"
+import image7 from "@/public/images/projects/1841-02.jpg"
+import image8 from "@/public/images/projects/1855-01.jpg"
+import image9 from "@/public/images/projects/1855-02.jpg"
+import image10 from "@/public/images/projects/1875-01.jpg"
+import image11 from "@/public/images/projects/1883-1884-02.jpg"
+import image12 from "@/public/images/projects/1902.jpg"
+import image13 from "@/public/images/projects/1928.jpg"
 import Image from "next/image"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
 
-const imagesTop = [
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-]
-
-const imagesBottom = [
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-    image1,
-
-]
+const imagesTop = [image1, image2, image3, image4, image5, image12, image7, image8]
+const imagesBottom = [image3, image6, image2, image9, image10, image13, image12, image11]
 
 function Row({ items = [], reverse = false, duration = "35s" }) {
-    const anim = reverse ? "animate-[marquee-right_35s_linear_infinite]" : "animate-[marquee-left_35s_linear_infinite]"
+    const anim = reverse ? "animate-marquee-right" : "animate-marquee-left"
 
     return (
         <div className="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div
-                className={`flex min-w-max gap-6 pr-6 will-change-transform ${anim} hover:[animation-play-state:paused] marquee-reduce-motion`}
+            <div className={`flex min-w-max gap-6 pr-6 will-change-transform ${anim} hover:[animation-play-state:paused]`}
                 style={{ animationDuration: duration }}
-                aria-hidden="false"
             >
                 {items.map((src, i) => (
-                    <Card key={`row-a-${i}`} className="h-56 w-[420px] overflow-hidden rounded-xl border-0 bg-card shadow-sm">
+                    <Card key={`row-a-${i}`} className="h-72 w-[420px] py-0 overflow-hidden rounded-xl border-0 bg-card shadow-sm">
                         <Image
                             src={src}
-                            alt="Project render"
+                            alt={`Project render ${i}`}
                             className="h-full w-full object-cover"
                             loading="lazy"
                         />
                     </Card>
                 ))}
 
-                {/* duplicate for seamless looping */}
+                {/* duplicate for seamless loop */}
                 {items.map((src, i) => (
                     <Card
                         key={`row-b-${i}`}
-                        className="h-56 w-[420px] overflow-hidden rounded-xl border-0 bg-card shadow-sm"
+                        className="h-72 w-[420px] py-0 overflow-hidden rounded-xl border-0 bg-card shadow-sm"
                         aria-hidden="true"
                     >
-                        <img src={src || "/placeholder.svg"} alt="" className="h-full w-full object-cover" loading="lazy" />
+                        <Image src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
                     </Card>
                 ))}
             </div>
@@ -65,16 +58,54 @@ function Row({ items = [], reverse = false, duration = "35s" }) {
 }
 
 export default function ProjectsScroller() {
-    return (
-        <section aria-label="Project gallery" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-16">
-            <header className="flex items-end justify-between">
-                <h2 className="text-pretty text-2xl font-semibold tracking-tight">Selected Projects</h2>
-                <p className="text-muted-foreground text-sm">Continuous showcase</p>
-            </header>
+    gsap.registerPlugin(ScrollTrigger)
 
-            <div className="flex flex-col gap-8">
-                <Row items={imagesTop} reverse={false} duration="36s" />
-                <Row items={imagesBottom} reverse={true} duration="40s" />
+
+    const sectionRef = useRef(null)
+    useEffect(() => {
+        const section = sectionRef.current
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
+        })
+
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill())
+        }
+    }, [])
+
+    return (
+        <section ref={sectionRef} className="bg-white relative !z-[99] h-screen py-10 rounded-t-[50px]">
+            <div aria-label="Project gallery" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4">
+                <header className="flex items-end justify-between">
+                    <h2 className="text-pretty text-2xl font-semibold tracking-tight">Selected Projects</h2>
+                    <p className="text-muted-foreground text-sm">Continuous showcase</p>
+                </header>
+
+                <div className="flex flex-col gap-8">
+                    <Row items={imagesTop} reverse={false} duration="40s" />
+                    <Row items={imagesBottom} reverse={true} duration="40s" />
+                </div>
             </div>
         </section>
     )

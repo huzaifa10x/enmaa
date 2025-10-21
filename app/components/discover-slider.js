@@ -3,15 +3,11 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Menu, Plus } from "lucide-react"
-// import image1 from "@/public/images/imgi_24_slide01.webp"
-import image1 from "@/public/images/image65452.webp"
-import image2 from "@/public/images/image452423.webp"
-import image3 from "@/public/images/image.webp"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import Image from "next/image"
-import Logo from "@/public/images/Logo.webp"
+import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
+import image3 from "@/public/images/projects/1438-17.jpg"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Navbar from "../Navbar"
 
 
 const slides = [
@@ -43,7 +39,6 @@ export default function DiscoverSlider() {
     const sliderRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
-    const [activeItem, setActiveItem] = useState("HOME")
 
     useEffect(() => {
         const section = sliderRef.current
@@ -122,25 +117,7 @@ export default function DiscoverSlider() {
     }, [currentSlide])
 
 
-    const navItems = [
-        { name: "HOME", href: "/" },
-        { name: "ABOUT", href: "/" },
-        {
-            name: "Project Map",
-            href: "/",
-            hasDropdown: true,
-            items: ["Spa & Wellness", "Pool & Beach", "Activities", "Dining"],
-        },
-        {
-            name: "Our Project", href: "/"
-        },
-        {
-            name: "Our Services",
-            href: "#",
-            hasDropdown: true,
-            items: ["English", "Español", "Français", "Deutsch"],
-        },
-    ]
+
 
     return (
         <div ref={sliderRef} className="relative h-screen w-full overflow-hidden">
@@ -152,78 +129,7 @@ export default function DiscoverSlider() {
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
-            <div className="absolute top-0 left-0 right-0 z-50 flex lg:justify-center">
-                <nav className="max-w-7xl flex items-center justify-between px-4 w-full py-6">
-                    {/* Logo */}
-                    <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 relative">
-                            <Image
-                                src={Logo}
-                                height={100}
-                                width={100}
-                                alt="Logo"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Navigation Menu */}
-                    <div className="hidden lg:flex items-center space-x-8">
-                        {navItems.map((item) => (
-                            <div key={item.name} className="relative">
-                                {item.hasDropdown ? (
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost"
-                                                className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-[#01b2eb]" : ""
-                                                    }`}
-                                                onClick={() => setActiveItem(item.name)}
-                                            >
-                                                {item.name}
-                                                <ChevronDown className="ml-1 h-3 w-3" />
-                                            </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="bg-black/90 backdrop-blur-sm border-white/20">
-                                            {item.items?.map((subItem) => (
-                                                <DropdownMenuItem key={subItem} className="text-white hover:text-[#01b2eb] hover:bg-white/10">
-                                                    {subItem}
-                                                </DropdownMenuItem>
-                                            ))}
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                ) : (
-                                    <Button
-                                        variant="ghost"
-                                        className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 text-sm font-medium tracking-wide transition-colors ${activeItem === item.name ? "text-[#01b2eb]" : ""
-                                            }`}
-                                        onClick={() => setActiveItem(item.name)}
-                                    >
-                                        {item.name}
-                                    </Button>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Book Now Button */}
-
-                    <a href="#bookNow">
-                        <Button className="bg-gradient-to-r from-[#01b2eb] to-primary hover:bg-primary text-white font-semibold px-8 py-3 rounded-full text-sm tracking-wide duration-300 shadow-lg hover:shadow-xl">
-                            BOOK NOW
-                        </Button>
-                    </a>
-
-                    {/* Mobile Menu Button (for smaller screens) */}
-                    <div className="lg:hidden">
-                        <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                            <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                                <div className="w-full h-0.5 bg-white"></div>
-                                <div className="w-full h-0.5 bg-white"></div>
-                                <div className="w-full h-0.5 bg-white"></div>
-                            </div>
-                        </Button>
-                    </div>
-                </nav>
-            </div>
+            <Navbar />
 
             {/* Main Content */}
             <div className="absolute inset-0 flex items-center justify-center z-10">

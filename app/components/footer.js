@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ArrowRight, Calendar, Clock, MapPin, Phone, User } from "lucide-react"
 import { useState } from "react"
+import bg from "@/public/images/image532.webp"
+import Image from "next/image"
 
 
 
@@ -52,14 +54,14 @@ export default function Footer() {
     }
 
     return (
-        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] !z-[80] text-white relative">
-            {/* <Image
+        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] !z-[100] text-white relative">
+            <Image
                 src={bg}
                 height={300}
                 width={300}
                 alt="image"
                 className="absolute w-full h-full opacity-5 -z-10"
-            /> */}
+            />
 
             {/* Navigation */}
             <div className="border-gray-700">

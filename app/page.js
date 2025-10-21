@@ -1,14 +1,13 @@
 import DiscoverSlider from "./components/discover-slider";
 import WelcomeSection from "./components/welcome-section";
 import ServicesSection from "./components/services-section";
-import FeaturedProjects from "./components/featured-projects";
 import DesignSolutions from "./components/design-solutions";
 import TestimonialSlider from "./components/testimonial-slider";
-import Footer from "./components/footer";
 import FAQ from "./components/faq";
 import OurProcess from "./components/our-process";
 import ProjectsScroller from "./components/projects-scroller";
 import OurProjects from "./components/our-projects";
+import LocationsSection from "./components/Locations-section";
 
 export default function Home() {
   const faqData = [
@@ -52,12 +51,11 @@ export default function Home() {
       <OurProcess />
       {/* <ProjectSlider /> */}
       <OurProjects />
-      <FeaturedProjects />
+      <LocationsSection />
       <DesignSolutions />
       <FAQ faqData={faqData} />
       <TestimonialSlider />
       <ProjectsScroller />
-      <Footer />
     </main>
   );
 }

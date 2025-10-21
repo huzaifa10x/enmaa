@@ -1,12 +1,48 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
 import faqImg from "@/public/images/image22342.webp"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import gsap from "gsap"
 
+gsap.registerPlugin(ScrollTrigger)
 export default function FAQ({ faqData }) {
-    const [openItems, setOpenItems] = useState(new Set([1]))
+
+    const pinSection = useRef(null)
+    useEffect(() => {
+        const section = pinSection.current
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+            onEnter: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    borderTopLeftRadius: 50,
+                    borderTopRightRadius: 50,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            }
+        })
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill())
+        }
+    }, [])
+
+
+    const [openItems, setOpenItems] = useState(new Set([0]))
 
     const toggleItem = (id) => {
         const newOpenItems = new Set(openItems)
@@ -16,14 +52,14 @@ export default function FAQ({ faqData }) {
     }
 
     return (
-        <section className="bg-white rounded-t-[50px] overflow-hidden py-20">
+        <section ref={pinSection} className="bg-white rounded-t-[50px] overflow-y-auto flex items-center py-20 relative !z-[80]">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
                 <div className="flex justify-around items-start">
-                    <div className="border rounded-full border-black px-4 tracking-widest inline-block">Design Solutions</div>
+                    <div className="border rounded-full border-black px-4 tracking-widest inline-block">faq</div>
 
                     <div className="mb-16">
-                        <h2 className="text-4xl md:text-5xl mb-4 text-balance">Quick and clear <span className="text-primary font-bold">answers <br/> to your key</span> questions</h2>
+                        <h2 className="text-4xl md:text-5xl mb-4 text-balance">Quick and clear <span className="text-primary font-bold">answers <br /> to your key</span> questions</h2>
                         {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
                     </div>
                 </div>
