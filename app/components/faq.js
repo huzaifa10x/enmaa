@@ -55,6 +55,8 @@ export default function FAQ({ faqData }) {
         <section ref={pinSection} className="bg-white rounded-t-[50px] overflow-y-auto flex items-center py-20 relative !z-[80]">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
+                
+
                 <div className="flex justify-around items-start">
                     <div className="border rounded-full border-black px-4 tracking-widest inline-block">faq</div>
 
