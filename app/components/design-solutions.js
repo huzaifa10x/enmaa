@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import image1 from "@/public/images/image2342.webp"
-import image2 from "@/public/images/image234223.webp"
-import image3 from "@/public/images/image3455.webp"
+import image1 from "@/public/images/projects/1855-02.jpg"
+import image2 from "@/public/images/projects/1841-02.jpg"
+import image3 from "@/public/images/projects/1855-01.jpg"
 import image4 from "@/public/images/image65452.webp"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -80,15 +80,15 @@ export default function DesignSolutions() {
 
 
     return (
-        <section ref={pinSection} className="bg-neutral-800 relative h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 px-6 !z-[80]">
+        <section ref={pinSection} className="bg-neutral-200 relative h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 px-6 !z-[80]">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
 
                 <div className="flex justify-around items-start">
-                    <div className="border rounded-full border-white px-4 tracking-widest inline-block">Design Solutions</div>
+                    <div className="border rounded-full border-black text-black px-4 tracking-widest inline-block">Design Solutions</div>
 
                     <div className="mb-16">
-                        <h2 className="text-4xl md:text-5xl mb-4 text-balance">Description <br /> <span className="text-primary font-bold">Architecture process</span> <br /> for exceptional results.</h2>
+                        <h2 className="text-4xl md:text-5xl mb-4 text-black text-balance">Description <br /> <span className="text-primary font-bold">Architecture process</span> <br /> for exceptional results.</h2>
                         {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
                     </div>
                 </div>
@@ -99,8 +99,8 @@ export default function DesignSolutions() {
                         <div
                             key={solution.id}
                             className={cn(
-                                "relative overflow-hidden transition-all duration-500 ease-in-out cursor-pointer border-b border-gray-700 last:border-b-0",
-                                hoveredId === solution.id ? "bg-neutral-800 py-8" : "py-6 hover:bg-gray-800/30",
+                                "relative overflow-hidden transition-all duration-500 ease-in-out cursor-pointer border-b border-white last:border-b-0",
+                                hoveredId === solution.id ? "bg-neutral-200 py-8" : "py-6 hover:bg-gray-800/30",
                             )}
                             onMouseEnter={() => setHoveredId(solution.id)}
                             onMouseLeave={() => setHoveredId(null)}
@@ -110,7 +110,7 @@ export default function DesignSolutions() {
                                 <div className="flex-1">
                                     <div className="flex items-center gap-6 mb-4">
                                         <span className="text-2xl md:text-3xl font-bold text-[#01b2eb]">{solution.number}</span>
-                                        <h3 className="text-2xl md:text-3xl font-bold">{solution.title}</h3>
+                                        <h3 className="text-2xl md:text-3xl text-neutral-600 font-bold">{solution.title}</h3>
                                     </div>
 
                                     {/* Expandable Content */}
@@ -133,8 +133,8 @@ export default function DesignSolutions() {
 
                                             {/* Description */}
                                             <div className="flex-1">
-                                                <p className="text-gray-300 leading-relaxed mb-4">{solution.description}</p>
-                                                <button className="text-gray-400 text-sm font-medium hover:text-white transition-colors">
+                                                <p className="text-neutral-600 leading-relaxed mb-4">{solution.description}</p>
+                                                <button className="text-gray-600 text-sm font-medium hover:text-neutral-400 transition-colors">
                                                     {solution.readMore}
                                                 </button>
                                             </div>

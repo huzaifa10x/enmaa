@@ -11,7 +11,7 @@ import image2 from "@/public/images/projects/1438-07.jpg"
 import image3 from "@/public/images/projects/1438-17.jpg"
 import image4 from "@/public/images/projects/1438-19.jpg"
 import image5 from "@/public/images/projects/1841-01.jpg"
-import image6 from "@/public/images/projects/1841-02.jpg"
+import image6 from "@/public/images/projects/1855-02.jpg"
 import image7 from "@/public/images/projects/1841-02.jpg"
 import image8 from "@/public/images/projects/1855-01.jpg"
 import gsap from "gsap"
@@ -189,15 +189,19 @@ export default function ServicesSection() {
                             className="group relative w-[90vw] sm:w-[50vw] md:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex items-end p-6"
                         >
                             <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 -bottom-24">
-                                <div className="mb-3 font-ps absolute top-0 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
+
+                                <div className="mb-3 font-ps absolute -top-96 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
                                     WebkitTextStroke: "1px #fff",
                                     fontFamily: "system-ui",
                                 }}>{`0${service.id}`}</div>
-                                <div className="mb-3">{service.icon}</div>
-                                <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
-                                    {service.title}
-                                </h3>
-                                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
+
+                                <div className="brightness-50 group-hover:brightness-200 duration-300">
+                                    <div className="mb-3">{service.icon}</div>
+                                    <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
+                                        {service.title}
+                                    </h3>
+                                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -214,8 +218,6 @@ export default function ServicesSection() {
                 >
                     <ArrowLeft />
                 </button>
-
-
                 <button
                     onClick={() =>
                         (document.querySelector(".scrollbar-hide").scrollLeft += 400)

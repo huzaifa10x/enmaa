@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { MapPin, Building2, Globe, Briefcase } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Link from "next/link"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,21 +15,22 @@ const locations = [
         id: "dubai",
         name: "Dubai",
         description:
-            "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
+            "Donna Towers - https://maps.app.goo.gl/sR2oF8PiFZpfuoMP9 - Office 905,906 - 64 street - Dubai Silicon Oasis - Dubai - United Arab Emirates",
         icon: Building2,
         features: ["View Projects"],
+        link: '/our-projects',
         mapEmbed:
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14438.265656058287!2d55.296249!3d25.276987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f434dd1b3bb85%3A0x9d5d5fcd7dc0c081!2sDubai!5e0!3m2!1sen!2sae!4v1719327072809!5m2!1sen!2sae",
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3877698919327!2d55.51380640000001!3d25.2575379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761121794924!5m2!1sen!2s",
     },
     {
         id: "abu-dhabi",
         name: "Abu Dhabi",
         description:
-            "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
+            "Shining Towers - Office No. 2402A - Mubarak Bin Mohammed St - Al Khalidiyah - W9 - Abu Dhabi - United Arab Emirates",
         icon: MapPin,
         features: ["View Projects"],
         mapEmbed:
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14455.19189294095!2d54.3773438!3d24.453884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e667b5de6e97b%3A0x8587f4c11da74c76!2sAbu%20Dhabi!5e0!3m2!1sen!2sae!4v1719327156708!5m2!1sen!2sae",
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.3498833840536!2d54.34930519999999!3d24.473331100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e47811de93e67%3A0x575c1f0c45f534cb!2z2KfZhtmF2KfYoSDZhNmE2KXYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipINmB2LHYuSDYp9io2Ygg2LjYqNmKIC0gRW5tYWEgRW5naW5lZXJpbmcgQ29uc3VsdGFudCBBYnVEaGFiaQ!5e0!3m2!1sen!2s!4v1761123463468!5m2!1sen!2s",
     },
     {
         id: "Sharjah",
@@ -38,17 +40,17 @@ const locations = [
         icon: Globe,
         features: ["View Projects"],
         mapEmbed:
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14433.064746014953!2d55.420931!3d25.346255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5e55f2f1f56f%3A0x3573c2745af44188!2sSharjah!5e0!3m2!1sen!2sae!4v1719327213222!5m2!1sen!2sae",
+            "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d451.04648455819586!2d55.5113347!3d25.2580728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761123561260!5m2!1sen!2s",
     },
     {
         id: "Ajman",
         name: "Ajman",
         description:
-            "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
+            "Sara Plaza 2, Al Jurf 2 area - Sheikh Khalifa Bin Zayed St - Ajman - United Arab Emirates",
         icon: Briefcase,
         features: ["View Projects"],
         mapEmbed:
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14431.745514217244!2d55.513643!3d25.405216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f59a2dd730b7%3A0x820dc3f865f23ec7!2sAjman!5e0!3m2!1sen!2sae!4v1719327274859!5m2!1sen!2sae",
+            "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14416.93303373329!2d55.4514874!3d25.3970015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59f88693e40d%3A0xf5b9d0d97263c316!2z2KfZhtmF2KfYoSDZhNmE2KXYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipINmB2LHYuSDYudis2YXYp9mGIC1Fbm1hYSBFbmdpbmVlcmluZyBDb25zdWx0YW50IEFqbWFu!5e0!3m2!1sen!2s!4v1761123506135!5m2!1sen!2s",
     },
 ]
 
@@ -155,13 +157,14 @@ export default function LocationsSection() {
                                                 </div>
                                                 <div className="flex flex-wrap gap-1 mt-2">
                                                     {location.features.map((feature, index) => (
-                                                        <Badge
-                                                            key={index}
-                                                            variant={isSelected ? "secondary" : "outline"}
-                                                            className="text-xs px-2 py-0.5"
-                                                        >
-                                                            {feature}
-                                                        </Badge>
+                                                        <Link href={'/our-projects'} key={index}>
+                                                            <Badge
+                                                                variant={isSelected ? "secondary" : "outline"}
+                                                                className="text-xs px-2 py-0.5"
+                                                            >
+                                                                {feature}
+                                                            </Badge>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                             </div>
