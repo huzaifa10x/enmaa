@@ -98,7 +98,7 @@ export default function Footer() {
                     <div className="max-w-7xl mx-auto">
                         <div className="bg-gradient-to-r border rounded-2xl p-6 shadow-2xl">
                             <form onSubmit={handleSubmit}>
-                                <div className="flex flex-wrap lg:flex-nowrap items-end gap-4">
+                                <div className="flex flex-wrap items-end gap-4">
                                     {/* Name Field */}
                                     <div className="flex-1 min-w-[200px]">
                                         <div className="relative">
@@ -161,18 +161,18 @@ export default function Footer() {
                                             <div className="absolute left-3 top-3 z-10">
                                                 <Clock className="h-5 w-5 text-slate-400" />
                                             </div>
-                                            <Select value={formData.time} onValueChange={(value) => handleInputChange("time", value)}>
-                                                <SelectTrigger className="h-12 pl-11 bg-white/10 border-white/20 text-white focus:bg-white/20 focus:border-white/40 transition-all">
-                                                    <SelectValue placeholder="Select time" />
-                                                </SelectTrigger>
-                                                <SelectContent position="popper" sideOffset={5} className="z-30 bg-slate-800 border border-slate-600">
-                                                    {timeSlots.map((time) => (
-                                                        <SelectItem key={time} value={time}>
-                                                            {time}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
+                                            <select
+                                                value={formData.time}
+                                                onChange={(e) => handleInputChange("time", e.target.value)}
+                                                className="h-12 w-full pl-11 pr-4 bg-white/10 border border-white/20 text-white rounded-md appearance-none focus:bg-white/20 focus:border-white/40 transition-all cursor-pointer"
+                                            >
+                                                <option value="" disabled>Select time</option>
+                                                {timeSlots.map((time) => (
+                                                    <option className="bg-neutral-800" key={time} value={time}>
+                                                        {time}
+                                                    </option>
+                                                ))}
+                                            </select>
                                             <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">TIME</div>
                                         </div>
                                     </div>
@@ -183,23 +183,24 @@ export default function Footer() {
                                             <div className="absolute left-3 top-3 z-10">
                                                 <MapPin className="h-5 w-5 text-slate-400" />
                                             </div>
-                                            <Select value={formData.branch} onValueChange={(value) => handleInputChange("branch", value)}>
-                                                <SelectTrigger className="h-12 pl-11 bg-white/10 border-white/20 text-white focus:bg-white/20 focus:border-white/40 transition-all">
-                                                    <SelectValue placeholder="Select branch" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    {branches.map((branch) => (
-                                                        <SelectItem key={branch.id} value={branch.id}>
-                                                            {branch.name}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
+                                            <select
+                                                value={formData.branch}
+                                                onChange={(e) => handleInputChange("branch", e.target.value)}
+                                                className="h-12 w-full pl-11 pr-4 bg-white/10 border border-white/20 text-white rounded-md appearance-none focus:bg-white/20 focus:border-white/40 transition-all cursor-pointer"
+                                            >
+                                                <option value="" disabled>Select branch</option>
+                                                {branches.map((branch) => (
+                                                    <option className="bg-neutral-800" key={branch.id} value={branch.id}>
+                                                        {branch.name}
+                                                    </option>
+                                                ))}
+                                            </select>
                                             <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
                                                 BRANCH
                                             </div>
                                         </div>
                                     </div>
+
 
                                     {/* Book Button */}
                                     <div className="flex-shrink-0">

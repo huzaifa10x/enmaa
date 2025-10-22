@@ -10,6 +10,7 @@ import bgProp from "@/public/images/bg-prop.webp"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import gsap from "gsap"
+import Link from "next/link"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,28 +19,39 @@ const items = [
         id: 1,
         type: "image",
         src: image1,
+        title: "Project 110 DXB",
+        description: "Enmaa Engineering Consultants – Dubai",
     },
     {
         id: 2,
         type: "image",
         src: image2,
+        title: "Luxury Villa Design",
+        description: "Private Residence – Abu Dhabi",
     },
     {
         id: 3,
         type: "iframe",
         src: image3,
+        title: "Modern Office Tower",
+        description: "Skyline Group – Downtown Dubai",
     },
     {
         id: 4,
         type: "iframe",
         src: image4,
+        title: "Commercial Complex",
+        description: "Al Noor Developments – Sharjah",
     },
     {
         id: 5,
         type: "image",
         src: image5,
+        title: "Beachfront Residence",
+        description: "Palm Jumeirah – Dubai",
     },
 ]
+
 
 export default function OurProjects() {
     const sectionRef = useRef(null)
@@ -106,7 +118,7 @@ export default function OurProjects() {
     }
 
     return (
-        <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
+        <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
             <div className="flex justify-evenly flex-wrap items-start w-full">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROJECTS</div>
 
@@ -132,13 +144,25 @@ export default function OurProjects() {
                                 i
                             )}`}
                         >
-                            <Image
-                                src={item.src}
-                                alt={`Slide ${item.id}`}
-                                width={500}
-                                height={481}
-                                className="w-full h-full object-cover brightness-90"
-                            />
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src={item.src}
+                                    alt={`Slide ${item.id}`}
+                                    width={500}
+                                    height={481}
+                                    className="w-full h-full object-cover brightness-75"
+                                />
+
+                                {/* Overlay Text */}
+                                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+                                    <h3 className="text-3xl font-bold text-cyan-400 mb-1">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-white text-sm opacity-90">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            </div>
                         </li>
                     ))}
                 </ul>
@@ -152,9 +176,9 @@ export default function OurProjects() {
                 >
                     <ArrowLeft />
                 </button>
-                <button className="bg-neutral-800 text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
+                <Link href={'our-projects'} className="bg-neutral-800 text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
                     Explore All
-                </button>
+                </Link>
                 <button
                     onClick={next}
                     className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"

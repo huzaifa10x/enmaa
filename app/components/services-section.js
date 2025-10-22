@@ -6,17 +6,14 @@ import { MdOutlineEngineering } from "react-icons/md"
 import { BsBuildings } from "react-icons/bs"
 import { SiAffinitydesigner } from "react-icons/si"
 import { FaRegHandshake } from "react-icons/fa6"
-
-import image1 from "@/public/images/image2342.webp"
-import image2 from "@/public/images/image234223.webp"
-import image3 from "@/public/images/image3455.webp"
-import image4 from "@/public/images/image65452.webp"
-
-// 👇 add your new 4 images here
-import image5 from "@/public/images/image2342.webp"
-import image6 from "@/public/images/image234223.webp"
-import image7 from "@/public/images/image3455.webp"
-import image8 from "@/public/images/image65452.webp"
+import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
+import image3 from "@/public/images/projects/1438-17.jpg"
+import image4 from "@/public/images/projects/1438-19.jpg"
+import image5 from "@/public/images/projects/1841-01.jpg"
+import image6 from "@/public/images/projects/1841-02.jpg"
+import image7 from "@/public/images/projects/1841-02.jpg"
+import image8 from "@/public/images/projects/1855-01.jpg"
 import gsap from "gsap"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/all"
@@ -138,8 +135,6 @@ export default function ServicesSection() {
     const handleHover = (img) => {
         setActiveImg(img)
     }
-
-
     const sliderRef = useRef(null)
 
     useEffect(() => {

@@ -113,45 +113,46 @@ export default function LocationsSection() {
                                 const isSelected = selectedLocation === location.id
 
                                 return (
-                                    <Card
-                                        key={location.id}
-                                        className={`p-4 cursor-pointer transition-all duration-200 hover:shadow-md ${isSelected
-                                                ? "bg-gradient-to-r from-[#01b2eb] to-primary text-primary-foreground shadow-lg"
-                                                : "bg-card hover:bg-accent"
+                                    <Card key={location.id}
+                                        className={`p-2 cursor-pointer transition-all duration-200 hover:shadow-md ${isSelected
+                                            ? "bg-gradient-to-r from-[#01b2eb] to-primary text-primary-foreground shadow-lg"
+                                            : "bg-card hover:bg-accent"
                                             }`}
                                         onClick={() => setSelectedLocation(location.id)}
                                     >
                                         <div className="flex items-start gap-3">
                                             <div
                                                 className={`p-2 rounded-lg ${isSelected
-                                                        ? "bg-primary-foreground/20"
-                                                        : "bg-primary/10"
+                                                    ? "bg-primary-foreground/20"
+                                                    : "bg-primary/10"
                                                     }`}
                                             >
                                                 <Icon
                                                     className={`h-5 w-5 ${isSelected
-                                                            ? "text-primary-foreground"
-                                                            : "text-primary"
+                                                        ? "text-primary-foreground"
+                                                        : "text-primary"
                                                         }`}
                                                 />
                                             </div>
-                                            <div className="flex-1 min-w-0">
-                                                <h3
-                                                    className={`font-semibold text-sm mb-1 ${isSelected
+                                            <div className="flex items-start min-w-0">
+                                                <div>
+                                                    <h3
+                                                        className={`font-semibold text-sm mb-1 ${isSelected
                                                             ? "text-primary-foreground"
                                                             : "text-foreground"
-                                                        }`}
-                                                >
-                                                    {location.name}
-                                                </h3>
-                                                <p
-                                                    className={`text-xs leading-relaxed ${isSelected
+                                                            }`}
+                                                    >
+                                                        {location.name}
+                                                    </h3>
+                                                    <p
+                                                        className={`text-xs leading-relaxed ${isSelected
                                                             ? "text-primary-foreground/80"
                                                             : "text-muted-foreground"
-                                                        }`}
-                                                >
-                                                    {location.description}
-                                                </p>
+                                                            }`}
+                                                    >
+                                                        {location.description}
+                                                    </p>
+                                                </div>
                                                 <div className="flex flex-wrap gap-1 mt-2">
                                                     {location.features.map((feature, index) => (
                                                         <Badge
@@ -182,7 +183,7 @@ export default function LocationsSection() {
                             </p>
                         </div>
 
-                        <Card className="p-2 h-[350px] relative overflow-hidden">
+                        <Card className="p-2 h-[370px] relative overflow-hidden">
                             <iframe
                                 key={selectedLocationData.id}
                                 src={selectedLocationData.mapEmbed}

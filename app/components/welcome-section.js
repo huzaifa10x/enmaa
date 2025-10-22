@@ -45,25 +45,35 @@ export default function WelcomeSection() {
         countersRef.current.forEach((el) => {
             const targetValue = parseInt(el.dataset.value, 10)
 
-            gsap.fromTo(
-                el,
-                { innerText: 0 },
-                {
-                    innerText: targetValue,
-                    duration: 5,
-                    snap: { innerText: 1 },
-                    ease: "power1.out",
-                    scrollTrigger: {
-                        trigger: section,
-                        start: "top 70%", // jab section 70% viewport me aaye
-                        once: true, // ek hi dafa chalega
-                    },
-                    onUpdate: function () {
-                        el.innerText = Math.floor(el.innerText)
-                    },
-                }
-            )
+            // function to animate the counter
+            const animateCounter = () => {
+                gsap.fromTo(
+                    el,
+                    { innerText: 0 },
+                    {
+                        innerText: targetValue,
+                        duration: 5,
+                        snap: { innerText: 1 },
+                        ease: "power1.out",
+                        onUpdate: function () {
+                            el.innerText = Math.floor(el.innerText)
+                        },
+                    }
+                )
+            }
+
+            // ScrollTrigger
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top 70%",
+                onEnter: animateCounter,       // Jab section me aaye
+                onEnterBack: animateCounter,   // Jab upar se wapas aaye
+                // optional: agar chahe to reset bhi kar sakte ho jab section se nikle
+                onLeave: () => (el.innerText = 0),
+                onLeaveBack: () => (el.innerText = 0),
+            })
         })
+
 
         return () => {
             ScrollTrigger.getAll().forEach((t) => t.kill())
@@ -145,7 +155,7 @@ export default function WelcomeSection() {
                                     0
                                 </div>
                                 <p className="text-xs lg:text-sm text-[#565656] tracking-[0.15em] font-medium">
-                                    YEARS OF EXPERIENCE
+                                    NUMBER OF CLIENTS
                                 </p>
                             </div>
                             <div className="text-center">
