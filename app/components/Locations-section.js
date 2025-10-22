@@ -15,13 +15,14 @@ const locations = [
         id: "dubai",
         name: "Dubai",
         description:
-            "Donna Towers - https://maps.app.goo.gl/sR2oF8PiFZpfuoMP9 - Office 905,906 - 64 street - Dubai Silicon Oasis - Dubai - United Arab Emirates",
+            "Donna Towers - Office 905,906 - 64 street - Dubai Silicon Oasis - Dubai - United Arab Emirates",
         icon: Building2,
         features: ["View Projects"],
         link: '/our-projects',
         mapEmbed:
-            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3877698919327!2d55.51380640000001!3d25.2575379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761121794924!5m2!1sen!2s",
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.546712935814!2d55.3695698!3d25.1172011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f42ef24a0273f%3A0x573117b316e0bda0!2z2KfZhtmF2KfYoSDZhNmE2KXYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipINmB2LHYuSDYr9io2YogLSBFbm1hYSBFbmdpbmVlcmluZyBDb25zdWx0YW50IGR1YmFp!5e0!3m2!1sen!2s!4v1761124635396!5m2!1sen!2s",
     },
+
     {
         id: "abu-dhabi",
         name: "Abu Dhabi",
