@@ -161,7 +161,7 @@ export default function WelcomeSection() {
                             <div className="text-center">
                                 <div
                                     ref={(el) => (countersRef.current[2] = el)}
-                                    data-value="55"
+                                    data-value="501"
                                     className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent -mb-4 font-ps"
                                     style={{
                                         WebkitTextStroke: "2px #565656",
