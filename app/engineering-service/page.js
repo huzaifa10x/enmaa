@@ -41,10 +41,10 @@ export default function EngineeringService() {
 
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    Engineering is the art of creating if optional and aesthetically pleasing spaces that reflect the personality and needs of the occupants. By combining color schemes, furniture, lighting, and textures, designers can transform any room into a harmonious and inviting environment. Thoughtful space planning ensures that every corner serves a purpose while creating an open and free-flowing atmosphere. The choice of materials, patterns, and textures plays a crucial role in achieving a desired mood, whether it's modern, minimalist, or traditional.
+                    Engineering is the art of creating if optional and aesthetically pleasing spaces that reflect the personality and needs of the occupants. By combining color schemes, furniture, lighting, and textures, designers can transform any room into a harmonious and inviting environment. Thoughtful space planning ensures that every corner serves a purpose while creating an open and free-flowing atmosphere. The choice of materials, patterns, and textures plays a crucial role in achieving a desired mood, whether it&rsquo;s modern, minimalist, or traditional.
                 </p>
                 <p className="text-foreground text-base leading-relaxed">
-                    Customization makes for the integration of unique elements that make a space truly one-of-a-kind. Sustainability is also becoming an essential focus, with eco-friendly materials and sustainable solutions gaining popularity. Whether designing a cozy living room or a professional office space, thoughtful space design brings both beauty and functionality together. Ultimately, it's about crafting a space where people feel comfortable, inspired, and connected.
+                    Customization makes for the integration of unique elements that make a space truly one-of-a-kind. Sustainability is also becoming an essential focus, with eco-friendly materials and sustainable solutions gaining popularity. Whether designing a cozy living room or a professional office space, thoughtful space design brings both beauty and functionality together. Ultimately, it&rsquo;s about crafting a space where people feel comfortable, inspired, and connected.
                 </p>
 
                 <div className="mt-8">

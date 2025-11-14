@@ -143,7 +143,7 @@ const PROJECTS = [
     },
 ]
 
-export default function page() {
+export default function Page() {
     const [selectedLocation, setSelectedLocation] = useState("DUBAI")
     const [selectedProject, setSelectedProject] = useState(null)
 
