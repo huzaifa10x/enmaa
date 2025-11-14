@@ -1,5 +1,6 @@
+'use client'
 import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { ChevronDown } from 'lucide-react'
 import Logo from "@/public/images/Logo.webp"
 import React, { useState } from 'react'
@@ -12,7 +13,7 @@ export default function Navbar() {
 
     const navItems = [
         { name: "HOME", href: "/" },
-        { name: "ABOUT", href: "/" },
+        // { name: "ABOUT", href: "/" },
         {
             name: "Project Map",
             href: "/",
@@ -23,16 +24,19 @@ export default function Navbar() {
             name: "Our Project", href: "/our-projects"
         },
         {
-            name: "Our Services",
-            href: "#",
-            hasDropdown: true,
-            items: ["English", "Español", "Français", "Deutsch"],
+            name: "Our Services", href: "/our-services"
         },
+        // {
+        //     name: "Our Services",
+        //     href: "/our-services",
+        //     hasDropdown: true,
+        //     items: ["English", "Español", "Français", "Deutsch"],
+        // },
     ]
 
     return (
         <div className="absolute top-0 left-0 right-0 z-50 flex lg:justify-center">
-            <nav className="max-w-7xl flex items-center justify-between px-4 w-full py-6">
+            <nav className="max-w-7xl min-w-[360px] flex items-center justify-between px-4 w-full py-6">
                 {/* Logo */}
                 <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 relative">
@@ -61,13 +65,13 @@ export default function Navbar() {
                                             {/* <ChevronDown className="ml-1 h-3 w-3" /> */}
                                         </Button>
                                     </DropdownMenuTrigger>
-                                    {/* <DropdownMenuContent className="bg-black/90 backdrop-blur-sm border-white/20">
+                                    <DropdownMenuContent className="bg-black/90 backdrop-blur-sm border-white/20">
                                         {item.items?.map((subItem) => (
                                             <DropdownMenuItem key={subItem} className="text-white hover:text-[#01b2eb] hover:bg-white/10">
                                                 {subItem}
                                             </DropdownMenuItem>
                                         ))}
-                                    </DropdownMenuContent> */}
+                                    </DropdownMenuContent>
                                 </DropdownMenu>
                             ) : (
                                 <Link href={item.href}>

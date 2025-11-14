@@ -130,6 +130,10 @@
   }
 }
 
+body {
+  min-width: 360px;
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
