@@ -128,7 +128,7 @@ export default function OurProcess() {
             {/* <div ref={pinSection} className="relative bg-white overflow-x-hidden w-full overflow-hidden rounded-t-[50px] !z-50"> */}
             <div className="mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}
-                <div className="md:flex justify-around items-start">
+                <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
                     <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROCESS</div>
 
                     {/* Heading */}

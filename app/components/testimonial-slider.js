@@ -105,7 +105,7 @@ function TestimonialSlider() {
                 alt=""
                 className="w-full h-full absolute left-0"
             />
-            <div className="flex justify-evenly items-start w-full">
+            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">Testimonials</div>
 
                 <div className="mb-">

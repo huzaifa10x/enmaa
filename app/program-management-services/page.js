@@ -1,15 +1,19 @@
 import Testimonial from '../components/Testimonial'
 import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
 
-export default function page() {
+
+export default function EngineeringService() {
+
     return (
         <main className="">
             <ServicesBanner />
+
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 className="text-4xl font-bold text-foreground mb-2">Engineering Service</h1>
-                <p className="text-muted-foreground text-sm">Home / Engineering Service</p>
+                <h1 className="text-4xl font-bold text-foreground mb-2">Program Management Services</h1>
+                <p className="text-muted-foreground text-sm">Home / Program Management Services</p>
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
@@ -36,15 +40,15 @@ export default function page() {
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                <h1 className='text-2xl font-semibold mb-5'>Achieving Success Through Engineering Strategy and Excellence</h1>
+                <h1 className='text-2xl font-semibold mb-5'>Overseeing Complex Projects for Strategic Success</h1>
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    Enmaa Engineering Consultant operates throughout the UAE to deliver diverse engineering services to realize your project vision. We offer our expertise in engineering and planning with a multidisciplinary perspective on services. Our expertise ranges from feasibility studies, strategic planning, and programming. We ensure each project relies on a solid technical basis. We utilize the principles of value engineering to optimize project costs. Typically, we deliver product value in the range of a 10-15% savings.
+                    &apos;s program management services provide oversight and coordination for complex projects and portfolios. We ensure interdependent activities are coordinated and aligned with our client&apos;s goals. Our program managers build comprehensive project life-cycle schedules that integrate design, procurement, construction, and commissioning activities into meaningful timeframes. We execute strong cost management systems to track expenditures, forecast final costs, and identify cost savings while the program is being executed.
                 </p>
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    The bills of quantities and technical specifications we develop resolve ambiguities. We provide clarity on the manner to move from procurement to project construction phase. Our team of experienced professional engineers conducts thorough assessments.
+                    Stakeholder management is at the core of what we do, guaranteeing that the varied interests are recognized, expectations are met, and communications are effective between all parties.
                 </p>
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    We evaluate feasibility by means of the processes of planning to identify risk factors and possible impacts. Our team develops mitigation strategies that safeguard the project&apos;s timeline and budget. The technical documentation we produce conforms to national standards while facilitating the incorporation of local regulations in Sharjah and across the UAE. The formal process of the system engineering of the business offers extensive information for confident and informed decision-making. We are here to take your project from inception to completion.
+                    Our quality assurance and control processes cross project-level attitudes and expectations. We define quality standards, develop inspection regimes and conduct audits to ensure work is being completed in accordance with spec and regulatory expectation. Resource management maximizes the allocation of people, equipment, and materials over multiple projects. Using a central document control system guarantees that all participants utilize the correct and enhanced information.
                 </p>
             </section>
 

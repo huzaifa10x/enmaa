@@ -42,7 +42,7 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                             className="object-cover"
                         />
 
-                        
+
                         <button
                             onClick={handlePrevImage}
                             className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
@@ -63,20 +63,20 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         </div>
 
                     </div>
-                        {/* Project Navigation */}
-                        <button
-                            onClick={handlePrevProject}
-                            className="absolute bottom-4 left-1/2 -translate-x-1/2 -translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
-                        >
-                            <ChevronLeft className="w-5 h-5 text-black" />
-                        </button>
+                    {/* Project Navigation */}
+                    <button
+                        onClick={handlePrevProject}
+                        className="absolute bottom-4 left-1/2 -translate-x-1/2 -translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
+                    >
+                        <ChevronLeft className="w-5 h-5 text-black" />
+                    </button>
 
-                        <button
-                            onClick={handleNextProject}
-                            className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
-                        >
-                            <ChevronRight className="w-5 h-5 text-black" />
-                        </button>
+                    <button
+                        onClick={handleNextProject}
+                        className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
+                    >
+                        <ChevronRight className="w-5 h-5 text-black" />
+                    </button>
 
                     {/* Right Side - Project Details */}
                     <div className="bg-slate-900 text-white p-6 md:p-8 flex flex-col justify-between">

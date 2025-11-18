@@ -25,106 +25,112 @@ const services = [
         desc: `
         <ul class='list-disc pl-6'>
             <li>Feasibility studies</li>
-            <li>Planning & development</li>
-            <li>Value engineering</li>
-            <li>Technical specs & BOQ</li>
-            <li>Concept to final design</li>
+            <li>Planning</li>
+            <li>Project development</li>
+            <li>Evaluation of engineering projects</li>
+            <li>Technical specifications</li>
+            <li>Quantity inventory</li>
         </ul>`,
         img: image1,
         icon: <MdOutlineEngineering className="text-white" size={60} />,
     },
     {
         id: 2,
-        title: "Project & Construction Management",
+        title: "Design services",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Site supervision</li>
-            <li>Quality, time & cost control</li>
-            <li>Claims & commissioning</li>
-            <li>Scheduling & cost management</li>
-            <li>Procurement & documentation</li>
+           <li>Data collection</li>
+           <li>Design idea</li>
+           <li>Initial design</li>
+           <li>Detailed design</li>
+           <li>Final design</li>
         </ul>`,
         img: image2,
         icon: <BsBuildings className="text-white" size={60} />,
     },
     {
         id: 3,
-        title: "Interior Designing",
+        title: "Tender services",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Tender preparation & analysis</li>
-            <li>Contract documentation</li>
-            <li>Pre-qualification & award</li>
-            <li>Client coordination</li>
-            <li>Performance management</li>
+            <li>Contract terms</li>
+            <li>Initial tender evaluation</li>
+            <li>Call for tender</li>
+            <li>Tender study</li>
+            <li>Final report</li>
+            <li>Contractor selection</li>
         </ul>`,
         img: image3,
         icon: <SiAffinitydesigner className="text-white" size={60} />,
     },
     {
         id: 4,
-        title: "Specialized Solutions (Design & Build + GIS)",
+        title: "Supervision",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Design–build collaboration</li>
-            <li>Value engineering ideas</li>
-            <li>Lifecycle scheduling</li>
-            <li>GIS strategy & data modeling</li>
-            <li>Visualization & system integration</li>
+            <li>Supervising the construction process</li>
+            <li>Quality</li>
+            <li>Supervising the timeline and costs</li>
+            <li>Claims and contract conclusion</li>
         </ul>`,
         img: image4,
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
     {
         id: 5,
-        title: "Project Management",
+        title: "Owner representation",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Design–build collaboration</li>
-            <li>Value engineering ideas</li>
-            <li>Lifecycle scheduling</li>
-            <li>GIS strategy & data modeling</li>
-            <li>Visualization & system integration</li>
+            <li>Representing the owner at the workplace</li>
+            <li>On-site engagement with customers for better coordination</li>
+            <li>Project management to achieve the required quality on time and within the specified budget</li>
         </ul>`, img: image5,
         icon: <MdOutlineEngineering className="text-white" size={60} />,
     },
     {
         id: 6,
-        title: "Urban Planning",
+        title: "Project management services",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Design–build collaboration</li>
-            <li>Value engineering ideas</li>
-            <li>Lifecycle scheduling</li>
-            <li>GIS strategy & data modeling</li>
-            <li>Visualization & system integration</li>
-        </ul>`, img: image6,
+            <li>Determine the project timeline</li>
+            <li>Cost management</li>
+            <li>Managing relationships between reformers</li>
+            <li>Quality control</li>
+            <li>Resource management</li>
+            <li>Securing needs</li>
+            <li>File management</li>
+            <li>Guidance</li>
+        </ul>`,
+        img: image6,
         icon: <BsBuildings className="text-white" size={60} />,
     },
     {
         id: 7,
-        title: "3D Visualization",
+        title: "Project construction and design",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Design–build collaboration</li>
-            <li>Value engineering ideas</li>
-            <li>Lifecycle scheduling</li>
-            <li>GIS strategy & data modeling</li>
-            <li>Visualization & system integration</li>
-        </ul>`, img: image7,
+            <li>Direct work with contractors</li>
+            <li>Quality and value of business</li>
+            <li>Project life cycle</li>
+            <li>Budget reduction</li>
+            <li>Agendas</li>
+        </ul>`,
+        img: image7,
         icon: <SiAffinitydesigner className="text-white" size={60} />,
     },
     {
         id: 8,
-        title: "Client Relations",
+        title: "GIS Services",
         desc: `
         <ul class='list-disc pl-6'>
-            <li>Design–build collaboration</li>
-            <li>Value engineering ideas</li>
-            <li>Lifecycle scheduling</li>
-            <li>GIS strategy & data modeling</li>
-            <li>Visualization & system integration</li>
-        </ul>`, img: image8,
+            <li>Finding project solutions</li>
+            <li>Consulting services and strategic planning</li>
+            <li>Developing data models</li>
+            <li>Analysis, data presentation and model design</li>
+            <li>Development and integration of projects</li>
+            <li>Capacity building and operational support</li>
+        </ul>`,
+        img: image8,
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
 ]
@@ -188,8 +194,7 @@ export default function ServicesSection() {
                             onMouseEnter={() => handleHover(service.img)}
                             className="group relative w-[90vw] sm:w-[50vw] md:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex items-end p-6"
                         >
-                            <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 -bottom-24">
-
+                            <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
                                 <div className="mb-3 font-ps absolute -top-96 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
                                     WebkitTextStroke: "1px #fff",
                                     fontFamily: "system-ui",
@@ -200,7 +205,7 @@ export default function ServicesSection() {
                                     <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
                                         {service.title}
                                     </h3>
-                                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
+                                    <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
                                 </div>
                             </div>
                         </div>

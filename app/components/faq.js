@@ -10,36 +10,36 @@ import gsap from "gsap"
 gsap.registerPlugin(ScrollTrigger)
 export default function FAQ({ faqData }) {
 
-    const pinSection = useRef(null)
-    useEffect(() => {
-        const section = pinSection.current
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
-        }
-    }, [])
+    // const pinSection = useRef(null)
+    // useEffect(() => {
+    //     const section = pinSection.current
+    //     ScrollTrigger.create({
+    //         trigger: section,
+    //         start: "top top",
+    //         end: "bottom top",
+    //         pin: true,
+    //         pinSpacing: false,
+    //         onEnter: () => {
+    //             gsap.to(section, {
+    //                 borderTopLeftRadius: 0,
+    //                 borderTopRightRadius: 0,
+    //                 duration: 0.3,
+    //                 ease: "power2.out"
+    //             })
+    //         },
+    //         onLeaveBack: () => {
+    //             gsap.to(section, {
+    //                 borderTopLeftRadius: 50,
+    //                 borderTopRightRadius: 50,
+    //                 duration: 0.3,
+    //                 ease: "power2.out"
+    //             })
+    //         }
+    //     })
+    //     return () => {
+    //         ScrollTrigger.getAll().forEach((t) => t.kill())
+    //     }
+    // }, [])
 
 
     const [openItems, setOpenItems] = useState(new Set([0]))
@@ -52,12 +52,9 @@ export default function FAQ({ faqData }) {
     }
 
     return (
-        <section ref={pinSection} className="bg-white rounded-t-[50px] overflow-y-auto flex items-center py-20 relative !z-[80]">
+        <section className="bg-white rounded-t-[50px] overflow-y-auto flex items-center py-20 relative !z-[80]">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-
-                
-
-                <div className="flex justify-around items-start">
+                <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
                     <div className="border rounded-full border-black px-4 tracking-widest inline-block">faq</div>
 
                     <div className="mb-16">
@@ -65,7 +62,6 @@ export default function FAQ({ faqData }) {
                         {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
                     </div>
                 </div>
-
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
                     {/* LEFT SIDE - FAQ LIST */}
@@ -80,11 +76,10 @@ export default function FAQ({ faqData }) {
                                         <span className="text-gray-400 font-semibold text-lg md:text-xl leading-none mt-1">
                                             {String(index + 1).padStart(2, "0")}
                                         </span>
-                                        <h3
-                                            className={`text-base sm:text-lg md:text-xl font-medium transition-colors duration-300 ${openItems.has(item.id)
-                                                ? "text-sky-600"
-                                                : "text-gray-900 group-hover:text-sky-600"
-                                                }`}
+                                        <h3 className={`text-base font-medium transition-colors duration-300 ${openItems.has(item.id)
+                                            ? "text-sky-600"
+                                            : "text-gray-900 group-hover:text-sky-600"
+                                            }`}
                                         >
                                             {item.question}
                                         </h3>
@@ -98,16 +93,10 @@ export default function FAQ({ faqData }) {
                                     </span>
                                 </button>
 
-                                <div
-                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${openItems.has(item.id)
-                                        ? "max-h-40 opacity-100 mt-3"
-                                        : "max-h-0 opacity-0"
-                                        }`}
-                                >
-                                    <p
-                                        className="text-gray-600 text-sm md:text-base ml-9 pr-8 leading-relaxed"
-                                        dangerouslySetInnerHTML={{ __html: item.answer }}
-                                    ></p>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItems.has(item.id) ? "max-h-full opacity-100 mt-3" : "max-h-0 opacity-0"}`}>
+                                    <p className="text-gray-600 text-sm md:text-base ml-9 pr-8 leading-relaxed"
+                                        dangerouslySetInnerHTML={{ __html: item.answer }}>
+                                    </p>
                                 </div>
                             </div>
                         ))}

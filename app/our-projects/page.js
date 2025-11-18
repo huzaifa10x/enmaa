@@ -17,8 +17,8 @@ import image10 from "@/public/images/projects/1875-01.jpg"
 import image11 from "@/public/images/projects/1883-1884-02.jpg"
 import image12 from "@/public/images/projects/1902.jpg"
 import image13 from "@/public/images/projects/1928.jpg"
-import Banner from "./Banner"
 import Image from "next/image"
+import ServicesBanner from "../components/services-banner"
 
 
 const LOCATIONS = ["ABUDHABI", "DUBAI", "SHARJAH", "AJMAN"]
@@ -151,7 +151,7 @@ export default function Page() {
 
     return (
         <>
-            <Banner />
+            <ServicesBanner />
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">
                     {/* Header */}

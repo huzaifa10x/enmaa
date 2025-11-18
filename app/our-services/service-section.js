@@ -8,59 +8,112 @@ export default function ServiceSection() {
         {
             id: "01",
             title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            items: ["Feasibility studies",
+                "Planning",
+                "Project development",
+                "Evaluation of engineering projects",
+                "Technical specifications",
+                "Quantity inventory"
+            ],
             featured: true,
             image: image1,
             href: '/engineering-service'
         },
         {
             id: "02",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "Design Services",
+            items: ['Data collection',
+                'Design idea',
+                'Initial design',
+                'Detailed design',
+                'Final design'
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/design-services'
         },
         {
             id: "03",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "Tendering Services",
+            items: ['Contract terms',
+                'Initial tender evaluation',
+                'Call for tender',
+                'Tender study',
+                'Final report',
+                'Contractor selection'
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/tenderings-services'
         },
         {
             id: "04",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "Supervision",
+            items: ['Supervising the construction process',
+                'Quality',
+                'Supervising the timeline and costs',
+                'Claims and contract conclusion'
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/supervision'
         },
         {
             id: "05",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "Client Engineer Representative Role",
+            items: ['Representing the owner at the workplace',
+                'On - site engagement with customers for better coordination',
+                'Project management to achieve the required quality on time and within the specified budget'
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/client-engineer-representative-role'
         },
         {
             id: "06",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "Program Management Services",
+            items: [
+                'Determine the project timeline',
+                'Cost management',
+                'Managing relationships between reformers',
+                'Quality control',
+                'Resource management',
+                'Securing needs',
+                'File management',
+                'Guidance',
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/program-management-services'
         },
         {
             id: "07",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "Design & Build Project Participation",
+            items: [
+                'Direct work with contractors',
+                'Quality and value of business',
+                'Project life cycle',
+                'Budget reduction',
+                'Agendas',
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/design-build-project-participation'
         },
         {
             id: "08",
-            title: "Engineering Services",
-            items: ["Feasibility studies", "Planning", "Program development", "Value engineering"],
+            title: "GIS Services",
+            items: [
+                'Finding project solutions',
+                'Consulting services and strategic planning',
+                'Developing data models',
+                'Analysis, data presentation and model design',
+                'Development and integration of projects',
+                'Capacity building and operational support',
+            ],
             featured: false,
-            href: '/our-services'
+            image: image1,
+            href: '/gis-services'
         },
     ]
 
