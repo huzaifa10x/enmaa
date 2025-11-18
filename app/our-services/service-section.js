@@ -117,13 +117,6 @@ export default function ServiceSection() {
         },
     ]
 
-
-
-
-
-
-
-    
     return (
         <section className="py-16 px-4 md:px-8 lg:px-12">
             <div className="max-w-7xl mx-auto">
