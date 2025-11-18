@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ProjectGrid from "../components/our-projects/project-grid"
 import ProjectModal from "../components/our-projects/project-modal"
 import projects from "@/public/images/projects.webp"
@@ -10,19 +10,11 @@ import image3 from "@/public/images/projects/1438-17.jpg"
 import image4 from "@/public/images/projects/1438-19.jpg"
 import image5 from "@/public/images/projects/1841-01.jpg"
 import image6 from "@/public/images/projects/1841-02.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image9 from "@/public/images/projects/1855-02.jpg"
-import image10 from "@/public/images/projects/1875-01.jpg"
-import image11 from "@/public/images/projects/1883-1884-02.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
-import image13 from "@/public/images/projects/1928.jpg"
 import Image from "next/image"
 import ServicesBanner from "../components/services-banner"
-
+import { useSearchParams } from "next/navigation"
 
 const LOCATIONS = ["ABUDHABI", "DUBAI", "SHARJAH", "AJMAN"]
-
 const PROJECTS = [
     {
         id: 1,
@@ -144,11 +136,15 @@ const PROJECTS = [
 ]
 
 export default function Page() {
-    const [selectedLocation, setSelectedLocation] = useState("DUBAI")
+    const params = useSearchParams()
+    const defaultLocation = (params.get("location") || "DUBAI").toUpperCase()
+    const [selectedLocation, setSelectedLocation] = useState(defaultLocation)
+
+    useEffect(() => {
+        setSelectedLocation(defaultLocation)
+    }, [defaultLocation])
     const [selectedProject, setSelectedProject] = useState(null)
-
     const filteredProjects = PROJECTS.filter((project) => project.locationCity === selectedLocation)
-
     return (
         <>
             <ServicesBanner />
@@ -169,7 +165,6 @@ export default function Page() {
                             </h1>
                         </div>
                     </div>
-
                     {/* Location Filter */}
                     <div className="flex flex-wrap justify-center gap-3 mb-12">
                         {LOCATIONS.map((location) => (
@@ -185,11 +180,9 @@ export default function Page() {
                             </button>
                         ))}
                     </div>
-
                     {/* Projects Grid */}
                     <ProjectGrid projects={filteredProjects} onProjectClick={setSelectedProject} />
                 </div>
-
                 {/* Project Modal */}
                 {selectedProject && (
                     <ProjectModal

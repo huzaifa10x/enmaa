@@ -24,7 +24,7 @@ const locations = [
     },
 
     {
-        id: "abu-dhabi",
+        id: "abudhabi",
         name: "Abu Dhabi",
         description:
             "Shining Towers - Office No. 2402A - Mubarak Bin Mohammed St - Al Khalidiyah - W9 - Abu Dhabi - United Arab Emirates",
@@ -158,7 +158,7 @@ export default function LocationsSection() {
                                                 </div>
                                                 <div className="flex flex-wrap gap-1 mt-2">
                                                     {location.features.map((feature, index) => (
-                                                        <Link href={'/our-projects'} key={index}>
+                                                        <Link href={`/our-projects?location=${location.id}`} key={index}>
                                                             <Badge
                                                                 variant={isSelected ? "secondary" : "outline"}
                                                                 className="text-xs px-2 py-0.5"

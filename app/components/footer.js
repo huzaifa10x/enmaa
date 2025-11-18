@@ -116,7 +116,6 @@ export default function Footer() {
                                             <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">NAME</div>
                                         </div>
                                     </div>
-
                                     {/* Number Field */}
                                     <div className="flex-1 min-w-[200px]">
                                         <div className="relative">
@@ -136,7 +135,6 @@ export default function Footer() {
                                             </div>
                                         </div>
                                     </div>
-
                                     {/* Date Field */}
                                     <div className="flex-1 min-w-[180px]">
                                         <div className="relative">
@@ -154,7 +152,6 @@ export default function Footer() {
                                             <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">DATE</div>
                                         </div>
                                     </div>
-
                                     {/* Time Field */}
                                     <div className="flex-1 min-w-[160px]">
                                         <div className="relative">
@@ -176,7 +173,6 @@ export default function Footer() {
                                             <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">TIME</div>
                                         </div>
                                     </div>
-
                                     {/* Branch Field */}
                                     <div className="flex-1 min-w-[200px]">
                                         <div className="relative">
@@ -200,8 +196,6 @@ export default function Footer() {
                                             </div>
                                         </div>
                                     </div>
-
-
                                     {/* Book Button */}
                                     <div className="flex-shrink-0">
                                         <Button
@@ -216,24 +210,20 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-
-
                 {/* Contact Info and Email Signup */}
                 <div className="grid md:grid-cols-2 gap-12 items-start border-t border-gray-700 pt-12">
-
                     {/* Contact Information */}
                     <div className="space-y-4">
                         <div className="text-gray-300">
                             <p className="leading-relaxed">
-                                ASAS Building - Office 667 - Maleha St -<br />
+                                main office ASAS Building - Office 667 - Maleha St -<br />
                                 Warehouses Land - Sharjah - United Arab Emirates
                             </p>
                         </div>
                         <div className="text-gray-300">
-                            <p className="text-lg">+971 56 230 9897</p>
+                            <p className="text-lg"><a href="tel:+971 6 52 38 228"></a> +971 6 52 38 228</p>
                         </div>
                     </div>
-
                     {/* Email Signup */}
                     <div className="space-y-4">
                         <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
@@ -250,7 +240,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-
             {/* Bottom Footer */}
             <div className="border-t border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 py-6">

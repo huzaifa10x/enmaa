@@ -119,7 +119,7 @@ export default function OurProjects() {
 
     return (
         <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
-            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4 mx-8">
+            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4 mx-">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROJECTS</div>
 
                 <div className="mb-16">
