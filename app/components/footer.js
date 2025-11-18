@@ -6,6 +6,7 @@ import { ArrowRight, Calendar, Clock, MapPin, Phone, User } from "lucide-react"
 import { useState } from "react"
 import bg from "@/public/images/image532.webp"
 import Image from "next/image"
+import Link from "next/link"
 
 
 
@@ -67,18 +68,18 @@ export default function Footer() {
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
                     <nav className="md:flex justify-center space-x-24">
-                        <a href="#" className="text-white hover:text-gray-300 transition-colors">
+                        <Link href={'/'} className="text-white hover:text-gray-300 transition-colors">
                             Home
-                        </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors">
+                        </Link>
+                        <Link href={'project-map'} className="text-gray-400 hover:text-gray-300 transition-colors">
                             Project Map
-                        </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors">
+                        </Link>
+                        <Link href={'/our-projects'} className="text-gray-400 hover:text-gray-300 transition-colors">
                             Projects
-                        </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors">
+                        </Link>
+                        <Link href={'/our-services'} className="text-gray-400 hover:text-gray-300 transition-colors">
                             Our Services
-                        </a>
+                        </Link>
                     </nav>
                 </div>
             </div>
@@ -216,12 +217,12 @@ export default function Footer() {
                     <div className="space-y-4">
                         <div className="text-gray-300">
                             <p className="leading-relaxed">
-                                main office ASAS Building - Office 667 - Maleha St -<br />
+                                <b>main office</b>: ASAS Building - Office 667 - Maleha St -<br />
                                 Warehouses Land - Sharjah - United Arab Emirates
                             </p>
                         </div>
                         <div className="text-gray-300">
-                            <p className="text-lg"><a href="tel:+971 6 52 38 228"></a> +971 6 52 38 228</p>
+                            <p className="text-lg"><a href="tel:+971 6 52 38 228"> +971 6 52 38 228</a></p>
                         </div>
                     </div>
                     {/* Email Signup */}
