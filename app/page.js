@@ -95,42 +95,42 @@ export default function Home() {
       <br>
       Our experience includes infrastructure construction, as well as specialty engineering services such as geotechnical analysis, structural retrofitting, and sustainability projects. We have the knowledge and resources to carry it out with accuracy, no matter the project’s size.`
     },
-    {
-      id: 8,
-      question: "In what ways does Enmaa Engineering develop customized engineering solutions for different project types?",
-      answer: `
-      Our top feature is its ability to provide custom engineering solutions. We address the every needs of each project. As the best engineering contracting company, we recognize that each customer has specific requirements. Whether they are in the residential, commercial, industrial, or public sectors, we work with them all.
-      <br>
-      <br>
-      Our engineers, architects, and project managers collaborate closely with customers to create unique strategies that include their vision, budget, and timeframe. This collaborative approach guarantees that each project is developed and performed to maximize value while following the highest safety and quality requirements.`
-    },
-    {
-      id: 9,
-      question: "Why is Enmaa Engineering considered one of the most reliable engineering firms in Sharjah?",
-      answer: `
-      When it comes to dependability, Enmaa Engineering Consultants stands out as the best engineering contracting company in Sharjah. We do our best to complete projects on time and under budget. Our team works around the most effective plans while maintaining high quality standards. They can effectively manage risk and handle challenges. This implies that clients can trust us to deliver consistent results.
-      <br>
-      <br>
-      We take pride in our ability to manage projects efficiently. We track progress using innovative technologies and approaches. We do our best to manage resources and ensure that all project stakeholders collaborate seamlessly. This attention to detail prevents delays and reduces expenses. Our top engineering consultants in UAE assure that projects are completed in accordance with the client’s specifications.`
-    },
-    {
-      id: 10,
-      question: "How does Enmaa Engineering stay ahead through innovation and advanced engineering practices?",
-      answer: `
-      Enmaa maintains its leadership position in an ever-changing sector by offering new solutions. We are constantly looking for new ways to improve our processes, incorporate newer technology, and implement best practices to expand our service offerings.
-      <br>
-      <br>
-      Our emphasis on innovation enables us to develop projects that are future-ready. Our top engineering consultants in UAE are continually pushing the frontiers of what is possible. They perform exceptionally in developing solutions that are practical and creative.`
-    },
-    {
-      id: 11,
-      question: "How does Enmaa provide high-quality architectural services while maintaining cost-effective project delivery?",
-      answer: `
-      Enmaa believes that high-quality engineering services should not be prohibitively expensive. As one of the best architecture firms in Sharjah, we provide best consultation services. We ensure that our services are affordable without sacrificing quality. We recognize that cost containment is a crucial priority for our clients. That is why we are devoted to providing value throughout the project.
-      <br>
-      <br>
-      We can keep costs low while providing great outcomes. That is due to careful planning, effective resource management, and smart connections with suppliers. Our clear pricing system guarantees that clients understand precisely what they are paying for. We work with no hidden costs or surprises. Connect with us today and explore our exceptional services.`
-    },
+    // {
+    //   id: 8,
+    //   question: "In what ways does Enmaa Engineering develop customized engineering solutions for different project types?",
+    //   answer: `
+    //   Our top feature is its ability to provide custom engineering solutions. We address the every needs of each project. As the best engineering contracting company, we recognize that each customer has specific requirements. Whether they are in the residential, commercial, industrial, or public sectors, we work with them all.
+    //   <br>
+    //   <br>
+    //   Our engineers, architects, and project managers collaborate closely with customers to create unique strategies that include their vision, budget, and timeframe. This collaborative approach guarantees that each project is developed and performed to maximize value while following the highest safety and quality requirements.`
+    // },
+    // {
+    //   id: 9,
+    //   question: "Why is Enmaa Engineering considered one of the most reliable engineering firms in Sharjah?",
+    //   answer: `
+    //   When it comes to dependability, Enmaa Engineering Consultants stands out as the best engineering contracting company in Sharjah. We do our best to complete projects on time and under budget. Our team works around the most effective plans while maintaining high quality standards. They can effectively manage risk and handle challenges. This implies that clients can trust us to deliver consistent results.
+    //   <br>
+    //   <br>
+    //   We take pride in our ability to manage projects efficiently. We track progress using innovative technologies and approaches. We do our best to manage resources and ensure that all project stakeholders collaborate seamlessly. This attention to detail prevents delays and reduces expenses. Our top engineering consultants in UAE assure that projects are completed in accordance with the client’s specifications.`
+    // },
+    // {
+    //   id: 10,
+    //   question: "How does Enmaa Engineering stay ahead through innovation and advanced engineering practices?",
+    //   answer: `
+    //   Enmaa maintains its leadership position in an ever-changing sector by offering new solutions. We are constantly looking for new ways to improve our processes, incorporate newer technology, and implement best practices to expand our service offerings.
+    //   <br>
+    //   <br>
+    //   Our emphasis on innovation enables us to develop projects that are future-ready. Our top engineering consultants in UAE are continually pushing the frontiers of what is possible. They perform exceptionally in developing solutions that are practical and creative.`
+    // },
+    // {
+    //   id: 11,
+    //   question: "How does Enmaa provide high-quality architectural services while maintaining cost-effective project delivery?",
+    //   answer: `
+    //   Enmaa believes that high-quality engineering services should not be prohibitively expensive. As one of the best architecture firms in Sharjah, we provide best consultation services. We ensure that our services are affordable without sacrificing quality. We recognize that cost containment is a crucial priority for our clients. That is why we are devoted to providing value throughout the project.
+    //   <br>
+    //   <br>
+    //   We can keep costs low while providing great outcomes. That is due to careful planning, effective resource management, and smart connections with suppliers. Our clear pricing system guarantees that clients understand precisely what they are paying for. We work with no hidden costs or surprises. Connect with us today and explore our exceptional services.`
+    // },
   ];
 
   return (

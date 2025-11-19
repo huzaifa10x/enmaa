@@ -214,12 +214,12 @@ export default function Footer() {
                     <div className="space-y-4">
                         <div className="text-gray-300">
                             <p className="leading-relaxed">
-                                <b>main office</b>: ASAS Building - Office 667 - Maleha St -<br />
+                                <b>Head Office</b>: ASAS Building - Office 667 - Maleha St -<br />
                                 Warehouses Land - Sharjah - United Arab Emirates
                             </p>
                         </div>
                         <div className="text-gray-300">
-                            <p className="text-lg"><a href="tel:+971 6 52 38 228"> +971 6 52 38 228</a></p>
+                            <p className="text-lg"><a href="tel:+971 6 52 38 228"><b>Landline</b>: +971 6 52 38 228</a></p>
                         </div>
                     </div>
                     {/* Email Signup */}
