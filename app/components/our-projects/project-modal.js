@@ -33,7 +33,6 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[90] flex items-center justify-center p-4">
             <div className="bg-card rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    {/* Left Side - Image Slider */}
                     <div className="relative bg-black h-96 md:h-full min-h-96">
                         <Image
                             src={project.images[currentImageIndex] || "/placeholder.svg"}
@@ -41,36 +40,29 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                             fill
                             className="object-cover"
                         />
-
-
-                        <button
+                        <butto
                             onClick={handlePrevImage}
                             className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
                         >
                             <ChevronLeft className="w-6 h-6 text-white" />
-                        </button>
-
+                        </butto>
                         <button
                             onClick={handleNextImage}
                             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
                         >
                             <ChevronRight className="w-6 h-6 text-white" />
                         </button>
-
-                        {/* Image Counter */}
                         <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm">
                             {currentImageIndex + 1} / {project.images.length}
                         </div>
-
                     </div>
-                    {/* Project Navigation */}
+
                     <button
                         onClick={handlePrevProject}
                         className="absolute bottom-4 left-1/2 -translate-x-1/2 -translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
                     >
                         <ChevronLeft className="w-5 h-5 text-black" />
                     </button>
-
                     <button
                         onClick={handleNextProject}
                         className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
@@ -78,22 +70,16 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         <ChevronRight className="w-5 h-5 text-black" />
                     </button>
 
-                    {/* Right Side - Project Details */}
                     <div className="bg-slate-900 text-white p-6 md:p-8 flex flex-col justify-between">
-                        {/* Close Button */}
                         <button
                             onClick={onClose}
                             className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors"
                         >
                             <X className="w-6 h-6 text-white" />
                         </button>
-
-                        {/* Header */}
                         <div>
                             <p className="text-blue-400 text-sm font-medium mb-2">{project.location}</p>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">{project.name}</h2>
-
-                            {/* Project Information */}
                             <div className="mb-8">
                                 <h3 className="text-white font-semibold mb-4">Project information</h3>
                                 <div className="grid grid-cols-2 gap-6">
@@ -115,15 +101,11 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Description */}
                             <div>
                                 <h3 className="text-white font-semibold mb-2">Description</h3>
                                 <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
                             </div>
                         </div>
-
-                        {/* Footer Logo Area */}
                         <div className="mt-8 pt-6 border-t border-white/10">
                             <p className="text-white/60 text-xs">ENMAA</p>
                             <p className="text-white/40 text-xs">Engineering Consultants</p>

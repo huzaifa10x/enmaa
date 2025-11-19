@@ -55,7 +55,7 @@ export default function Footer() {
     }
 
     return (
-        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] !z-[100] text-white relative">
+        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] min-h-screen !z-[100] text-white relative">
             <Image
                 src={bg}
                 height={300}
@@ -67,7 +67,7 @@ export default function Footer() {
             {/* Navigation */}
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
-                    <nav className="md:flex justify-center space-x-24">
+                    <nav className="flex flex-wrap justify-center space-x-24">
                         <Link href={'/'} className="text-white hover:text-gray-300 transition-colors">
                             Home
                         </Link>
@@ -83,7 +83,6 @@ export default function Footer() {
                     </nav>
                 </div>
             </div>
-
             {/* Main Footer Content */}
             <div className="max-w-7xl mx-auto px-6 py-16">
                 {/* Get Started Section */}
@@ -93,8 +92,6 @@ export default function Footer() {
                         If you would like to work with us or just want to get in touch, we&apos;d love to hear from you!
                     </p>
                 </div>
-
-
                 <div>
                     <div className="max-w-7xl mx-auto">
                         <div className="bg-gradient-to-r border rounded-2xl p-6 shadow-2xl">

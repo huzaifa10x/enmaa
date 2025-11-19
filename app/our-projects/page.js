@@ -78,107 +78,59 @@ const PROJECTS = [
     },
 
     {
-
         id: 6,
-
         name: "Desert Oasis",
-
         location: "Al Barari",
-
         style: "Modern",
-
         type: "Modern",
-
         size: "32000 sq ft",
-
         rooms: "09 rooms",
-
         images: [image4, image5, image6],
-
         description:
-
             "Luxurious modern villa set in a serene desert landscape. Features expansive gardens, outdoor entertainment areas, and sustainable design.",
-
         locationCity: "DUBAI",
-
     },
 
     {
-
         id: 7,
-
         name: "Sharjah Heights",
-
         location: "Al Qasba",
-
         style: "Contemporary",
-
         type: "Contemporary",
-
         size: "22000 sq ft",
-
         rooms: "05 rooms",
-
         images: [image4, image5, image6],
-
         description:
-
             "Modern residential tower with contemporary design and premium amenities. Offering stunning city views and convenient urban living.",
-
         locationCity: "SHARJAH",
-
     },
 
     {
-
         id: 8,
-
         name: "Ajman Gateway",
-
         location: "Corniche",
-
         style: "Modern",
-
         type: "Modern",
-
         size: "26000 sq ft",
-
         rooms: "06 rooms",
-
         images: [image4, image5, image6],
-
         description:
-
             "Stunning waterfront property with modern architecture and panoramic sea views. Features premium finishes and exclusive amenities.",
-
         locationCity: "AJMAN",
-
     },
 
     {
-
         id: 9,
-
         name: "Abu Dhabi Towers",
-
         location: "Saadiyat Island",
-
         style: "Modern",
-
         type: "Modern",
-
         size: "40000 sq ft",
-
         rooms: "12 rooms",
-
         images: [image4, image5, image6],
-
         description:
-
             "Prestigious residential tower on Saadiyat Island with world-class amenities. Featuring luxury finishes, smart home technology, and exclusive services.",
-
         locationCity: "ABUDHABI",
-
     },
 
 ]
