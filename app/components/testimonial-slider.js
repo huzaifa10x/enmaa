@@ -41,31 +41,24 @@ const testimonials = [
     },
 ]
 
-
 gsap.registerPlugin(ScrollTrigger)
 
 function TestimonialSlider() {
 
     const [currentIndex, setCurrentIndex] = useState(0)
-
     const goToPrevious = () => {
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1))
     }
-
     const goToNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
     }
-
     const goToSlide = (index) => {
         setCurrentIndex(index)
     }
-
     const currentTestimonial = testimonials[currentIndex]
-
     const pinSection = useRef(null)
     useEffect(() => {
         const section = pinSection.current
-
         ScrollTrigger.create({
             trigger: section,
             start: "top top",
@@ -96,7 +89,7 @@ function TestimonialSlider() {
     }, [])
 
     return (
-        <div ref={pinSection} className="bg-stone-100 px-4 h-screen relative flex flex-col justify-center rounded-t-[50px] !z-[90] overflow-x-hidden">
+        <div ref={pinSection} className="bg-stone-100 px-6 h-screen relative flex flex-col justify-center rounded-t-[50px] !z-[90] overflow-x-hidden">
             {/* // <div className="bg-stone-100 py-16 px-4 relative rounded-t-[50px] !z-[70] overflow-x-hidden no-scrollbar"> */}
             <Image
                 src={bg}
@@ -105,11 +98,12 @@ function TestimonialSlider() {
                 alt=""
                 className="w-full h-full absolute left-0"
             />
-            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
-                <div className="border rounded-full border-black px-4 tracking-widest inline-block">Testimonials</div>
+            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4 mt-15">
+                <div className="border rounded-full border-black px-4 tracking-widest inline-block uppercase">Testimonials</div>
 
                 <div className="mb-">
-                    <h2 className="text-4xl md:text-5xl mb-4 text-balance">What Our <span className="text-primary font-bold">Client’s Say</span> our </h2>
+                    <h2 className="text-3xl md:text-5xl mb-4 text-balance">What Our 
+                        <span className="text-primary font-bold"> Client’s Say</span> our </h2>
                     {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
                 </div>
                 <div></div>

@@ -8,8 +8,8 @@ import image5 from "@/public/images/projects/1841-01.jpg"
 import image6 from "@/public/images/projects/1841-02.jpg"
 
 const LOCATIONS = ["ABUDHABI", "DUBAI", "SHARJAH", "AJMAN"]
-const PROJECTS = [
 
+const PROJECTS = [
     {
         id: 1,
         name: "Project 401 DXB",
@@ -134,8 +134,6 @@ const PROJECTS = [
     },
 
 ]
-
-
 
 export default function Page() {
     return (

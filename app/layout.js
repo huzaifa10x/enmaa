@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
+import { headers } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +19,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const headersList = headers();
+  const pathname = headersList.get("x-invoke-path") || ""; // fallback if not set
+  const isArabic = pathname.startsWith("/ar");
   return (
-    <html lang="en">
+    <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

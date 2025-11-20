@@ -87,13 +87,13 @@ export default function DesignSolutions() {
                         Design Solutions
                     </div>
 
-                    <div className="mb-16">
-                        <h2 className="text-4xl md:text-5xl mb-4 text-black text-balance">
-                            Description <br />{" "}
+                    <div className="md:mb-16">
+                        <h2 className="text-3xl md:text-5xl mb-4 text-black text-balance">
+                            Description <br className="lg:block hidden"/>
                             <span className="text-primary font-bold">
                                 Architecture process
-                            </span>{" "}
-                            <br /> for exceptional results.
+                            </span>
+                            <br className="lg:block hidden"/> for exceptional results.
                         </h2>
                     </div>
                 </div>

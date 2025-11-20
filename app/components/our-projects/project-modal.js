@@ -40,12 +40,12 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                             fill
                             className="object-cover"
                         />
-                        <butto
+                        <button
                             onClick={handlePrevImage}
                             className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
                         >
                             <ChevronLeft className="w-6 h-6 text-white" />
-                        </butto>
+                        </button>
                         <button
                             onClick={handleNextImage}
                             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"

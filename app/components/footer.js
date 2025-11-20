@@ -67,7 +67,7 @@ export default function Footer() {
             {/* Navigation */}
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
-                    <nav className="flex flex-wrap justify-center space-x-24">
+                    <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center">
                         <Link href={'/'} className="text-white hover:text-gray-300 transition-colors">
                             Home
                         </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
                 </div>
             </div>
             {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-6 py-16">
+            <div className="max-w-7xl mx-auto px-6 md:py-16">
                 {/* Get Started Section */}
                 <div className="text-center mb-16">
                     <h2 className="text-5xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</h2>

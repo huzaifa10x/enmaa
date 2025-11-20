@@ -52,7 +52,6 @@ const items = [
     },
 ]
 
-
 export default function OurProjects() {
     const sectionRef = useRef(null)
     useEffect(() => {
@@ -103,15 +102,15 @@ export default function OurProjects() {
 
         switch (diff) {
             case 0: // main
-                return "z-30 lg:scale-130 md:scale-60 opacity-100 translate-x-0"
+                return "z-30 lg:scale-130 md:scale-60 scale-60 opacity-100 translate-x-0"
             case 1: // right
-                return "z-20 lg:scale-100 md:scale-40 opacity-100 !md:translate-x-[5me] translate-x-[18em]"
+                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 !md:translate-x-[5me] translate-x-[18em]"
             case 2: // far right (slightly visible)
-                return "z-10 lg:scale-80 md:scale-30 opacity-100 !md:translate-x-[8me] translate-x-[28em]"
+                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 !md:translate-x-[8me] translate-x-[28em]"
             case items.length - 1: // left
-                return "z-20 lg:scale-100 md:scale-40 opacity-100 !md:-translate-x-[5me] -translate-x-[18em]"
+                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 !md:-translate-x-[5me] -translate-x-[18em]"
             case items.length - 2: // far left (slightly visible)
-                return "z-10 lg:scale-80 md:scale-30 opacity-100 !md:translate-x-[8me] -translate-x-[28em]"
+                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 !md:translate-x-[8me] -translate-x-[28em]"
             default:
                 return "opacity-0 lg:scale-50 md:scale-30"
         }
@@ -119,11 +118,10 @@ export default function OurProjects() {
 
     return (
         <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
-            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4 mx-">
+            <div className="flex flex-wrap md:justify-around w-full items-start lg:gap-0 gap-4 px-4">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROJECTS</div>
-
-                <div className="mb-16">
-                    <h2 className="text-4xl md:text-5xl mb-4 text-balance">Creative <span className="text-primary font-bold">projects that <br /> define</span> our style</h2>
+                <div className="md:mb-16 max-w-[500px]">
+                    <h2 className="text-4xl md:text-5xl mb-4 text-balance">Creative <span className="text-primary font-bold">projects that define</span> our style</h2>
                 </div>
             </div>
 
