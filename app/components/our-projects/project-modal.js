@@ -42,13 +42,13 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         />
                         <button
                             onClick={handlePrevImage}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
                         >
                             <ChevronLeft className="w-6 h-6 text-white" />
                         </button>
                         <button
                             onClick={handleNextImage}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
                         >
                             <ChevronRight className="w-6 h-6 text-white" />
                         </button>
@@ -57,18 +57,19 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         </div>
                     </div>
 
-                    <button
-                        onClick={handlePrevProject}
-                        className="absolute bottom-4 left-1/2 -translate-x-1/2 -translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
-                    >
-                        <ChevronLeft className="w-5 h-5 text-black" />
-                    </button>
-                    <button
-                        onClick={handleNextProject}
-                        className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-x-8 bg-white/80 hover:bg-white/40 backdrop-blur-sm p-2 rounded-lg transition-colors"
-                    >
-                        <ChevronRight className="w-5 h-5 text-black" />
-                    </button>
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
+                        <button onClick={handlePrevProject}
+                            className="bg-primary hover:bg-primary/80 text-white backdrop-blur-sm text-nowrap p-2 rounded-md flex items-center gap-2 transition-colors">
+                            <ChevronLeft className="w-6 h-6 text-white" />
+                            Previous Project
+                        </button>
+
+                        <button onClick={handleNextProject}
+                            className="bg-primary hover:bg-primary/80 text-white backdrop-blur-sm text-nowrap p-2 rounded-md flex items-center gap-2 transition-colors">
+                            Next Project
+                            <ChevronRight className="w-6 h-6 text-white" />
+                        </button>
+                    </div>
 
                     <div className="bg-slate-900 text-white p-6 md:p-8 flex flex-col justify-between">
                         <button
@@ -113,6 +114,6 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
