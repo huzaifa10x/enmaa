@@ -72,7 +72,7 @@ export default function Footer() {
                             Home
                         </Link>
                         <Link href={'project-map'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Project Map
+                            Project inspiration
                         </Link>
                         <Link href={'/our-projects'} className="text-gray-400 hover:text-gray-300 transition-colors">
                             Projects

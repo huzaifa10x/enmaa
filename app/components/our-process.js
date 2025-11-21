@@ -88,7 +88,6 @@ function StepRow({ step, reverseOnDesktop }) {
     )
 }
 
-
 export default function OurProcess() {
     const pinSection = useRef(null)
     // pin section
@@ -126,9 +125,9 @@ export default function OurProcess() {
     return (
         <div className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
             {/* <div ref={pinSection} className="relative bg-white overflow-x-hidden w-full overflow-hidden rounded-t-[50px] !z-50"> */}
-            <div className="mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
+            <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}
-                <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
+                <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROCESS</div>
 
                     {/* Heading */}

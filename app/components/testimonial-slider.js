@@ -98,15 +98,14 @@ function TestimonialSlider() {
                 alt=""
                 className="w-full h-full absolute left-0"
             />
-            <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4 mt-15">
+            <div className="flex max-w-7xl mx-auto w-full flex-wrap justify-between px-4 items-start lg:gap-0 gap-4 mt-15">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block uppercase">Testimonials</div>
 
                 <div className="mb-">
-                    <h2 className="text-3xl md:text-5xl mb-4 text-balance">What Our 
+                    <h2 className="text-3xl md:text-5xl mb-4 text-balance">What Our
                         <span className="text-primary font-bold"> Client’s Say</span> our </h2>
                     {/* <p className="text-[#01b2eb] text-lg">From One Of The Top Civil Engineering Companies In Sharjah</p> */}
                 </div>
-                <div></div>
             </div>
 
             <div className="w-full max-w-4xl mx-auto px-4 py-12 relative z-10">

@@ -77,23 +77,20 @@ export default function DesignSolutions() {
     }, []);
 
     return (
-        <section
-            ref={pinSection}
-            className="bg-neutral-200 relative h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 px-6 !z-[80]"
-        >
-            <div className="max-w-6xl mx-auto">
-                <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
+        <section ref={pinSection} className="bg-neutral-200 relative px-0 h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 !z-[80]">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <div className="border rounded-full border-black text-black px-4 tracking-widest inline-block">
                         Design Solutions
                     </div>
 
                     <div className="md:mb-16">
                         <h2 className="text-3xl md:text-5xl mb-4 text-black text-balance">
-                            Description <br className="lg:block hidden"/>
+                            Description <br className="lg:block hidden" />
                             <span className="text-primary font-bold">
                                 Architecture process
                             </span>
-                            <br className="lg:block hidden"/> for exceptional results.
+                            <br className="lg:block hidden" /> for exceptional results.
                         </h2>
                     </div>
                 </div>

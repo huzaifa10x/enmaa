@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../Navbar'
 import Image from 'next/image'
-import image3 from "@/public/images/projects/1438-17.jpg"
+import image3 from "@/public/images/projects/1855-01.jpg"
 
 export default function Banner() {
     return (
@@ -10,7 +10,8 @@ export default function Banner() {
             <section className='relative h-[400px]'>
                 <Image
                     src={image3}
-                    width={200}
+                    width={800}
+                    priority
                     height={200}
                     alt='image'
                     className='w-full h-[400px] object-cover absolute'

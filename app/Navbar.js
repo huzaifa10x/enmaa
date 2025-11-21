@@ -14,13 +14,14 @@ export default function Navbar() {
     const navItems = [
         { name: "HOME", href: "/" },
         {
-            name: "Project Map",
+            name: "Project inspiration",
             href: "/project-map",
             hasDropdown: false,
             items: ["Spa & Wellness", "Pool & Beach", "Activities", "Dining"],
         },
         { name: "Our Project", href: "/our-projects" },
         { name: "Our Services", href: "/our-services" },
+        { name: "Contact Us", href: "/contact-us" },
     ]
 
     return (

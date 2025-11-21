@@ -118,7 +118,7 @@ export default function OurProjects() {
 
     return (
         <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
-            <div className="flex flex-wrap md:justify-around w-full items-start lg:gap-0 gap-4 px-4">
+            <div className="flex flex-wrap md:justify-between w-full max-w-7xl items-start lg:gap-0 gap-4 px-6">
                 <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROJECTS</div>
                 <div className="md:mb-16 max-w-[500px]">
                     <h2 className="text-4xl md:text-5xl mb-4 text-balance">Creative <span className="text-primary font-bold">projects that define</span> our style</h2>

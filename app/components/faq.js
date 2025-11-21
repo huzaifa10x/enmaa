@@ -17,8 +17,8 @@ export default function FAQ({ faqData }) {
 
     return (
         <section className="bg-white rounded-t-[50px] overflow-y-auto flex items-center py-20 relative !z-[80]">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-                <div className="flex flex-wrap md:justify-around items-start lg:gap-0 gap-4">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <div className="border rounded-full border-black px-4 tracking-widest inline-block uppercase">faq</div>
                     <div className="mb-16">
                         <h2 className="text-3xl md:text-5xl mb-4 text-balance">
