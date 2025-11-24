@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, Link, X } from "lucide-react"
 
 export default function ProjectModal({ project, onClose, allProjects, onProjectChange }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -106,9 +106,11 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                                 <h3 className="text-white font-semibold mb-2">Description</h3>
                                 <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
 
-                                <button className="bg-primary hover:bg-primary/80 text-white mt-5 backdrop-blur-sm text-nowrap px-4 py-2 text-sm rounded-md gap-2 transition-colors">
-                                    Project Location
-                                </button>
+                                <a href={'https://maps.app.goo.gl/CUC8CKAVf4BbfAYK8'} target="_black">
+                                    <button className="bg-primary hover:bg-primary/80 text-white mt-5 backdrop-blur-sm text-nowrap px-4 py-2 text-sm rounded-md gap-2 transition-colors">
+                                        Project Location
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <div className="mt-8 pt-6 border-t border-white/10">

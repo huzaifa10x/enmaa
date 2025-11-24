@@ -12,10 +12,10 @@ import Link from "next/link"
 
 export default function Footer() {
     const branches = [
-        { id: "dubai-mainland", name: "Dubai Mainland" },
-        { id: "abu-dhabi", name: "Abu Dhabi Branch" },
-        { id: "sharjah", name: "Sharjah Office" },
-        { id: "ajman", name: "Ajman Branch" },
+        { id: "dubai", name: "Dubai office" },
+        { id: "abu-dhabi", name: "Abu Dhabi office" },
+        { id: "sharjah", name: "Sharjah office" },
+        { id: "ajman", name: "Ajman office" },
     ]
 
     const timeSlots = [
@@ -182,7 +182,7 @@ export default function Footer() {
                                                 onChange={(e) => handleInputChange("branch", e.target.value)}
                                                 className="h-12 w-full pl-11 pr-4 bg-white/10 border border-white/20 text-white rounded-md appearance-none focus:bg-white/20 focus:border-white/40 transition-all cursor-pointer"
                                             >
-                                                <option value="" disabled>Select branch</option>
+                                                <option value="" disabled>Select Office</option>
                                                 {branches.map((branch) => (
                                                     <option className="bg-neutral-800" key={branch.id} value={branch.id}>
                                                         {branch.name}

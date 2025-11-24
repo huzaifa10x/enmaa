@@ -8,6 +8,7 @@ import OurProcess from "./components/our-process";
 import ProjectsScroller from "./components/projects-scroller";
 import OurProjects from "./components/our-projects";
 import LocationsSection from "./components/Locations-section";
+import ProjectLocation from "./contact-us/ProjectLocation";
 
 export default function Home() {
   const faqData = [

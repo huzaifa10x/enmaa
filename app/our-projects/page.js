@@ -132,9 +132,7 @@ const PROJECTS = [
             "Prestigious residential tower on Saadiyat Island with world-class amenities. Featuring luxury finishes, smart home technology, and exclusive services.",
         locationCity: "ABUDHABI",
     },
-
 ]
-
 
 export default function Page() {
     return (

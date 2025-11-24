@@ -17,6 +17,7 @@ import image8 from "@/public/images/projects/1855-01.jpg"
 import gsap from "gsap"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/all"
+import ProjectLocation from "../contact-us/ProjectLocation"
 
 const services = [
     {
@@ -232,6 +233,10 @@ export default function ServicesSection() {
                     <ArrowRight />
                 </button>
             </div>
+
+
+            {/* <ProjectLocation /> */}
+
         </section>
     )
 }
