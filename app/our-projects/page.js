@@ -135,6 +135,7 @@ const PROJECTS = [
 
 ]
 
+
 export default function Page() {
     return (
         <Suspense fallback={<div>Loading projects...</div>}>

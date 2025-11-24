@@ -59,15 +59,15 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
 
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
                         <button onClick={handlePrevProject}
-                            className="bg-primary hover:bg-primary/80 text-white backdrop-blur-sm text-nowrap p-2 rounded-md flex items-center gap-2 transition-colors">
-                            <ChevronLeft className="w-6 h-6 text-white" />
+                            className="bg-primary hover:bg-primary/80 text-sm text-white min-w-[140px] text-center backdrop-blur-sm text-nowrap p-2 rounded-md gap-2 transition-colors">
+                            {/* <ChevronLeft className="w-6 h-6 text-white" /> */}
                             Previous Project
                         </button>
 
                         <button onClick={handleNextProject}
-                            className="bg-primary hover:bg-primary/80 text-white backdrop-blur-sm text-nowrap p-2 rounded-md flex items-center gap-2 transition-colors">
+                            className="bg-primary hover:bg-primary/80 text-sm text-white min-w-[140px] text-center backdrop-blur-sm text-nowrap p-2 rounded-md gap-2 transition-colors">
                             Next Project
-                            <ChevronRight className="w-6 h-6 text-white" />
+                            {/* <ChevronRight className="w-6 h-6 text-white" /> */}
                         </button>
                     </div>
 
@@ -105,6 +105,10 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                             <div>
                                 <h3 className="text-white font-semibold mb-2">Description</h3>
                                 <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
+
+                                <button className="bg-primary hover:bg-primary/80 text-white mt-5 backdrop-blur-sm text-nowrap px-4 py-2 text-sm rounded-md gap-2 transition-colors">
+                                    Project Location
+                                </button>
                             </div>
                         </div>
                         <div className="mt-8 pt-6 border-t border-white/10">

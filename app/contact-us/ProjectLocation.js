@@ -55,51 +55,18 @@ const locations = [
     },
 ]
 
-export default function LocationsSection() {
+export default function ProjectLocation() {
     const sectionRef = useRef(null)
     const [selectedLocation, setSelectedLocation] = useState("dubai")
-
-    useEffect(() => {
-        const section = sectionRef.current
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
-        }
-    }, [])
 
     const selectedLocationData = locations.find(
         (loc) => loc.id === selectedLocation
     )
 
     return (
-        <section ref={sectionRef} className="py-20 h-screen bg-white rounded-t-[50px] !z-[70]">
+        <section className="py-20 h-screen bg-white rounded-t-[50px] !z-[70]">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
-                    {/* Left Section - Location Tabs */}
                     <div className="space-y-4">
                         <div className="mb-6">
                             <h2 className="text-4xl md:text-5xl text-foreground mb-2">

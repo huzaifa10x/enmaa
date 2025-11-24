@@ -142,7 +142,7 @@ export default function ContactForm() {
                 <textarea
                     rows="4"
                     name="message"
-                    placeholder="Your Query *"
+                    placeholder="Your Query / Feedback *"
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
