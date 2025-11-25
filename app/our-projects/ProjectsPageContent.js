@@ -8,17 +8,32 @@ import projects from "@/public/images/projects.webp"
 import Image from "next/image"
 import ServicesBanner from "../components/services-banner"
 
-export default function ProjectsPageContent({ PROJECTS, LOCATIONS }) {
+export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
+    console.log(PROJECTS)
     const params = useSearchParams()
     const defaultLocation = (params.get("location") || "DUBAI").toUpperCase()
     const [selectedLocation, setSelectedLocation] = useState(defaultLocation)
+
+    const defaultType = (params.get("type") || "ALL PROJECTS").toUpperCase()
+    const [selectedType, setSelectedType] = useState(defaultType)
 
     useEffect(() => {
         setSelectedLocation(defaultLocation)
     }, [defaultLocation])
 
     const [selectedProject, setSelectedProject] = useState(null)
-    const filteredProjects = PROJECTS.filter((project) => project.locationCity === selectedLocation)
+    // const filteredProjects = PROJECTS?.data.filter((project) => project.location_city === selectedLocation)
+
+    const filteredProjects = PROJECTS?.data.filter((project) => {
+        const matchLocation = project.location_city === selectedLocation;
+
+        const matchType =
+            selectedType === "ALL PROJECTS" ||
+            project.type?.toUpperCase() === selectedType;
+
+        return matchLocation && matchType;
+    });
+
 
     return (
         <>
@@ -41,15 +56,24 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS }) {
                     </div>
                     <div className="flex flex-wrap justify-center gap-3 mb-12">
                         {LOCATIONS.map((location) => (
-                            <button
-                                key={location}
-                                onClick={() => setSelectedLocation(location)}
+                            <button key={location} onClick={() => setSelectedLocation(location)}
                                 className={`px-2 py-2 font-bold border border-transparent transition-all ${selectedLocation === location
                                     ? "!border-primary"
                                     : "text-muted-foreground hover:border-primary"
+                                    }`}>
+                                {location}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="flex lg:justify-center overflow-x-auto gap-3 mb-12">
+                        {TYPES.map((t) => (
+                            <button
+                                key={t.value}
+                                onClick={() => setSelectedType(t.value)}
+                                className={`px-1 py-1 text-sm font-bold border text-nowrap border-transparent transition-all ${selectedType === t.value ? "!border-primary" : "text-muted-foreground hover:border-primary"
                                     }`}
                             >
-                                {location}
+                                {t.label}
                             </button>
                         ))}
                     </div>

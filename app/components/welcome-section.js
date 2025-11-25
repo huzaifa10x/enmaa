@@ -124,12 +124,12 @@ export default function WelcomeSection() {
                         </div>
 
                         {/* Bottom stats */}
-                        <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12 gap-8">
+                        <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12">
                             <div className="text-center">
                                 <div
                                     ref={(el) => (countersRef.current[0] = el)}
                                     data-value="10"
-                                    className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                    className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
                                     style={{
                                         WebkitTextStroke: "2px #565656",
                                         fontFamily: "system-ui",
@@ -145,7 +145,7 @@ export default function WelcomeSection() {
                                 <div
                                     ref={(el) => (countersRef.current[1] = el)}
                                     data-value="17"
-                                    className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                    className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
                                     style={{
                                         WebkitTextStroke: "2px #565656",
                                         fontFamily: "system-ui",
@@ -161,7 +161,7 @@ export default function WelcomeSection() {
                                 <div
                                     ref={(el) => (countersRef.current[2] = el)}
                                     data-value="501"
-                                    className="text-7xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                    className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
                                     style={{
                                         WebkitTextStroke: "2px #565656",
                                         fontFamily: "system-ui",

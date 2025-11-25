@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight, Link, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, Expand, Link, X } from "lucide-react"
 
 export default function ProjectModal({ project, onClose, allProjects, onProjectChange }) {
+    const [zoomImage, setZoomImage] = useState(null)
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     const handlePrevImage = () => {
@@ -30,16 +31,41 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
     }
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[90] flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-4">
             <div className="bg-card rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div className="relative bg-black h-96 md:h-full min-h-96">
-                        <Image
-                            src={project.images[currentImageIndex] || "/placeholder.svg"}
-                            alt={`${project.name} - Image ${currentImageIndex + 1}`}
-                            fill
-                            className="object-cover"
-                        />
+                        <div>
+                            <Image
+                                src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}` || "/placeholder.svg"}
+                                alt={`${project.name} - Image ${currentImageIndex + 1}`}
+                                fill
+                                className="object-cover"
+                            />
+                            <Expand className="w-10 h-10 absolute bottom-3 right-3 rounded-full text-white bg-black/50 hover:bg-white/40 backdrop-blur-sm transition-colors p-2 cursor-pointer"
+                                onClick={() => setZoomImage(`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}`)}
+                            />
+                        </div>
+
+                        {zoomImage && (
+                            <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[200] p-4">
+                                <button
+                                    onClick={() => setZoomImage(null)}
+                                    className="absolute top-6 right-6 text-white bg-white/20 hover:bg-white/40 p-3 rounded-full"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
+
+                                <div className="relative w-full max-w-5xl h-[80vh]">
+                                    <Image
+                                        src={zoomImage}
+                                        alt="Zoomed image"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
+                        )}
                         <button
                             onClick={handlePrevImage}
                             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"

@@ -7,7 +7,7 @@ export default function ProjectCard({ project, onClick }) {
     return (
         <div onClick={onClick} className="group relative overflow-hidden rounded-lg cursor-pointer h-64 md:h-72">
             <Image
-                src={project.images[0] || "/placeholder.svg"}
+                src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[0]?.filename}`}
                 alt={project.name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
