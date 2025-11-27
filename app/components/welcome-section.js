@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import buildingProp from "@/public/images/building-prop.webp"
 import buildingProp2 from "@/public/images/building-prop2.webp"
+import QuoteModal from "./multi-step-form"
 
 gsap.registerPlugin(ScrollTrigger)
 

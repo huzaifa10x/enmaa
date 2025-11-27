@@ -15,7 +15,6 @@ export default function page() {
                     <div className='grid md:grid-cols-2 gap-9'>
                         <div className=''>
                             <div className="space-y-10">
-
                                 {/* Heading */}
                                 <div>
                                     <h2 className="text-4xl font-bold mt-2">Get in Touch With Enmaa</h2>
@@ -58,9 +57,7 @@ export default function page() {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <div><ContactForm /></div>
                     </div>

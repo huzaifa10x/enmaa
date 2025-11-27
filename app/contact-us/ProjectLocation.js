@@ -12,6 +12,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 const locations = [
     {
+        id: "Sharjah",
+        name: "Sharjah",
+        description:
+            "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
+        icon: Globe,
+        features: ["View Projects"],
+        mapEmbed:
+            "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d451.04648455819586!2d55.5113347!3d25.2580728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761123561260!5m2!1sen!2s",
+    },
+    {
         id: "dubai",
         name: "Dubai",
         description:
@@ -34,16 +44,6 @@ const locations = [
             "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.3498833840536!2d54.34930519999999!3d24.473331100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e47811de93e67%3A0x575c1f0c45f534cb!2z2KfZhtmF2KfYoSDZhNmE2KXYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipINmB2LHYuSDYp9io2Ygg2LjYqNmKIC0gRW5tYWEgRW5naW5lZXJpbmcgQ29uc3VsdGFudCBBYnVEaGFiaQ!5e0!3m2!1sen!2s!4v1761123463468!5m2!1sen!2s",
     },
     {
-        id: "Sharjah",
-        name: "Sharjah",
-        description:
-            "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
-        icon: Globe,
-        features: ["View Projects"],
-        mapEmbed:
-            "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d451.04648455819586!2d55.5113347!3d25.2580728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761123561260!5m2!1sen!2s",
-    },
-    {
         id: "Ajman",
         name: "Ajman",
         description:
@@ -57,7 +57,7 @@ const locations = [
 
 export default function ProjectLocation() {
     const sectionRef = useRef(null)
-    const [selectedLocation, setSelectedLocation] = useState("dubai")
+    const [selectedLocation, setSelectedLocation] = useState("Sharjah")
 
     const selectedLocationData = locations.find(
         (loc) => loc.id === selectedLocation

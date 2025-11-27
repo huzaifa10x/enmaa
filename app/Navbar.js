@@ -12,6 +12,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import QuoteModal from "./components/multi-step-form";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -46,7 +47,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden lg:flex items-center space-x-8">
+                <div className="hidden lg:flex items-center space-x-4">
                     {navItems.map((item) => (
                         <div key={item.name} className="relative">
                             {item.items ? (
@@ -85,6 +86,7 @@ export default function Navbar() {
                             )}
                         </div>
                     ))}
+                    <QuoteModal />
                 </div>
 
                 <a href="#bookNow">
@@ -141,6 +143,7 @@ export default function Navbar() {
                             {item.name}
                         </Link>
                     ))}
+
 
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>
                         <Button className="w-full bg-gradient-to-r from-[#01b2eb] to-primary text-white py-3 rounded-full">

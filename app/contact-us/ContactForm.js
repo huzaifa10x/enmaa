@@ -103,7 +103,7 @@ export default function ContactForm() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="w-full">
                     <select
                         name="subject"
@@ -133,7 +133,7 @@ export default function ContactForm() {
                     </select>
                     {errors.getQuote && <p className="text-red-600 text-sm mt-1">{errors.getQuote}</p>}
                 </div>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="w-full">
