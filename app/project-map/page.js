@@ -2,14 +2,15 @@ import projects from "@/public/images/projects.webp"
 import Image from "next/image"
 import Banner from "./Banner"
 import GalleryPage from "./Gallery"
-
 export default function page() {
+
 
     return (
         <>
             <Banner />
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">
+                    
                     {/* Header */}
                     <div className="text-center relative">
                         <Image

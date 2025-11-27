@@ -12,8 +12,6 @@ export default function ServicesSliderMobile({ services }) {
                     {services.map((item) => (
                         <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3">
                             <div className="relative rounded-2xl overflow-hidden shadow-lg group h-screen">
-
-
                                 {/* Background Image */}
                                 <Image
                                     src={item.img}
@@ -24,9 +22,9 @@ export default function ServicesSliderMobile({ services }) {
                                 <div className="absolute inset-0 bg-black/60"></div>
                                 {/* Card Content */}
                                 <div className="absolute inset-0 p-5 flex flex-col justify-end text-white bottom-24">
-                                    
+
                                     <div className="mb-3 font-ps text-3xl relative -top-50">{`0${item.id}`}</div>
-                                    
+
                                     <div className="mb-4">{item.icon}</div>
                                     <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
                                     <div

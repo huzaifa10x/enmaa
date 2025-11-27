@@ -8,18 +8,6 @@ const LOCATIONS = [
     "AJMAN"
 ];
 
-const TYPES = [
-    { label: "All Projects", value: "ALL PROJECTS" },
-    { label: "Buildings", value: "BUILDINGS" }, // remove if no backend match
-    { label: "Commercial", value: "COMMERCIAL" },
-    { label: "Villa", value: "VILLA" },
-    { label: "Andalusl Style", value: "ANDALUSL" }, // remove if no backend match
-    { label: "Classic Style", value: "CLASSIC" },
-    { label: "Islamic Style", value: "ISLAMIC" }, // remove if no backend match
-    { label: "Local Style", value: "LOCAL" }, // remove if no backend match
-    { label: "Modern Style", value: "MODERN" },
-];
-
 // const PROJECTS = [
 //     {
 //         id: "1851",
@@ -291,7 +279,7 @@ export default async function Page() {
     let PROJECTS = await data.json()
     return (
         <Suspense fallback={<div>Loading projects...</div>}>
-            <ProjectsPageContent PROJECTS={PROJECTS} LOCATIONS={LOCATIONS} TYPES={TYPES} />
+            <ProjectsPageContent PROJECTS={PROJECTS} LOCATIONS={LOCATIONS} />
         </Suspense>
     )
 }

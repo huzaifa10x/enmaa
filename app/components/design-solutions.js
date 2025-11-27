@@ -80,7 +80,7 @@ export default function DesignSolutions() {
         <section ref={pinSection} className="bg-neutral-200 relative px-0 h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 !z-[80]">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
-                    <div className="border rounded-full border-black text-black px-4 tracking-widest inline-block">
+                    <div className="border rounded-full border-black uppercase text-black px-4 tracking-widest inline-block">
                         Design Solutions
                     </div>
 

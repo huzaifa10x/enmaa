@@ -23,6 +23,8 @@ export default function ContactForm() {
         if (!formData.name.trim()) newErrors.name = 'Name is required';
         if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Valid email is required';
         if (!formData.service) newErrors.service = 'Service is required';
+        if (!formData.subject) newErrors.subject = 'subject is required';
+        if (!formData.getQuote) newErrors.getQuote = 'Quote is required';
         if (!formData.phone || formData.phone.length < 10) newErrors.phone = 'Valid phone number is required';
         if (!formData.message.trim()) newErrors.message = 'Message is required';
         return newErrors;
@@ -98,6 +100,38 @@ export default function ContactForm() {
                         className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="w-full">
+                    <select
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                        <option value="">Choose Subject</option>
+                        <option>Inquire Now</option>
+                        <option>Share Feedback</option>
+                        <option>Get Quote</option>
+                    </select>
+                    {errors.subject && <p className="text-red-600 text-sm mt-1">{errors.subject}</p>}
+                </div>
+
+                <div className="w-full">
+                    <select
+                        name="getQuote"
+                        value={formData.getQuote}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                        <option value="">Get Quote</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                    {errors.getQuote && <p className="text-red-600 text-sm mt-1">{errors.getQuote}</p>}
                 </div>
             </div>
 

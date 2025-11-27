@@ -55,7 +55,7 @@ export default function Footer() {
     }
 
     return (
-        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] min-h-screen !z-[100] text-white relative">
+        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] min-h-screen flex flex-col items-center justify-center !z-[100] text-white relative">
             <Image
                 src={bg}
                 height={300}
@@ -243,7 +243,7 @@ export default function Footer() {
                 <div className="max-w-7xl mx-auto px-6 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-gray-400 text-sm">
-                            © Copyright 2019 - Enmaa Civil Engineering Consultants In Sharjah. Design by 10X Digital
+                            © Copyright 2025 - Enmaa Civil Engineering Consultants In Sharjah. Design by 10X Digital
                         </p>
                         <div className="flex space-x-6">
                             <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">

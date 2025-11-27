@@ -18,7 +18,7 @@ export default function page() {
 
                                 {/* Heading */}
                                 <div>
-                                    <h2 className="text-4xl font-bold mt-2">Contact us</h2>
+                                    <h2 className="text-4xl font-bold mt-2">Get in Touch With Enmaa</h2>
                                 </div>
 
                                 {/* Call Us */}
@@ -27,7 +27,7 @@ export default function page() {
                                         <PhoneIncoming className='text-white' />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-semibold">Call Us</h3>
+                                        <h3 className="text-2xl font-semibold">Landline</h3>
                                         <p className="text-gray-600"><a className='hover:text-primary duration-300' href="tel:+971 6 52 38 228">+971 6 52 38 228</a></p>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@ export default function page() {
                                         <Mail className='text-white' />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-semibold">Our Email Us</h3>
+                                        <h3 className="text-2xl font-semibold">Email Us</h3>
                                         <p className="text-gray-600"><a className='hover:text-primary duration-300' href="mailto:info@enmaaengcon.com">info@enmaaengcon.com</a></p>
                                         <p className="text-gray-600"><a className='hover:text-primary duration-300' href="mailto:marketing@enmaaengcon.com">marketing@enmaaengcon.com</a></p>
                                     </div>
@@ -52,9 +52,9 @@ export default function page() {
                                     <div>
                                         <h3 className="text-2xl font-semibold">Follow Us On</h3>
                                         <div className="flex items-center gap-4 mt-1 text-2xl">
-                                            <Facebook  className='hover:text-primary duration-300'/>
-                                            <Instagram  className='hover:text-primary duration-300'/>
-                                            <Twitter  className='hover:text-primary duration-300'/>
+                                            <Facebook className='hover:text-primary duration-300' />
+                                            <Instagram className='hover:text-primary duration-300' />
+                                            <Twitter className='hover:text-primary duration-300' />
                                         </div>
                                     </div>
                                 </div>

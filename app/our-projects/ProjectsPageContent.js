@@ -14,26 +14,24 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
     const defaultLocation = (params.get("location") || "DUBAI").toUpperCase()
     const [selectedLocation, setSelectedLocation] = useState(defaultLocation)
 
-    const defaultType = (params.get("type") || "ALL PROJECTS").toUpperCase()
-    const [selectedType, setSelectedType] = useState(defaultType)
+    // const defaultType = (params.get("type") || "ALL PROJECTS").toUpperCase()
+    // const [selectedType, setSelectedType] = useState(defaultType)
 
     useEffect(() => {
         setSelectedLocation(defaultLocation)
     }, [defaultLocation])
 
     const [selectedProject, setSelectedProject] = useState(null)
-    // const filteredProjects = PROJECTS?.data.filter((project) => project.location_city === selectedLocation)
+    const filteredProjects = PROJECTS?.data.filter((project) => project.location_city === selectedLocation)
 
-    const filteredProjects = PROJECTS?.data.filter((project) => {
-        const matchLocation = project.location_city === selectedLocation;
+    // const filteredProjects = PROJECTS?.data.filter((project) => {
+    //     const matchLocation = project.location_city === selectedLocation;
 
-        const matchType =
-            selectedType === "ALL PROJECTS" ||
-            project.type?.toUpperCase() === selectedType;
-
-        return matchLocation && matchType;
-    });
-
+    //     const matchType =
+    //         selectedType === "ALL PROJECTS" ||
+    //         project.type?.toUpperCase() === selectedType;
+    //     return matchLocation && matchType;
+    // });
 
     return (
         <>
@@ -65,18 +63,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
                             </button>
                         ))}
                     </div>
-                    <div className="flex lg:justify-center overflow-x-auto gap-3 mb-12">
-                        {TYPES.map((t) => (
-                            <button
-                                key={t.value}
-                                onClick={() => setSelectedType(t.value)}
-                                className={`px-1 py-1 text-sm font-bold border text-nowrap border-transparent transition-all ${selectedType === t.value ? "!border-primary" : "text-muted-foreground hover:border-primary"
-                                    }`}
-                            >
-                                {t.label}
-                            </button>
-                        ))}
-                    </div>
+
                     <ProjectGrid projects={filteredProjects} onProjectClick={setSelectedProject} />
                 </div>
                 {selectedProject && (
