@@ -11,7 +11,7 @@ import ServicesBanner from "../components/services-banner"
 export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
     console.log(PROJECTS)
     const params = useSearchParams()
-    const defaultLocation = (params.get("location") || "DUBAI").toUpperCase()
+    const defaultLocation = (params.get("location") || "Dubai")
     const [selectedLocation, setSelectedLocation] = useState(defaultLocation)
 
     // const defaultType = (params.get("type") || "ALL PROJECTS").toUpperCase()
@@ -55,7 +55,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
                     <div className="flex flex-wrap justify-center gap-3 mb-12">
                         {LOCATIONS.map((location) => (
                             <button key={location} onClick={() => setSelectedLocation(location)}
-                                className={`px-2 py-2 font-bold border border-transparent transition-all ${selectedLocation === location
+                                className={`px-2 py-2 font-bold border border-transparent uppercase transition-all ${selectedLocation === location
                                     ? "!border-primary"
                                     : "text-muted-foreground hover:border-primary"
                                     }`}>
@@ -63,6 +63,8 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
                             </button>
                         ))}
                     </div>
+
+                    {/* {console.log(filteredProjects)} */}
 
                     <ProjectGrid projects={filteredProjects} onProjectClick={setSelectedProject} />
                 </div>
