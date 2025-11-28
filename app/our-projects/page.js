@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import ProjectsPageContent from "./ProjectsPageContent"
 
 const LOCATIONS = [
-    "Abudhabi",
+    "Abu Dhabi",
     "Dubai",
     "Sharjah",
     "Ajman"

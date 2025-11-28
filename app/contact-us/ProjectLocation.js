@@ -16,7 +16,7 @@ const locations = [
         name: "Sharjah",
         description:
             "ASAS Building - Office 6&7 - Maleha St - Warehouses Land - Sharjah - United Arab Emirates",
-        icon: Globe,
+        icon: MapPin,
         features: ["View Projects"],
         mapEmbed:
             "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d451.04648455819586!2d55.5113347!3d25.2580728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761123561260!5m2!1sen!2s",
@@ -26,7 +26,7 @@ const locations = [
         name: "Dubai",
         description:
             "Donna Towers - Office 905,906 - 64 street - Dubai Silicon Oasis - Dubai - United Arab Emirates",
-        icon: Building2,
+        icon: MapPin,
         features: ["View Projects"],
         link: '/our-projects',
         mapEmbed:
@@ -48,7 +48,7 @@ const locations = [
         name: "Ajman",
         description:
             "Sara Plaza 2, Al Jurf 2 area - Sheikh Khalifa Bin Zayed St - Ajman - United Arab Emirates",
-        icon: Briefcase,
+        icon: MapPin,
         features: ["View Projects"],
         mapEmbed:
             "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14416.93303373329!2d55.4514874!3d25.3970015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59f88693e40d%3A0xf5b9d0d97263c316!2z2KfZhtmF2KfYoSDZhNmE2KXYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipINmB2LHYuSDYudis2YXYp9mGIC1Fbm1hYSBFbmdpbmVlcmluZyBDb25zdWx0YW50IEFqbWFu!5e0!3m2!1sen!2s!4v1761123506135!5m2!1sen!2s",

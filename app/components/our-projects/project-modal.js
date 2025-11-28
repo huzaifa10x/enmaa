@@ -32,19 +32,19 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
 
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-4">
-            <div className="bg-card rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                     <div className="relative bg-black h-96 md:h-full min-h-96">
-                        <div>
+                        <div className="group">
                             <Image
                                 src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}` || "/placeholder.svg"}
                                 alt={`${project.name} - Image ${currentImageIndex + 1}`}
                                 fill
                                 className="object-cover"
                             />
-                            <Expand className="w-10 h-10 absolute bottom-3 right-3 rounded-full text-white bg-black/50 hover:bg-white/40 backdrop-blur-sm transition-colors p-2 cursor-pointer"
+                            <Expand className="w-12 h-12 absolute duration-200 opacity-0 invisible group-hover:visible group-hover:opacity-100 top-1/2 left-1/2 -translate-1/2 rounded-xl text-white bg-black/50 hover:bg-white/40 backdrop-blur-sm transition-colors p-2 cursor-pointer"
                                 onClick={() => setZoomImage(`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}`)}
-                            />
+                                strokeWidth={1.25} />
                         </div>
 
                         {zoomImage && (
@@ -66,18 +66,27 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                                 </div>
                             </div>
                         )}
-                        <button
-                            onClick={handlePrevImage}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
-                        >
-                            <ChevronLeft className="w-6 h-6 text-white" />
-                        </button>
-                        <button
-                            onClick={handleNextImage}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
-                        >
-                            <ChevronRight className="w-6 h-6 text-white" />
-                        </button>
+
+                        {project.images.length > 1 ?
+                            <button
+                                onClick={handlePrevImage}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
+                            >
+                                <ChevronLeft className="w-6 h-6 text-white" />
+                            </button> :
+                            <></>
+                        }
+
+                        {project.images.length > 1 ?
+                            <button
+                                onClick={handleNextImage}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors z-10"
+                            >
+                                <ChevronRight className="w-6 h-6 text-white" />
+                            </button> :
+                            <></>
+                        }
+
                         <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm">
                             {currentImageIndex + 1} / {project.images.length}
                         </div>
