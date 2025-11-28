@@ -143,8 +143,6 @@ export default function Navbar() {
                             {item.name}
                         </Link>
                     ))}
-
-
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>
                         <Button className="w-full bg-gradient-to-r from-[#01b2eb] to-primary text-white py-3 rounded-full">
                             BOOK NOW

@@ -31,10 +31,10 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
     }
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-2">
             <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div className="relative bg-black h-96 md:h-full min-h-96">
+                    <div className="relative bg-black md:h-96 md:min-h-96 min-h-52">
                         <div className="group">
                             <Image
                                 src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}` || "/placeholder.svg"}
@@ -42,7 +42,7 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                                 fill
                                 className="object-cover"
                             />
-                            <Expand className="w-12 h-12 absolute duration-200 opacity-0 invisible group-hover:visible group-hover:opacity-100 top-1/2 left-1/2 -translate-1/2 rounded-xl text-white bg-black/50 hover:bg-white/40 backdrop-blur-sm transition-colors p-2 cursor-pointer"
+                            <Expand className="lg:w-12 lg:h-12 w-9 h-9 absolute duration-200 lg:opacity-0 lg:invisible group-hover:visible group-hover:opacity-100 lg:top-1/2 lg:left-1/2 lg:-translate-1/2 right-3 bottom-3 rounded-xl text-white bg-black/50 hover:bg-white/40 backdrop-blur-sm transition-colors p-2 cursor-pointer"
                                 onClick={() => setZoomImage(`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}`)}
                                 strokeWidth={1.25} />
                         </div>
@@ -106,7 +106,7 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         </button>
                     </div>
 
-                    <div className="bg-slate-900 text-white p-6 md:p-8 flex flex-col justify-between">
+                    <div className="bg-slate-900 text-white p-4 md:p-8 flex flex-col justify-between">
                         <button
                             onClick={onClose}
                             className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-colors"
@@ -115,10 +115,10 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         </button>
                         <div>
                             <p className="text-blue-400 text-sm font-medium mb-2">{project.location}</p>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">{project.name}</h2>
-                            <div className="mb-8">
+                            <h2 className="text-3xl md:text-4xl font-bold md:mb-6 mb-2">{project.name}</h2>
+                            <div className="md:mb-8 mb-4">
                                 <h3 className="text-white font-semibold mb-4">Project information</h3>
-                                <div className="grid grid-cols-2 gap-6">
+                                <div className="grid grid-cols-2 md:gap-6 gap-4">
                                     <div>
                                         <p className="text-white/60 text-sm mb-1">Project Type:</p>
                                         <p className="text-white font-semibold">{project.type}</p>
@@ -148,7 +148,7 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                                 </a>
                             </div>
                         </div>
-                        <div className="mt-8 pt-6 border-t border-white/10">
+                        <div className="md:pt-6 pt-4 border-t border-white/10">
                             <p className="text-white/60 text-xs">ENMAA</p>
                             <p className="text-white/40 text-xs">Engineering Consultants</p>
                         </div>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import QuoteModal from '../components/multi-step-form';
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -196,6 +197,13 @@ export default function ContactForm() {
                 className="bg-primary hover:opacity-80 text-white px-6 py-3 rounded-md transition w-full"
             >
                 {submitting ? 'Submitting...' : 'Send Message'}
+            </button>
+
+            <div className='text-center text-2xl font-semibold capitalize'>Or click below</div>
+
+            <button type="submit"
+                className="bg-primary hover:opacity-80 text-white px-6 py-1 rounded-md transition w-full">
+                <QuoteModal />
             </button>
         </form>
     );
