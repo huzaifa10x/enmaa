@@ -3,10 +3,17 @@ import image1 from "@/public/images/projects/448...1.jpg"
 import image2 from "@/public/images/projects/1438-07.jpg"
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
-
+import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
+import image3 from "@/public/images/projects/1438-17.jpg"
+import image4 from "@/public/images/projects/1438-19.jpg"
+import image5 from "@/public/images/projects/1841-01.jpg"
+import image7 from "@/public/images/projects/1841-02.jpg"
+import image8 from "@/public/images/projects/1855-01.jpg"
+import image12 from "@/public/images/projects/1902.jpg"
 
 export default function EngineeringService() {
-
+    const images = [image1, image2, image3, image4, image5, image12, image7, image8]
     return (
         <main className="">
             <ServicesBanner />
@@ -17,26 +24,7 @@ export default function EngineeringService() {
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="h-64 md:h-80 rounded-xl overflow-hidden">
-                        <Image
-                            src={image1}
-                            height={200}
-                            width={200}
-                            alt=''
-                            className='w-full h-full'
-                        />
-                    </div>
-                    <div className="h-64 md:h-80 rounded-xl overflow-hidden">
-                        <Image
-                            src={image1}
-                            height={200}
-                            width={200}
-                            alt=''
-                            className='w-full h-full'
-                        />
-                    </div>
-                </div>
+                <ServicesPageSlider images={images} />
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">

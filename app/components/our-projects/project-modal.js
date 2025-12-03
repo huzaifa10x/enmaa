@@ -140,9 +140,8 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                             <div>
                                 <h3 className="text-white font-semibold mb-2">Description</h3>
                                 <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
-
-                                <a href={'https://maps.app.goo.gl/CUC8CKAVf4BbfAYK8'} target="_black">
-                                    <button className="bg-primary hover:bg-primary/80 text-white mt-5 backdrop-blur-sm text-nowrap px-4 py-2 text-sm rounded-md gap-2 transition-colors">
+                                <a href={project.project_location} target="_black">
+                                    <button className="bg-primary cursor-pointer hover:bg-primary/80 text-white mt-5 backdrop-blur-sm text-nowrap px-4 py-2 text-sm rounded-md gap-2 transition-colors">
                                         Project Location
                                     </button>
                                 </a>

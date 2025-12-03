@@ -13,6 +13,7 @@ import { gsap } from "gsap"
 import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants"
+import PillTitle from "./pill-title"
 
 const testimonials = [
     {
@@ -99,7 +100,7 @@ function TestimonialSlider() {
                 className="w-full h-full absolute left-0"
             />
             <div className="relative z-10 flex max-w-7xl mx-auto w-full flex-wrap justify-between px-4 items-start lg:gap-0 gap-4 mt-15">
-                <div className="border rounded-full border-black px-4 tracking-widest inline-block uppercase">Testimonials</div>
+                <PillTitle title={'Testimonials'} />
 
                 <div className="mb-">
                     <h2 className="text-3xl md:text-5xl mb-4 text-balance">What

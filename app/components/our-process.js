@@ -8,6 +8,7 @@ import image5 from "@/public/images/image2324.webp"
 import image4 from "@/public/images/Enmaa.webp"
 import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import PillTitle from "./pill-title"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -128,7 +129,7 @@ export default function OurProcess() {
             <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
-                    <div className="border rounded-full border-black px-4 tracking-widest inline-block">OUR PROCESS</div>
+                    <PillTitle title={'OUR PROCESS'}/>
 
                     {/* Heading */}
                     <h2 className="text-balance text-3xl leading-tight text-foreground md:text-4xl lg:text-5xl">

@@ -7,6 +7,7 @@ import Image from "next/image"
 import buildingProp from "@/public/images/building-prop.webp"
 import buildingProp2 from "@/public/images/building-prop2.webp"
 import QuoteModal from "./multi-step-form"
+import PillTitle from "./pill-title"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -102,7 +103,7 @@ export default function WelcomeSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
                     {/* Left side - Heading */}
                     <div className="">
-                        <div className="border rounded-full border-black px-4 tracking-widest text-sm inline-block mb-3">ABOUT US</div>
+                        <PillTitle title={'about us'}/>
                         <h1 className="text-3xl lg:text-5xl xl:text-5xl leading-tight font-sans">
                             Welcome To <br className="lg:block hidden" /> <span className="text-primary font-bold">Enmaa Engineering</span> <br className="lg:block hidden" /> Consultants
                         </h1>

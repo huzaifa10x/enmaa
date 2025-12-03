@@ -19,6 +19,7 @@ import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
+import PillTitle from "./pill-title"
 
 const imagesTop = [image1, image2, image3, image4, image5, image12, image7, image8]
 const imagesBottom = [image3, image6, image2, image9, image10, image13, image12, image11]
@@ -59,8 +60,6 @@ function Row({ items = [], reverse = false, duration = "35s" }) {
 
 export default function ProjectsScroller() {
     gsap.registerPlugin(ScrollTrigger)
-
-
     const sectionRef = useRef(null)
     useEffect(() => {
         const section = sectionRef.current
@@ -98,7 +97,9 @@ export default function ProjectsScroller() {
         <section ref={sectionRef} className="bg-white relative !z-[99] h-screen flex flex-col justify-center py-10 rounded-t-[50px]">
             <div aria-label="Project gallery" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4">
                 <header className="flex items-end justify-between">
-                    <h2 className="text-pretty text-2xl font-semibold tracking-tight">Selected Projects</h2>
+                    {/* <h2 className="text-pretty text-2xl font-semibold tracking-tight">Selected Projects</h2> */}
+
+                    <PillTitle title={'Selected Projects'} />
                     <p className="text-muted-foreground text-sm">Continuous showcase</p>
                 </header>
 

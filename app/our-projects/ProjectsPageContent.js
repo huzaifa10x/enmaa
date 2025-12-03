@@ -9,13 +9,9 @@ import Image from "next/image"
 import ServicesBanner from "../components/services-banner"
 
 export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
-    console.log(PROJECTS)
     const params = useSearchParams()
     const defaultLocation = (params.get("location") || "Dubai")
     const [selectedLocation, setSelectedLocation] = useState(defaultLocation)
-
-    // const defaultType = (params.get("type") || "ALL PROJECTS").toUpperCase()
-    // const [selectedType, setSelectedType] = useState(defaultType)
 
     useEffect(() => {
         setSelectedLocation(defaultLocation)
@@ -63,9 +59,6 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
                             </button>
                         ))}
                     </div>
-
-                    {/* {console.log(filteredProjects)} */}
-
                     <ProjectGrid projects={filteredProjects} onProjectClick={setSelectedProject} />
                 </div>
                 {selectedProject && (

@@ -559,7 +559,7 @@ export default function QuoteModal() {
     return (
         <>
             <Dialog open={open} onOpenChange={setOpen}>
-                <DialogTrigger asChild>
+                <DialogTrigger className='lg:justify-center justify-start' asChild>
                     <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none text-white pl-0 pr-4">
                         Request a Quote Now
                     </Button>
