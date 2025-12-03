@@ -1,5 +1,4 @@
 import Testimonial from '../components/Testimonial'
-import image1 from "@/public/images/projects/448...1.jpg"
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
 import image1 from "@/public/images/projects/448...1.jpg"
