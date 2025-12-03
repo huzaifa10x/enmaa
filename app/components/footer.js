@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowRight, Calendar, Clock, MapPin, Phone, User } from "lucide-react"
 import { useState } from "react"
 import bg from "@/public/images/image532.webp"
+import footerLogo from "@/public/images/Enmaa-footer.webp"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -209,7 +210,7 @@ export default function Footer() {
                     </div>
                 </div>
                 {/* Contact Info and Email Signup */}
-                <div className="grid md:grid-cols-2 gap-12 items-start border-t border-gray-700 pt-12">
+                <div className="grid md:grid-cols-2 gap-12 items-center border-t border-gray-700 pt-12">
                     {/* Contact Information */}
                     <div className="space-y-4">
                         <div className="text-gray-300">
@@ -224,7 +225,7 @@ export default function Footer() {
                     </div>
                     {/* Email Signup */}
                     <div className="space-y-4">
-                        <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
+                        {/* <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
                         <div className="flex border-transparent border border-b-gray-400">
                             <Input
                                 type="email"
@@ -234,7 +235,15 @@ export default function Footer() {
                             <Button size="icon" className="bg-transparent text-white">
                                 <ArrowRight className="h-4 w-4" />
                             </Button>
-                        </div>
+                        </div> */}
+
+                        <Image
+                            src={footerLogo}
+                            height={200}
+                            width={200}
+                            alt="image"
+                            className="h-full w-full"
+                        />
                     </div>
                 </div>
             </div>

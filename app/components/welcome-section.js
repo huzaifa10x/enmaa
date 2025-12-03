@@ -89,7 +89,7 @@ export default function WelcomeSection() {
                 width={800}
                 height={200}
                 alt=""
-                className="absolute right-0 bottom-0"
+                className="absolute right-0 bottom-0 w-auto h-auto"
             />
 
             <Image
@@ -97,7 +97,7 @@ export default function WelcomeSection() {
                 width={500}
                 height={200}
                 alt=""
-                className="absolute left-0 top-0"
+                className="absolute left-0 top-0 w-auto h-auto"
             />
             <div className="max-w-7xl relative z-10 mx-auto px-6 md:py-20 h-full flex items-center">
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full">

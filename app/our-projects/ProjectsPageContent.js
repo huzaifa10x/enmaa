@@ -48,7 +48,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
                             </h1>
                         </div>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-3 mb-12">
+                    <div className="flex flex-wrap justify-center md:gap-3 mb-12">
                         {LOCATIONS.map((location) => (
                             <button key={location} onClick={() => setSelectedLocation(location)}
                                 className={`px-2 py-2 font-bold border border-transparent uppercase transition-all ${selectedLocation === location

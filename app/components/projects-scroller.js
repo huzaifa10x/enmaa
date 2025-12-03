@@ -96,12 +96,10 @@ export default function ProjectsScroller() {
     return (
         <section ref={sectionRef} className="bg-white relative !z-[99] h-screen flex flex-col justify-center py-10 rounded-t-[50px]">
             <div aria-label="Project gallery" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4">
-                <header className="flex items-end justify-between">
-                    {/* <h2 className="text-pretty text-2xl font-semibold tracking-tight">Selected Projects</h2> */}
-
+                {/* <header className="flex items-end justify-between">
                     <PillTitle title={'Selected Projects'} />
                     <p className="text-muted-foreground text-sm">Continuous showcase</p>
-                </header>
+                </header> */}
 
                 <div className="flex flex-col gap-8">
                     <Row items={imagesTop} reverse={false} duration="40s" />

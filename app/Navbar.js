@@ -41,7 +41,7 @@ export default function Navbar() {
                 <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 relative">
                         <Link href={"/"}>
-                            <Image src={Logo} height={100} width={100} alt="Logo" />
+                            <Image src={Logo} height={100} width={100} className="w-auto h-auto" alt="Logo" />
                         </Link>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex justify-between items-center mb-8">
-                    <Image src={Logo} width={50} height={50} alt="Logo" />
+                    <Image src={Logo} width={50} height={50} className="w-auto h-auto" alt="Logo" />
                     <Button variant="ghost" onClick={() => setOpenSidebar(false)} className="text-white">
                         ✕
                     </Button>

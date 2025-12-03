@@ -34,7 +34,7 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-2">
             <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div className="relative bg-black md:h-96 md:min-h-96 min-h-52">
+                    <div className="relative bg-black  md:min-h-96 min-h-52">
                         <div className="group">
                             <Image
                                 src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}` || "/placeholder.svg"}
