@@ -9,6 +9,7 @@ import image5 from "@/public/images/projects/1841-01.jpg"
 import image7 from "@/public/images/projects/1841-02.jpg"
 import image8 from "@/public/images/projects/1855-01.jpg"
 import image12 from "@/public/images/projects/1902.jpg"
+import ServicesPageSlider from '../components/services-page-slider'
 
 export default function EngineeringService() {
 const images = [image1, image2, image3, image4, image5, image12, image7, image8]
