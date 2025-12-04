@@ -2,7 +2,6 @@ import ServicesBanner from '@/app/components/services-banner'
 import Testimonial from '@/app/components/Testimonial'
 import Image from 'next/image'
 import React from 'react'
-import image1 from '@/public/images/projects/1841-02.jpg'
 import ServiceSection from '@/app/our-services/service-section'
 
 

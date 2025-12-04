@@ -137,7 +137,7 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setOpenSidebar(false)}
-                            className={`text-white text-lg tracking-wide ${isActive(item.href) ? "text-[#01b2eb]" : ""
+                            className={`text-white tracking-wide ${isActive(item.href) ? "text-[#01b2eb]" : ""
                                 }`}
                         >
                             {item.name}

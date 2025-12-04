@@ -8,6 +8,7 @@ import bg from "@/public/images/image532.webp"
 import footerLogo from "@/public/images/Enmaa-footer.webp"
 import Image from "next/image"
 import Link from "next/link"
+import QuoteModal from "./multi-step-form"
 
 
 
@@ -68,19 +69,24 @@ export default function Footer() {
             {/* Navigation */}
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
-                    <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center">
+                    <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center items-center">
                         <Link href={'/'} className="text-white hover:text-gray-300 transition-colors">
                             Home
                         </Link>
                         <Link href={'project-map'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Project inspiration
+                            Project inspirations
                         </Link>
                         <Link href={'/our-projects'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Projects
+                            Our Projects
                         </Link>
                         <Link href={'/our-services'} className="text-gray-400 hover:text-gray-300 transition-colors">
                             Our Services
                         </Link>
+                        <Link href={'/contact-us'} className="text-gray-400 hover:text-gray-300 transition-colors">
+                            Contact Us
+                        </Link>
+                        {/* <QuoteModal /> */}
+
                     </nav>
                 </div>
             </div>
@@ -144,7 +150,7 @@ export default function Footer() {
                                                 type="date"
                                                 value={formData.date}
                                                 onChange={(e) => handleInputChange("date", e.target.value)}
-                                                className="h-12 pl-11 bg-white/10 border-white/20 text-white focus:bg-white/20 focus:border-white/40 transition-all [&::-webkit-calendar-picker-indicator]:invert"
+                                                className="h-12 pl-11 bg-white/10 border-white/20 max-w-lg text-white focus:bg-white/20 focus:border-white/40 transition-all [&::-webkit-calendar-picker-indicator]:invert"
                                                 min={new Date().toISOString().split("T")[0]}
                                                 required
                                             />
@@ -224,7 +230,7 @@ export default function Footer() {
                         </div>
                     </div>
                     {/* Email Signup */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 flex justify-center">
                         {/* <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
                         <div className="flex border-transparent border border-b-gray-400">
                             <Input
@@ -239,10 +245,10 @@ export default function Footer() {
 
                         <Image
                             src={footerLogo}
-                            height={200}
-                            width={200}
+                            height={400}
+                            width={400}
                             alt="image"
-                            className="h-full w-full"
+                            className="h-auto w-auto"
                         />
                     </div>
                 </div>

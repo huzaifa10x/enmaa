@@ -560,12 +560,12 @@ export default function QuoteModal() {
         <>
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger className='lg:justify-center justify-start' asChild>
-                    <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none text-white pl-0 pr-4">
+                    <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4">
                         Request a Quote Now
                     </Button>
                 </DialogTrigger>
 
-                <DialogContent className="sm:max-w-[600px] h-[90vh] flex flex-col p-0 gap-0">
+                <DialogContent className="sm:max-w-[600px] overflow-y-auto flex flex-col p-0 gap-0">
                     <DialogHeader className="p-6 pb-2">
                         <DialogTitle>Get a Quote</DialogTitle>
                         <DialogDescription>

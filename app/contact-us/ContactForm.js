@@ -199,10 +199,10 @@ export default function ContactForm() {
                 {submitting ? 'Submitting...' : 'Send Message'}
             </button>
 
-            <div className='text-center text-2xl font-semibold capitalize'>Or click below</div>
+            <div className='text-center text-primary font-semibold capitalize'>or click below</div>
 
             <button type="submit"
-                className="bg-primary hover:opacity-80 text-white px-6 py-1 rounded-md transition w-full">
+                className="bg-black hover:opacity-80 text-white px-6 py-1 rounded-md transition w-full">
                 <QuoteModal />
             </button>
         </form>
