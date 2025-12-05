@@ -45,7 +45,7 @@ const steps = [
     { id: 3, title: "Services" },
     { id: 4, title: "Requirements" },
     { id: 5, title: "Notes" },
-    { id: 6, title: "Uploads" },
+    // { id: 6, title: "Uploads" },
 ];
 
 const projectTypes = [
@@ -105,29 +105,23 @@ const formSchema = z.object({
     filesRefImages: z.any().optional(),
     filesOther: z.any().optional(),
 
-
-
-    // ...your other fields
-
     plotSize: z.string().optional(),
     builtUpArea: z.string().optional(),
 
     // ...rest of schema
 })
     .refine((data) => {
-        // Dono values agar present hain tabhi check kare
         if (!data.plotSize || !data.builtUpArea) return true;
 
         const plot = Number(data.plotSize);
         const built = Number(data.builtUpArea);
 
-        // NaN fail case avoid
         if (isNaN(plot) || isNaN(built)) return true;
 
         return built < plot;
     }, {
-        message: "Built-up area must be LESS than plot size.",
-        path: ["builtUpArea"], // error builtUpArea field par show hoga
+        message: "Value should be less than Plot Size",
+        path: ["builtUpArea"],
     });
 
 // type FormValues = z.infer<typeof formSchema>;
@@ -348,6 +342,8 @@ export default function QuoteModal() {
                 <FormDescription className="text-xs">
                     Please attach plot map in Step 6.
                 </FormDescription>
+
+
             </div>
 
             <FormField
