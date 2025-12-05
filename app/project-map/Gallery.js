@@ -40,18 +40,17 @@ export default function GalleryPage() {
     const [selectedCategory, setSelectedCategory] = useState("ALL");
 
     // FILTER OPTIONS (MAIN)
-    const TYPES = [
-        { label: "All Projects", value: "ALL PROJECTS" },
-        { label: "Buildings", value: "BUILDINGS" },
-        { label: "Commercial", value: "COMMERCIAL" },
-        { label: "Villa", value: "VILLA" },
-
-        // { label: "Andalusl Style", value: "ANDALUSL" },
-        // { label: "Classic Style", value: "CLASSIC" },
-        // { label: "Islamic Style", value: "ISLAMIC" },
-        // { label: "Local Style", value: "LOCAL" },
-        // { label: "Modern Style", value: "MODERN" },
-    ];
+    // const TYPES = [
+    //     { label: "All Projects", value: "ALL PROJECTS" },
+    //     { label: "Buildings", value: "BUILDINGS" },
+    //     { label: "Commercial", value: "COMMERCIAL" },
+    //     { label: "Villa", value: "VILLA" },
+    //     { label: "Andalusl Style", value: "ANDALUSL" },
+    //     { label: "Classic Style", value: "CLASSIC" },
+    //     { label: "Islamic Style", value: "ISLAMIC" },
+    //     { label: "Local Style", value: "LOCAL" },
+    //     { label: "Modern Style", value: "MODERN" },
+    // ];
 
     // SUB FILTER OPTIONS
     const BUILDING_CATEGORIES = [
@@ -91,11 +90,11 @@ export default function GalleryPage() {
             : filteredData;
 
     return (
-        <div className="p-8">
+        <div className="py-8">
             <div className="max-w-7xl mx-auto px-4 text-center">
 
                 {/* MAIN FILTERS */}
-                <div className="flex lg:justify-center overflow-x-auto gap-3 mb-6">
+                {/* <div className="flex lg:justify-center overflow-x-auto gap-3 mb-6">
                     {TYPES.map((t) => (
                         <button
                             key={t.value}
@@ -111,10 +110,10 @@ export default function GalleryPage() {
                             {t.label}
                         </button>
                     ))}
-                </div>
+                </div> */}
 
                 {/* SUB FILTERS DYNAMICALLY */}
-                {selectedType === "BUILDINGS" && (
+                {/* {selectedType === "BUILDINGS" && (
                     <div className="flex lg:justify-center overflow-x-auto gap-3 mb-8">
                         {BUILDING_CATEGORIES.map((c) => (
                             <button
@@ -162,7 +161,7 @@ export default function GalleryPage() {
                             </button>
                         ))}
                     </div>
-                )}
+                )} */}
 
                 {/* GALLERY GRID */}
                 {finalData.length === 0 ? (

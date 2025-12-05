@@ -10,8 +10,6 @@ import Image from "next/image"
 import Link from "next/link"
 import QuoteModal from "./multi-step-form"
 
-
-
 export default function Footer() {
     const branches = [
         { id: "dubai", name: "Dubai office" },
@@ -103,7 +101,7 @@ export default function Footer() {
                     <div className="max-w-7xl mx-auto">
                         <div className="bg-gradient-to-r border rounded-2xl p-6 shadow-2xl">
                             <form onSubmit={handleSubmit}>
-                                <div className="flex flex-wrap items-end gap-4">
+                                <div className="md:flex flex-wrap md:space-y-0 space-y-4 items-end gap-4">
                                     {/* Name Field */}
                                     <div className="flex-1 min-w-[200px]">
                                         <div className="relative">
@@ -150,10 +148,12 @@ export default function Footer() {
                                                 type="date"
                                                 value={formData.date}
                                                 onChange={(e) => handleInputChange("date", e.target.value)}
-                                                className="h-12 pl-11 bg-white/10 border-white/20 max-w-lg text-white focus:bg-white/20 focus:border-white/40 transition-all [&::-webkit-calendar-picker-indicator]:invert"
+                                                className="h-12 pl-11 bg-white/10 border-white/20 text-white focus:bg-white/20 focus:border-white/40 transition-all
+                                                appearance-none w-full [&::-webkit-calendar-picker-indicator]:invert"
                                                 min={new Date().toISOString().split("T")[0]}
                                                 required
                                             />
+
                                             <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">DATE</div>
                                         </div>
                                     </div>
@@ -230,7 +230,7 @@ export default function Footer() {
                         </div>
                     </div>
                     {/* Email Signup */}
-                    <div className="space-y-4 flex justify-center">
+                    <div className="space-y-4 flex md:justify-end justify-center">
                         {/* <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
                         <div className="flex border-transparent border border-b-gray-400">
                             <Input
@@ -245,8 +245,8 @@ export default function Footer() {
 
                         <Image
                             src={footerLogo}
-                            height={400}
-                            width={400}
+                            height={320}
+                            width={320}
                             alt="image"
                             className="h-auto w-auto"
                         />

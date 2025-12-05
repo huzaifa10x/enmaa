@@ -104,7 +104,31 @@ const formSchema = z.object({
     filesPlotMap: z.any().optional(),
     filesRefImages: z.any().optional(),
     filesOther: z.any().optional(),
-});
+
+
+
+    // ...your other fields
+
+    plotSize: z.string().optional(),
+    builtUpArea: z.string().optional(),
+
+    // ...rest of schema
+})
+    .refine((data) => {
+        // Dono values agar present hain tabhi check kare
+        if (!data.plotSize || !data.builtUpArea) return true;
+
+        const plot = Number(data.plotSize);
+        const built = Number(data.builtUpArea);
+
+        // NaN fail case avoid
+        if (isNaN(plot) || isNaN(built)) return true;
+
+        return built < plot;
+    }, {
+        message: "Built-up area must be LESS than plot size.",
+        path: ["builtUpArea"], // error builtUpArea field par show hoga
+    });
 
 // type FormValues = z.infer<typeof formSchema>;
 
@@ -306,9 +330,6 @@ export default function QuoteModal() {
                             <FormControl>
                                 <Input placeholder="Sq. ft." {...field} />
                             </FormControl>
-                            <FormDescription className="text-xs">
-                                Please attach plot map in Step 6.
-                            </FormDescription>
                         </FormItem>
                     )}
                 />
@@ -324,6 +345,9 @@ export default function QuoteModal() {
                         </FormItem>
                     )}
                 />
+                <FormDescription className="text-xs">
+                    Please attach plot map in Step 6.
+                </FormDescription>
             </div>
 
             <FormField
@@ -555,7 +579,6 @@ export default function QuoteModal() {
         </div>
     );
 
-    // --- Main Render ---
     return (
         <>
             <Dialog open={open} onOpenChange={setOpen}>

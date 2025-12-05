@@ -7,7 +7,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Logo from "@/public/images/Logo.webp";
+import Logo from "@/public/images/enmaa-logo.webp";
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className="absolute w-full top-0 left-0 z-50 flex lg:justify-center">
             <nav className="max-w-7xl w-full min-w-[360px] flex items-center justify-between px-4 py-6">
                 <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 relative">
+                    <div className="relative">
                         <Link href={"/"}>
                             <Image src={Logo} height={100} width={100} className="w-auto h-auto" alt="Logo" />
                         </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
                     <QuoteModal />
                 </div>
 
-                <a href="#bookNow">
+                <a className="lg:block hidden" href="#bookNow">
                     <Button className="bg-gradient-to-r from-[#01b2eb] to-primary text-white px-8 py-3 rounded-full">
                         BOOK NOW
                     </Button>
