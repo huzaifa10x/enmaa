@@ -68,14 +68,39 @@ export default function ProjectLocation() {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     <div className="space-y-4">
-                        <div className="mb-6">
-                            <h2 className="text-4xl md:text-5xl text-foreground mb-2">
-                                Office <span className="text-primary font-bold">Locations</span>
+                        <div className="mb-6 text-end">
+                            <h2 className="text-xl font-semibold text-foreground mb-2">
+                                نظرة عامة على الموقع
                             </h2>
                             <p className="text-sm text-muted-foreground">
-                                Choose from our premium business jurisdictions
+                                خريطة جوجل حقيقية تعرض الموقع المختار
                             </p>
                         </div>
+
+                        <Card className="p-2 h-[370px] relative overflow-hidden">
+                            <iframe
+                                key={selectedLocationData.id}
+                                src={selectedLocationData.mapEmbed}
+                                width="100%"
+                                height="100%"
+                                allowFullScreen=""
+                                loading="lazy"
+                                className="rounded-lg border-none"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </Card>
+                    </div>
+
+                    <div className="space-y-4">
+                        <div className="mb-6 text-end">
+                            <h2 className="text-4xl md:text-5xl text-foreground mb-2">
+                                مواقع <span className="text-primary font-bold">المكاتب</span>
+                            </h2>
+                            <p className="text-sm text-muted-foreground">
+                                اختر من بين المناطق التجارية المتميزة لدينا
+                            </p>
+                        </div>
+
 
                         <div className="space-y-3">
                             {locations.map((location) => {
@@ -141,31 +166,6 @@ export default function ProjectLocation() {
                                 )
                             })}
                         </div>
-                    </div>
-
-                    {/* Right Section - Google Map Iframe */}
-                    <div className="space-y-4">
-                        <div className="mb-6">
-                            <h2 className="text-xl font-semibold text-foreground mb-2">
-                                Location Overview
-                            </h2>
-                            <p className="text-sm text-muted-foreground">
-                                Real Google Map showing your selected location
-                            </p>
-                        </div>
-
-                        <Card className="p-2 h-[370px] relative overflow-hidden">
-                            <iframe
-                                key={selectedLocationData.id}
-                                src={selectedLocationData.mapEmbed}
-                                width="100%"
-                                height="100%"
-                                allowFullScreen=""
-                                loading="lazy"
-                                className="rounded-lg border-none"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
-                        </Card>
                     </div>
                 </div>
             </div>

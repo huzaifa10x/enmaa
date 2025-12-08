@@ -1,17 +1,18 @@
 import projects from "@/public/images/projects.webp"
 import Image from "next/image"
-import GalleryPage from "./Gallery"
-import HeroSection from "../components/Hero-section"
+import HeroSection from "@/app/components/Hero-section"
+import GalleryPage from "@/app/project-map/Gallery"
 import image3 from "@/public/images/projects/1438-17.jpg"
-export default function page() {
+
+export default function ProjectMap() {
 
 
     return (
         <>
             <HeroSection
                 bg={image3}
-                title={'Project <br/> Inspirations'}
-                desc={'The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.'}
+                title={'مشاريع <br/> مُلهمة'}
+                desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
             />
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">
@@ -27,7 +28,7 @@ export default function page() {
                         />
                         <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <h1 className="text-4xl md:text-5xl text-nowrap font-bold mb-2">
-                                <span className="text-primary">Project </span> <span className="text-foreground">Inspirations</span>
+                                <span className="text-primary">مشاريع </span> <span className="text-foreground">مُلهمة</span>
                             </h1>
                         </div>
                     </div>

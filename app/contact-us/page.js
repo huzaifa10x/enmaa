@@ -1,15 +1,19 @@
 import React from 'react'
-import Banner from './Banner'
 import ContactForm from './ContactForm'
-import Image from 'next/image'
-import img from '@/public/images/image2324.webp'
 import ProjectLocation from './ProjectLocation'
 import { Facebook, Instagram, Mail, PhoneIncoming, Twitter, UserRoundPlus } from 'lucide-react'
+import image3 from "@/public/images/projects/1438-17.jpg"
+import HeroSection from '../components/Hero-section'
+
 
 export default function page() {
     return (
         <>
-            <Banner />
+            <HeroSection
+                bg={image3}
+                title={'Contact Us'}
+                desc={'The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.'}
+            />
             <section className='py-16 bg-neutral-100'>
                 <div className='max-w-7xl mx-auto px-6'>
                     <div className='grid md:grid-cols-2 gap-9'>

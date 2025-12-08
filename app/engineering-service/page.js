@@ -12,7 +12,6 @@ import image12 from "@/public/images/projects/1902.jpg"
 
 export default function page() {
     const images = [image1, image2, image3, image4, image5, image12, image7, image8]
-
     return (
         <main className="">
             <ServicesBanner />

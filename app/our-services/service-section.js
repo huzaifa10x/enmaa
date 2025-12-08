@@ -1,124 +1,235 @@
-import ServiceCard from "./service-card"
-import image1 from "@/public/images/projects/448...1.jpg"
-import Image from "next/image"
-import servicesText from "@/public/images/Services.webp"
+import ServiceCard from "./service-card";
+import Image from "next/image";
+import servicesText from "@/public/images/Services.webp";
 
-export default function ServiceSection() {
-    const services = [
-        {
-            id: "01",
-            title: "Engineering Services",
-            items: ["Feasibility studies",
-                "Planning",
-                "Project development",
-                "Evaluation of engineering projects",
-                "Technical specifications",
-                "Quantity inventory"
+export default function ServiceSection({ lang = "en" }) {
+    const isArabic = lang === "ar";
+
+    // Translation object for titles & items
+    const translations = {
+        en: {
+            header: {
+                main: "Explore our",
+                bold: "comprehensive <br /> interior design",
+                services: "services",
+            },
+            services: [
+                {
+                    id: "01",
+                    title: "Engineering Services",
+                    items: [
+                        "Feasibility studies",
+                        "Planning",
+                        "Project development",
+                        "Evaluation of engineering projects",
+                        "Technical specifications",
+                        "Quantity inventory",
+                    ],
+                    href: "/engineering-service",
+                },
+                {
+                    id: "02",
+                    title: "Design Services",
+                    items: [
+                        "Data collection",
+                        "Design idea",
+                        "Initial design",
+                        "Detailed design",
+                        "Final design",
+                    ],
+                    href: "/design-services",
+                },
+                {
+                    id: "03",
+                    title: "Tendering Services",
+                    items: [
+                        "Contract terms",
+                        "Initial tender evaluation",
+                        "Call for tender",
+                        "Tender study",
+                        "Final report",
+                        "Contractor selection",
+                    ],
+                    href: "/tenderings-services",
+                },
+                {
+                    id: "04",
+                    title: "Supervision",
+                    items: [
+                        "Supervising the construction process",
+                        "Quality",
+                        "Supervising the timeline and costs",
+                        "Claims and contract conclusion",
+                    ],
+                    href: "/supervision",
+                },
+                {
+                    id: "05",
+                    title: "Client Engineer Representative Role",
+                    items: [
+                        "Representing the owner at the workplace",
+                        "On-site engagement with customers for better coordination",
+                        "Project management to achieve the required quality on time and within the specified budget",
+                    ],
+                    href: "/client-engineer-representative-role",
+                },
+                {
+                    id: "06",
+                    title: "Program Management Services",
+                    items: [
+                        "Determine the project timeline",
+                        "Cost management",
+                        "Managing relationships between reformers",
+                        "Quality control",
+                        "Resource management",
+                        "Securing needs",
+                        "File management",
+                        "Guidance",
+                    ],
+                    href: "/program-management-services",
+                },
+                {
+                    id: "07",
+                    title: "Design & Build Project Participation",
+                    items: [
+                        "Direct work with contractors",
+                        "Quality and value of business",
+                        "Project life cycle",
+                        "Budget reduction",
+                        "Agendas",
+                    ],
+                    href: "/design-build-project-participation",
+                },
+                {
+                    id: "08",
+                    title: "GIS Services",
+                    items: [
+                        "Finding project solutions",
+                        "Consulting services and strategic planning",
+                        "Developing data models",
+                        "Analysis, data presentation and model design",
+                        "Development and integration of projects",
+                        "Capacity building and operational support",
+                    ],
+                    href: "/gis-services",
+                },
             ],
-            featured: true,
-            image: image1,
-            href: '/engineering-service'
         },
-        {
-            id: "02",
-            title: "Design Services",
-            items: ['Data collection',
-                'Design idea',
-                'Initial design',
-                'Detailed design',
-                'Final design'
+        ar: {
+            header: {
+                main: "استكشف",
+                bold: "خدمات التصميم الداخلي <br /> الشاملة",
+                services: "",
+            },
+            services: [
+                {
+                    id: "١",
+                    title: "الخدمات الهندسية",
+                    items: [
+                        "دراسات الجدوى",
+                        "التخطيط",
+                        "تطوير المشروع",
+                        "تقييم المشاريع الهندسية",
+                        "المواصفات الفنية",
+                        "جرد الكميات",
+                    ],
+                    href: "/engineering-service",
+                },
+                {
+                    id: "٢",
+                    title: "خدمات التصميم",
+                    items: [
+                        "جمع البيانات",
+                        "فكرة التصميم",
+                        "التصميم الأولي",
+                        "التصميم التفصيلي",
+                        "التصميم النهائي",
+                    ],
+                    href: "/design-services",
+                },
+                {
+                    id: "٣",
+                    title: "خدمات المناقصات",
+                    items: [
+                        "شروط العقد",
+                        "تقييم المناقصة الأولي",
+                        "الدعوة لتقديم العطاءات",
+                        "دراسة المناقصة",
+                        "التقرير النهائي",
+                        "اختيار المقاول",
+                    ],
+                    href: "/tenderings-services",
+                },
+                {
+                    id: "٤",
+                    title: "الإشراف",
+                    items: [
+                        "الإشراف على عملية البناء",
+                        "الجودة",
+                        "الإشراف على الجدول الزمني والتكاليف",
+                        "المطالبات وإنهاء العقد",
+                    ],
+                    href: "/supervision",
+                },
+                {
+                    id: "٥",
+                    title: "دور ممثل مهندس العميل",
+                    items: [
+                        "تمثيل المالك في مكان العمل",
+                        "التفاعل مع العملاء في الموقع لتنسيق أفضل",
+                        "إدارة المشروع لتحقيق الجودة المطلوبة في الوقت المحدد وضمن الميزانية المحددة",
+                    ],
+                    href: "/client-engineer-representative-role",
+                },
+                {
+                    id: "٦",
+                    title: "خدمات إدارة البرامج",
+                    items: [
+                        "تحديد الجدول الزمني للمشروع",
+                        "إدارة التكاليف",
+                        "إدارة العلاقات بين المنفذين",
+                        "مراقبة الجودة",
+                        "إدارة الموارد",
+                        "تأمين الاحتياجات",
+                        "إدارة الملفات",
+                        "الإرشاد",
+                    ],
+                    href: "/program-management-services",
+                },
+                {
+                    id: "٧",
+                    title: "المشاركة في مشاريع التصميم والبناء",
+                    items: [
+                        "العمل المباشر مع المقاولين",
+                        "جودة وقيمة الأعمال",
+                        "دورة حياة المشروع",
+                        "تقليل الميزانية",
+                        "جداول الأعمال",
+                    ],
+                    href: "/design-build-project-participation",
+                },
+                {
+                    id: "٨",
+                    title: "خدمات نظم المعلومات الجغرافية (GIS)",
+                    items: [
+                        "إيجاد حلول للمشاريع",
+                        "الخدمات الاستشارية والتخطيط الاستراتيجي",
+                        "تطوير نماذج البيانات",
+                        "التحليل، عرض البيانات وتصميم النماذج",
+                        "تطوير المشاريع ودمجها",
+                        "بناء القدرات والدعم التشغيلي",
+                    ],
+                    href: "/gis-services",
+                },
             ],
-            featured: false,
-            image: image1,
-            href: '/design-services'
         },
-        {
-            id: "03",
-            title: "Tendering Services",
-            items: ['Contract terms',
-                'Initial tender evaluation',
-                'Call for tender',
-                'Tender study',
-                'Final report',
-                'Contractor selection'
-            ],
-            featured: false,
-            image: image1,
-            href: '/tenderings-services'
-        },
-        {
-            id: "04",
-            title: "Supervision",
-            items: ['Supervising the construction process',
-                'Quality',
-                'Supervising the timeline and costs',
-                'Claims and contract conclusion'
-            ],
-            featured: false,
-            image: image1,
-            href: '/supervision'
-        },
-        {
-            id: "05",
-            title: "Client Engineer Representative Role",
-            items: ['Representing the owner at the workplace',
-                'On - site engagement with customers for better coordination',
-                'Project management to achieve the required quality on time and within the specified budget'
-            ],
-            featured: false,
-            image: image1,
-            href: '/client-engineer-representative-role'
-        },
-        {
-            id: "06",
-            title: "Program Management Services",
-            items: [
-                'Determine the project timeline',
-                'Cost management',
-                'Managing relationships between reformers',
-                'Quality control',
-                'Resource management',
-                'Securing needs',
-                'File management',
-                'Guidance',
-            ],
-            featured: false,
-            image: image1,
-            href: '/program-management-services'
-        },
-        {
-            id: "07",
-            title: "Design & Build Project Participation",
-            items: [
-                'Direct work with contractors',
-                'Quality and value of business',
-                'Project life cycle',
-                'Budget reduction',
-                'Agendas',
-            ],
-            featured: false,
-            image: image1,
-            href: '/design-build-project-participation'
-        },
-        {
-            id: "08",
-            title: "GIS Services",
-            items: [
-                'Finding project solutions',
-                'Consulting services and strategic planning',
-                'Developing data models',
-                'Analysis, data presentation and model design',
-                'Development and integration of projects',
-                'Capacity building and operational support',
-            ],
-            featured: false,
-            image: image1,
-            href: '/gis-services'
-        },
-    ]
+    };
+
+    const services = translations[lang].services;
+    const header = translations[lang].header;
 
     return (
-        <section className="py-16 px-4 md:px-8 lg:px-12">
+        <section className={`py-16 px-4 md:px-8 lg:px-12 ${isArabic ? "rtl" : "ltr"}`}>
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center relative mb-10">
@@ -130,17 +241,20 @@ export default function ServiceSection() {
                         className="w-auto h-auto mx-auto"
                     />
                     <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <h1 className="text-4xl md:text-5xl text-nowrap mb-2">
-                            Explore our <span className="text-primary font-bold"> comprehensive <br /> interior design </span> services
-                        </h1>
+                        <h1
+                            className="text-4xl md:text-5xl text-nowrap mb-2"
+                            dangerouslySetInnerHTML={{ __html: `${header.main} <span class="text-primary font-bold">${header.bold}</span>` }}
+                        />
                     </div>
                 </div>
+
+                {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((service) => (
-                        <ServiceCard key={service.id} service={service} />
+                        <ServiceCard key={service.id} service={service} isArabic={isArabic} />
                     ))}
                 </div>
             </div>
         </section>
-    )
+    );
 }

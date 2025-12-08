@@ -23,9 +23,8 @@ export default function ServiceCard({ service }) {
                     <h3 className="text-2xl font-bold mb-6">{service.title}</h3>
                     <ul className="space-y-2 text-sm">
                         {service.items.map((item, index) => (
-                            <li key={index} className="flex items-start">
-                                <span className="mr-3">•</span>
-                                <span>{item}</span>
+                            <li key={index} className="">
+                                <span>• {item}</span>
                             </li>
                         ))}
                     </ul>

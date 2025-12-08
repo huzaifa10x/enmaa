@@ -1,3 +1,37 @@
+export const metadata = {
+  title: "Civil Engineering Consultants in Sharjah | Architecture Companies & Firms",
+  description: "Enmaa Engineering Consultants deliver high-quality, innovative designs, blending natural and modern styles for personalized home solutions.",
+  alternates: {
+    canonical: 'https://www.enmaaengcon.com/',
+    languages: {
+      "x-default": "https://www.enmaaengcon.com/ar/",
+      en: "https://www.enmaaengcon.com/",
+      ar: "https://www.enmaaengcon.com/ar/",
+    },
+  },
+  openGraph: {
+    title: "Civil Engineering Consultants in Sharjah | Architecture Companies & Firms",
+    description: "Enmaa Engineering Consultants deliver high-quality, innovative designs, blending natural and modern styles for personalized home solutions.",
+    type: "website",
+    url: "https://www.enmaaengcon.com/"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Civil Engineering Consultants in Sharjah | Architecture Companies & Firms",
+    description: "Enmaa Engineering Consultants deliver high-quality, innovative designs, blending natural and modern styles for personalized home solutions.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
+}
+
 import DiscoverSlider from "./components/discover-slider";
 import WelcomeSection from "./components/welcome-section";
 import ServicesSection from "./components/services-section";
@@ -135,7 +169,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <DiscoverSlider />      
+      <DiscoverSlider />
       <WelcomeSection />
       <ServicesSection />
       <OurProcess />

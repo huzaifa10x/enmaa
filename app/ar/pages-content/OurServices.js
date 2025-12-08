@@ -1,16 +1,19 @@
-import ServicesBanner from '@/app/components/services-banner'
 import Testimonial from '@/app/components/Testimonial'
-import Image from 'next/image'
 import React from 'react'
 import ServiceSection from '@/app/our-services/service-section'
-
+import HeroSection from '@/app/components/Hero-section'
+import image3 from "@/public/images/projects/1438-17.jpg"
 
 export default function OurServices() {
     return (
         <>
-            <ServicesBanner />
+            <HeroSection
+                bg={image3}
+                title={' خدماتنا '}
+                desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
+            />
             <main className="max-w-7xl mx-auto px-4 sm:px-6 space-y-5 lg:px-8 py-8 rtl text-right">
-                <ServiceSection />
+                <ServiceSection isArabic lang='ar'/>
                 <h1 className="text-3xl font-bold">أفضل شركات التصميم الداخلي في الشارقة</h1>
                 <p className="text-lg">
                     نحن نؤمن في إنماء للاستشارات الهندسية بأن التصميم الداخلي يعتبر من أهم العناصر

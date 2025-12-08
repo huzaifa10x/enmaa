@@ -1,20 +1,20 @@
-import Testimonial from '../components/Testimonial'
 import image1 from "@/public/images/projects/448...1.jpg"
 import Image from 'next/image'
-import ServicesBanner from '../components/services-banner'
+import ServicesBanner from "../components/services-banner"
+import Testimonial from "../components/Testimonial"
 
-
-export default function EngineeringService() {
-
+export default function TenderingsServices() {
     return (
         <main className="">
             <ServicesBanner />
 
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 className="text-4xl font-bold text-foreground mb-2">Tendering Services</h1>
-                <p className="text-muted-foreground text-sm">Home / Tendering Services</p>
+            {/* Top Heading */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-end">
+                <h1 className="text-4xl font-bold text-foreground mb-2">خدمات المناقصات</h1>
+                <p className="text-muted-foreground text-sm">الرئيسية / خدمات المناقصات</p>
             </section>
 
+            {/* Images */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="h-64 md:h-80 rounded-xl overflow-hidden">
@@ -22,8 +22,8 @@ export default function EngineeringService() {
                             src={image1}
                             height={200}
                             width={200}
-                            alt=''
-                            className='w-full h-full'
+                            alt=""
+                            className="w-full h-full"
                         />
                     </div>
                     <div className="h-64 md:h-80 rounded-xl overflow-hidden">
@@ -31,23 +31,29 @@ export default function EngineeringService() {
                             src={image1}
                             height={200}
                             width={200}
-                            alt=''
-                            className='w-full h-full'
+                            alt=""
+                            className="w-full h-full"
                         />
                     </div>
                 </div>
             </section>
 
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                <h1 className='text-2xl font-semibold mb-5'>Ensuring Transparent and Competitive Procurement Processes</h1>
+            {/* Content */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-end">
+                <h1 className="text-2xl font-semibold mb-5">
+                    ضمان عمليات شراء شفافة وتنافسية
+                </h1>
+
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    Enmaa Engineering Consultant offers highly skilled tender services. We provide transparent, competitive and compliant procurement for construction and engineering projects in the UAE. Our all-inclusive service offers contract conditions specific to the project, comprehensive pre-qualification processes to investigate contractors capabilities, and formal invitation to tender processes to encourage maximum participation from contractors in the market. Our tender evaluations include qualitative and quantitative assessment techniques that create value for clients by procuring contracts based on the best value, rather than simply the lowest price.
+                    يقدم مكتب إنماء للاستشارات الهندسية خدمات مناقصات عالية الكفاءة لضمان عمليات شراء شفافة، تنافسية ومتوافقة مع المعايير للمشاريع الإنشائية والهندسية في دولة الإمارات. تشمل خدماتنا الشاملة إعداد شروط العقد الخاصة بالمشروع، وإجراء عمليات التأهيل المسبق لفحص قدرات المقاولين، بالإضافة إلى تنظيم الدعوات الرسمية للمناقصات بهدف تعزيز مشاركة أكبر عدد من المقاولين في السوق. تعتمد تقييماتنا للمناقصات على معايير نوعية وكمية تهدف إلى تحقيق أفضل قيمة للعملاء، وليس مجرد أقل سعر.
                 </p>
+
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    The pre-qualification processes review the technical expertise, financial capability, health and safety program, and relevant project experience of contractors. This allows only firms that demonstrate a capability to be involved in the bidding process. We prepare detailed tender documents. This includes drawings, specifications, bills of quantities and contracts that meet the client&apos;s needs in clearly articulating requirements and the apportioning of risk.
+                    تشمل عمليات التأهيل المسبق مراجعة الخبرة الفنية، القدرات المالية، برامج الصحة والسلامة، والخبرة السابقة للمقاولين في المشاريع ذات الصلة. يساعد ذلك على ضمان مشاركة الشركات المؤهلة فقط في عملية تقديم العطاءات. نقوم بإعداد وثائق المناقصات التفصيلية، بما في ذلك الرسومات والمواصفات وجداول الكميات والعقود، بما يضمن توضيح المتطلبات وتوزيع المخاطر بشكل عادل.
                 </p>
+
                 <p className="text-foreground text-base leading-relaxed mb-6">
-                    Our significant evaluation process reviews commercial and technical submissions to specific criteria. This way we assess submissions against including pricing submissions, statements, program schedules and resources. We remain neutral and confidential throughout the entirety of the process, ensuring fairness is paramount throughout. Our final report reviews our recommendation to the client about who is to be awarded the contract and is defensible in its positions.
+                    تعتمد عمليات التقييم الشاملة لدينا على مراجعة العروض التجارية والفنية وفق معايير محددة مسبقًا، مما يشمل تحليل الأسعار، الكشوفات، الجداول الزمنية والموارد. نحافظ دائمًا على الحياد والسرية لضمان أعلى مستويات العدالة. يتضمن تقريرنا النهائي توصية واضحة وموضوعية للعميل حول المقاول الأنسب للحصول على العقد، مع تبريرات مدعومة بالكامل.
                 </p>
             </section>
 

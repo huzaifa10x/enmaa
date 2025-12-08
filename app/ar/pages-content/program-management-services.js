@@ -1,0 +1,66 @@
+import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
+import image3 from "@/public/images/projects/1438-17.jpg"
+import image4 from "@/public/images/projects/1438-19.jpg"
+import image5 from "@/public/images/projects/1841-01.jpg"
+import image7 from "@/public/images/projects/1841-02.jpg"
+import image8 from "@/public/images/projects/1855-01.jpg"
+import image12 from "@/public/images/projects/1902.jpg"
+import ServicesBanner from "@/app/components/services-banner"
+import ServicesPageSlider from "@/app/components/services-page-slider"
+import Testimonial from "@/app/components/Testimonial"
+
+export default function ProgramManagementServices() {
+    const images = [image1, image2, image3, image4, image5, image12, image7, image8]
+
+    return (
+        <main className="rtl text-end" dir="rtl">
+            <ServicesBanner />
+
+            {/* Header Section */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <h1 className="text-4xl font-bold text-foreground mb-2">
+                    خدمات إدارة البرامج
+                </h1>
+                <p className="text-muted-foreground text-sm">
+                    الرئيسية / خدمات إدارة البرامج
+                </p>
+            </section>
+
+            {/* Slider */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+                <ServicesPageSlider images={images} />
+            </section>
+
+            {/* Content */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <h1 className='text-2xl font-semibold mb-5'>
+                    الإشراف على المشاريع المعقدة لتحقيق النجاح الاستراتيجي
+                </h1>
+
+                <p className="text-foreground text-base leading-relaxed mb-6">
+                    تقدم شركة إنماء خدمات إدارة البرامج لضمان الإشراف والتنسيق الفعّال على المشاريع المعقدة
+                    ومجموعات المشاريع المتعددة. نحن نضمن أن الأنشطة المرتبطة ببعضها البعض تسير في مسار
+                    متوافق مع أهداف العميل. يقوم مديرو البرامج لدينا بإعداد جداول متكاملة لدورة حياة المشروع
+                    تشمل التصميم، والمشتريات، والإنشاء، والتشغيل. كما نعتمد نظم إدارة تكلفة قوية لتتبع
+                    المصروفات وتوقع التكلفة النهائية وتحديد فرص خفض التكلفة أثناء التنفيذ.
+                </p>
+
+                <p className="text-foreground text-base leading-relaxed mb-6">
+                    إدارة أصحاب المصلحة هي محور عملنا، حيث نضمن فهم مختلف الاهتمامات وتلبية التوقعات
+                    وتحقيق التواصل الفعّال بين جميع الأطراف.
+                </p>
+
+                <p className="text-foreground text-base leading-relaxed mb-6">
+                    تشمل عمليات ضمان الجودة ومراقبة الجودة التي نقوم بها جميع مستويات المشروع. نقوم بتحديد
+                    معايير الجودة ووضع أنظمة الفحص وتنفيذ عمليات التدقيق لضمان توافق الأعمال مع
+                    المواصفات والمتطلبات التنظيمية. كما نعمل على إدارة الموارد من خلال تخصيص العمالة
+                    والمعدات والمواد بشكل مثالي عبر مشاريع متعددة. ويضمن نظام التحكم المركزي بالوثائق
+                    أن جميع المشاركين يستخدمون المعلومات الصحيحة والمحدّثة.
+                </p>
+            </section>
+
+            <Testimonial />
+        </main>
+    )
+}

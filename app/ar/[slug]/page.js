@@ -59,9 +59,17 @@ export async function generateMetadata({ params }) {
     };
 }
 
+import TenderingsServices from "@/app/tenderings-services/page";
 import ArabicPage from "../pages-content/ArabicPage";
+import ContactUs from "../pages-content/contact-us";
 import EngineeringConsultantsInAjman from "../pages-content/engineering-consultants-in-ajman";
+import EngineeringService from "../pages-content/engineering-service";
+import OurProject from "../pages-content/our-projects";
 import OurServices from "../pages-content/OurServices";
+import ProjectMap from "../pages-content/ProjectMap";
+import Supervision from "../pages-content/supervision";
+import ClientEngineerRepresentativeRole from "../pages-content/client-engineer-representative-role";
+import ProgramManagementServices from "../pages-content/program-management-services";
 
 export default function page({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
@@ -77,6 +85,39 @@ export default function page({ params }) {
             break;
         case "our-services":
             content = <OurServices />;
+            break;
+        case "project-map":
+            content = <ProjectMap />;
+            break;
+        case "our-projects":
+            content = <OurProject />;
+            break;
+        case "contact-us":
+            content = <ContactUs />;
+            break;
+        case "engineering-service":
+            content = <EngineeringService />;
+            break;
+        case "design-services":
+            content = <EngineeringService />;
+            break;
+        case "tenderings-services":
+            content = <TenderingsServices />;
+            break;
+        case "supervision":
+            content = <Supervision />;
+            break;
+        case "client-engineer-representative-role":
+            content = <ClientEngineerRepresentativeRole />;
+            break;
+        case "program-management-services":
+            content = <ProgramManagementServices />;
+            break;
+        case "design-build-project-participation":
+            content = <></>;
+            break;
+        case "gis-services":
+            content = <></>;
             break;
 
         default:

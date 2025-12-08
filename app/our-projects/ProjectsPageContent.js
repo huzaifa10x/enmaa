@@ -6,9 +6,10 @@ import ProjectGrid from "../components/our-projects/project-grid"
 import ProjectModal from "../components/our-projects/project-modal"
 import projects from "@/public/images/projects.webp"
 import Image from "next/image"
-import ServicesBanner from "../components/services-banner"
+import image3 from "@/public/images/projects/1438-17.jpg"
+import HeroSection from "../components/Hero-section"
 
-export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
+export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArabic }) {
     const params = useSearchParams()
     const defaultLocation = (params.get("location") || "Dubai")
     const [selectedLocation, setSelectedLocation] = useState(defaultLocation)
@@ -31,7 +32,12 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
 
     return (
         <>
-            <ServicesBanner />
+            <HeroSection
+                bg={image3}
+                title={' مواقع لمشاريع'}
+                desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
+            />
+
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">
                     <div className="text-center relative">
@@ -44,7 +50,9 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES }) {
                         />
                         <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <h1 className="text-4xl md:text-5xl text-nowrap font-bold mb-2">
-                                <span className="text-primary">Project</span> <span className="text-foreground">Locations.</span>
+                                {isArabic ? <><span className="text-primary">مواقع</span> <span className="text-foreground">المشاريع.</span></> :
+                                    <><span className="text-primary">Project</span> <span className="text-foreground">Locations.</span></>
+                                }
                             </h1>
                         </div>
                     </div>
