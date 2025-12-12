@@ -180,7 +180,7 @@ export default function ServicesSection() {
                 trigger: el,
                 pin: true,
                 start: "top center",
-                end: "bottom top",
+                end: "bottom bottom",
                 scrub: true,
                 pinSpacing: false,
             },
@@ -256,8 +256,10 @@ export default function ServicesSection() {
                 </div>
             </section>
 
-            <section ref={sliderRef} className='md:hidden z-20 bg-white min-h-screen'>
-                <ServicesSliderMobile services={services} />
+            <section ref={sectionRef} className="z-50">
+                <section ref={sliderRef} className='md:hidden bg-white min-h-screen'>
+                    <ServicesSliderMobile services={services} />
+                </section>
             </section>
         </>
     )

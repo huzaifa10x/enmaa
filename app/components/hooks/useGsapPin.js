@@ -10,7 +10,7 @@ export default function useGsapPin(ref, options = {}) {
     useEffect(() => {
         if (typeof window === "undefined") return
         const section = ref.current
-        const isDesktop = window.innerWidth >= 180
+        const isDesktop = window.innerWidth >= 1024
         if (!section) return
         if (isDesktop) {
             const trigger = ScrollTrigger.create({

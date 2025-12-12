@@ -32,11 +32,19 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
 
     return (
         <>
-            <HeroSection
-                bg={image3}
-                title={' مواقع لمشاريع'}
-                desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
-            />
+            {isArabic ?
+
+                <HeroSection
+                    bg={image3}
+                    title={' مواقع لمشاريع'}
+                    desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
+                /> :
+                <HeroSection
+                    bg={image3}
+                    title={'Our Projects'}
+                    desc={'The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.'}
+                />
+            }
 
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">

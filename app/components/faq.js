@@ -39,6 +39,7 @@ export default function FAQ({ faqData }) {
 
     useEffect(() => {
         const el = boxRef.current;
+
         gsap.to(el, {
             y: "-100%",
             // rotation: 360,
@@ -47,9 +48,9 @@ export default function FAQ({ faqData }) {
                 trigger: el,
                 pin: true,
                 start: "top center",
-                end: "bottom",
+                end: "bottom top",
                 scrub: true,
-                pinSpacing: true,
+                pinSpacing: false,
             },
         });
 
@@ -59,8 +60,8 @@ export default function FAQ({ faqData }) {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-white rounded-t-[50px] flex items-center py-20 relative !z-[80]">
-            <div className="max-w-7xl mx-auto px-6">
+        <section ref={sectionRef} className="bg-white rounded-t-[50px] py-20 relative !z-[80]">
+            <div ref={boxRef} className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'faq'} />
                     <div className="mb-16">

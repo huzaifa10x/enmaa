@@ -109,7 +109,7 @@ export default function ContactUs({ lang = "ar" }) {
                 </div>
             </section>
 
-            <ProjectLocation isArabic={isArabic} />
+            {/* <ProjectLocation isArabic={isArabic} /> */}
         </div>
     );
 }

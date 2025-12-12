@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Building2, Globe, Briefcase } from "lucide-react"
+import { MapPin } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
@@ -69,35 +69,11 @@ export default function ProjectLocation() {
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     <div className="space-y-4">
                         <div className="mb-6 text-end">
-                            <h2 className="text-xl font-semibold text-foreground mb-2">
-                                نظرة عامة على الموقع
-                            </h2>
-                            <p className="text-sm text-muted-foreground">
-                                خريطة جوجل حقيقية تعرض الموقع المختار
-                            </p>
-                        </div>
-
-                        <Card className="p-2 h-[370px] relative overflow-hidden">
-                            <iframe
-                                key={selectedLocationData.id}
-                                src={selectedLocationData.mapEmbed}
-                                width="100%"
-                                height="100%"
-                                allowFullScreen=""
-                                loading="lazy"
-                                className="rounded-lg border-none"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
-                        </Card>
-                    </div>
-
-                    <div className="space-y-4">
-                        <div className="mb-6 text-end">
                             <h2 className="text-4xl md:text-5xl text-foreground mb-2">
-                                مواقع <span className="text-primary font-bold">المكاتب</span>
+                                Office <span className="text-primary font-bold">Locations</span>
                             </h2>
                             <p className="text-sm text-muted-foreground">
-                                اختر من بين المناطق التجارية المتميزة لدينا
+                                Choose from our premium business locations
                             </p>
                         </div>
 
@@ -166,6 +142,29 @@ export default function ProjectLocation() {
                                 )
                             })}
                         </div>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="mb-6 text-end">
+                            <h2 className="text-xl font-semibold text-foreground mb-2">
+                                Location Overview
+                            </h2>
+                            <p className="text-sm text-muted-foreground">
+                                A real Google Map showing the selected location
+                            </p>
+                        </div>
+
+                        <Card className="p-2 h-[370px] relative overflow-hidden">
+                            <iframe
+                                key={selectedLocationData.id}
+                                src={selectedLocationData.mapEmbed}
+                                width="100%"
+                                height="100%"
+                                allowFullScreen=""
+                                loading="lazy"
+                                className="rounded-lg border-none"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </Card>
                     </div>
                 </div>
             </div>

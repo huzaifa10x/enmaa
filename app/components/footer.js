@@ -55,7 +55,7 @@ export default function Footer() {
     }
 
     return (
-        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] min-h-screen flex flex-col items-center justify-center !z-[100] text-white relative">
+        <footer id="bookNow" className="bg-neutral-800 rounded-t-[50px] min-h-screen bottom-0 flex flex-col items-center justify-center !z-[100] text-white relative">
             <Image
                 src={bg}
                 height={300}
