@@ -110,7 +110,7 @@ export default function LocationsSection() {
     )
 
     return (
-        <section ref={sectionRef} className="py-20 lg:h-screen bg-white rounded-t-[50px] !z-[70]">
+        <section ref={sectionRef} className="py-20 lg:h-screen bg-white md:rounded-t-[50px] !z-[70]">
             <div ref={boxRef} className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     {/* Left Section - Location Tabs */}

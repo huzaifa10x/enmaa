@@ -64,7 +64,7 @@ export default function ProjectLocation() {
     )
 
     return (
-        <section className="py-20 bg-white rounded-t-[50px] !z-[70]">
+        <section className="py-20 bg-white md:rounded-t-[50px] !z-[70]">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     <div className="space-y-4">

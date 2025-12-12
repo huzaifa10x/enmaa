@@ -80,7 +80,7 @@ export default function ProjectsScroller() {
 
 
     return (
-        <section ref={sectionRef} className="bg-white relative !z-[99] h-screen flex flex-col justify-center py-10 rounded-t-[50px]">
+        <section ref={sectionRef} className="bg-white relative !z-[99] h-screen flex flex-col justify-center py-10 md:rounded-t-[50px]">
             <div aria-label="Project gallery" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4">
                 {/* <header className="flex items-end justify-between">
                     <PillTitle title={'Selected Projects'} />

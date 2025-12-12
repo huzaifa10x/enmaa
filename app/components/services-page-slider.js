@@ -41,7 +41,7 @@ function Row({ items = [], reverse = false, duration = "35s" }) {
 
 export default function ServicesPageSlider({ images }) {
     return (
-        <section className="bg-white relative flex flex-col justify-center py-10 rounded-t-[50px]">
+        <section className="bg-white relative flex flex-col justify-center py-10 md:rounded-t-[50px]">
             <div aria-label="Project gallery" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4">
 
 

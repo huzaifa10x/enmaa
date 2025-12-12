@@ -195,7 +195,7 @@ export default function ServicesSection() {
     return (
         <>
             <section className="lg:block hidden relative z-40 overflow-y-hidden h-screen" ref={sectionRef}>
-                <section ref={sliderRef} className="md:flex hidden flex-col items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary rounded-t-[50px] overflow-hidden">
+                <section ref={sliderRef} className="md:flex hidden flex-col items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary md:rounded-t-[50px] overflow-hidden">
                     {/* background image */}
                     <Image
                         src={activeImg}

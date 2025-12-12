@@ -136,7 +136,7 @@ export default function OurProcess() {
     }, []);
 
     return (
-        <div ref={sectionRef} className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
+        <div ref={sectionRef} className="relative w-full md:rounded-t-[50px] !z-50 bg-gray-100">
             <div ref={boxRef} className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">

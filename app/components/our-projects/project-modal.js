@@ -32,8 +32,8 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
 
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-2">
-            <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto ">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto md:h-auto h-[98vh]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-full">
                     <div className="relative bg-black md:min-h-96 min-h-52">
                         <div className="group">
                             <Image
@@ -149,6 +149,18 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                             <p className="text-white/60 text-xs">ENMAA</p>
                             <p className="text-white/40 text-xs">Engineering Consultants</p>
                         </div>
+
+                        <div className="relative flex items-center gap-3 mt-5">
+                        <button onClick={handlePrevProject}
+                            className="bg-primary hover:bg-primary/80 text-sm text-white min-w-[140px] text-center backdrop-blur-sm text-nowrap p-2 rounded-md gap-2 transition-colors">
+                            Previous Project
+                        </button>
+
+                        <button onClick={handleNextProject}
+                            className="bg-primary hover:bg-primary/80 text-sm text-white min-w-[140px] text-center backdrop-blur-sm text-nowrap p-2 rounded-md gap-2 transition-colors">
+                            Next Project
+                        </button>
+                    </div>
                     </div>
                 </div>
             </div>

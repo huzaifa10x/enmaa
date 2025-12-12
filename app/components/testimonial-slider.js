@@ -103,7 +103,7 @@ function TestimonialSlider() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-stone-100 px-6 h-screen relative flex flex-col justify-center rounded-t-[50px] !z-[90]">
+        <section ref={sectionRef} className="bg-stone-100 px-6 h-screen relative flex flex-col justify-center md:rounded-t-[50px] !z-[90]">
             <Image
                 src={bg}
                 width={200}

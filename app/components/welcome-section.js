@@ -102,8 +102,8 @@ export default function WelcomeSection() {
     // }, []);
 
     return (
-        <section ref={sectionRef} className="bg-gray-50 relative z-10 -mt-7 rounded-t-[50px]">
-            <div className="h-screen">
+        <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 p md:-mt-7 md:md:rounded-t-[50px]">
+            <div className="lg:h-screen">
                 <Image
                     src={buildingProp}
                     width={800}

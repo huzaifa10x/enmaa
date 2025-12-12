@@ -60,7 +60,7 @@ export default function FAQ({ faqData }) {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-white rounded-t-[50px] py-20 relative !z-[80]">
+        <section ref={sectionRef} className="bg-white md:rounded-t-[50px] py-20 relative !z-[80]">
             <div ref={boxRef} className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'faq'} />

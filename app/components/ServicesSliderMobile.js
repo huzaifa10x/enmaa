@@ -11,7 +11,7 @@ export default function ServicesSliderMobile({ services }) {
                 <CarouselContent>
                     {services.map((item) => (
                         <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3">
-                            <div className="relative rounded-2xl overflow-hidden shadow-lg group h-screen">
+                            <div className="relative md:rounded-2xl overflow-hidden shadow-lg group h-screen">
                                 {/* Background Image */}
                                 <Image
                                     src={item.img}

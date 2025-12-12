@@ -93,7 +93,7 @@ export default function DesignSolutions() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar rounded-t-[50px] text-white py-16 !z-[80]">
+        <section ref={sectionRef} className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar md:rounded-t-[50px] text-white py-16 !z-[80]">
             <div ref={boxRef} className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'Design Solutions'} />
