@@ -64,11 +64,11 @@ export default function ProjectLocation() {
     )
 
     return (
-        <section className="py-20 h-screen bg-white rounded-t-[50px] !z-[70]">
+        <section className="py-20 bg-white rounded-t-[50px] !z-[70]">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     <div className="space-y-4">
-                        <div className="mb-6 text-end">
+                        <div className="mb-6">
                             <h2 className="text-4xl md:text-5xl text-foreground mb-2">
                                 Office <span className="text-primary font-bold">Locations</span>
                             </h2>
@@ -144,7 +144,7 @@ export default function ProjectLocation() {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <div className="mb-6 text-end">
+                        <div className="mb-6">
                             <h2 className="text-xl font-semibold text-foreground mb-2">
                                 Location Overview
                             </h2>
