@@ -8,7 +8,7 @@ import image2 from "@/public/images/projects/1438-07.jpg"
 import image3 from "@/public/images/projects/1438-17.jpg"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Navbar from "../Navbar"
-
+import useGsapPin from "./hooks/useGsapPin"
 
 const slides = [
     {
@@ -33,28 +33,30 @@ const slides = [
 
 gsap.registerPlugin(ScrollTrigger)
 
-
 export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const sliderRef = useRef(null)
+    const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
 
-    useEffect(() => {
-        const section = sliderRef.current
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-        })
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
         }
-    }, [])
+    })
 
 
     useEffect(() => {
@@ -120,7 +122,7 @@ export default function DiscoverSlider() {
 
 
     return (
-        <div ref={sliderRef} className="relative h-screen w-full overflow-hidden">
+        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"

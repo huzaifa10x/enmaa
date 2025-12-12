@@ -7,6 +7,7 @@ import { MapPin, Building2, Globe, Briefcase } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
+import useGsapPin from "./hooks/useGsapPin"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -60,45 +61,57 @@ export default function LocationsSection() {
     const sectionRef = useRef(null)
     const [selectedLocation, setSelectedLocation] = useState("Sharjah")
 
-    useEffect(() => {
-        const section = sectionRef.current
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        }
+    })
 
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
+
+    const boxRef = useRef(null);
+
+    useEffect(() => {
+        const el = boxRef.current;
+
+        gsap.to(el, {
+            y: "-100%",
+            // rotation: 360,
+            duration: 5,
+            scrollTrigger: {
+                trigger: el,
+                pin: true,
+                start: "top center",
+                end: "bottom top",
+                scrub: true,
+                pinSpacing: false,
             },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
+        });
 
         return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
-        }
-    }, [])
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+    }, []);
 
     const selectedLocationData = locations.find(
         (loc) => loc.id === selectedLocation
     )
 
     return (
-        <section ref={sectionRef} className="py-20 h-screen bg-white rounded-t-[50px] max-lg:overflow-y-auto !z-[70]">
-            <div className="max-w-7xl mx-auto px-4">
+        <section ref={sectionRef} className="py-20 lg:h-screen bg-white rounded-t-[50px] !z-[70]">
+            <div ref={boxRef} className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     {/* Left Section - Location Tabs */}
                     <div className="space-y-4">

@@ -1,29 +1,71 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
 import faqImg from "@/public/images/image22342.webp"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import gsap from "gsap"
 import PillTitle from "./pill-title"
-
-gsap.registerPlugin(ScrollTrigger)
+import useGsapPin from "./hooks/useGsapPin"
 
 export default function FAQ({ faqData }) {
     const [openItem, setOpenItem] = useState(0)
     const toggleItem = (id) => {
         setOpenItem(prev => prev === id ? null : id)
     }
+    const sectionRef = useRef(null)
+
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        }
+    })
+
+    const boxRef = useRef(null);
+
+    useEffect(() => {
+        const el = boxRef.current;
+        gsap.to(el, {
+            y: "-100%",
+            // rotation: 360,
+            duration: 5,
+            scrollTrigger: {
+                trigger: el,
+                pin: true,
+                start: "top center",
+                end: "bottom",
+                scrub: true,
+                pinSpacing: true,
+            },
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+    }, []);
 
     return (
-        <section className="bg-white rounded-t-[50px] overflow-y-auto flex items-center py-20 relative !z-[80]">
+        <section ref={sectionRef} className="bg-white rounded-t-[50px] flex items-center py-20 relative !z-[80]">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'faq'} />
                     <div className="mb-16">
                         <h2 className="text-3xl md:text-5xl mb-4 text-balance">
-                            Quick and clear <span className="text-primary font-bold">answers <br className="lg:block hidden"/> to your key</span> questions
+                            Quick and clear <span className="text-primary font-bold">answers <br className="lg:block hidden" /> to your key</span> questions
                         </h2>
                     </div>
                 </div>

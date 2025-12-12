@@ -16,10 +16,9 @@ import image11 from "@/public/images/projects/1883-1884-02.jpg"
 import image12 from "@/public/images/projects/1902.jpg"
 import image13 from "@/public/images/projects/1928.jpg"
 import Image from "next/image"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import gsap from "gsap"
-import PillTitle from "./pill-title"
+import useGsapPin from "./hooks/useGsapPin"
 
 const imagesTop = [image1, image2, image3, image4, image5, image12, image7, image8]
 const imagesBottom = [image3, image6, image2, image9, image10, image13, image12, image11]
@@ -59,39 +58,26 @@ function Row({ items = [], reverse = false, duration = "35s" }) {
 }
 
 export default function ProjectsScroller() {
-    gsap.registerPlugin(ScrollTrigger)
     const sectionRef = useRef(null)
-    useEffect(() => {
-        const section = sectionRef.current
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
         }
-    }, [])
+    })
+
 
     return (
         <section ref={sectionRef} className="bg-white relative !z-[99] h-screen flex flex-col justify-center py-10 rounded-t-[50px]">

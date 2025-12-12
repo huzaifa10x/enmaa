@@ -18,6 +18,7 @@ import gsap from "gsap"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/all"
 import ServicesSliderMobile from "./ServicesSliderMobile"
+import useGsapPin from "./hooks/useGsapPin"
 
 const services = [
     {
@@ -144,100 +145,119 @@ export default function ServicesSection() {
     }
     const sliderRef = useRef(null)
 
-    useEffect(() => {
-        const section = sliderRef.current
+    const sectionRef = useRef(null)
 
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        }
+    })
+
+
+    const boxRef = useRef(null);
+
+    useEffect(() => {
+        const el = boxRef.current;
+
+        gsap.to(el, {
+            y: "-100%",
+            // rotation: 360,
+            duration: 5,
+            scrollTrigger: {
+                trigger: el,
+                pin: true,
+                start: "top center",
+                end: "bottom top",
+                scrub: true,
+                pinSpacing: false,
             },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
+        });
 
         return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
-        }
-    }, [])
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+    }, []);
+
 
     return (
         <>
-            <section ref={sliderRef} className="relative md:flex hidden flex-col h-screen items-center justify-center bg-gradient-to-r z-20 from-[#01b2eb] to-primary rounded-t-[50px] overflow-hidden">
-                {/* background image */}
-                <Image
-                    src={activeImg}
-                    alt="Background"
-                    fill
-                    className="object-cover transition-opacity duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-0"></div>
+            <section className="relative z-40 overflow-y-hidden" ref={sectionRef}>
+                <div ref={boxRef}>
+                    <section ref={sliderRef} className=" md:flex hidden flex-col h-screen items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary rounded-t-[50px] overflow-hidden">
+                        {/* background image */}
+                        <Image
+                            src={activeImg}
+                            alt="Background"
+                            fill
+                            className="object-cover transition-opacity duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-0"></div>
 
-                {/* slider container */}
-                <div className="relative z-10 w-full h-full overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth scrollbar-hide">
-                    <div className="flex w-max">
-                        {services.map((service) => (
-                            <div key={service.id}
-                                onMouseEnter={() => handleHover(service.img)}
-                                className="group relative w-[90vw] sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex items-end p-6"
-                            >
-                                <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
-                                    <div className="mb-3 font-ps absolute -top-96 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
-                                        WebkitTextStroke: "1px #fff",
-                                        fontFamily: "system-ui",
-                                    }}>{`0${service.id}`}</div>
+                        {/* slider container */}
+                        <div className="relative z-10 w-full h-full overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth scrollbar-hide">
+                            <div className="flex w-max">
+                                {services.map((service) => (
+                                    <div key={service.id}
+                                        onMouseEnter={() => handleHover(service.img)}
+                                        className="group relative w-[90vw] sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex items-end p-6"
+                                    >
+                                        <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
+                                            <div className="mb-3 font-ps absolute -top-96 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
+                                                WebkitTextStroke: "1px #fff",
+                                                fontFamily: "system-ui",
+                                            }}>{`0${service.id}`}</div>
 
-                                    <div className="brightness-50 group-hover:brightness-200 duration-300">
-                                        <div className="mb-3">{service.icon}</div>
-                                        <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
-                                            {service.title}
-                                        </h3>
-                                        <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
+                                            <div className="brightness-50 group-hover:brightness-200 duration-300">
+                                                <div className="mb-3">{service.icon}</div>
+                                                <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
+                                                    {service.title}
+                                                </h3>
+                                                <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                </div>
+                        </div>
 
-                {/* optional nav buttons */}
-                <div className="absolute top-80 flex gap-4 justify-between z-20 w-full px-20">
-                    <button
-                        onClick={() =>
-                            (document.querySelector(".scrollbar-hide").scrollLeft -= 400)
-                        }
-                        className="text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
-                    >
-                        <ArrowLeft />
-                    </button>
-                    <button
-                        onClick={() =>
-                            (document.querySelector(".scrollbar-hide").scrollLeft += 400)
-                        }
-                        className="text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
-                    >
-                        <ArrowRight />
-                    </button>
+                        {/* optional nav buttons */}
+                        <div className="absolute top-80 flex gap-4 justify-between z-20 w-full px-20">
+                            <button
+                                onClick={() =>
+                                    (document.querySelector(".scrollbar-hide").scrollLeft -= 400)
+                                }
+                                className="text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                            >
+                                <ArrowLeft />
+                            </button>
+                            <button
+                                onClick={() =>
+                                    (document.querySelector(".scrollbar-hide").scrollLeft += 400)
+                                }
+                                className="text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                            >
+                                <ArrowRight />
+                            </button>
+                        </div>
+                    </section>
                 </div>
             </section>
 
             <section ref={sliderRef} className='md:hidden z-20 bg-white min-h-screen'>
-                <ServicesSliderMobile  services={services} />
+                <ServicesSliderMobile services={services} />
             </section>
         </>
     )

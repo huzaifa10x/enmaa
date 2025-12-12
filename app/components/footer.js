@@ -92,7 +92,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-6 md:py-16">
                 {/* Get Started Section */}
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</h2>
+                    <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
                         If you would like to work with us or just want to get in touch, we&apos;d love to hear from you!
                     </p>

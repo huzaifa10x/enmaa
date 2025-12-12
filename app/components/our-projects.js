@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import gsap from "gsap"
 import Link from "next/link"
 import PillTitle from "./pill-title"
+import useGsapPin from "./hooks/useGsapPin"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -55,40 +56,26 @@ const items = [
 
 export default function OurProjects() {
     const sectionRef = useRef(null)
-    useEffect(() => {
-        const section = sectionRef.current
 
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
         }
-    }, [])
-
+    })
     const [index, setIndex] = useState(0)
-
     // Auto rotate
     useEffect(() => {
         const interval = setInterval(() => next(), 3000)

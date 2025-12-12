@@ -9,6 +9,7 @@ import image4 from "@/public/images/Enmaa.webp"
 import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import PillTitle from "./pill-title"
+import useGsapPin from "./hooks/useGsapPin"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -90,46 +91,56 @@ function StepRow({ step, reverseOnDesktop }) {
 }
 
 export default function OurProcess() {
-    const pinSection = useRef(null)
-    // pin section
-    useEffect(() => {
-        const section = pinSection.current
+    const sectionRef = useRef(null)
 
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-            }
-        })
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill())
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
         }
-    }, [])
+    })
+
+    const boxRef = useRef(null);
+
+    useEffect(() => {
+        const el = boxRef.current;
+
+        gsap.to(el, {
+            y: "-100%",
+            // rotation: 360,
+            duration: 5,
+            scrollTrigger: {
+                trigger: el,
+                pin: true,
+                start: "top center",
+                end: "bottom top",
+                scrub: true,
+            },
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+    }, []);
 
     return (
-        <div className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
-            {/* <div ref={pinSection} className="relative bg-white overflow-x-hidden w-full overflow-hidden rounded-t-[50px] !z-50"> */}
-            <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
+        <div ref={sectionRef} className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
+            <div ref={boxRef} className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
-                    <PillTitle title={'OUR PROCESS'}/>
+                    <PillTitle title={'OUR PROCESS'} />
 
                     {/* Heading */}
                     <h2 className="text-balance text-3xl leading-tight text-foreground md:text-4xl lg:text-5xl">

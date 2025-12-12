@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import image1 from "@/public/images/projects/1855-02.jpg";
 import image2 from "@/public/images/projects/1841-02.jpg";
 import image3 from "@/public/images/projects/1855-01.jpg";
-import image4 from "@/public/images/image65452.webp";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PillTitle from "./pill-title";
+import useGsapPin from "./hooks/useGsapPin";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,40 +46,55 @@ const designSolutions = [
 export default function DesignSolutions() {
     const [hoveredId, setHoveredId] = useState(1);
 
-    const pinSection = useRef(null);
+    const sectionRef = useRef(null);
+
+    useGsapPin(sectionRef, {
+        onEnter: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to(sectionRef.current, {
+                borderTopLeftRadius: 50,
+                borderTopRightRadius: 50,
+                duration: 0.3,
+                ease: "power2.out"
+            })
+        }
+    })
+
+
+    const boxRef = useRef(null);
+
     useEffect(() => {
-        const section = pinSection.current;
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            onEnter: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                    duration: 0.3,
-                    ease: "power2.out",
-                });
-            },
-            onLeaveBack: () => {
-                gsap.to(section, {
-                    borderTopLeftRadius: 50,
-                    borderTopRightRadius: 50,
-                    duration: 0.3,
-                    ease: "power2.out",
-                });
+        const el = boxRef.current;
+
+        gsap.to(el, {
+            y: "-100%",
+            // rotation: 360,
+            duration: 5,
+            scrollTrigger: {
+                trigger: el,
+                pin: true,
+                start: "top center",
+                end: "bottom top",
+                scrub: true,
+                pinSpacing: false,
             },
         });
+
         return () => {
             ScrollTrigger.getAll().forEach((t) => t.kill());
         };
     }, []);
 
     return (
-        <section ref={pinSection} className="bg-neutral-200 relative px-0 h-screen overflow-y-auto no-scrollbar rounded-t-[50px] text-white py-16 !z-[80]">
-            <div className="max-w-7xl mx-auto px-6">
+        <section ref={sectionRef} className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar rounded-t-[50px] text-white py-16 !z-[80]">
+            <div ref={boxRef} className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'Design Solutions'} />
 
