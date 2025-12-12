@@ -32,9 +32,9 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
 
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm !z-[110] flex items-center justify-center p-2">
-            <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto max-h-[530px]">
+            <div className="bg-card rounded-2xl overflow-hidden max-w-5xl w-full overflow-y-auto ">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div className="relative bg-black  md:min-h-96 min-h-52">
+                    <div className="relative bg-black md:min-h-96 min-h-52">
                         <div className="group">
                             <Image
                                 src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}` || "/placeholder.svg"}
@@ -92,19 +92,17 @@ export default function ProjectModal({ project, onClose, allProjects, onProjectC
                         </div>
                     </div>
 
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
+                    {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
                         <button onClick={handlePrevProject}
                             className="bg-primary hover:bg-primary/80 text-sm text-white min-w-[140px] text-center backdrop-blur-sm text-nowrap p-2 rounded-md gap-2 transition-colors">
-                            {/* <ChevronLeft className="w-6 h-6 text-white" /> */}
                             Previous Project
                         </button>
 
                         <button onClick={handleNextProject}
                             className="bg-primary hover:bg-primary/80 text-sm text-white min-w-[140px] text-center backdrop-blur-sm text-nowrap p-2 rounded-md gap-2 transition-colors">
                             Next Project
-                            {/* <ChevronRight className="w-6 h-6 text-white" /> */}
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="bg-slate-900 text-white p-4 md:p-8 flex flex-col justify-between">
                         <button
