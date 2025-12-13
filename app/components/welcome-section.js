@@ -9,6 +9,7 @@ import buildingProp2 from "@/public/images/building-prop2.webp"
 import QuoteModal from "./multi-step-form"
 import PillTitle from "./pill-title"
 import useGsapPin from "./hooks/useGsapPin"
+import useCounterAnimation from "./useCounterAnimation"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -101,6 +102,20 @@ export default function WelcomeSection() {
     //     };
     // }, []);
 
+    const counterV1Ref = useRef(null);
+    const counterV2Ref = useRef(null);
+    const counterV3Ref = useRef(null);
+
+    // Apply the custom hook to each ref
+    useCounterAnimation(counterV1Ref, 2500); // 2.5 second duration
+    useCounterAnimation(counterV2Ref, 2000); // 2.0 second duration
+    useCounterAnimation(counterV3Ref, 3000); // 3.0 second duration
+
+    const counterStyle = {
+        WebkitTextStroke: "2px #565656",
+        fontFamily: "system-ui",
+    };
+
     return (
         <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 p md:-mt-7 md:md:rounded-t-[50px]">
             <div className="lg:h-screen">
@@ -146,7 +161,7 @@ export default function WelcomeSection() {
                             </div>
 
                             {/* Bottom stats */}
-                            <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12">
+                            {/* <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12">
                                 <div className="text-center">
                                     <div
                                         ref={(el) => (countersRef.current[0] = el)}
@@ -195,6 +210,55 @@ export default function WelcomeSection() {
                                         COMPLETED PROJECTS
                                     </p>
                                 </div>
+                            </div> */}
+
+                            <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12">
+
+                                {/* Counter 1: YEARS OF EXPERIENCE */}
+                                <div className="text-center">
+                                    <div
+                                        ref={counterV1Ref} // Assign the specific ref
+                                        data-value="10" // Max value
+                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        style={counterStyle}
+                                    >
+                                        0
+                                    </div>
+                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                        YEARS OF EXPERIENCE
+                                    </p>
+                                </div>
+
+                                {/* Counter 2: NUMBER OF CLIENTS */}
+                                <div className="text-center">
+                                    <div
+                                        ref={counterV2Ref} // Assign the specific ref
+                                        data-value="17" // Max value
+                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        style={counterStyle}
+                                    >
+                                        0
+                                    </div>
+                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                        NUMBER OF CLIENTS
+                                    </p>
+                                </div>
+
+                                {/* Counter 3: COMPLETED PROJECTS */}
+                                <div className="text-center">
+                                    <div
+                                        ref={counterV3Ref} // Assign the specific ref
+                                        data-value="501" // Max value
+                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        style={counterStyle}
+                                    >
+                                        0
+                                    </div>
+                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                        COMPLETED PROJECTS
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
                     </div>

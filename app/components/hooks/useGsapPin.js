@@ -19,7 +19,7 @@ export default function useGsapPin(ref, options = {}) {
                 end: "bottom top",
                 pin: true,
                 pinSpacing: false,
-                // ...options, // allow customization per component
+                ...options, // allow customization per component
             })
             return () => trigger.kill()
         } else {
