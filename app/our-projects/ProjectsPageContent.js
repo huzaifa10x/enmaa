@@ -37,12 +37,12 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                 <HeroSection
                     bg={image3}
                     title={' مواقع لمشاريع'}
-                    desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
+                    desc={'تشمل مشاريعنا الفلل والمباني السكنية والتطويرات التجارية المصممة لتجمع بين العملية والراحة والتصميم الراقي.'}
                 /> :
                 <HeroSection
                     bg={image3}
-                    title={'Our Projects'}
-                    desc={'The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.'}
+                    title={'Our <br> Projects'}
+                    desc={'Our projects include villas, residential buildings, and commercial developments designed to combine practicality, comfort, and refined design.'}
                 />
             }
 

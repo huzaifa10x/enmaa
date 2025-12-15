@@ -11,7 +11,7 @@ export default function page() {
             <HeroSection
                 bg={image3}
                 title={'Project <br/> Inspirations'}
-                desc={'The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.'}
+                desc={'A visual showcase of design concepts and project ideas that influence our engineering and development work.'}
             />
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">

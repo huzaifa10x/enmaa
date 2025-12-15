@@ -147,55 +147,12 @@ export default function ServicesSection() {
 
     const sectionRef = useRef(null)
 
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
-
-
-    const boxRef = useRef(null);
-
-    useEffect(() => {
-        const el = boxRef.current;
-
-        gsap.to(el, {
-            y: "-100%",
-            // rotation: 360,
-            duration: 5,
-            scrollTrigger: {
-                trigger: el,
-                pin: true,
-                start: "top center",
-                end: "bottom bottom",
-                scrub: true,
-                pinSpacing: false,
-            },
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
-
+    useGsapPin(sectionRef)
 
     return (
         <>
-            <section className="lg:block hidden relative z-40 overflow-y-hidden h-screen" ref={sectionRef}>
-                <section ref={sliderRef} className="md:flex hidden flex-col items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary md:rounded-t-[50px] overflow-hidden">
+            <section className="lg:block hidden relative z-40 md:rounded-t-[50px] overflow-y-hidden h-screen" ref={sectionRef}>
+                <section ref={sliderRef} className="md:flex hidden flex-col items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary  overflow-hidden">
                     {/* background image */}
                     <Image
                         src={activeImg}
@@ -221,10 +178,10 @@ export default function ServicesSection() {
 
                                         <div className="brightness-50 group-hover:brightness-200 duration-300">
                                             <div className="mb-3">{service.icon}</div>
-                                            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
+                                            <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
                                                 {service.title}
                                             </h3>
-                                            <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 transition-opacity duration-300 text-white text-sm md:text-lg" dangerouslySetInnerHTML={{ __html: service.desc }} />
+                                            <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 transition-opacity duration-300 text-white text-sm" dangerouslySetInnerHTML={{ __html: service.desc }} />
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +211,7 @@ export default function ServicesSection() {
                 </section>
             </section>
 
-            <section ref={sectionRef} className="md:hidden z-50">
+            <section className="md:hidden z-50">
                 <section ref={sliderRef} className=' bg-white min-h-screen'>
                     <ServicesSliderMobile services={services} />
                 </section>

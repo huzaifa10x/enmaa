@@ -105,7 +105,7 @@ export default function OurProjects() {
     }
 
     return (
-        <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center md:rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
+        <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
             <div className="flex flex-wrap md:justify-between w-full max-w-7xl items-start lg:gap-0 gap-4 px-6">
                 <PillTitle title={'OUR PROJECTS'} />
                 <div className="md:mb-16 max-w-[500px]">
@@ -140,7 +140,7 @@ export default function OurProjects() {
                                 />
 
                                 {/* Overlay Text */}
-                                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+                                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/60 via-transparent to-transparent">
                                     <h3 className="text-3xl font-bold text-cyan-400 mb-1">
                                         {item.title}
                                     </h3>

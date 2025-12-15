@@ -93,51 +93,33 @@ function StepRow({ step, reverseOnDesktop }) {
 export default function OurProcess() {
     const sectionRef = useRef(null)
 
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
+    useGsapPin(sectionRef)
 
-    const boxRef = useRef(null);
+    // const boxRef = useRef(null);
+    // useEffect(() => {
+    //     const el = boxRef.current;
 
-    useEffect(() => {
-        const el = boxRef.current;
+    //     gsap.to(el, {
+    //         y: "-100%",
+    //         // rotation: 360,
+    //         duration: 5,
+    //         scrollTrigger: {
+    //             trigger: el,
+    //             pin: true,
+    //             start: "top center",
+    //             end: "bottom top",
+    //             scrub: true,
+    //         },
+    //     });
 
-        gsap.to(el, {
-            y: "-100%",
-            // rotation: 360,
-            duration: 5,
-            scrollTrigger: {
-                trigger: el,
-                pin: true,
-                start: "top center",
-                end: "bottom top",
-                scrub: true,
-            },
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
+    //     return () => {
+    //         ScrollTrigger.getAll().forEach((t) => t.kill());
+    //     };
+    // }, []);
 
     return (
-        <div ref={sectionRef} className="relative w-full md:rounded-t-[50px] !z-50 bg-gray-100">
-            <div ref={boxRef} className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
+        <div className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
+            <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
                 {/* Eyebrow / Pill */}
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'OUR PROCESS'} />

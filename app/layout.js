@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
 import { headers } from "next/headers";
+import SmoothScroll from "./components/SmoothScroll";
+import CustomCursor from "./components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +26,11 @@ export default function RootLayout({ children }) {
   const isArabic = pathname.startsWith("/ar");
   return (
     <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <SmoothScroll>
+          <CustomCursor />
+          {children}
+        </SmoothScroll>
         <Footer />
       </body>
     </html>

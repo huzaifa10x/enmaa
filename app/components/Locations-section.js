@@ -61,49 +61,32 @@ export default function LocationsSection() {
     const sectionRef = useRef(null)
     const [selectedLocation, setSelectedLocation] = useState("Sharjah")
 
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
+    useGsapPin(sectionRef)
 
 
-    const boxRef = useRef(null);
+    // const boxRef = useRef(null);
 
-    useEffect(() => {
-        const el = boxRef.current;
+    // useEffect(() => {
+    //     const el = boxRef.current;
 
-        gsap.to(el, {
-            y: "-100%",
-            // rotation: 360,
-            duration: 5,
-            scrollTrigger: {
-                trigger: el,
-                pin: true,
-                start: "top center",
-                end: "bottom top",
-                scrub: true,
-                pinSpacing: false,
-            },
-        });
+    //     gsap.to(el, {
+    //         y: "-100%",
+    //         // rotation: 360,
+    //         duration: 5,
+    //         scrollTrigger: {
+    //             trigger: el,
+    //             pin: true,
+    //             start: "top center",
+    //             end: "bottom top",
+    //             scrub: true,
+    //             pinSpacing: false,
+    //         },
+    //     });
 
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
+    //     return () => {
+    //         ScrollTrigger.getAll().forEach((t) => t.kill());
+    //     };
+    // }, []);
 
     const selectedLocationData = locations.find(
         (loc) => loc.id === selectedLocation
@@ -111,7 +94,7 @@ export default function LocationsSection() {
 
     return (
         <section ref={sectionRef} className="py-20 lg:h-screen bg-white md:rounded-t-[50px] !z-[70]">
-            <div ref={boxRef} className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-8 mx-auto">
                     {/* Left Section - Location Tabs */}
                     <div className="space-y-4">

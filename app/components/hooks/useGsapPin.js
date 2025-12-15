@@ -15,8 +15,8 @@ export default function useGsapPin(ref, options = {}) {
         if (isDesktop) {
             const trigger = ScrollTrigger.create({
                 trigger: section,
-                start: "top top",
-                end: "bottom top",
+                start: "center",
+                end: "bottom",
                 pin: true,
                 pinSpacing: false,
                 ...options, // allow customization per component

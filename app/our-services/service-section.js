@@ -1,6 +1,7 @@
 import ServiceCard from "./service-card";
 import Image from "next/image";
 import servicesText from "@/public/images/Services.webp";
+import servicesProject from "@/public/images/projects/448...1.jpg";
 
 export default function ServiceSection({ lang = "en" }) {
     const isArabic = lang === "ar";
@@ -17,6 +18,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "01",
                     title: "Engineering Services",
+                    image: servicesProject,
                     items: [
                         "Feasibility studies",
                         "Planning",
@@ -30,6 +32,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "02",
                     title: "Design Services",
+                    image: servicesProject,
                     items: [
                         "Data collection",
                         "Design idea",
@@ -42,6 +45,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "03",
                     title: "Tendering Services",
+                    image: servicesProject,
                     items: [
                         "Contract terms",
                         "Initial tender evaluation",
@@ -55,6 +59,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "04",
                     title: "Supervision",
+                    image: servicesProject,
                     items: [
                         "Supervising the construction process",
                         "Quality",
@@ -66,6 +71,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "05",
                     title: "Client Engineer Representative Role",
+                    image: servicesProject,
                     items: [
                         "Representing the owner at the workplace",
                         "On-site engagement with customers for better coordination",
@@ -76,6 +82,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "06",
                     title: "Program Management Services",
+                    image: servicesProject,
                     items: [
                         "Determine the project timeline",
                         "Cost management",
@@ -91,6 +98,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "07",
                     title: "Design & Build Project Participation",
+                    image: servicesProject,
                     items: [
                         "Direct work with contractors",
                         "Quality and value of business",
@@ -103,6 +111,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "08",
                     title: "GIS Services",
+                    image: servicesProject,
                     items: [
                         "Finding project solutions",
                         "Consulting services and strategic planning",
@@ -125,6 +134,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "١",
                     title: "الخدمات الهندسية",
+                    image: servicesProject,
                     items: [
                         "دراسات الجدوى",
                         "التخطيط",
@@ -138,6 +148,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٢",
                     title: "خدمات التصميم",
+                    image: servicesProject,
                     items: [
                         "جمع البيانات",
                         "فكرة التصميم",
@@ -150,6 +161,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٣",
                     title: "خدمات المناقصات",
+                    image: servicesProject,
                     items: [
                         "شروط العقد",
                         "تقييم المناقصة الأولي",
@@ -163,6 +175,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٤",
                     title: "الإشراف",
+                    image: servicesProject,
                     items: [
                         "الإشراف على عملية البناء",
                         "الجودة",
@@ -174,6 +187,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٥",
                     title: "دور ممثل مهندس العميل",
+                    image: servicesProject,
                     items: [
                         "تمثيل المالك في مكان العمل",
                         "التفاعل مع العملاء في الموقع لتنسيق أفضل",
@@ -184,6 +198,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٦",
                     title: "خدمات إدارة البرامج",
+                    image: servicesProject,
                     items: [
                         "تحديد الجدول الزمني للمشروع",
                         "إدارة التكاليف",
@@ -199,6 +214,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٧",
                     title: "المشاركة في مشاريع التصميم والبناء",
+                    image: servicesProject,
                     items: [
                         "العمل المباشر مع المقاولين",
                         "جودة وقيمة الأعمال",
@@ -211,6 +227,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "٨",
                     title: "خدمات نظم المعلومات الجغرافية (GIS)",
+                    image: servicesProject,
                     items: [
                         "إيجاد حلول للمشاريع",
                         "الخدمات الاستشارية والتخطيط الاستراتيجي",
@@ -242,7 +259,7 @@ export default function ServiceSection({ lang = "en" }) {
                     />
                     <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <h1
-                            className="text-4xl md:text-5xl text-nowrap mb-2"
+                            className="text-2xl md:text-5xl text-nowrap mb-2"
                             dangerouslySetInnerHTML={{ __html: `${header.main} <span class="text-primary font-bold">${header.bold}</span>` }}
                         />
                     </div>

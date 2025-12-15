@@ -15,7 +15,7 @@ export default function ContactUs({ lang = "ar" }) {
                 desc: "The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life."
             },
             heading: "Get in Touch With Enmaa",
-            phoneTitle: "Landline",
+            phoneTitle: "Call Us",
             emailTitle: "Email Us",
             followTitle: "Follow Us On",
         },
@@ -59,8 +59,8 @@ export default function ContactUs({ lang = "ar" }) {
                                     <div>
                                         <h3 className="text-2xl font-semibold">{t.phoneTitle}</h3>
                                         <p className="text-gray-600">
-                                            <a className='hover:text-primary duration-300' href="tel:+971 6 52 38 228">
-                                                +971 6 52 38 228
+                                            <a className='hover:text-primary duration-300' href="tel:+971 50 618 5529">
+                                                +971 50 618 5529
                                             </a>
                                         </p>
                                     </div>

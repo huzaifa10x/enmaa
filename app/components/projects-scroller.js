@@ -59,24 +59,7 @@ function Row({ items = [], reverse = false, duration = "35s" }) {
 
 export default function ProjectsScroller() {
     const sectionRef = useRef(null)
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
+    useGsapPin(sectionRef)
 
 
     return (

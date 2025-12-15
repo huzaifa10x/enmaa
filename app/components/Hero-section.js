@@ -13,12 +13,12 @@ export default function HeroSection({ title, desc, bg }) {
                     height={200}
                     priority
                     alt='image'
-                    className='w-full h-[400px] object-cover absolute'
+                    className='w-full h-[400px] object-cover brightness-[0.7] absolute'
                 />
 
                 <div className='relative z-10 flex flex-wrap items-center h-full text-white'>
-                    <div className='max-w-7xl mx-auto flex flex-wrap px-4 items-center gap-10'>
-                        <div className='text-6xl font-bold' dangerouslySetInnerHTML={{ __html: title }} />
+                    <div className='max-w-7xl mx-auto flex flex-wrap px-4 items-center md:gap-10 gap-5'>
+                        <div className='md:text-6xl text-5xl font-bold' dangerouslySetInnerHTML={{ __html: title }} />
                         <div className='max-w-xl'>{desc}</div>
                     </div>
                 </div>

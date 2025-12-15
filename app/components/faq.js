@@ -16,27 +16,9 @@ export default function FAQ({ faqData }) {
     }
     const sectionRef = useRef(null)
 
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
+    useGsapPin(sectionRef)
 
     const boxRef = useRef(null);
-
     useEffect(() => {
         const el = boxRef.current;
 
@@ -61,7 +43,7 @@ export default function FAQ({ faqData }) {
 
     return (
         <section ref={sectionRef} className="bg-white md:rounded-t-[50px] py-20 relative !z-[80]">
-            <div ref={boxRef} className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'faq'} />
                     <div className="mb-16">

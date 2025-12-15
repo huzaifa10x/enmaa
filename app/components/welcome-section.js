@@ -18,24 +18,7 @@ export default function WelcomeSection() {
     const countersRef = useRef([]) // counters ka ref array
 
 
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
+    useGsapPin(sectionRef)
 
     useEffect(() => {
         const section = sectionRef.current
@@ -117,8 +100,8 @@ export default function WelcomeSection() {
     };
 
     return (
-        <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 p md:-mt-7 md:md:rounded-t-[50px]">
-            <div className="lg:h-screen">
+        <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 p md:-mt-7 md:rounded-t-[50px]">
+            <div className="h-screen">
                 <Image
                     src={buildingProp}
                     width={800}

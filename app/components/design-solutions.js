@@ -48,58 +48,40 @@ export default function DesignSolutions() {
 
     const sectionRef = useRef(null);
 
-    useGsapPin(sectionRef, {
-        onEnter: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        },
-        onLeaveBack: () => {
-            gsap.to(sectionRef.current, {
-                borderTopLeftRadius: 50,
-                borderTopRightRadius: 50,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-        }
-    })
+    useGsapPin(sectionRef)
 
 
-    const boxRef = useRef(null);
+    // const boxRef = useRef(null);
+    // useEffect(() => {
+    //     const el = boxRef.current;
 
-    useEffect(() => {
-        const el = boxRef.current;
+    //     gsap.to(el, {
+    //         y: "-100%",
+    //         // rotation: 360,
+    //         duration: 5,
+    //         scrollTrigger: {
+    //             trigger: el,
+    //             pin: true,
+    //             start: "top center",
+    //             end: "bottom top",
+    //             scrub: true,
+    //             pinSpacing: false,
+    //         },
+    //     });
 
-        gsap.to(el, {
-            y: "-100%",
-            // rotation: 360,
-            duration: 5,
-            scrollTrigger: {
-                trigger: el,
-                pin: true,
-                start: "top center",
-                end: "bottom top",
-                scrub: true,
-                pinSpacing: false,
-            },
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
+    //     return () => {
+    //         ScrollTrigger.getAll().forEach((t) => t.kill());
+    //     };
+    // }, []);
 
     return (
         <section ref={sectionRef} className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar md:rounded-t-[50px] text-white py-16 !z-[80]">
-            <div ref={boxRef} className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'Design Solutions'} />
 
-                    <div className="md:mb-16">
-                        <h2 className="text-3xl md:text-5xl mb-4 text-black text-balance">
+                    <div className="">
+                        <h2 className="text-3xl md:text-5xl text-black text-balance">
                             Description <br className="lg:block hidden" />
                             <span className="text-primary font-bold">
                                 Architecture process

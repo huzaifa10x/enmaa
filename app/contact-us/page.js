@@ -12,7 +12,7 @@ export default function page() {
             <HeroSection
                 bg={image3}
                 title={'Contact Us'}
-                desc={'The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.'}
+                desc={'For inquiries, consultations, or project discussions, please contact Enmaa. Our team will respond promptly to assist you.'}
             />
             <section className='py-16 bg-neutral-100'>
                 <div className='max-w-7xl mx-auto px-6'>
@@ -30,8 +30,8 @@ export default function page() {
                                         <PhoneIncoming className='text-white' />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-semibold">Landline</h3>
-                                        <p className="text-gray-600"><a className='hover:text-primary duration-300' href="tel:+971 6 52 38 228">+971 6 52 38 228</a></p>
+                                        <h3 className="text-2xl font-semibold">Call Us</h3>
+                                        <p className="text-gray-600"><a className='hover:text-primary duration-300' href="tel:+971 50 618 5529">+971 50 618 5529</a></p>
                                     </div>
                                 </div>
 

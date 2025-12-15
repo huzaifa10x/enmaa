@@ -226,7 +226,7 @@ export default function Footer() {
                             </p>
                         </div>
                         <div className="text-gray-300">
-                            <p className="text-lg"><a href="tel:+971 6 52 38 228"><b>Landline</b>: +971 6 52 38 228</a></p>
+                            <p className="text-lg"><a href="tel:+971 50 618 5529"><b>Call Us</b>: +971 50 618 5529</a></p>
                         </div>
                     </div>
                     {/* Email Signup */}
