@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
     <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SmoothScroll>
-          <CustomCursor />
+          {/* <CustomCursor /> */}
           {children}
         </SmoothScroll>
         <Footer />

@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactForm from './ContactForm'
 import ProjectLocation from './ProjectLocation'
-import { Facebook, Instagram, Mail, PhoneIncoming, Twitter, UserRoundPlus } from 'lucide-react'
+import { Facebook, Instagram, Mail, PhoneIncoming, Twitter, UserRoundPlus, Youtube } from 'lucide-react'
 import image3 from "@/public/images/projects/1438-17.jpg"
 import HeroSection from '../components/Hero-section'
 
@@ -54,10 +54,21 @@ export default function page() {
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-semibold">Follow Us On</h3>
-                                        <div className="flex items-center gap-4 mt-1 text-2xl">
+                                        {/* <div className="flex items-center gap-4 mt-1 text-2xl">
                                             <Facebook className='hover:text-primary duration-300' />
                                             <Instagram className='hover:text-primary duration-300' />
                                             <Twitter className='hover:text-primary duration-300' />
+                                        </div> */}
+                                        <div className="flex items-center gap-4 mt-1 text-2xl">
+                                            <a href="https://www.facebook.com/enmaa.engcon/">
+                                                <Facebook className='hover:text-primary duration-300' />
+                                            </a>
+                                            <a href="https://www.instagram.com/enmaaengcon/">
+                                                <Instagram className='hover:text-primary duration-300' />
+                                            </a>
+                                            <a href="https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured">
+                                                <Youtube size={30} className='hover:text-primary duration-300' />
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

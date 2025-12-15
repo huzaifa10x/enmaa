@@ -94,15 +94,22 @@ export default function ContactUs({ lang = "ar" }) {
                                     <div>
                                         <h3 className="text-2xl font-semibold">{t.followTitle}</h3>
                                         <div className="flex items-center gap-4 mt-1 text-2xl">
-                                            <Facebook className='hover:text-primary duration-300' />
-                                            <Instagram className='hover:text-primary duration-300' />
-                                            <Twitter className='hover:text-primary duration-300' />
+                                            <a href="https://tr.ee/0mGAI6SSog">
+                                                <Facebook className='hover:text-primary duration-300' />
+                                            </a>
+                                            <a href="https://tr.ee/0mGAI6SSog">
+                                                <Instagram className='hover:text-primary duration-300' />
+                                            </a>
+                                            <a href="https://tr.ee/BEfYD4GgiR">
+                                                <Twitter className='hover:text-primary duration-300' />
+                                            </a>
                                         </div>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
                                         <UserRoundPlus className="text-white" />
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

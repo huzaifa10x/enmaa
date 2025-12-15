@@ -2,26 +2,24 @@
 
 
 import { Card } from "@/components/ui/card"
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
-import image4 from "@/public/images/projects/1438-19.jpg"
-import image5 from "@/public/images/projects/1841-01.jpg"
-import image6 from "@/public/images/projects/1841-02.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image9 from "@/public/images/projects/1855-02.jpg"
-import image10 from "@/public/images/projects/1875-01.jpg"
-import image11 from "@/public/images/projects/1883-1884-02.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
-import image13 from "@/public/images/projects/1928.jpg"
+import image1 from "@/public/images/projecs slideshow/220.jpg"
+import image2 from "@/public/images/projecs slideshow/233.jpg"
+import image3 from "@/public/images/projecs slideshow/235.jpg"
+import image4 from "@/public/images/projecs slideshow/265.1.jpg"
+import image5 from "@/public/images/projecs slideshow/265.jpg"
+import image6 from "@/public/images/projecs slideshow/317.jpg"
+import image7 from "@/public/images/projecs slideshow/401.jpg"
+import image8 from "@/public/images/projecs slideshow/413.1 (2).jpg"
+import image9 from "@/public/images/projecs slideshow/413.1.jpg"
+import image10 from "@/public/images/projecs slideshow/428.jpg"
+import image11 from "@/public/images/projecs slideshow/431.jpg"
 import Image from "next/image"
 import { useRef } from "react"
 import gsap from "gsap"
 import useGsapPin from "./hooks/useGsapPin"
 
-const imagesTop = [image1, image2, image3, image4, image5, image12, image7, image8]
-const imagesBottom = [image3, image6, image2, image9, image10, image13, image12, image11]
+const imagesTop = [image1, image2, image3, image4, image5, image7, image8]
+const imagesBottom = [image3, image6, image2, image9, image10, image11]
 
 function Row({ items = [], reverse = false, duration = "35s" }) {
     const anim = reverse ? "animate-marquee-right" : "animate-marquee-left"
