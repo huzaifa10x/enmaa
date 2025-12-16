@@ -177,9 +177,11 @@ export default function QuoteModal() {
                 break;
             case 5:
                 // No strict required fields in notes
+                fieldsToValidate = ["additionalNotes"];
                 break;
             case 6:
                 // No strict validation for optional uploads
+                fieldsToValidate = ["additionalNotes"];
                 break;
         }
 
