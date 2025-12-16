@@ -21,19 +21,9 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
     const [selectedProject, setSelectedProject] = useState(null)
     const filteredProjects = PROJECTS?.data.filter((project) => project.location_city === selectedLocation)
 
-    // const filteredProjects = PROJECTS?.data.filter((project) => {
-    //     const matchLocation = project.location_city === selectedLocation;
-
-    //     const matchType =
-    //         selectedType === "ALL PROJECTS" ||
-    //         project.type?.toUpperCase() === selectedType;
-    //     return matchLocation && matchType;
-    // });
-
     return (
         <>
             {isArabic ?
-
                 <HeroSection
                     bg={image3}
                     title={' مواقع لمشاريع'}
@@ -45,7 +35,6 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                     desc={'Our projects include villas, residential buildings, and commercial developments designed to combine practicality, comfort, and refined design.'}
                 />
             }
-
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">
                     <div className="text-center relative">

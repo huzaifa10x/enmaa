@@ -112,12 +112,9 @@ const formSchema = z.object({
 })
     .refine((data) => {
         if (!data.plotSize || !data.builtUpArea) return true;
-
         const plot = Number(data.plotSize);
         const built = Number(data.builtUpArea);
-
         if (isNaN(plot) || isNaN(built)) return true;
-
         return built < plot;
     }, {
         message: "Value should be less than Plot Size",
@@ -177,12 +174,11 @@ export default function QuoteModal() {
                 break;
             case 5:
                 // No strict required fields in notes
-                fieldsToValidate = ["additionalNotes"];
+                fieldsToValidate = [""];
                 break;
-            case 6:
-                // No strict validation for optional uploads
-                fieldsToValidate = ["additionalNotes"];
-                break;
+            // case 6:
+            //         fieldsToValidate = [""];
+            //     break;
         }
 
         const isValid = await trigger(fieldsToValidate);
@@ -338,6 +334,14 @@ export default function QuoteModal() {
                             <FormControl>
                                 <Input placeholder="Sq. ft." {...field} />
                             </FormControl>
+                            {/* {built < plot ?
+                                <div className="text-xs text-neutral-500">Built-up area cannot exceed plot size.</div>
+                                :
+                                <></>
+                            } */}
+                            {/* {console.log(field)} */}
+                            <FormMessage />
+
                         </FormItem>
                     )}
                 />
@@ -631,7 +635,7 @@ export default function QuoteModal() {
                                         Next <ChevronRight className="w-4 h-4" />
                                     </Button>
                                 ) : (
-                                    <Button type="submit" className="gap-2 bg-green-600 hover:bg-green-700">
+                                    <Button type="button" onClick={onSubmit} className="gap-2 bg-green-600 hover:bg-green-700">
                                         Submit Request <Check className="w-4 h-4" />
                                     </Button>
                                 )}
