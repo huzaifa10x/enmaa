@@ -2,6 +2,14 @@ import ServiceCard from "./service-card";
 import Image from "next/image";
 import servicesText from "@/public/images/Services.webp";
 import servicesProject from "@/public/images/projects/448...1.jpg";
+import engineering from "@/public/images/Services-images/Engineering Service/25.jpg";
+import design from "@/public/images/Services-images/Engineering Service/24.jpg";
+import tender from "@/public/images/Services-images/Tendering-Services/453.jpg";
+import supervision from "@/public/images/Services-images/Supervision/21.jpg";
+import clientEng from "@/public/images/Services-images/Client-Engineer-Representative/27.jpg";
+import program from "@/public/images/Services-images/Program-Management-Services/554.jpg";
+import designBuild from "@/public/images/Services-images/Design-Build-Project/46445.jpg";
+import GIS from "@/public/images/Services-images/GIS-Services/65.jpg";
 
 export default function ServiceSection({ lang = "en" }) {
     const isArabic = lang === "ar";
@@ -18,7 +26,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "01",
                     title: "Engineering Services",
-                    image: servicesProject,
+                    image: engineering,
                     items: [
                         "Feasibility studies",
                         "Planning",
@@ -32,7 +40,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "02",
                     title: "Design Services",
-                    image: servicesProject,
+                    image: design,
                     items: [
                         "Data collection",
                         "Design idea",
@@ -45,7 +53,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "03",
                     title: "Tendering Services",
-                    image: servicesProject,
+                    image: tender,
                     items: [
                         "Contract terms",
                         "Initial tender evaluation",
@@ -59,7 +67,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "04",
                     title: "Supervision",
-                    image: servicesProject,
+                    image: supervision,
                     items: [
                         "Supervising the construction process",
                         "Quality",
@@ -71,7 +79,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "05",
                     title: "Client Engineer Representative Role",
-                    image: servicesProject,
+                    image: clientEng,
                     items: [
                         "Representing the owner at the workplace",
                         "On-site engagement with customers for better coordination",
@@ -82,7 +90,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "06",
                     title: "Program Management Services",
-                    image: servicesProject,
+                    image: program,
                     items: [
                         "Determine the project timeline",
                         "Cost management",
@@ -98,7 +106,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "07",
                     title: "Design & Build Project Participation",
-                    image: servicesProject,
+                    image: designBuild,
                     items: [
                         "Direct work with contractors",
                         "Quality and value of business",
@@ -111,7 +119,7 @@ export default function ServiceSection({ lang = "en" }) {
                 {
                     id: "08",
                     title: "GIS Services",
-                    image: servicesProject,
+                    image: GIS,
                     items: [
                         "Finding project solutions",
                         "Consulting services and strategic planning",

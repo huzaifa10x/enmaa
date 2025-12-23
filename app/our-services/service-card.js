@@ -16,7 +16,7 @@ export default function ServiceCard({ service }) {
 
             <div className="relative p-8 h-full flex flex-col justify-between duration-300 group-hover:text-white">
                 <div>
-                    <div className="text-6xl font-light opacity-20 mb-4 text-end text-transparent font-ps" style={{
+                    <div className="text-6xl font-light opacity-65 mb-4 text-end text-white font-ps" style={{
                         WebkitTextStroke: "2px #000",
                         fontFamily: "system-ui",
                     }}>{service.id}</div>

@@ -1,22 +1,16 @@
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
-import image4 from "@/public/images/projects/1438-19.jpg"
-import image5 from "@/public/images/projects/1841-01.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
+import image1 from "@/public/images/Services-images/Design Services/565.jpg"
+import image2 from "@/public/images/Services-images/Design Services/876.jpg"
+import image3 from "@/public/images/Services-images/Design Services/9878.jpg"
 import ServicesPageSlider from '../components/services-page-slider'
 
 export default function EngineeringService() {
-    const images = [image1, image2, image3, image4, image5, image12, image7, image8]
+    const images = [image1, image2, image3]
     return (
         <main className="">
             <ServicesBanner />
-
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <h1 className="text-4xl font-bold text-foreground mb-2">Design Services</h1>
                 <p className="text-muted-foreground text-sm">Home / Design Services</p>

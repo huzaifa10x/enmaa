@@ -1,17 +1,14 @@
 import Testimonial from '../components/Testimonial'
 import ServicesBanner from '../components/services-banner'
 import ServicesPageSlider from '../components/services-page-slider'
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
-import image4 from "@/public/images/projects/1438-19.jpg"
-import image5 from "@/public/images/projects/1841-01.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
+import image1 from "@/public/images/Services-images/Engineering Service/20.jpg"
+import image2 from "@/public/images/Services-images/Engineering Service/21.jpg"
+import image3 from "@/public/images/Services-images/Engineering Service/23.jpg"
+import image4 from "@/public/images/Services-images/Engineering Service/24.jpg"
+import image5 from "@/public/images/Services-images/Engineering Service/25.jpg"
 
 export default function page() {
-    const images = [image1, image2, image3, image4, image5, image12, image7, image8]
+    const images = [image1, image2, image3, image4, image5]
     return (
         <main className="">
             <ServicesBanner />

@@ -1,10 +1,15 @@
 import Testimonial from '../components/Testimonial'
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import Image from 'next/image'
+import image1 from "@/public/images/Services-images/Client-Engineer-Representative/23.jpg"
+import image2 from "@/public/images/Services-images/Client-Engineer-Representative/25.jpg"
+import image3 from "@/public/images/Services-images/Client-Engineer-Representative/26.jpg"
+import image4 from "@/public/images/Services-images/Client-Engineer-Representative/27.jpg"
 import ServicesBanner from '../components/services-banner'
+import ServicesPageSlider from '../components/services-page-slider'
+import Image from 'next/image'
 
 export default function EngineeringService() {
+    const images = [image1, image2, image3, image4]
+
     return (
         <main>
             <ServicesBanner />
@@ -19,25 +24,10 @@ export default function EngineeringService() {
                 </p>
             </section>
 
-            {/* Images */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="h-64 md:h-80 rounded-xl overflow-hidden">
-                        <Image
-                            src={image1}
-                            alt="Project Image 1"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="h-64 md:h-80 rounded-xl overflow-hidden">
-                        <Image
-                            src={image2}
-                            alt="Project Image 2"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                </div>
+                <ServicesPageSlider images={images} />
             </section>
+
 
             {/* Description */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
