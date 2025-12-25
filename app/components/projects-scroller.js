@@ -2,7 +2,7 @@
 
 
 import { Card } from "@/components/ui/card"
-import image1 from "@/public/images/projecs slideshow/220.jpg"
+// import image1 from "@/public/images/projecs slideshow/220.jpg"
 import image2 from "@/public/images/projecs slideshow/233.jpg"
 import image3 from "@/public/images/projecs slideshow/235.jpg"
 import image4 from "@/public/images/projecs slideshow/265.1.jpg"
@@ -18,7 +18,7 @@ import { useRef } from "react"
 import gsap from "gsap"
 import useGsapPin from "./hooks/useGsapPin"
 
-const imagesTop = [image1, image2, image3, image4, image5, image7, image8]
+const imagesTop = [image2, image3, image4, image5, image7, image8]
 const imagesBottom = [image3, image6, image2, image9, image10, image11]
 
 function Row({ items = [], reverse = false, duration = "35s" }) {

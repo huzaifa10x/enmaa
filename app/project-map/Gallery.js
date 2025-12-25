@@ -3,15 +3,67 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
-import img1 from "@/public/images/projects/2105.jpg";
-import img2 from "@/public/images/projects/448...1.jpg";
-import img3 from "@/public/images/projects/1438-07.jpg";
-import img4 from "@/public/images/projects/1929.jpg";
-import img5 from "@/public/images/projects/1855-01.jpg";
-import img6 from "@/public/images/projects/ETHINIJI (1).jpg";
-import img7 from "@/public/images/projects/ETHINIJI (2).jpg";
-import img8 from "@/public/images/projects/LEFT SIDE VIEW 1.jpg";
-import img9 from "@/public/images/projects/OPTION  4 -CORNER VIEW 1.jpg";
+import img1 from "@/public/images/inspiration/56.png";
+import img2 from "@/public/images/inspiration/457.png";
+import img3 from "@/public/images/inspiration/1754.png";
+import img4 from "@/public/images/inspiration/11.jpg";
+import img5 from "@/public/images/inspiration/56.jpg";
+import img6 from "@/public/images/inspiration/457.jpg";
+import img7 from "@/public/images/inspiration/1754.jpg";
+import img8 from "@/public/images/inspiration/1.jpg";
+import img9 from "@/public/images/inspiration/2.jpg";
+import img10 from "@/public/images/inspiration/3.jpg";
+import img11 from "@/public/images/inspiration/4.jpg";
+import img12 from "@/public/images/inspiration/5.jpg";
+import img13 from "@/public/images/inspiration/7.jpg";
+import img14 from "@/public/images/inspiration/8.jpg";
+import img15 from "@/public/images/inspiration/9.jpg";
+import img16 from "@/public/images/inspiration/10.jpg";
+import img17 from "@/public/images/inspiration/FRONT VIEW 02.jpg";
+import img18 from "@/public/images/inspiration/575.jpg";
+import img19 from "@/public/images/inspiration/02855.jpg";
+import img20 from "@/public/images/inspiration/4477.jpg";
+import img21 from "@/public/images/inspiration/47417.jpg";
+import img22 from "@/public/images/inspiration/75845.jpg";
+import img23 from "@/public/images/inspiration/755754.jpg";
+import img24 from "@/public/images/inspiration/6.jpg";
+import img25 from "@/public/images/inspiration/1869-03.jpg";
+import img26 from "@/public/images/inspiration/02.jpg";
+import img27 from "@/public/images/inspiration/PERSPECTIVE 02 (2).jpg";
+import img28 from "@/public/images/inspiration/01.jpg";
+import img29 from "@/public/images/inspiration/PERSPECTIVE 01 (2).jpg";
+import img30 from "@/public/images/inspiration/PERSPECTIVE 02 (3).jpg";
+import img31 from "@/public/images/inspiration/PERSPECTIVE 01 (3).jpg";
+import img32 from "@/public/images/inspiration/REAR SIDE VIEW   01.jpg";
+import img33 from "@/public/images/inspiration/PERSPECTIVE 04 (1).jpg";
+import img34 from "@/public/images/inspiration/PERSPECTIVE 02 (4).jpg";
+import img35 from "@/public/images/inspiration/PERSPECTIVE 03 (2).jpg";
+import img36 from "@/public/images/inspiration/OPTION 3 -FRONT VIEW 02.jpg";
+import img37 from "@/public/images/inspiration/PERSPECTIVE 01 (4).jpg";
+import img38 from "@/public/images/inspiration/18.jpg";
+import img39 from "@/public/images/inspiration/2ni108.jpg";
+import img40 from "@/public/images/inspiration/REAR SIDE VIEW 01 (1).jpg";
+import img41 from "@/public/images/inspiration/ENTRANCE 02.jpg";
+import img42 from "@/public/images/inspiration/RIGHT SIDE VIEW 01.jpg";
+import img43 from "@/public/images/inspiration/19.jpg";
+import img44 from "@/public/images/inspiration/1926.jpg";
+import img45 from "@/public/images/inspiration/187.jpg";
+import img46 from "@/public/images/inspiration/2 (1).jpg";
+import img47 from "@/public/images/inspiration/PERSPECTIVE 04.jpg";
+import img48 from "@/public/images/inspiration/8145.jpg";
+import img49 from "@/public/images/inspiration/558.jpg";
+import img50 from "@/public/images/inspiration/1.png";
+import img51 from "@/public/images/inspiration/2.png";
+import img52 from "@/public/images/inspiration/3.png";
+import img53 from "@/public/images/inspiration/4.png";
+import img54 from "@/public/images/inspiration/5.png";
+import img55 from "@/public/images/inspiration/6.png";
+import img56 from "@/public/images/inspiration/7.png";
+import img57 from "@/public/images/inspiration/8.png";
+import img58 from "@/public/images/inspiration/9.png";
+import img59 from "@/public/images/inspiration/10.png";
+import img60 from "@/public/images/inspiration/11.png";
+
 import { useSearchParams } from "next/navigation";
 
 export default function GalleryPage() {
@@ -21,15 +73,67 @@ export default function GalleryPage() {
     // MAIN DATA
     const DATA = [
         { id: 1, src: img1, type: "MODERN", category: "Residential" },
-        { id: 2, src: img2, type: "ISLAMIC", category: "Mosque" },
-        { id: 3, src: img3, type: "MODERN", category: "Mixed-Use" },
-        { id: 4, src: img4, type: "MODERN", category: "Institutional" },
-        { id: 5, src: img5, type: "ISLAMIC", category: "Mosque" },
-        { id: 6, src: img6, type: "MODERN", category: "Healthcare" },
+        { id: 2, src: img2, type: "MODERN", category: "Residential" },
+        { id: 3, src: img3, type: "MODERN", category: "Residential" },
+        { id: 4, src: img4, type: "MODERN", category: "Residential" },
+        { id: 5, src: img5, type: "MODERN", category: "Residential" },
+        { id: 6, src: img6, type: "MODERN", category: "Residential" },
         { id: 7, src: img7, type: "MODERN", category: "Residential" },
-        { id: 8, src: img8, type: "ANDALUSL", category: "Villa" },
-        { id: 9, src: img9, type: "BUILDINGS", category: "Educational" },
+        { id: 8, src: img8, type: "MODERN", category: "Residential" },
+        { id: 9, src: img9, type: "MODERN", category: "Residential" },
+        { id: 10, src: img10, type: "MODERN", category: "Residential" },
+        { id: 11, src: img11, type: "MODERN", category: "Residential" },
+        { id: 12, src: img12, type: "MODERN", category: "Residential" },
+        { id: 13, src: img13, type: "MODERN", category: "Residential" },
+        { id: 14, src: img14, type: "MODERN", category: "Residential" },
+        { id: 15, src: img15, type: "MODERN", category: "Residential" },
+        { id: 16, src: img16, type: "MODERN", category: "Residential" },
+        { id: 17, src: img17, type: "MODERN", category: "Residential" },
+        { id: 18, src: img18, type: "MODERN", category: "Residential" },
+        { id: 19, src: img19, type: "MODERN", category: "Residential" },
+        { id: 20, src: img20, type: "MODERN", category: "Residential" },
+        { id: 21, src: img21, type: "MODERN", category: "Residential" },
+        { id: 22, src: img22, type: "MODERN", category: "Residential" },
+        { id: 23, src: img23, type: "MODERN", category: "Residential" },
+        { id: 24, src: img24, type: "MODERN", category: "Residential" },
+        { id: 25, src: img25, type: "MODERN", category: "Residential" },
+        { id: 26, src: img26, type: "MODERN", category: "Residential" },
+        { id: 27, src: img27, type: "MODERN", category: "Residential" },
+        { id: 28, src: img28, type: "MODERN", category: "Residential" },
+        { id: 29, src: img29, type: "MODERN", category: "Residential" },
+        { id: 30, src: img30, type: "MODERN", category: "Residential" },
+        { id: 31, src: img31, type: "MODERN", category: "Residential" },
+        { id: 32, src: img32, type: "MODERN", category: "Residential" },
+        { id: 33, src: img33, type: "MODERN", category: "Residential" },
+        { id: 34, src: img34, type: "MODERN", category: "Residential" },
+        { id: 35, src: img35, type: "MODERN", category: "Residential" },
+        { id: 36, src: img36, type: "MODERN", category: "Residential" },
+        { id: 37, src: img37, type: "MODERN", category: "Residential" },
+        { id: 38, src: img38, type: "MODERN", category: "Residential" },
+        { id: 39, src: img39, type: "MODERN", category: "Residential" },
+        { id: 40, src: img40, type: "MODERN", category: "Residential" },
+        { id: 41, src: img41, type: "MODERN", category: "Residential" },
+        { id: 42, src: img42, type: "MODERN", category: "Residential" },
+        { id: 43, src: img43, type: "MODERN", category: "Residential" },
+        { id: 44, src: img44, type: "MODERN", category: "Residential" },
+        { id: 45, src: img45, type: "MODERN", category: "Residential" },
+        { id: 46, src: img46, type: "MODERN", category: "Residential" },
+        { id: 47, src: img47, type: "MODERN", category: "Residential" },
+        { id: 48, src: img48, type: "MODERN", category: "Residential" },
+        { id: 49, src: img49, type: "MODERN", category: "Residential" },
+        { id: 50, src: img50, type: "MODERN", category: "Residential" },
+        { id: 51, src: img51, type: "MODERN", category: "Residential" },
+        { id: 52, src: img52, type: "MODERN", category: "Residential" },
+        { id: 53, src: img53, type: "MODERN", category: "Residential" },
+        { id: 54, src: img54, type: "MODERN", category: "Residential" },
+        { id: 55, src: img55, type: "MODERN", category: "Residential" },
+        { id: 56, src: img56, type: "MODERN", category: "Residential" },
+        { id: 57, src: img57, type: "MODERN", category: "Residential" },
+        { id: 58, src: img58, type: "MODERN", category: "Residential" },
+        { id: 59, src: img59, type: "MODERN", category: "Residential" },
+        { id: 60, src: img60, type: "MODERN", category: "Residential" },
     ];
+
 
     // URL PARAMS
     const params = useSearchParams();
@@ -53,28 +157,28 @@ export default function GalleryPage() {
     // ];
 
     // SUB FILTER OPTIONS
-    const BUILDING_CATEGORIES = [
-        "Residential",
-        "Mixed-Use",
-        "Institutional",
-        "Educational",
-        "Healthcare",
-    ];
+    // const BUILDING_CATEGORIES = [
+    //     "Residential",
+    //     "Mixed-Use",
+    //     "Institutional",
+    //     "Educational",
+    //     "Healthcare",
+    // ];
 
-    const COMMERCIAL_CATEGORIES = [
-        "Offices",
-        "Retail",
-        "Hospitality",
-        "Industrial",
-        "Government",
-    ];
-    const VILLA_CATEGORIES = [
-        "Andalusi Style",
-        "Classic Style",
-        "Islamic Style",
-        "Local Style",
-        "Modern Style",
-    ];
+    // const COMMERCIAL_CATEGORIES = [
+    //     "Offices",
+    //     "Retail",
+    //     "Hospitality",
+    //     "Industrial",
+    //     "Government",
+    // ];
+    // const VILLA_CATEGORIES = [
+    //     "Andalusi Style",
+    //     "Classic Style",
+    //     "Islamic Style",
+    //     "Local Style",
+    //     "Modern Style",
+    // ];
 
     // MAIN TYPE FILTER
     const filteredData =

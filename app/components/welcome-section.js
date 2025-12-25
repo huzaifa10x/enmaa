@@ -17,7 +17,6 @@ export default function WelcomeSection() {
     const sectionRef = useRef(null)
     const countersRef = useRef([]) // counters ka ref array
 
-
     useGsapPin(sectionRef)
 
     useEffect(() => {
@@ -35,7 +34,7 @@ export default function WelcomeSection() {
                         innerText: targetValue,
                         duration: 5,
                         snap: { innerText: 1 },
-                        ease: "power1.out",
+                        ease: "power4.out",
                         onUpdate: function () {
                             el.innerText = Math.floor(el.innerText)
                         },
@@ -145,11 +144,11 @@ export default function WelcomeSection() {
 
                             {/* Bottom stats */}
                             {/* <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12">
-                                <div className="text-center">
+                                <div className="text-">
                                     <div
                                         ref={(el) => (countersRef.current[0] = el)}
                                         data-value="10"
-                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={{
                                             WebkitTextStroke: "2px #565656",
                                             fontFamily: "system-ui",
@@ -157,15 +156,15 @@ export default function WelcomeSection() {
                                     >
                                         0
                                     </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         YEARS OF EXPERIENCE
                                     </p>
                                 </div>
-                                <div className="text-center">
+                                <div className="text-">
                                     <div
                                         ref={(el) => (countersRef.current[1] = el)}
                                         data-value="17"
-                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={{
                                             WebkitTextStroke: "2px #565656",
                                             fontFamily: "system-ui",
@@ -173,15 +172,15 @@ export default function WelcomeSection() {
                                     >
                                         0
                                     </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         NUMBER OF CLIENTS
                                     </p>
                                 </div>
-                                <div className="text-center">
+                                <div className="text-">
                                     <div
                                         ref={(el) => (countersRef.current[2] = el)}
                                         data-value="501"
-                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={{
                                             WebkitTextStroke: "2px #565656",
                                             fontFamily: "system-ui",
@@ -189,26 +188,26 @@ export default function WelcomeSection() {
                                     >
                                         0
                                     </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         COMPLETED PROJECTS
                                     </p>
                                 </div>
                             </div> */}
 
-                            <div className="bottom-20 left-12 right-12 grid grid-cols-3 md:gap-12">
+                            <div className="bottom-20 left- right- grid grid-cols-3">
 
                                 {/* Counter 1: YEARS OF EXPERIENCE */}
                                 <div className="text-center">
                                     <div
                                         ref={counterV1Ref} // Assign the specific ref
                                         data-value="10" // Max value
-                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={counterStyle}
                                     >
                                         0
                                     </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
-                                        YEARS OF EXPERIENCE
+                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
+                                        YEARS OF <br/> EXPERIENCE
                                     </p>
                                 </div>
 
@@ -216,32 +215,31 @@ export default function WelcomeSection() {
                                 <div className="text-center">
                                     <div
                                         ref={counterV2Ref} // Assign the specific ref
-                                        data-value="17" // Max value
-                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        data-value="2750" // Max value
+                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={counterStyle}
                                     >
                                         0
                                     </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
-                                        NUMBER OF CLIENTS
+                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
+                                        NUMBER OF <br/> CLIENTS
                                     </p>
                                 </div>
 
                                 {/* Counter 3: COMPLETED PROJECTS */}
-                                <div className="text-center">
+                                <div className="text-center ml-10">
                                     <div
                                         ref={counterV3Ref} // Assign the specific ref
-                                        data-value="501" // Max value
-                                        className="text-6xl lg:text-8xl xl:text-[120px] font-light text-transparent lg:-mb-2 font-ps"
+                                        data-value="2963" // Max value
+                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={counterStyle}
                                     >
                                         0
                                     </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] md:tracking-[0.15em] font-medium">
+                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         COMPLETED PROJECTS
                                     </p>
                                 </div>
-
                             </div>
                         </div>
                     </div>

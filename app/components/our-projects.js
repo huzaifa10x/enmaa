@@ -2,10 +2,11 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import image1 from "@/public/images/projecs slideshow/428.jpg"
-import image2 from "@/public/images/image31323.webp"
-import image3 from "@/public/images/image354232.webp"
-import image4 from "@/public/images/projecs slideshow/220.jpg"
-import image5 from "@/public/images/image2433.webp"
+import image2 from "@/public/images/p3223.png"
+import image3 from "@/public/images/p4322.png"
+import image4 from "@/public/images/pe2e2.png"
+import image5 from "@/public/images/pe342.png"
+import image6 from "@/public/images/projects/image232.png"
 import bgProp from "@/public/images/bg-prop.webp"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -20,7 +21,7 @@ const items = [
     {
         id: 1,
         type: "image",
-        src: image1,
+        src: image6,
         title: "Project 110 DXB",
         description: "Enmaa Engineering Consultants – Dubai",
     },

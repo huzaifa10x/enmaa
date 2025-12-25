@@ -1,10 +1,12 @@
 "use client"
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
-import image1 from "@/public/images/image3424.webp"
-import image2 from "@/public/images/image436453.webp"
-import image3 from "@/public/images/image45e24.webp"
-import image5 from "@/public/images/image2324.webp"
+import image1 from "@/public/images/14.jpg"
+import image2 from "@/public/images/2972.jpg"
+import image3 from "@/public/images/3322.jpg"
+import image5 from "@/public/images/432.jpg"
+
+
 import image4 from "@/public/images/Enmaa.webp"
 import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
