@@ -70,16 +70,19 @@ import ProjectMap from "../pages-content/ProjectMap";
 import Supervision from "../pages-content/supervision";
 import ClientEngineerRepresentativeRole from "../pages-content/client-engineer-representative-role";
 import ProgramManagementServices from "../pages-content/program-management-services";
+import HomePage from "../pages-content/homePage";
 
 export default function page({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
     let content;
 
     switch (decodedSlug) {
+        case "home":
+            content = <HomePage />;
+            break;
         case "استشارات-هندسية-ابوظبي":
             content = <ArabicPage />;
             break;
-
         case "engineering-consultants-in-ajman":
             content = <EngineeringConsultantsInAjman />;
             break;

@@ -8,86 +8,62 @@ import image2 from "@/public/images/projects/1841-02.jpg";
 import image3 from "@/public/images/projects/1855-01.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import PillTitle from "@/app/components/pill-title";
 import useGsapPin from "@/app/components/hooks/useGsapPin";
-
+import PillTitle from "@/app/components/pill-title";
 gsap.registerPlugin(ScrollTrigger);
 
 const designSolutions = [
     {
         id: 1,
         number: "01.",
-        title: "Residential Design",
+        title: "تصميم سكني",
         description:
-            "We Have Diverse Experience On Numerous Housing Types From Small Condominium Buildings, To Affordable And Luxury Single Family Homes. We Specialize In Contemporary And Modern Architecture Firm That Specializes In Good Design...",
+            "لدينا خبرة واسعة في تصميم أنواع مختلفة من المساكن، من مباني الشقق الصغيرة إلى المنازل العائلية الفاخرة والمعقولة التكلفة. نحن متخصصون في العمارة المعاصرة والحديثة مع التركيز على التصميم الجيد.",
         image: image1,
-        readMore: "READ MORE",
+        readMore: "اقرأ المزيد",
     },
     {
         id: 2,
         number: "02.",
-        title: "Office Design",
+        title: "تصميم المكاتب",
         description:
-            "Professional office spaces designed for productivity and modern work environments. Our team creates functional layouts that enhance collaboration while maintaining aesthetic appeal.",
+            "مساحات مكتبية احترافية مصممة لتعزيز الإنتاجية وبيئة العمل الحديثة. فريقنا يبتكر تصاميم عملية تعزز التعاون مع الحفاظ على الجاذبية الجمالية.",
         image: image2,
-        readMore: "READ MORE",
+        readMore: "اقرأ المزيد",
     },
     {
         id: 3,
         number: "03.",
-        title: "Commercial Design",
+        title: "التصميم التجاري",
         description:
-            "Comprehensive commercial design solutions for retail, hospitality, and mixed-use developments. We focus on creating spaces that drive business success through thoughtful design.",
+            "حلول تصميم تجارية شاملة للتجزئة والضيافة والمشاريع متعددة الاستخدامات. نركز على إنشاء مساحات تدعم نجاح الأعمال من خلال تصميم مدروس.",
         image: image3,
-        readMore: "READ MORE",
+        readMore: "اقرأ المزيد",
     },
 ];
+
 
 export default function DesignSolutions() {
     const [hoveredId, setHoveredId] = useState(1);
     const sectionRef = useRef(null);
     useGsapPin(sectionRef)
 
-
-    // const boxRef = useRef(null);
-    // useEffect(() => {
-    //     const el = boxRef.current;
-
-    //     gsap.to(el, {
-    //         y: "-100%",
-    //         // rotation: 360,
-    //         duration: 5,
-    //         scrollTrigger: {
-    //             trigger: el,
-    //             pin: true,
-    //             start: "top center",
-    //             end: "bottom top",
-    //             scrub: true,
-    //             pinSpacing: false,
-    //         },
-    //     });
-
-    //     return () => {
-    //         ScrollTrigger.getAll().forEach((t) => t.kill());
-    //     };
-    // }, []);
-
     return (
-        <section ref={sectionRef} className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar md:rounded-t-[50px] text-white py-16 !z-[80]">
+        <section ref={sectionRef} dir="rtl" className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar md:rounded-t-[50px] text-white py-16 !z-[80]">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
-                    <PillTitle title={'Design Solutions'} />
-
+                <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4" dir="rtl">
+                    <PillTitle title="حلول التصميم" />
                     <div className="">
                         <h2 className="text-3xl md:text-5xl text-black text-balance">
-                            Description <br className="lg:block hidden" />
+                            وصف <br className="lg:block hidden" />
                             <span className="text-primary font-bold">
-                                Architecture process
+                                عملية العمارة
                             </span>
-                            <br className="lg:block hidden" /> for exceptional results.
+                            <br className="lg:block hidden" /> للحصول على نتائج استثنائية.
                         </h2>
                     </div>
                 </div>
+
 
                 <div className="space-y-1">
                     {designSolutions.map((solution) => (

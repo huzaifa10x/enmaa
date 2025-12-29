@@ -3,30 +3,30 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
-import image1 from "@/public/images/home-services/54488.jpg"
-import image2 from "@/public/images/home-services/ae.jpg"
-import image3 from "@/public/images/home-services/gt.jpg"
+import image1 from "@/public/images/projects/448...1.jpg"
+import image2 from "@/public/images/projects/1438-07.jpg"
+import image3 from "@/public/images/projects/1438-17.jpg"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Navbar from "../Navbar"
-import useGsapPin from "./hooks/useGsapPin"
+import Navbar from "@/app/Navbar"
+import useGsapPin from "@/app/components/hooks/useGsapPin"
 
 const slides = [
     {
         id: 1,
-        title: "DISCOVER",
-        subtitle: "DISCOVER CASE",
+        title: "اكتشف",
+        subtitle: "حالة الاكتشاف",
         background: image1,
     },
     {
         id: 2,
-        title: "EXPLORE",
-        subtitle: "EXPLORE CASE",
+        title: "استكشف",
+        subtitle: "حالة الاستكشاف",
         background: image2,
     },
     {
         id: 3,
-        title: "CREATE",
-        subtitle: "CREATE CASE",
+        title: "أنشئ",
+        subtitle: "حالة الإنشاء",
         background: image3,
     },
 ]
@@ -38,8 +38,8 @@ export default function DiscoverSlider() {
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
-    useGsapPin(sectionRef)
 
+    useGsapPin(sectionRef)
     useEffect(() => {
         // Initial animation
         gsap.fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
@@ -102,7 +102,8 @@ export default function DiscoverSlider() {
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
                 style={{ backgroundImage: `url(${slides[currentSlide].background.src})` }}
             >
                 <div className="absolute inset-0 bg-black/40" />
@@ -153,13 +154,23 @@ export default function DiscoverSlider() {
 
                     {/* Navigation Buttons */}
                     <div className="flex items-center space-x-6">
-                        <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
-                            PREV
+                        <Button
+                            variant="ghost"
+                            onClick={prevSlide}
+                            className="text-white text-sm tracking-wider font-light"
+                        >
+                            السابق
                         </Button>
-                        <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
-                            NEXT
+
+                        <Button
+                            variant="ghost"
+                            onClick={nextSlide}
+                            className="text-white text-sm tracking-wider font-light"
+                        >
+                            التالي
                         </Button>
                     </div>
+
                 </div>
             </div>
         </div>

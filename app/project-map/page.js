@@ -5,7 +5,6 @@ import HeroSection from "../components/Hero-section"
 import image3 from "@/public/images/projects/1438-17.jpg"
 export default function page() {
 
-
     return (
         <>
             <HeroSection

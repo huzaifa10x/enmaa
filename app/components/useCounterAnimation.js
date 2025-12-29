@@ -4,13 +4,12 @@ const easeOutExpo = (t) => {
     return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 };
 
-
 /**
  * Custom hook to manage the counter animation effect.
  * @param {HTMLDivElement} counterRef - A ref to the counter element.
  * @param {number} duration - The duration of the animation in milliseconds.
  */
-const useCounterAnimation = (counterRef, duration = 2000) => {
+const useCounterAnimation = (counterRef, duration = 1000) => {
     const observerRef = useRef(null);
     const hasBeenVisibleRef = useRef(false);
 

@@ -18,124 +18,126 @@ import gsap from "gsap"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/all"
 import ServicesSliderMobile from "./ServicesSliderMobile"
-import useGsapPin from "./hooks/useGsapPin"
+import useGsapPin from "@/app/components/hooks/useGsapPin"
 
 const services = [
     {
         id: 1,
-        title: "Engineering & Design Services",
+        title: "الخدمات الهندسية والتصميم",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Feasibility studies</li>
-            <li>Planning</li>
-            <li>Project development</li>
-            <li>Evaluation of engineering projects</li>
-            <li>Technical specifications</li>
-            <li>Quantity inventory</li>
+        <ul class=''>
+            <li>دراسات الجدوى</li>
+            <li>التخطيط</li>
+            <li>تطوير المشاريع</li>
+            <li>تقييم المشاريع الهندسية</li>
+            <li>المواصفات الفنية</li>
+            <li>حصر الكميات</li>
         </ul>`,
         img: image1,
         icon: <MdOutlineEngineering className="text-white" size={60} />,
     },
     {
         id: 2,
-        title: "Design services",
+        title: "خدمات التصميم",
         desc: `
-        <ul class='list-disc pl-6'>
-           <li>Data collection</li>
-           <li>Design idea</li>
-           <li>Initial design</li>
-           <li>Detailed design</li>
-           <li>Final design</li>
+        <ul class=''>
+           <li>جمع البيانات</li>
+           <li>فكرة التصميم</li>
+           <li>التصميم المبدئي</li>
+           <li>التصميم التفصيلي</li>
+           <li>التصميم النهائي</li>
         </ul>`,
         img: image2,
         icon: <BsBuildings className="text-white" size={60} />,
     },
     {
         id: 3,
-        title: "Tender services",
+        title: "خدمات المناقصات",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Contract terms</li>
-            <li>Initial tender evaluation</li>
-            <li>Call for tender</li>
-            <li>Tender study</li>
-            <li>Final report</li>
-            <li>Contractor selection</li>
+        <ul class=''>
+            <li>شروط العقود</li>
+            <li>التقييم المبدئي للمناقصات</li>
+            <li>طرح المناقصات</li>
+            <li>دراسة المناقصات</li>
+            <li>التقرير النهائي</li>
+            <li>اختيار المقاولين</li>
         </ul>`,
         img: image3,
         icon: <SiAffinitydesigner className="text-white" size={60} />,
     },
     {
         id: 4,
-        title: "Supervision",
+        title: "الإشراف",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Supervising the construction process</li>
-            <li>Quality</li>
-            <li>Supervising the timeline and costs</li>
-            <li>Claims and contract conclusion</li>
+        <ul class=''>
+            <li>الإشراف على عملية التنفيذ</li>
+            <li>مراقبة الجودة</li>
+            <li>الإشراف على الجدول الزمني والتكاليف</li>
+            <li>المطالبات وإنهاء العقود</li>
         </ul>`,
         img: image4,
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
     {
         id: 5,
-        title: "Owner representation",
+        title: "تمثيل المالك",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Representing the owner at the workplace</li>
-            <li>On-site engagement with customers for better coordination</li>
-            <li>Project management to achieve the required quality on time and within the specified budget</li>
-        </ul>`, img: image5,
+        <ul class=''>
+            <li>تمثيل المالك في موقع العمل</li>
+            <li>التنسيق المباشر مع العملاء في الموقع</li>
+            <li>إدارة المشروع لتحقيق الجودة المطلوبة ضمن الوقت والميزانية المحددة</li>
+        </ul>`,
+        img: image5,
         icon: <MdOutlineEngineering className="text-white" size={60} />,
     },
     {
         id: 6,
-        title: "Project management services",
+        title: "خدمات إدارة المشاريع",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Determine the project timeline</li>
-            <li>Cost management</li>
-            <li>Managing relationships between reformers</li>
-            <li>Quality control</li>
-            <li>Resource management</li>
-            <li>Securing needs</li>
-            <li>File management</li>
-            <li>Guidance</li>
+        <ul class=''>
+            <li>تحديد الجدول الزمني للمشروع</li>
+            <li>إدارة التكاليف</li>
+            <li>إدارة العلاقات بين الأطراف المعنية</li>
+            <li>مراقبة الجودة</li>
+            <li>إدارة الموارد</li>
+            <li>تأمين الاحتياجات</li>
+            <li>إدارة الملفات</li>
+            <li>الإشراف والتوجيه</li>
         </ul>`,
         img: image6,
         icon: <BsBuildings className="text-white" size={60} />,
     },
     {
         id: 7,
-        title: "Project construction and design",
+        title: "تنفيذ وتصميم المشاريع",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Direct work with contractors</li>
-            <li>Quality and value of business</li>
-            <li>Project life cycle</li>
-            <li>Budget reduction</li>
-            <li>Agendas</li>
+        <ul class=''>
+            <li>العمل المباشر مع المقاولين</li>
+            <li>جودة وقيمة الأعمال</li>
+            <li>دورة حياة المشروع</li>
+            <li>خفض التكاليف</li>
+            <li>الجداول الزمنية</li>
         </ul>`,
         img: image7,
         icon: <SiAffinitydesigner className="text-white" size={60} />,
     },
     {
         id: 8,
-        title: "GIS Services",
+        title: "خدمات نظم المعلومات الجغرافية (GIS)",
         desc: `
-        <ul class='list-disc pl-6'>
-            <li>Finding project solutions</li>
-            <li>Consulting services and strategic planning</li>
-            <li>Developing data models</li>
-            <li>Analysis, data presentation and model design</li>
-            <li>Development and integration of projects</li>
-            <li>Capacity building and operational support</li>
+        <ul class=''>
+            <li>إيجاد حلول للمشاريع</li>
+            <li>الخدمات الاستشارية والتخطيط الاستراتيجي</li>
+            <li>تطوير نماذج البيانات</li>
+            <li>التحليل، عرض البيانات وتصميم النماذج</li>
+            <li>تطوير وتكامل المشاريع</li>
+            <li>بناء القدرات والدعم التشغيلي</li>
         </ul>`,
         img: image8,
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
 ]
+
 
 export default function ServicesSection() {
     const [activeImg, setActiveImg] = useState(image1)
@@ -144,7 +146,9 @@ export default function ServicesSection() {
         setActiveImg(img)
     }
     const sliderRef = useRef(null)
+
     const sectionRef = useRef(null)
+
     useGsapPin(sectionRef)
 
     return (
@@ -166,15 +170,15 @@ export default function ServicesSection() {
                             {services.map((service) => (
                                 <div key={service.id}
                                     onMouseEnter={() => handleHover(service.img)}
-                                    className="group relative w-[90vw] sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex items-end p-6"
+                                    className="group relative w-[90vw] sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex justify-end items-end p-6"
                                 >
                                     <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
-                                        <div className="mb-3 font-ps absolute -top-96 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
+                                        <div className="mb-3 font-ps absolute -top-96 end-1 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
                                             WebkitTextStroke: "1px #fff",
                                             fontFamily: "system-ui",
                                         }}>{`0${service.id}`}</div>
 
-                                        <div className="brightness-50 group-hover:brightness-200 duration-300">
+                                        <div className="brightness-50 group-hover:brightness-200 duration-300 text-end">
                                             <div className="mb-3">{service.icon}</div>
                                             <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
                                                 {service.title}

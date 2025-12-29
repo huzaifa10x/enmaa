@@ -3,9 +3,9 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
-import img1 from "@/public/images/inspiration/56.png";
-import img2 from "@/public/images/inspiration/457.png";
-import img3 from "@/public/images/inspiration/1754.png";
+// import img1 from "@/public/images/inspiration/56.png";
+// import img2 from "@/public/images/inspiration/457.png";
+// import img3 from "@/public/images/inspiration/1754.png";
 import img4 from "@/public/images/inspiration/11.jpg";
 import img5 from "@/public/images/inspiration/56.jpg";
 import img6 from "@/public/images/inspiration/457.jpg";
@@ -52,29 +52,14 @@ import img46 from "@/public/images/inspiration/2 (1).jpg";
 import img47 from "@/public/images/inspiration/PERSPECTIVE 04.jpg";
 import img48 from "@/public/images/inspiration/8145.jpg";
 import img49 from "@/public/images/inspiration/558.jpg";
-import img50 from "@/public/images/inspiration/1.png";
-import img51 from "@/public/images/inspiration/2.png";
-import img52 from "@/public/images/inspiration/3.png";
-import img53 from "@/public/images/inspiration/4.png";
-import img54 from "@/public/images/inspiration/5.png";
-import img55 from "@/public/images/inspiration/6.png";
-import img56 from "@/public/images/inspiration/7.png";
-import img57 from "@/public/images/inspiration/8.png";
-import img58 from "@/public/images/inspiration/9.png";
-import img59 from "@/public/images/inspiration/10.png";
-import img60 from "@/public/images/inspiration/11.png";
 
 import { useSearchParams } from "next/navigation";
-
 export default function GalleryPage() {
     const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(0);
 
     // MAIN DATA
     const DATA = [
-        { id: 1, src: img1, type: "MODERN", category: "Residential" },
-        { id: 2, src: img2, type: "MODERN", category: "Residential" },
-        { id: 3, src: img3, type: "MODERN", category: "Residential" },
         { id: 4, src: img4, type: "MODERN", category: "Residential" },
         { id: 5, src: img5, type: "MODERN", category: "Residential" },
         { id: 6, src: img6, type: "MODERN", category: "Residential" },
@@ -121,17 +106,6 @@ export default function GalleryPage() {
         { id: 47, src: img47, type: "MODERN", category: "Residential" },
         { id: 48, src: img48, type: "MODERN", category: "Residential" },
         { id: 49, src: img49, type: "MODERN", category: "Residential" },
-        { id: 50, src: img50, type: "MODERN", category: "Residential" },
-        { id: 51, src: img51, type: "MODERN", category: "Residential" },
-        { id: 52, src: img52, type: "MODERN", category: "Residential" },
-        { id: 53, src: img53, type: "MODERN", category: "Residential" },
-        { id: 54, src: img54, type: "MODERN", category: "Residential" },
-        { id: 55, src: img55, type: "MODERN", category: "Residential" },
-        { id: 56, src: img56, type: "MODERN", category: "Residential" },
-        { id: 57, src: img57, type: "MODERN", category: "Residential" },
-        { id: 58, src: img58, type: "MODERN", category: "Residential" },
-        { id: 59, src: img59, type: "MODERN", category: "Residential" },
-        { id: 60, src: img60, type: "MODERN", category: "Residential" },
     ];
 
 
