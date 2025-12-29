@@ -61,7 +61,7 @@ export default function WelcomeSection() {
     const counterV3Ref = useRef(null);
 
     // Apply the custom hook to each ref
-    useCounterAnimation(counterV1Ref, 1400); // 2.5 second duration
+    useCounterAnimation(counterV1Ref, 900); // 2.5 second duration
     useCounterAnimation(counterV2Ref, 900); // 2.0 second duration
     useCounterAnimation(counterV3Ref, 900); // 3.0 second duration
 
