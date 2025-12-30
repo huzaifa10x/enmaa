@@ -19,7 +19,7 @@ export default function ServiceSection({ lang = "en" }) {
         en: {
             header: {
                 main: "Explore our",
-                bold: "comprehensive <br /> interior design",
+                bold: "comprehensive <br /> Services",
                 services: "services",
             },
             services: [

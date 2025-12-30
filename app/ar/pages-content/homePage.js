@@ -48,125 +48,76 @@ export default function HomePage() {
     const faqData = [
         {
             id: 1,
-            question: "What is the background and vision behind Enmaa Engineering Consultants in Sharjah?",
+            question: "ما هو خلفية ورؤية شركة إنماء للاستشارات الهندسية في الشارقة؟",
             answer: `
-      Enmaa Engineering Consultants was established in 2015 by an experienced group of civil engineering consultants in Sharjah & engineering consultant in Abu Dhabi who aim to make a valuable contribution in the real estate market by providing solid and sustainable designs for residential and commercial spaces, and public structures like sheds and schools.
-      <br>
-      <br>
-      As one of the leading architecture firms and companies in the region, we always strive to earn the confidence of our clients by delivering    world-class building and structure designs that meet the needs, desires, and requirements of the client on the agreed timetable. Our team of  talented Sharjah engineering consultants will meet and collaborate with you to know your ideas and specifications.`
+      تأسست شركة إنماء للاستشارات الهندسية في عام 2015 بواسطة مجموعة من مستشاري الهندسة المدنية ذوي الخبرة في الشارقة وأبوظبي، بهدف تقديم مساهمة قيمة في سوق العقارات من خلال توفير تصميمات قوية ومستدامة للمساحات السكنية والتجارية والهياكل العامة مثل المخازن والمدارس.
+      <br><br>
+      كواحدة من أبرز شركات الهندسة المعمارية في المنطقة، نسعى دائمًا لكسب ثقة عملائنا من خلال تقديم تصميمات عالمية المستوى للمباني والهياكل تلبي احتياجات ورغبات ومتطلبات العميل ضمن الجدول الزمني المتفق عليه. سيجتمع فريق مستشارينا الموهوبين في الشارقة معكم للتعاون وفهم أفكاركم ومتطلباتكم.`
         },
         {
             id: 2,
-            question: "How does Enmaa Engineering Consultants ensure an innovative and client-focused design process?",
+            question: "كيف تضمن شركة إنماء للاستشارات الهندسية عملية تصميم مبتكرة وتركز على العميل؟",
             answer: `
-      As a premier engineering contracting company in the UAE, we always ensure that our client’s needs are met with satisfaction. Our client-centered approach enables us to provide accurate design solutions that will meet and exceed the expectations of our clients, from the main design blueprint to the smallest space details.
-      <br>
-      <br>
-      We also employ hired science and diligence to ensure that our designs comply with the industry standards and also sustainable for maintenance and long-term use. We take into account the functionality of the space and the needs of the people who will be using the space.`
+      بصفتنا شركة مقاولات هندسية رائدة في الإمارات، نضمن دائمًا تلبية احتياجات عملائنا بشكل كامل. تمكننا منهجيتنا التي تركز على العميل من تقديم حلول تصميم دقيقة تتجاوز توقعات عملائنا، من المخطط الرئيسي إلى أدق تفاصيل المساحة.
+      <br><br>
+      نستخدم العلم والاجتهاد لضمان أن تكون تصميماتنا متوافقة مع معايير الصناعة ومستدامة على المدى الطويل. كما نأخذ في الاعتبار وظيفة المساحة واحتياجات الأشخاص الذين سيستخدمونها.`
         },
         {
             id: 3,
-            question: "What professional strengths does Enmaa’s team of civil engineering consultants bring to their projects?",
+            question: "ما هي نقاط القوة المهنية التي يجلبها فريق إنماء من مستشاري الهندسة المدنية لمشاريعهم؟",
             answer: `
-      Enmaa is composed of talented architecture and design professionals who are known for their architectural and engineering skills. Their portfolio boast of outstanding designs and structural blueprints that are built and transformed into architectural masterpieces and spaces that can be seen today.
-      <br>
-      <br>
-      Our crew’s practical experience in the field of construction and investment is sure to deliver the best architectural and engineering solution that satisfy any client, investor, or stakeholder.
-      <br>
-      <br>
-      Browse our site to check out our latest projects and designs. Call us on +971 50 618 5529 to schedule an appointment or email us on info@enmaaengcon.com
-      <br>
-      <br>
-      What specialized engineering and architectural solutions does Enmaa Engineering offer for Sharjah’s unique environment?
-      <br>
-      <br>
-      Enmaa Engineering is a leading civil engineering and architectural company in Sharjah that offers integrated civil engineering solutions that seamlessly blend functionality and fine aesthetics. As one of the leading engineering specialists in Sharjah, our aim is to make sure that your initiatives meet all regulatory necessities even as exceeding layout expectations.
-      <br>
-      <br>
-      Our talented specialists at Enmaa Engineering own deep information of the complicated hurdles supplied by Sharjah’s urban backdrop. Therefore, we have a specialized group of engineers who possess in-depth knowledge of the location’s guidelines and climatic state of affairs. This allows us to create custom solutions to our clients which caters for the particular regional needs.`
+      تتألف شركة إنماء من مهندسين ومعماريين موهوبين معروفين بمهاراتهم الهندسية والمعمارية. تضم محفظة أعمالهم تصميمات رائعة ومخططات هيكلية تحولت إلى تحف معمارية ومساحات يمكن مشاهدتها اليوم.
+      <br><br>
+      خبرة فريقنا العملية في مجال البناء والاستثمار تضمن تقديم أفضل الحلول الهندسية والمعمارية التي ترضي أي عميل أو مستثمر أو جهة معنية.
+      <br><br>
+      تصفح موقعنا للاطلاع على أحدث المشاريع والتصاميم. اتصل بنا على +971 50 618 5529 لتحديد موعد أو راسلنا على info@enmaaengcon.com
+      <br><br>
+      ما هي الحلول الهندسية والمعمارية المتخصصة التي تقدمها إنماء لبيئة الشارقة الفريدة؟
+      <br><br>
+      تعد إنماء شركة رائدة في الهندسة المدنية والمعمارية بالشارقة، تقدم حلولًا متكاملة تمزج بين الوظيفة والجمالية. هدفنا التأكد من أن مشاريعكم تلتزم بكافة اللوائح، وتتجاوز توقعات التصميم.
+      <br><br>
+      يمتلك فريقنا المتخصص معرفة عميقة بالتحديات الفريدة التي توفرها البيئة العمرانية في الشارقة، مما يتيح لنا تقديم حلول مخصصة تلبي احتياجات المنطقة بشكل مثالي.`
         },
         {
             id: 4,
-            question: "How does Enmaa Engineering uphold quality and sustainability across various architectural and civil engineering projects?",
+            question: "كيف تحافظ إنماء على الجودة والاستدامة عبر مختلف المشاريع الهندسية والمعمارية؟",
             answer: `
-      At Enmaa Engineering, we take incredible pleasure in our capability to be agile and innovative in response to the particular necessities that each undertaking provides. Whether it is a complex of residences, a commercial venture, or even an office space, our designs are guided by three key principles: functionality, aesthetics, and sustainability; these reflect our unwavering commitment to quality across all realms of civil engineering and architecture within Sharjah.
-      <br>
-      <br>
-      What precisely sets us apart from other civil engineering companies in Sharjah is our unwavering commitment to excellence. We work closely with our clients ensuring their vision is realized within their financial constraints and deadlines. By using cutting-edge technologies and industry best standards, Enmaa Engineering delivers efficient and sustainable engineering solutions designed to function for a long time.
-      <br>
-      <br>
-      Opting for us as your civil engineering associate include hiring a team of specialists determined to create a flourishing future for Sharjah built on robust foundations.
-      <br>
-      <br>
-      Contact us today to discuss your project requirements, and let us show you why we are the trusted choice among civil engineering companies in Sharjah.`
+      في إنماء، نفخر بقدرتنا على التكيف والابتكار لتلبية الاحتياجات الخاصة لكل مشروع. سواء كان مجمعًا سكنيًا، مشروعًا تجاريًا، أو مكتبًا، تستند تصميماتنا إلى ثلاثة مبادئ رئيسية: الوظيفة، الجمالية، والاستدامة، مما يعكس التزامنا الثابت بالجودة.
+      <br><br>
+      ما يميزنا عن شركات الهندسة المدنية الأخرى في الشارقة هو التزامنا الثابت بالتميز. نعمل عن قرب مع عملائنا لضمان تحقيق رؤيتهم ضمن الميزانية والمواعيد النهائية. باستخدام أحدث التقنيات ومعايير الصناعة، تقدم إنماء حلول هندسية فعالة ومستدامة.
+      <br><br>
+      اختيارنا كشريك هندسي يعني توظيف فريق متخصص ملتزم ببناء مستقبل مزدهر للشارقة على أسس قوية.
+      <br><br>
+      تواصل معنا اليوم لمناقشة متطلبات مشروعك ولنعرض لك لماذا نحن الخيار الموثوق بين شركات الهندسة المدنية في الشارقة.`
         },
         {
             id: 5,
-            question: "What makes Enmaa Engineering Consultants a reputable and trusted engineering consultancy across the UAE?",
+            question: "ما الذي يجعل شركة إنماء للاستشارات الهندسية شركة استشارية موثوقة ومرموقة في الإمارات؟",
             answer: `
-      Enmaa Engineering Consultants is one of the top engineering consultants in UAE. We are offering complete solutions following the highest industry standards. We work with decades of expertise in engineering, architecture. Enmaa Engineering Consultant has built a reputation for producing remarkable solutions in a variety of industries.
-      <br>
-      <br>
-      Our solutions match current market expectations and also anticipate future requirements. As a client, you can count on the Enmaa team to surpass your expectations. Our engineering contracting company in Sharjah offers you a combination of innovation, engineering perfection, and extensive industry knowledge.`
+      تعتبر إنماء للاستشارات الهندسية من أفضل الشركات الاستشارية في الإمارات. نحن نقدم حلولًا كاملة وفق أعلى معايير الصناعة. نعمل بخبرة تمتد لعقود في الهندسة والمعمار. لقد بنت إنماء سمعة قوية في تقديم حلول متميزة في مختلف الصناعات.
+      <br><br>
+      حلولنا تلبي توقعات السوق الحالية وتتوقع أيضًا الاحتياجات المستقبلية. يمكنك الاعتماد على فريق إنماء لتجاوز توقعاتك. تقدم شركتنا مزيجًا من الابتكار، الكفاءة الهندسية، والمعرفة الصناعية الواسعة.`
         },
         {
             id: 6,
-            question: "How does Enmaa Engineering deliver comprehensive project solutions as a leading contracting company in Sharjah?",
+            question: "كيف تقدم إنماء حلول مشاريع شاملة كشركة مقاولات رائدة في الشارقة؟",
             answer: `
-      Enmaa Engineering Consultants is delighted to be the perfect engineering contracting company in Sharjah, providing specialized solutions that span every step of a project, from inception to completion. Our services include thorough designs, procurement and construction management.
-      <br>
-      <br>
-      Our team of experts guarantees that each project is managed with professionalism. We are one of the leading architecture firms in Sharjah. We offer creative solutions that you won’t find elsewhere.
-      <br>
-      <br>
-      We have extensive expertise in implementing complicated civil, structural, and MEP (mechanical, electrical, and plumbing) projects. It makes us a desirable partner for both private and public sector clients. As one of the top architecture firms in sharjah, we specialize in designing structures that are visually appealing and also useful.`
+      يسعد إنماء أن تكون الشركة المثالية للمقاولات الهندسية في الشارقة، حيث تقدم حلولاً متخصصة تغطي كل مرحلة من المشروع، من البداية حتى الانتهاء. تشمل خدماتنا التصميمات التفصيلية، والمشتريات، وإدارة البناء.
+      <br><br>
+      يضمن فريق خبرائنا إدارة كل مشروع بمهنية عالية. نحن من أبرز شركات الهندسة المعمارية في الشارقة، ونقدم حلولًا مبتكرة لن تجدها في أي مكان آخر.
+      <br><br>
+      لدينا خبرة واسعة في تنفيذ مشاريع مدنية، هيكلية، وMEP (ميكانيكية، كهربائية، وسباكة) معقدة، مما يجعلنا شريكًا مفضلًا لكل من القطاعين الخاص والعام. نحن متخصصون في تصميم هياكل جذابة وفعالة.`
         },
         {
             id: 7,
-            question: "How has Enmaa Engineering’s extensive experience shaped its position as a top engineering contracting company in the UAE?",
+            question: "كيف ساهمت خبرة إنماء الواسعة في تعزيز مكانتها كشركة مقاولات رائدة في الإمارات؟",
             answer: `
-      Our significant experience in many technical disciplines makes us a leading engineering contracting company in the UAE. We have successfully completed a number of projects over the years. Our portfolio demonstrates our ability to adapt to different project sizes, complexity, and customer needs.
-      <br>
-      <br>
-      Our experience includes infrastructure construction, as well as specialty engineering services such as geotechnical analysis, structural retrofitting, and sustainability projects. We have the knowledge and resources to carry it out with accuracy, no matter the project’s size.`
+      خبرتنا الكبيرة في العديد من التخصصات التقنية تجعلنا شركة مقاولات هندسية رائدة في الإمارات. لقد أتممنا بنجاح العديد من المشاريع على مر السنين. محفظة أعمالنا تظهر قدرتنا على التكيف مع أحجام المشاريع المختلفة وتعقيدها واحتياجات العملاء.
+      <br><br>
+      تشمل خبرتنا بناء البنية التحتية، بالإضافة إلى خدمات هندسية متخصصة مثل التحليل الجيوتقني، التدعيم الهيكلي، ومشاريع الاستدامة. لدينا المعرفة والموارد لتنفيذ المشاريع بدقة بغض النظر عن حجمها.`
         },
-        // {
-        //   id: 8,
-        //   question: "In what ways does Enmaa Engineering develop customized engineering solutions for different project types?",
-        //   answer: `
-        //   Our top feature is its ability to provide custom engineering solutions. We address the every needs of each project. As the best engineering contracting company, we recognize that each customer has specific requirements. Whether they are in the residential, commercial, industrial, or public sectors, we work with them all.
-        //   <br>
-        //   <br>
-        //   Our engineers, architects, and project managers collaborate closely with customers to create unique strategies that include their vision, budget, and timeframe. This collaborative approach guarantees that each project is developed and performed to maximize value while following the highest safety and quality requirements.`
-        // },
-        // {
-        //   id: 9,
-        //   question: "Why is Enmaa Engineering considered one of the most reliable engineering firms in Sharjah?",
-        //   answer: `
-        //   When it comes to dependability, Enmaa Engineering Consultants stands out as the best engineering contracting company in Sharjah. We do our best to complete projects on time and under budget. Our team works around the most effective plans while maintaining high quality standards. They can effectively manage risk and handle challenges. This implies that clients can trust us to deliver consistent results.
-        //   <br>
-        //   <br>
-        //   We take pride in our ability to manage projects efficiently. We track progress using innovative technologies and approaches. We do our best to manage resources and ensure that all project stakeholders collaborate seamlessly. This attention to detail prevents delays and reduces expenses. Our top engineering consultants in UAE assure that projects are completed in accordance with the client’s specifications.`
-        // },
-        // {
-        //   id: 10,
-        //   question: "How does Enmaa Engineering stay ahead through innovation and advanced engineering practices?",
-        //   answer: `
-        //   Enmaa maintains its leadership position in an ever-changing sector by offering new solutions. We are constantly looking for new ways to improve our processes, incorporate newer technology, and implement best practices to expand our service offerings.
-        //   <br>
-        //   <br>
-        //   Our emphasis on innovation enables us to develop projects that are future-ready. Our top engineering consultants in UAE are continually pushing the frontiers of what is possible. They perform exceptionally in developing solutions that are practical and creative.`
-        // },
-        // {
-        //   id: 11,
-        //   question: "How does Enmaa provide high-quality architectural services while maintaining cost-effective project delivery?",
-        //   answer: `
-        //   Enmaa believes that high-quality engineering services should not be prohibitively expensive. As one of the best architecture firms in Sharjah, we provide best consultation services. We ensure that our services are affordable without sacrificing quality. We recognize that cost containment is a crucial priority for our clients. That is why we are devoted to providing value throughout the project.
-        //   <br>
-        //   <br>
-        //   We can keep costs low while providing great outcomes. That is due to careful planning, effective resource management, and smart connections with suppliers. Our clear pricing system guarantees that clients understand precisely what they are paying for. We work with no hidden costs or surprises. Connect with us today and explore our exceptional services.`
-        // },
     ];
+
 
     return (
         <main className="min-h-screen scroll-smooth">

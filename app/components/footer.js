@@ -1,14 +1,13 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ArrowRight, Calendar, Clock, MapPin, Phone, User } from "lucide-react"
+import { Calendar, Clock, MapPin, Phone, User } from "lucide-react"
 import { useState } from "react"
 import bg from "@/public/images/image532.webp"
 import footerLogo from "@/public/images/Enmaa-footer.webp"
 import Image from "next/image"
 import Link from "next/link"
-import QuoteModal from "./multi-step-form"
+import { usePathname } from "next/navigation"
 
 export default function Footer() {
     const branches = [
@@ -54,6 +53,32 @@ export default function Footer() {
         console.log("Booking submitted:", formData)
     }
 
+    const pathname = usePathname();
+    const isArabic = pathname.startsWith("/ar");
+    const footerItemsEn = [
+        { name: "Home", href: "/" },
+        { name: "Project Inspirations", href: "/project-map" },
+        { name: "Our Projects", href: "/our-projects" },
+        { name: "Our Services", href: "/our-services" },
+        { name: "Contact Us", href: "/contact-us" },
+    ];
+
+    const footerItemsAr = [
+        { name: "الرئيسية", href: "/ar/home" },
+        { name: "أفكار المشاريع", href: "/ar/project-map" },
+        { name: "مشاريعنا", href: "/ar/our-projects" },
+        { name: "خدماتنا", href: "/ar/our-services" },
+        { name: "تواصل معنا", href: "/ar/contact-us" },
+    ];
+
+    const footerItems = isArabic ? footerItemsAr : footerItemsEn;
+
+    const isActive = (href) => {
+        if (href === "/" || href === "/ar") return pathname === href;
+        return pathname.startsWith(href);
+    };
+
+
     return (
         <footer id="bookNow" className="bg-neutral-800 md:rounded-t-[50px] min-h-screen bottom-0 flex flex-col items-center justify-center !z-[100] text-white relative">
             <Image
@@ -67,7 +92,7 @@ export default function Footer() {
             {/* Navigation */}
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
-                    <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center items-center">
+                    {/* <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center items-center">
                         <Link href={'/'} className="text-white hover:text-gray-300 transition-colors">
                             Home
                         </Link>
@@ -83,20 +108,45 @@ export default function Footer() {
                         <Link href={'/contact-us'} className="text-gray-400 hover:text-gray-300 transition-colors">
                             Contact Us
                         </Link>
-                        {/* <QuoteModal /> */}
+                    </nav> */}
 
+                    <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center items-center">
+                        {footerItems.map((item) => (
+                            <Link key={item.name} href={item.href}>
+                                <Button
+                                    variant="ghost"
+                                    className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""
+                                        }`}
+                                >
+                                    {item.name}
+                                </Button>
+                            </Link>
+                        ))}
                     </nav>
                 </div>
             </div>
             {/* Main Footer Content */}
             <div className="max-w-7xl mx-auto px-6 md:py-16">
                 {/* Get Started Section */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
-                        If you would like to work with us or just want to get in touch, we&apos;d love to hear from you!
-                    </p>
-                </div>
+
+                {isArabic ?
+                    <div className="text-center mb-16" dir="rtl">
+                        <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">
+                            ابدأ الآن
+                        </h2>
+                        <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
+                            إذا كنت ترغب في العمل معنا أو التواصل معنا، يسعدنا سماعك!
+                        </p>
+                    </div>
+                    :
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</h2>
+                        <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
+                            If you would like to work with us or just want to get in touch, we&apos;d love to hear from you!
+                        </p>
+                    </div>
+                }
+
                 <div>
                     <div className="max-w-7xl mx-auto">
                         <div className="bg-gradient-to-r border rounded-2xl p-6 shadow-2xl">
@@ -149,7 +199,7 @@ export default function Footer() {
                                                 value={formData.date}
                                                 onChange={(e) => handleInputChange("date", e.target.value)}
                                                 className="h-12 pl-11 bg-white/10 border-white/20 text-white focus:bg-white/20 focus:border-white/40 transition-all
-                                                appearance-none w-full [&::-webkit-calendar-picker-indicator]:invert"
+                                                    appearance-none w-full [&::-webkit-calendar-picker-indicator]:invert"
                                                 min={new Date().toISOString().split("T")[0]}
                                                 required
                                             />
@@ -216,62 +266,104 @@ export default function Footer() {
                     </div>
                 </div>
                 {/* Contact Info and Email Signup */}
-                <div className="grid md:grid-cols-2 gap-12 items-center border-t border-gray-700 pt-12">
-                    {/* Contact Information */}
-                    <div className="space-y-4">
-                        <div className="text-gray-300">
-                            <p className="leading-relaxed">
-                                <b>Head Office</b>: ASAS Building - Office 667 - Maleha St -<br />
-                                Warehouses Land - Sharjah - United Arab Emirates
-                            </p>
-                        </div>
-                        <div className="text-gray-300">
-                            <p className="text-lg"><a href="tel:+971 50 618 5529"><b>Call Us</b>: +971 50 618 5529</a></p>
-                        </div>
-                    </div>
-                    {/* Email Signup */}
-                    <div className="space-y-4 flex md:justify-end justify-center">
-                        {/* <div className="text-sm text-gray-400 uppercase tracking-wider">GET QUOTATION</div>
-                        <div className="flex border-transparent border border-b-gray-400">
-                            <Input
-                                type="email"
-                                placeholder="Enter your Email"
-                                className="bg-transparent rounded-0 border-transparent text-white placeholder:text-gray-400 focus:border-white"
-                            />
-                            <Button size="icon" className="bg-transparent text-white">
-                                <ArrowRight className="h-4 w-4" />
-                            </Button>
-                        </div> */}
 
-                        <Image
-                            src={footerLogo}
-                            height={320}
-                            width={320}
-                            alt="image"
-                            className="h-auto w-auto"
-                        />
+                {isArabic ?
+
+                    <div dir="rtl" className="grid md:grid-cols-2 gap-12 items-center border-t border-gray-700 pt-12">
+                        <div className="space-y-4" dir="rtl">
+                            <div className="text-gray-300">
+                                <p className="leading-relaxed">
+                                    <b>المكتب الرئيسي</b>: مبنى ASAS - المكتب 667 - شارع مليحة -<br />
+                                    أراضي المستودعات - الشارقة - الإمارات العربية المتحدة
+                                </p>
+                            </div>
+                            <div className="text-gray-300">
+                                <p className="text-lg">
+                                    <a href="tel:+971506185529">
+                                        <b>اتصل بنا</b>: +971 50 618 5529
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Email Signup */}
+                        <div className="space-y-4 flex md:justify-end justify-center">
+                            <Image
+                                src={footerLogo}
+                                height={320}
+                                width={320}
+                                alt="image"
+                                className="h-auto w-auto"
+                            />
+                        </div>
                     </div>
-                </div>
+
+                    :
+
+                    <div className="grid md:grid-cols-2 gap-12 items-center border-t border-gray-700 pt-12">
+                        <div className="space-y-4">
+                            <div className="text-gray-300">
+                                <p className="leading-relaxed">
+                                    <b>Head Office</b>: ASAS Building - Office 667 - Maleha St -<br />
+                                    Warehouses Land - Sharjah - United Arab Emirates
+                                </p>
+                            </div>
+                            <div className="text-gray-300">
+                                <p className="text-lg"><a href="tel:+971 50 618 5529"><b>Call Us</b>: +971 50 618 5529</a></p>
+                            </div>
+                        </div>
+
+                        {/* Email Signup */}
+                        <div className="space-y-4 flex md:justify-end justify-center">
+                            <Image
+                                src={footerLogo}
+                                height={320}
+                                width={320}
+                                alt="image"
+                                className="h-auto w-auto"
+                            />
+                        </div>
+                    </div>}
+
             </div>
             {/* Bottom Footer */}
             <div className="border-t border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 py-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 text-sm">
-                            © Copyright 2025 - Enmaa Civil Engineering Consultants In Sharjah. Design by 10X Digital
-                        </p>
-                        <div className="flex space-x-6">
-                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                                Privacy Policy
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                                Terms and conditions
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                                Support
-                            </a>
+                    {isArabic ?
+                        <div className="flex flex-col md:flex-row justify-between items-center gap-4" dir="rtl">
+                            <p className="text-gray-400 text-sm">
+                                © حقوق الطبع والنشر 2025 - شركة إنما للاستشارات الهندسية المدنية في الشارقة. التصميم بواسطة 10X Digital
+                            </p>
+                            <div className="flex space-x-6 space-x-reverse">
+                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    سياسة الخصوصية
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    الشروط والأحكام
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    الدعم
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                        :
+                        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                            <p className="text-gray-400 text-sm">
+                                © Copyright 2025 - Enmaa Civil Engineering Consultants In Sharjah. Design by 10X Digital
+                            </p>
+                            <div className="flex space-x-6">
+                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    Privacy Policy
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    Terms and conditions
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    Support
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </footer>

@@ -42,6 +42,7 @@ import OurProcess from "./components/our-process";
 import ProjectsScroller from "./components/projects-scroller";
 import OurProjects from "./components/our-projects";
 import LocationsSection from "./components/Locations-section";
+import FloatingSocials from "./components/FloatingSocials";
 
 export default function Home() {
   const faqData = [
@@ -58,7 +59,7 @@ export default function Home() {
       id: 2,
       question: "How does Enmaa Engineering Consultants ensure an innovative and client-focused design process?",
       answer: `
-      As a premier engineering contracting company in the UAE, we always ensure that our client’s needs are met with satisfaction. Our client-centered approach enables us to provide accurate design solutions that will meet and exceed the expectations of our clients, from the main design blueprint to the smallest space details.
+      As a premier engineering consulting company in the UAE, we always ensure that our client’s needs are met with satisfaction. Our client-centered approach enables us to provide accurate design solutions that will meet and exceed the expectations of our clients, from the main design blueprint to the smallest space details.
       <br>
       <br>
       We also employ hired science and diligence to ensure that our designs comply with the industry standards and also sustainable for maintenance and long-term use. We take into account the functionality of the space and the needs of the people who will be using the space.`
@@ -168,18 +169,21 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen scroll-smooth">
-      <DiscoverSlider />
-      <WelcomeSection />
-      <ServicesSection />
-      <OurProcess />
-      {/* <ProjectSlider /> */}
-      <OurProjects />
-      <LocationsSection />
-      <DesignSolutions />
-      <FAQ faqData={faqData} />
-      <TestimonialSlider />
-      <ProjectsScroller />
-    </main>
+    <>
+      <FloatingSocials />
+      <main className="min-h-screen scroll-smooth">
+        <DiscoverSlider />
+        <WelcomeSection />
+        <ServicesSection />
+        <OurProcess />
+        {/* <ProjectSlider /> */}
+        <OurProjects />
+        <LocationsSection />
+        <DesignSolutions />
+        <FAQ faqData={faqData} />
+        <TestimonialSlider />
+        <ProjectsScroller />
+      </main>
+    </>
   );
 }

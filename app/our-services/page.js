@@ -8,7 +8,7 @@ export default function OurProjects() {
             <HeroSection
                 bg={image3}
                 title={' Our <br /> Services'}
-                desc={'Our Services Enmaa Engineering provides comprehensive engineering, design, supervision, and project management services for villas, residential buildings, and commercial developments, ensuring quality, efficiency, and compliance at every stage.'}
+                desc={'We offer a range of architectural and engineering solutions designed to meet your unique needs, from initial concept to final execution.'}
             />
             <ServiceSection />
         </>

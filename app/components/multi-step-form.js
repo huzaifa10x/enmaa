@@ -123,7 +123,7 @@ const formSchema = z.object({
 
 // type FormValues = z.infer<typeof formSchema>;
 
-export default function QuoteModal() {
+export default function QuoteModal({text}) {
     const [open, setOpen] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
 

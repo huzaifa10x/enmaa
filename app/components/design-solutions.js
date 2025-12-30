@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import image1 from "@/public/images/projects/1855-02.jpg";
 import image2 from "@/public/images/projects/1841-02.jpg";
-import image3 from "@/public/images/projects/1855-01.jpg";
+import image3 from "@/public/images/projecs slideshow/431.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PillTitle from "@/app/components/pill-title";

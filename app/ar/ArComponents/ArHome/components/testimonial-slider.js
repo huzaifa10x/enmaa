@@ -17,79 +17,76 @@ import PillTitle from "@/app/components/pill-title"
 import useGsapPin from "@/app/components/hooks/useGsapPin"
 
 const testimonials = [
-    // 🔹 Previous Reviews (UNCHANGED)
     {
         id: 1,
-        text: "From townhouse to luxury villa, from small building to high rise, Ermaa engineering consultants are available to cater all your design layout needs. One of the most professional team with humble attitude.",
-        author: "Mirza Maaz",
+        text: "من منازل التاون هاوس إلى الفلل الفاخرة، ومن المباني الصغيرة إلى الأبراج العالية، فإن مستشاري إنماء الهندسية جاهزون لتلبية جميع احتياجات تصميم المخططات. فريق محترف للغاية ويتمتع بأخلاق عالية وتعامل راقٍ.",
+        author: "مرزا معاذ",
         image: male,
     },
     {
         id: 2,
-        text: "Exceptional service and attention to detail. The team went above and beyond to ensure our project was completed on time and within budget.",
-        author: "Sarah Johnson",
+        text: "خدمة استثنائية واهتمام كبير بالتفاصيل. الفريق بذل مجهودًا إضافيًا لضمان إنجاز مشروعنا في الوقت المحدد وضمن الميزانية.",
+        author: "سارة جونسون",
         image: female,
     },
     {
         id: 3,
-        text: "Outstanding architectural solutions. Their innovative approach transformed our vision into reality with remarkable precision.",
-        author: "Ahmed Hassan",
+        text: "حلول معمارية متميزة. أسلوبهم الابتكاري حوّل رؤيتنا إلى واقع بدقة مذهلة.",
+        author: "أحمد حسن",
         image: male,
     },
     {
         id: 4,
-        text: "Professional, reliable, and creative. Ermaa has been our trusted partner for multiple projects over the years.",
-        author: "Emma Wilson",
+        text: "احترافية، موثوقية، وإبداع. كانت إنماء شريكنا الموثوق في عدة مشاريع على مدار السنوات.",
+        author: "إيما ويلسون",
         image: female,
     },
-
-    // 🔹 New Reviews (ADDED)
     {
         id: 5,
-        text: "The engineers are cooperative and well aware of work procedures. Special thanks to Eng. Islam for his experience and professionalism in the Siyokh area. Much appreciation to Enma and Eng. Islam.",
-        author: "Albaida UAE",
+        text: "المهندسون متعاونون وعلى دراية تامة بإجراءات العمل. شكر خاص للمهندس إسلام على خبرته واحترافيته في منطقة السييوخ. كل التقدير لإنماء والمهندس إسلام.",
+        author: "البيضاء – الإمارات",
         image: male,
     },
     {
         id: 6,
-        text: "The best consulting company. Very cooperative from the beginning, especially Eng. Shatha and the entire engineering team. Thank you all for the great support.",
-        author: "Fatima Al Zarouni",
+        text: "أفضل شركة استشارية. متعاونون جدًا من البداية، وخاصة المهندسة شذى وكامل الفريق الهندسي. شكرًا لكم جميعًا على الدعم الرائع.",
+        author: "فاطمة الزرعوني",
         image: female,
     },
     {
         id: 7,
-        text: "One of the best engineering consulting offices in Sharjah. Highly recommended to work with.",
-        author: "Omer Alamin",
+        text: "من أفضل مكاتب الاستشارات الهندسية في الشارقة. أنصح بالتعامل معهم بشدة.",
+        author: "عمر الأمين",
         image: male,
     },
     {
         id: 8,
-        text: "A great team with close coordination and strong attention to detail throughout the project.",
-        author: "Anwar Omar",
+        text: "فريق متميز يتمتع بتنسيق عالي واهتمام قوي بالتفاصيل طوال فترة المشروع.",
+        author: "أنور عمر",
         image: male,
     },
     {
         id: 9,
-        text: "One of the best design and engineering consultancy firms. Truly professional work.",
-        author: "Deewan Javed",
+        text: "إحدى أفضل شركات التصميم والاستشارات الهندسية. عمل احترافي بكل معنى الكلمة.",
+        author: "ديوان جاويد",
         image: male,
     },
     {
         id: 10,
-        text: "Anmaa Engineering Consultancy is a well-established office with a respectful team. They manage multiple projects across Sharjah and other Emirates with excellent expertise.",
-        author: "Omar Aljallaf",
+        text: "استشارات إنماء الهندسية مكتب عريق بفريق محترم. يديرون عدة مشاريع في الشارقة وبقية الإمارات بخبرة ممتازة.",
+        author: "عمر الجلاف",
         image: male,
     },
     {
         id: 11,
-        text: "Based on my experience designing and supervising two projects in Al-Hawshi, Anmaa is highly organized with excellent customer service. Special thanks to Eng. Shatha and accounts manager Abu Khalid.",
-        author: "Fatima Mohammed",
+        text: "بناءً على تجربتي في تصميم والإشراف على مشروعين في الحوشي، تتميز إنماء بالتنظيم العالي وخدمة العملاء الممتازة. شكر خاص للمهندسة شذى ومدير الحسابات أبو خالد.",
+        author: "فاطمة محمد",
         image: female,
     },
     {
         id: 12,
-        text: "A strong and professional consultancy. Management is respectful and responsive, and customer service is outstanding. Any issue is resolved immediately.",
-        author: "Ammar Malas",
+        text: "شركة استشارية قوية واحترافية. الإدارة متعاونة وسريعة الاستجابة، وخدمة العملاء متميزة. يتم حل أي ملاحظة فورًا.",
+        author: "عمار ملاص",
         image: male,
     },
 ];
@@ -149,12 +146,17 @@ function TestimonialSlider() {
                 className="w-full h-full absolute left-0"
             />
             <div>
-                <div className="z-10 flex max-w-7xl mx-auto w-full flex-wrap justify-between px-4 items-start lg:gap-0 gap-4 mt-15">
-                    <PillTitle title={'Testimonials'} />
+                <div
+                    className="z-10 flex max-w-7xl mx-auto w-full flex-wrap justify-between px-4 items-start lg:gap-0 gap-4 mt-15"
+                    dir="rtl"
+                >
+                    <PillTitle title={'آراء العملاء'} />
 
-                    <div className="mb-">
-                        <h2 className="text-2xl md:text-5xl mb-4 text-balance">What
-                            <span className="text-primary font-bold"> Our Client’s </span>Say</h2>
+                    <div>
+                        <h2 className="text-2xl md:text-5xl mb-4 text-balance leading-tight text-right">
+                            ماذا يقول
+                            <span className="text-primary font-bold"> عملاؤنا </span>
+                        </h2>
                     </div>
                 </div>
 
@@ -180,7 +182,7 @@ function TestimonialSlider() {
                     <div className="hidden lg:flex items-center justify-between md:mb-12 mb-5">
                         <button
                             onClick={goToPrevious}
-                            className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                            className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition cursor-pointer"
                         >
                             <ArrowLeft />
                         </button>
@@ -188,7 +190,7 @@ function TestimonialSlider() {
                         <div className="flex-1" />
                         <button
                             onClick={goToNext}
-                            className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                            className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition cursor-pointer"
                         >
                             <ArrowRight />
                         </button>
@@ -214,12 +216,22 @@ function TestimonialSlider() {
                     </div>
 
                     {/* Navigation Dots */}
-                    <div className="flex items-center justify-center gap-4 mt-8 text-sm text-muted-foreground">
-                        <button onClick={goToPrevious} className="font-semibold hover:text-foreground transition-colors">
-                            . Previous
+                    <div
+                        className="flex items-center justify-center gap-6 mt-8 text-sm text-muted-foreground"
+                        dir="rtl"
+                    >
+                        <button
+                            onClick={goToNext}
+                            className="font-bold text-primary hover:text-foreground transition-colors cursor-pointer"
+                        >
+                            التالي
                         </button>
-                        <button onClick={goToNext} className="font-bold text-primary hover:text-foreground transition-colors">
-                            Next .
+
+                        <button
+                            onClick={goToPrevious}
+                            className="font-semibold hover:text-foreground transition-colors cursor-pointer"
+                        >
+                            السابق
                         </button>
                     </div>
                 </div>
