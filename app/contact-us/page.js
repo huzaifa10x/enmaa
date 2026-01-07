@@ -1,10 +1,10 @@
 import React from 'react'
 import ContactForm from './ContactForm'
 import ProjectLocation from './ProjectLocation'
-import { Facebook, Instagram, Linkedin, Mail, PhoneIncoming, Twitter, UserRoundPlus, Youtube } from 'lucide-react'
 import image3 from "@/public/images/projects/1438-17.jpg"
 import HeroSection from '../components/Hero-section'
-
+import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTiktok, FaUser } from 'react-icons/fa6'
+import { IoMail } from "react-icons/io5";
 
 export default function page() {
     return (
@@ -25,8 +25,8 @@ export default function page() {
                                 </div>
                                 {/* Call Us */}
                                 <div className="flex items-start gap-4">
-                                    <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        <PhoneIncoming className='text-white' />
+                                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                                        <FaPhone className='text-white' />
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-semibold">Call Us</h3>
@@ -36,8 +36,8 @@ export default function page() {
 
                                 {/* Email */}
                                 <div className="flex items-start gap-4">
-                                    <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        <Mail className='text-white' />
+                                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                                        <IoMail className='text-white' />
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-semibold">Email Us</h3>
@@ -48,28 +48,23 @@ export default function page() {
 
                                 {/* Social */}
                                 <div className="flex items-start gap-4">
-                                    <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        <UserRoundPlus className="text-white" />
+                                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                                        <FaUser className="text-white" />
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-semibold">Follow Us On</h3>
-                                        {/* <div className="flex items-center gap-4 mt-1 text-2xl">
-                                            <Facebook className='hover:text-primary duration-300' />
-                                            <Instagram className='hover:text-primary duration-300' />
-                                            <Twitter className='hover:text-primary duration-300' />
-                                        </div> */}
-                                        <div className="flex items-center gap-5 mt-1 text-2xl">
-                                            <a href="https://www.facebook.com/enmaa.engcon/">
-                                                <Facebook strokeWidth={1.4} className='hover:text-primary duration-300' />
+                                        <div className="flex items-center gap-1 mt-1 text-xl">
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.instagram.com/enmaaengcon/">
+                                                <FaInstagram className='duration-300' />
                                             </a>
-                                            <a href="https://www.instagram.com/enmaaengcon/">
-                                                <Instagram strokeWidth={1.5} className='hover:text-primary duration-300' />
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.facebook.com/enmaa.engcon/">
+                                                <FaFacebook className='duration-300' />
                                             </a>
-                                            <a href="https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured">
-                                                <Youtube size={30} strokeWidth={1.1} className='hover:text-primary duration-300' />
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
+                                                <FaLinkedin className='duration-300' />
                                             </a>
-                                            <a href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
-                                                <Linkedin size={25} strokeWidth={1.3} className='hover:text-primary duration-300' />
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured">
+                                                <FaTiktok className='duration-300' />
                                             </a>
                                         </div>
                                     </div>

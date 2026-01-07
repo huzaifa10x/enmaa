@@ -1,15 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-// import { Icons } from "@/components/icons"; // optional if using custom icons
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa6";
 
 export default function FloatingSocials() {
     const socials = [
+        { name: "Instagram", icon: "instagram", link: "https://www.tiktok.com/@enmaaengcon" },
         { name: "Facebook", icon: "facebook", link: "https://www.facebook.com/enmaa.engcon/" },
-        { name: "Twitter", icon: "twitter", link: "https://www.tiktok.com/@enmaaengcon" },
-        { name: "YouTube", icon: "youtube", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
-        // { name: "Linkedin", icon: "linkedin", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
+        { name: "Linkedin", icon: "linkedin", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
+        { name: "Tiktok", icon: "tiktok", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
     ];
 
     return (
@@ -20,12 +18,12 @@ export default function FloatingSocials() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:bg-white hover:text-black rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                    className="text-white hover:bg-white hover:text-black rounded-full w-8 h-8 flex items-center justify-center transition-colors"
                 >
-                    {social.icon === "facebook" && <Facebook className="w-5 h-5" />}
-                    {social.icon === "twitter" && <Twitter className="w-5 h-5" />}
-                    {social.icon === "youtube" && <Youtube className="w-5 h-5" />}
-                    {/* {social.icon === "Instagram" && <Linkedin className="w-5 h-5" />} */}
+                    {social.icon === "instagram" && <FaInstagram className="w-5 h-5" />}
+                    {social.icon === "facebook" && <FaFacebook className="w-5 h-5" />}
+                    {social.icon === "linkedin" && <FaLinkedin className="w-5 h-5" />}
+                    {social.icon === "tiktok" && <FaTiktok className="w-5 h-5" />}
                 </a>
             ))}
         </div>

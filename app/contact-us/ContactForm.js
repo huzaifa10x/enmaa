@@ -77,7 +77,7 @@ export default function ContactForm() {
     // };
 
     return (
-        <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+        <form className="space-y-4 bg-black/5 border p-6 rounded-2xl" onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="w-full">
                     <input
@@ -86,7 +86,7 @@ export default function ContactForm() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border-gray-300 bg-neutral-50 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
                 </div>
@@ -98,7 +98,7 @@ export default function ContactForm() {
                         placeholder="Email Address *"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border-gray-300 bg-neutral-50 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
                 </div>
@@ -110,7 +110,7 @@ export default function ContactForm() {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        className="w-full border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
                         <option value="">Choose Subject</option>
                         <option>Inquire Now</option>
@@ -125,7 +125,7 @@ export default function ContactForm() {
                         name="getQuote"
                         value={formData.getQuote}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        className="w-full border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
                         <option value="">Get Quote</option>
                         <option>A</option>
@@ -142,7 +142,7 @@ export default function ContactForm() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border-gray-300 bg-neutral-50 text-neutral-500 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                         <option value="">Choose Service</option>
                         <option>Engineering Services</option>
@@ -165,7 +165,7 @@ export default function ContactForm() {
                         inputProps={{
                             name: 'phone',
                             required: true,
-                            className: 'w-full border border-gray-300 rounded px-4 py-3 pl-12 focus:outline-none focus:ring-2 focus:ring-blue-500',
+                            className: 'w-full border-gray-300 bg-neutral-50 rounded px-4 py-3 pl-12 focus:outline-none focus:ring-2 focus:ring-blue-500',
                         }}
                         inputClass="!w-full"
                     />
@@ -180,7 +180,7 @@ export default function ContactForm() {
                     placeholder="Your Query / Feedback *"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border-gray-300 bg-neutral-50 rounded px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
                 {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
             </div>
@@ -198,10 +198,9 @@ export default function ContactForm() {
             >
                 {submitting ? 'Submitting...' : 'Send Message'}
             </button>
-
             <div className='text-center text-primary font-semibold capitalize'>or click below</div>
 
-            <div type="submit" className="bg-[#284494] hover:opacity-80 text-white px-6 py-1 rounded-md transition w-full">
+            <div type="submit" className="bg-[#284494] hover:opacity-80 text-white px-6 py-1 flex justify-center rounded-md transition w-full">
                 <QuoteModal />
             </div>
         </form>

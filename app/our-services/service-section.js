@@ -28,12 +28,14 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Engineering Services",
                     image: engineering,
                     items: [
-                        "Feasibility studies",
-                        "Planning",
-                        "Project development",
-                        "Evaluation of engineering projects",
-                        "Technical specifications",
-                        "Quantity inventory",
+                        `<ul class='list-disc pl-6'>
+                        <li>Feasibility studies</li>
+                        <li>Planning</li>
+                        <li>Program development</li>
+                        <li>Value engineering</li>
+                        <li>Technical specifications</li>
+                        <li>Bills of quantities</li>
+                    </ul>`,
                     ],
                     href: "/engineering-service",
                 },
@@ -42,11 +44,13 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Design Services",
                     image: design,
                     items: [
-                        "Data collection",
-                        "Design idea",
-                        "Initial design",
-                        "Detailed design",
-                        "Final design",
+                        `<ul class='list-disc pl-6'>
+                        <li>Data collection</li>
+                        <li>Concept Design</li>
+                        <li>Preliminary Design</li>
+                        <li>Detailed Design</li>
+                        <li>Final Design</li>
+                    </ul>`,
                     ],
                     href: "/design-services",
                 },
@@ -55,12 +59,14 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Tendering Services",
                     image: tender,
                     items: [
-                        "Contract terms",
-                        "Initial tender evaluation",
-                        "Call for tender",
-                        "Tender study",
-                        "Final report",
-                        "Contractor selection",
+                        `<ul class='list-disc pl-6'>
+                        <li>Conditions of Contracts</li>
+                        <li>Pre qualification of tender</li>
+                        <li>Invitation to tender</li>
+                        <li>Tender Analysis</li>
+                        <li>Final Report &</li>
+                        <li>Contract Award</li>
+                    </ul>`,
                     ],
                     href: "/tenderings-services",
                 },
@@ -69,10 +75,12 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Supervision",
                     image: supervision,
                     items: [
-                        "Supervising the construction process",
-                        "Quality",
-                        "Supervising the timeline and costs",
-                        "Claims and contract conclusion",
+                        `<ul class='list-disc pl-6'>
+                        <li>Supervision of construction</li>
+                        <li>Quality</li>
+                        <li>Time & Cost Control</li>
+                        <li>Claims & Commissioning</li>
+                    </ul>`,
                     ],
                     href: "/supervision",
                 },
@@ -81,9 +89,16 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Client Engineer Representative Role",
                     image: clientEng,
                     items: [
-                        "Representing the owner at the workplace",
-                        "On-site engagement with customers for better coordination",
-                        "Project management to achieve the required quality on time and within the specified budget",
+                        `<ul class='list-disc pl-6'>
+                        <li>Integrated within</li>
+                        <li>Client s organization</li>
+                        <li>Co Location with clients</li>
+                        <li>For Better Coordination</li>
+                        <li>Project Interfaces Managment</li>
+                        <li>On time or better completion</li>
+                        <li>On Budget or better completion</li>
+                        <li>Quality compliance</li>
+                    </ul>`,
                     ],
                     href: "/client-engineer-representative-role",
                 },
@@ -92,14 +107,16 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Program Management Services",
                     image: program,
                     items: [
-                        "Determine the project timeline",
-                        "Cost management",
-                        "Managing relationships between reformers",
-                        "Quality control",
-                        "Resource management",
-                        "Securing needs",
-                        "File management",
-                        "Guidance",
+                        `<ul class='list-disc pl-6'>
+                        <li>Determine the project timeline</li>
+                        <li>Cost management</li>
+                        <li>Managing relationships between reformers</li>
+                        <li>Quality control</li>
+                        <li>Resource management</li>
+                        <li>Securing needs</li>
+                        <li>File management</li>
+                        <li>Guidance</li>
+                    </ul>`,
                     ],
                     href: "/program-management-services",
                 },
@@ -108,11 +125,15 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Design & Build Project Participation",
                     image: designBuild,
                     items: [
-                        "Direct work with contractors",
-                        "Quality and value of business",
-                        "Project life cycle",
-                        "Budget reduction",
-                        "Agendas",
+                        `<ul class='list-disc pl-6'>
+                        <li>ork closely with the</li>
+                        <li>Contractor</li>
+                        <li>Produce Effective Value</li>
+                        <li>Engineering Ideas</li>
+                        <li>Project lifecycle schedules</li>
+                        <li>Preserving budget</li>
+                        <li>Schedule concern</li>
+                    </ul>`
                     ],
                     href: "/design-build-project-participation",
                 },
@@ -121,128 +142,156 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "GIS Services",
                     image: GIS,
                     items: [
-                        "Finding project solutions",
-                        "Consulting services and strategic planning",
-                        "Developing data models",
-                        "Analysis, data presentation and model design",
-                        "Development and integration of projects",
-                        "Capacity building and operational support",
+                        `<ul class='list-disc pl-6'>
+                        <li>Enterprise Solutions</li>
+                        <li>Consultancy Services & Strategy Development</li>
+                        <li>Data Modeling Development</li>
+                        <li>Analysis & Visualization</li>
+                        <li>Solution Design</li>
+                        <li>Development & Integration</li>
+                        <li>Capacity BLDG, Operation & Support</li>
+                    </ul>`,
                     ],
                     href: "/gis-services",
                 },
             ],
         },
+
         ar: {
             header: {
                 main: "استكشف",
-                bold: "خدمات التصميم الداخلي <br /> الشاملة",
-                services: "",
+                bold: "خدماتنا <br /> المتكاملة",
+                services: "الخدمات",
             },
             services: [
                 {
-                    id: "١",
+                    id: "01",
                     title: "الخدمات الهندسية",
-                    image: servicesProject,
+                    image: engineering,
                     items: [
-                        "دراسات الجدوى",
-                        "التخطيط",
-                        "تطوير المشروع",
-                        "تقييم المشاريع الهندسية",
-                        "المواصفات الفنية",
-                        "جرد الكميات",
+                        `<ul class='list-disc pl-6'>
+                    <li>دراسات الجدوى</li>
+                    <li>التخطيط</li>
+                    <li>تطوير البرامج</li>
+                    <li>هندسة القيمة</li>
+                    <li>المواصفات الفنية</li>
+                    <li>جداول الكميات</li>
+                </ul>`,
                     ],
                     href: "/engineering-service",
                 },
                 {
-                    id: "٢",
+                    id: "02",
                     title: "خدمات التصميم",
-                    image: servicesProject,
+                    image: design,
                     items: [
-                        "جمع البيانات",
-                        "فكرة التصميم",
-                        "التصميم الأولي",
-                        "التصميم التفصيلي",
-                        "التصميم النهائي",
+                        `<ul class='list-disc pl-6'>
+                    <li>جمع البيانات</li>
+                    <li>التصميم المفاهيمي</li>
+                    <li>التصميم المبدئي</li>
+                    <li>التصميم التفصيلي</li>
+                    <li>التصميم النهائي</li>
+                </ul>`,
                     ],
                     href: "/design-services",
                 },
                 {
-                    id: "٣",
+                    id: "03",
                     title: "خدمات المناقصات",
-                    image: servicesProject,
+                    image: tender,
                     items: [
-                        "شروط العقد",
-                        "تقييم المناقصة الأولي",
-                        "الدعوة لتقديم العطاءات",
-                        "دراسة المناقصة",
-                        "التقرير النهائي",
-                        "اختيار المقاول",
+                        `<ul class='list-disc pl-6'>
+                    <li>شروط العقود</li>
+                    <li>التأهيل المسبق للمناقصات</li>
+                    <li>دعوة لتقديم العطاءات</li>
+                    <li>تحليل العطاءات</li>
+                    <li>التقرير النهائي</li>
+                    <li>ترسية العقد</li>
+                </ul>`,
                     ],
                     href: "/tenderings-services",
                 },
                 {
-                    id: "٤",
+                    id: "04",
                     title: "الإشراف",
-                    image: servicesProject,
+                    image: supervision,
                     items: [
-                        "الإشراف على عملية البناء",
-                        "الجودة",
-                        "الإشراف على الجدول الزمني والتكاليف",
-                        "المطالبات وإنهاء العقد",
+                        `<ul class='list-disc pl-6'>
+                    <li>الإشراف على أعمال البناء</li>
+                    <li>ضبط الجودة</li>
+                    <li>التحكم في الوقت والتكلفة</li>
+                    <li>المطالبات والتشغيل</li>
+                </ul>`,
                     ],
                     href: "/supervision",
                 },
                 {
-                    id: "٥",
+                    id: "05",
                     title: "دور ممثل مهندس العميل",
-                    image: servicesProject,
+                    image: clientEng,
                     items: [
-                        "تمثيل المالك في مكان العمل",
-                        "التفاعل مع العملاء في الموقع لتنسيق أفضل",
-                        "إدارة المشروع لتحقيق الجودة المطلوبة في الوقت المحدد وضمن الميزانية المحددة",
+                        `<ul class='list-disc pl-6'>
+                    <li>الاندماج ضمن</li>
+                    <li>هيكل مؤسسة العميل</li>
+                    <li>التواجد المشترك مع العميل</li>
+                    <li>لتعزيز التنسيق</li>
+                    <li>إدارة واجهات المشروع</li>
+                    <li>الإنجاز في الوقت المحدد أو أفضل</li>
+                    <li>الالتزام بالميزانية أو أفضل</li>
+                    <li>الالتزام بمعايير الجودة</li>
+                </ul>`,
                     ],
                     href: "/client-engineer-representative-role",
                 },
                 {
-                    id: "٦",
+                    id: "06",
                     title: "خدمات إدارة البرامج",
-                    image: servicesProject,
+                    image: program,
                     items: [
-                        "تحديد الجدول الزمني للمشروع",
-                        "إدارة التكاليف",
-                        "إدارة العلاقات بين المنفذين",
-                        "مراقبة الجودة",
-                        "إدارة الموارد",
-                        "تأمين الاحتياجات",
-                        "إدارة الملفات",
-                        "الإرشاد",
+                        `<ul class='list-disc pl-6'>
+                    <li>تحديد الجدول الزمني للمشروع</li>
+                    <li>إدارة التكاليف</li>
+                    <li>إدارة العلاقات بين الأطراف المعنية</li>
+                    <li>مراقبة الجودة</li>
+                    <li>إدارة الموارد</li>
+                    <li>تأمين الاحتياجات</li>
+                    <li>إدارة الملفات</li>
+                    <li>التوجيه والإرشاد</li>
+                </ul>`,
                     ],
                     href: "/program-management-services",
                 },
                 {
-                    id: "٧",
+                    id: "07",
                     title: "المشاركة في مشاريع التصميم والبناء",
-                    image: servicesProject,
+                    image: designBuild,
                     items: [
-                        "العمل المباشر مع المقاولين",
-                        "جودة وقيمة الأعمال",
-                        "دورة حياة المشروع",
-                        "تقليل الميزانية",
-                        "جداول الأعمال",
+                        `<ul class='list-disc pl-6'>
+                    <li>العمل عن قرب مع</li>
+                    <li>المقاول</li>
+                    <li>تقديم حلول هندسية ذات قيمة فعّالة</li>
+                    <li>أفكار هندسية مبتكرة</li>
+                    <li>جداول دورة حياة المشروع</li>
+                    <li>الحفاظ على الميزانية</li>
+                    <li>الالتزام بالجدول الزمني</li>
+                </ul>`
                     ],
                     href: "/design-build-project-participation",
                 },
                 {
-                    id: "٨",
+                    id: "08",
                     title: "خدمات نظم المعلومات الجغرافية (GIS)",
-                    image: servicesProject,
+                    image: GIS,
                     items: [
-                        "إيجاد حلول للمشاريع",
-                        "الخدمات الاستشارية والتخطيط الاستراتيجي",
-                        "تطوير نماذج البيانات",
-                        "التحليل، عرض البيانات وتصميم النماذج",
-                        "تطوير المشاريع ودمجها",
-                        "بناء القدرات والدعم التشغيلي",
+                        `<ul class='list-disc pl-6'>
+                    <li>حلول مؤسسية</li>
+                    <li>الخدمات الاستشارية وتطوير الاستراتيجيات</li>
+                    <li>تطوير نماذج البيانات</li>
+                    <li>التحليل والتصور</li>
+                    <li>تصميم الحلول</li>
+                    <li>التطوير والتكامل</li>
+                    <li>بناء القدرات، التشغيل والدعم</li>
+                </ul>`,
                     ],
                     href: "/gis-services",
                 },
@@ -272,7 +321,6 @@ export default function ServiceSection({ lang = "en" }) {
                         />
                     </div>
                 </div>
-
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((service) => (
