@@ -6,8 +6,8 @@ export default function FloatingSocials() {
     const socials = [
         { name: "Instagram", icon: "instagram", link: "https://www.tiktok.com/@enmaaengcon" },
         { name: "Facebook", icon: "facebook", link: "https://www.facebook.com/enmaa.engcon/" },
-        { name: "Linkedin", icon: "linkedin", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
-        { name: "Tiktok", icon: "tiktok", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
+        { name: "Linkedin", icon: "linkedin", link: "https://www.linkedin.com/company/73412794/admin/page-posts/published/" },
+        { name: "Tiktok", icon: "tiktok", link: "https://www.tiktok.com/@enmaaengcon" },
     ];
 
     return (

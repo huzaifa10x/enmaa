@@ -63,7 +63,7 @@ export default function page() {
                                             <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
                                                 <FaLinkedin className='duration-300' />
                                             </a>
-                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured">
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.tiktok.com/@enmaaengcon">
                                                 <FaTiktok className='duration-300' />
                                             </a>
                                         </div>

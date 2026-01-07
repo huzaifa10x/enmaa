@@ -104,13 +104,13 @@ export default function OurProjects() {
             case 0: // main
                 return "z-30 lg:scale-130 md:scale-60 scale-60 opacity-100 drop-shadow-2xl/70 shadow-2xl translate-x-0"
             case 1: // right
-                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 !md:translate-x-[5me] translate-x-[18em]"
+                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 brightness-50 !md:translate-x-[5me] translate-x-[18em]"
             case 2: // far right (slightly visible)
-                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 !md:translate-x-[8me] translate-x-[28em]"
+                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 brightness-50 !md:translate-x-[8me] translate-x-[28em]"
             case items.length - 1: // left
-                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 !md:-translate-x-[5me] -translate-x-[18em]"
+                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 brightness-50 !md:-translate-x-[5me] -translate-x-[18em]"
             case items.length - 2: // far left (slightly visible)
-                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 !md:translate-x-[8me] -translate-x-[28em]"
+                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 brightness-50 !md:translate-x-[8me] -translate-x-[28em]"
             default:
                 return "opacity-0 lg:scale-50 md:scale-30"
         }
@@ -155,7 +155,7 @@ export default function OurProjects() {
                                 />
 
                                 {/* Overlay Text */}
-                                <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                                <div className="absolute inset-0 flex flex-col justify-end p-6">
                                     <h3 className="text-3xl font-bold text-cyan-400 mb-1">
                                         {item.title}
                                     </h3>

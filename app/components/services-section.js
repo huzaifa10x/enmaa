@@ -21,7 +21,7 @@ import useGsapPin from "./hooks/useGsapPin"
 const services = [
     {
         id: 1,
-        title: "Engineering & Design Services",
+        title: "Engineering Services",
         desc:
             `<ul class='list-disc pl-6'>
                 <li>• Feasibility studies</li>
@@ -50,7 +50,7 @@ const services = [
     },
     {
         id: 3,
-        title: "Tender services",
+        title: "Tendering Services",
         desc:
             `<ul class='list-disc pl-6'>
                 <li>• Conditions of Contracts</li>
@@ -78,7 +78,7 @@ const services = [
     },
     {
         id: 5,
-        title: "Owner representation",
+        title: "Client Engineer Representative Role",
         desc:
             `<ul class='list-disc pl-6'>
                 <li>• Integrated within</li>
@@ -94,27 +94,27 @@ const services = [
     },
     {
         id: 6,
-        title: "Project management services",
+        title: "Program MGMT Services",
         desc:
             `<ul class='list-disc pl-6'>
-                <li>Determine the project timeline</li>
-                <li>Cost management</li>
-                <li>Managing relationships between reformers</li>
-                <li>Quality control</li>
-                <li>Resource management</li>
-                <li>Securing needs</li>
-                <li>File management</li>
-                <li>Guidance</li>
+                <li>• Project life cycle schedules</li>
+                <li>• Cost Management</li>
+                <li>• Stakeholders Management</li>
+                <li>• Quality Assurance & Control</li>
+                <li>• Resources Management</li>
+                <li>• Procurement</li>
+                <li>• Document Control</li>
+                <li>• Dissemination</li>
             </ul>`,
         img: image6,
         icon: <BsBuildings className="text-white" size={60} />,
     },
     {
         id: 7,
-        title: "Project construction and design",
+        title: "Design & Build Project Participation",
         desc:
             `<ul class='list-disc pl-6'>
-                <li>• ork closely with the</li>
+                <li>• Work closely with the</li>
                 <li>• Contractor</li>
                 <li>• Produce Effective Value</li>
                 <li>• Engineering Ideas</li>
