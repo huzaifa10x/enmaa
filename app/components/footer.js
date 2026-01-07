@@ -320,7 +320,7 @@ export default function Footer() {
                                 height={320}
                                 width={320}
                                 alt="image"
-                                className="h-auto w-auto"
+                                className="h-auto w-auto object-center"
                             />
                         </div>
                     </div>}

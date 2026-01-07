@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
 import faqImg from "@/public/images/inspiration/1.jpg"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import gsap from "gsap"
 import PillTitle from "./pill-title"
 import useGsapPin from "./hooks/useGsapPin"
 
@@ -17,29 +15,6 @@ export default function FAQ({ faqData }) {
     const sectionRef = useRef(null)
 
     useGsapPin(sectionRef)
-
-    const boxRef = useRef(null);
-    useEffect(() => {
-        const el = boxRef.current;
-
-        gsap.to(el, {
-            y: "-100%",
-            // rotation: 360,
-            duration: 5,
-            scrollTrigger: {
-                trigger: el,
-                pin: true,
-                start: "top center",
-                end: "bottom top",
-                scrub: true,
-                pinSpacing: false,
-            },
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
 
     return (
         <section className="bg-white md:rounded-t-[50px] py-20 relative !z-[80]">
@@ -100,7 +75,12 @@ export default function FAQ({ faqData }) {
 
                     <div className="flex flex-col items-center text-center lg:text-left">
                         <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-2xl overflow-hidden mb-6">
-                            <Image src={faqImg} alt="FAQ side image" fill className="object-cover" />
+                            <Image
+                                src={faqImg}
+                                alt="FAQ side image"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                fill className="object-cover"
+                            />
                         </div>
                         <div>
                             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Still Looking For Answers?</h3>

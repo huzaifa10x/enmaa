@@ -56,6 +56,8 @@ const items = [
 ]
 
 export default function OurProjects() {
+    const [currentSlide, setCurrentSlide] = useState(0)
+
     const sectionRef = useRef(null)
 
     useGsapPin(sectionRef, {
@@ -83,15 +85,24 @@ export default function OurProjects() {
         return () => clearInterval(interval)
     }, [index])
 
-    const next = () => setIndex((prev) => (prev + 1) % items.length)
-    const prev = () => setIndex((prev) => (prev - 1 + items.length) % items.length)
+    const next = () => {
+        const next = (currentSlide + 1) % items.length
+        setIndex((prev) => (prev + 1) % items.length)
+        setCurrentSlide(next)
+    }
+
+    const prev = () => {
+        const prev = currentSlide === 0 ? items.length - 1 : currentSlide - 1
+        setIndex((prev) => (prev - 1) % items.length)
+        setCurrentSlide(prev)
+    }
 
     const getPositionClass = (i) => {
         const diff = (i - index + items.length) % items.length
 
         switch (diff) {
             case 0: // main
-                return "z-30 lg:scale-130 md:scale-60 scale-60 opacity-100 translate-x-0"
+                return "z-30 lg:scale-130 md:scale-60 scale-60 opacity-100 drop-shadow-2xl/70 shadow-2xl translate-x-0"
             case 1: // right
                 return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 !md:translate-x-[5me] translate-x-[18em]"
             case 2: // far right (slightly visible)
@@ -119,7 +130,7 @@ export default function OurProjects() {
                 width={300}
                 height={300}
                 alt=""
-                className="absolute w-full h-full"
+                className="absolute w-auto h-auto"
             />
             {/* Carousel container */}
             <div className="relative w-[40em] h-[25em] flex items-center justify-center">
@@ -127,7 +138,7 @@ export default function OurProjects() {
                     {items.map((item, i) => (
                         <li
                             key={item.id}
-                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800 overflow-hidden shadow-2xl transform ${getPositionClass(
+                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800 overflow-hidden transform ${getPositionClass(
                                 i
                             )}`}
                         >
@@ -135,8 +146,11 @@ export default function OurProjects() {
                                 <Image
                                     src={item.src}
                                     alt={`Slide ${item.id}`}
-                                    width={500}
-                                    height={481}
+                                    // width={500}
+                                    // height={481}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+
                                     className="w-full h-full object-cover brightness-75"
                                 />
 
@@ -153,6 +167,19 @@ export default function OurProjects() {
                         </li>
                     ))}
                 </ul>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="max-w-6xl w-full mx-auto flex justify-end">
+                <div className="flex items-center space-x-4 text-black text-4xl">
+                    <div className="w-50 h-1 bg-white relative">
+                        <div className="absolute left-0 top-0 h-full bg-black transition-all duration-500 ease-out"
+                            style={{ width: `${((currentSlide + 1) / items.length) * 100}%` }}
+                        />
+                    </div>
+                    <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+                    {/* <span>{String(items.length).padStart(2, "0")}</span> */}
+                </div>
             </div>
 
             {/* Buttons */}

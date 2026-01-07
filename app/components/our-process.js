@@ -153,7 +153,7 @@ export default function OurProcess() {
                     width={600}
                     alt={image4}
                     height={200}
-                    className="mt-16"
+                    className="mt-16 w-auto h-auto"
                 />
             </div>
         </div>

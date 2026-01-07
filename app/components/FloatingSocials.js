@@ -6,14 +6,14 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 export default function FloatingSocials() {
     const socials = [
-        { name: "Facebook", icon: "facebook", link: "https://facebook.com" },
-        { name: "Twitter", icon: "twitter", link: "https://twitter.com" },
-        { name: "YouTube", icon: "youtube", link: "https://youtube.com" },
-        { name: "Pinterest", icon: "pinterest", link: "https://pinterest.com" },
+        { name: "Facebook", icon: "facebook", link: "https://www.facebook.com/enmaa.engcon/" },
+        { name: "Twitter", icon: "twitter", link: "https://www.tiktok.com/@enmaaengcon" },
+        { name: "YouTube", icon: "youtube", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
+        // { name: "Linkedin", icon: "linkedin", link: "https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured" },
     ];
 
     return (
-        <div className="fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col space-y-2 bg-black rounded-l-3xl p-1 py-3 z-999">
+        <div className="fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col space-y-2 bg-primary rounded-l-3xl p-1 py-3 z-999">
             {socials.map((social) => (
                 <a
                     key={social.name}
@@ -25,7 +25,7 @@ export default function FloatingSocials() {
                     {social.icon === "facebook" && <Facebook className="w-5 h-5" />}
                     {social.icon === "twitter" && <Twitter className="w-5 h-5" />}
                     {social.icon === "youtube" && <Youtube className="w-5 h-5" />}
-                    {social.icon === "Instagram" && <Instagram className="w-5 h-5" />}
+                    {/* {social.icon === "Instagram" && <Linkedin className="w-5 h-5" />} */}
                 </a>
             ))}
         </div>

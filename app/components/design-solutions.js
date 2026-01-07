@@ -48,30 +48,6 @@ export default function DesignSolutions() {
     const sectionRef = useRef(null);
     useGsapPin(sectionRef)
 
-
-    // const boxRef = useRef(null);
-    // useEffect(() => {
-    //     const el = boxRef.current;
-
-    //     gsap.to(el, {
-    //         y: "-100%",
-    //         // rotation: 360,
-    //         duration: 5,
-    //         scrollTrigger: {
-    //             trigger: el,
-    //             pin: true,
-    //             start: "top center",
-    //             end: "bottom top",
-    //             scrub: true,
-    //             pinSpacing: false,
-    //         },
-    //     });
-
-    //     return () => {
-    //         ScrollTrigger.getAll().forEach((t) => t.kill());
-    //     };
-    // }, []);
-
     return (
         <section ref={sectionRef} className="bg-neutral-200 relative px-0 lg:h-screen no-scrollbar md:rounded-t-[50px] text-white py-16 !z-[80]">
             <div className="max-w-7xl mx-auto px-6">
@@ -128,6 +104,8 @@ export default function DesignSolutions() {
                                                     alt={solution.title}
                                                     fill
                                                     className="object-cover"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+
                                                 />
                                             </div>
 

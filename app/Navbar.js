@@ -11,7 +11,6 @@ import QuoteModal from "./components/multi-step-form";
 export default function Navbar() {
     const pathname = usePathname();
     const [openSidebar, setOpenSidebar] = useState(false);
-
     const isArabic = pathname.startsWith("/ar");
 
     const navItemsEn = [
@@ -38,14 +37,11 @@ export default function Navbar() {
     };
 
     return (
-        <div
-            className="absolute w-full top-0 left-0 z-50 flex lg:justify-center"
-            dir={isArabic ? "rtl" : "ltr"}
-        >
+        <div className="absolute w-full top-0 left-0 z-50 flex lg:justify-center" dir={isArabic ? "rtl" : "ltr"}>
             <nav className="max-w-7xl w-full min-w-[360px] flex items-center justify-between px-4 py-6">
                 {/* Logo */}
                 <Link href={isArabic ? "/ar" : "/"}>
-                    <Image src={Logo} height={100} width={100} alt="Logo" />
+                    <Image src={Logo} height={100} width={100} className="w-auto h-auto" alt="Logo" />
                 </Link>
 
                 {/* Desktop Menu */}
@@ -83,14 +79,12 @@ export default function Navbar() {
                     </Button>
                 </div>
             </nav>
-
             {/* Backdrop */}
             <div
                 className={`fixed inset-0 bg-black/60 backdrop-blur-sm duration-300 ${openSidebar ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                     }`}
                 onClick={() => setOpenSidebar(false)}
             />
-
             {/* Sidebar */}
             <div
                 className={`fixed top-0 ${isArabic ? "right-0" : "left-0"
@@ -102,7 +96,7 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex justify-between items-center mb-8">
-                    <Image src={Logo} width={50} height={50} alt="Logo" />
+                    <Image src={Logo} width={50} height={50} alt="Logo" className="w-auto h-auto" />
                     <Button
                         variant="ghost"
                         onClick={() => setOpenSidebar(false)}
@@ -124,7 +118,6 @@ export default function Navbar() {
                             {item.name}
                         </Link>
                     ))}
-
                     <QuoteModal text={'Request a Quote Now'} />
 
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>

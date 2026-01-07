@@ -168,7 +168,7 @@ function TestimonialSlider() {
                             width={100}
                             height={100}
                             alt=""
-                            className="mb-10 w-11"
+                            className="mb-10 w-11 h-11"
                         />
                     </div>
 

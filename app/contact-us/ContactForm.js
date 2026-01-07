@@ -201,10 +201,9 @@ export default function ContactForm() {
 
             <div className='text-center text-primary font-semibold capitalize'>or click below</div>
 
-            <button type="submit"
-                className="bg-[#284494] hover:opacity-80 text-white px-6 py-1 rounded-md transition w-full">
+            <div type="submit" className="bg-[#284494] hover:opacity-80 text-white px-6 py-1 rounded-md transition w-full">
                 <QuoteModal />
-            </button>
+            </div>
         </form>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactForm from './ContactForm'
 import ProjectLocation from './ProjectLocation'
-import { Facebook, Instagram, Mail, PhoneIncoming, Twitter, UserRoundPlus, Youtube } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Mail, PhoneIncoming, Twitter, UserRoundPlus, Youtube } from 'lucide-react'
 import image3 from "@/public/images/projects/1438-17.jpg"
 import HeroSection from '../components/Hero-section'
 
@@ -23,7 +23,6 @@ export default function page() {
                                 <div>
                                     <h2 className="text-4xl font-bold mt-2">Get in Touch With Enmaa</h2>
                                 </div>
-
                                 {/* Call Us */}
                                 <div className="flex items-start gap-4">
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
@@ -59,15 +58,18 @@ export default function page() {
                                             <Instagram className='hover:text-primary duration-300' />
                                             <Twitter className='hover:text-primary duration-300' />
                                         </div> */}
-                                        <div className="flex items-center gap-4 mt-1 text-2xl">
+                                        <div className="flex items-center gap-5 mt-1 text-2xl">
                                             <a href="https://www.facebook.com/enmaa.engcon/">
-                                                <Facebook className='hover:text-primary duration-300' />
+                                                <Facebook strokeWidth={1.4} className='hover:text-primary duration-300' />
                                             </a>
                                             <a href="https://www.instagram.com/enmaaengcon/">
-                                                <Instagram className='hover:text-primary duration-300' />
+                                                <Instagram strokeWidth={1.5} className='hover:text-primary duration-300' />
                                             </a>
                                             <a href="https://www.youtube.com/channel/UCWBt-FaugRUuz_ENtJv7JrA/featured">
-                                                <Youtube size={30} className='hover:text-primary duration-300' />
+                                                <Youtube size={30} strokeWidth={1.1} className='hover:text-primary duration-300' />
+                                            </a>
+                                            <a href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
+                                                <Linkedin size={25} strokeWidth={1.3} className='hover:text-primary duration-300' />
                                             </a>
                                         </div>
                                     </div>

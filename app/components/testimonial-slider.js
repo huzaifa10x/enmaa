@@ -111,36 +111,10 @@ function TestimonialSlider() {
     }
     const currentTestimonial = testimonials[currentIndex]
     const sectionRef = useRef(null)
-
-
     useGsapPin(sectionRef)
 
-
-    const boxRef = useRef(null);
-    useEffect(() => {
-        const el = boxRef.current;
-
-        gsap.to(el, {
-            y: "-100%",
-            // rotation: 360,
-            duration: 5,
-            scrollTrigger: {
-                trigger: el,
-                pin: true,
-                start: "top center",
-                end: "bottom top",
-                scrub: true,
-                pinSpacing: false,
-            },
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
-
     return (
-        <section ref={sectionRef} className="bg-stone-100 px-6 h-screen relative flex flex-col justify-center md:rounded-t-[50px] !z-[90]">
+        <section className="bg-stone-100 px-6 h-screen relative flex flex-col justify-center md:rounded-t-[50px] !z-[90]">
             <Image
                 src={bg}
                 width={200}
