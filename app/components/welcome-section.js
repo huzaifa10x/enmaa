@@ -11,20 +11,15 @@ import useGsapPin from "./hooks/useGsapPin"
 import useCounterAnimation from "./useCounterAnimation"
 
 gsap.registerPlugin(ScrollTrigger)
-
 export default function WelcomeSection() {
     const sectionRef = useRef(null)
-    const countersRef = useRef([]) // counters ka ref array
-
+    const countersRef = useRef([])
     useGsapPin(sectionRef)
 
     useEffect(() => {
         const section = sectionRef.current
-        // counter animation
         countersRef.current.forEach((el) => {
             const targetValue = parseInt(el.dataset.value, 10)
-
-            // function to animate the counter
             const animateCounter = () => {
                 gsap.fromTo(
                     el,
@@ -41,13 +36,11 @@ export default function WelcomeSection() {
                 )
             }
 
-            // ScrollTrigger
             ScrollTrigger.create({
                 trigger: section,
                 start: "top 70%",
-                onEnter: animateCounter,       // Jab section me aaye
-                onEnterBack: animateCounter,   // Jab upar se wapas aaye
-                // optional: agar chahe to reset bhi kar sakte ho jab section se nikle
+                onEnter: animateCounter,
+                onEnterBack: animateCounter,
                 onLeave: () => (el.innerText = 0),
                 onLeaveBack: () => (el.innerText = 0),
             })
@@ -60,10 +53,9 @@ export default function WelcomeSection() {
     const counterV2Ref = useRef(null);
     const counterV3Ref = useRef(null);
 
-    // Apply the custom hook to each ref
-    useCounterAnimation(counterV1Ref, 400); // 2.5 second duration
-    useCounterAnimation(counterV2Ref, 900); // 2.0 second duration
-    useCounterAnimation(counterV3Ref, 900); // 3.0 second duration
+    useCounterAnimation(counterV1Ref, 400);
+    useCounterAnimation(counterV2Ref, 900);
+    useCounterAnimation(counterV3Ref, 900);
 
     const counterStyle = {
         WebkitTextStroke: "2px #565656",

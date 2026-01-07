@@ -108,15 +108,15 @@ export default function ServiceSection({ lang = "en" }) {
                     image: program,
                     items: [
                         `<ul class='list-disc pl-6'>
-                        <li>Determine the project timeline</li>
-                        <li>Cost management</li>
-                        <li>Managing relationships between reformers</li>
-                        <li>Quality control</li>
-                        <li>Resource management</li>
-                        <li>Securing needs</li>
-                        <li>File management</li>
-                        <li>Guidance</li>
-                    </ul>`,
+                            <li>Project life cycle schedules</li>
+                            <li>Cost Management</li>
+                            <li>Stakeholders Management</li>
+                            <li>Quality Assurance & Control</li>
+                            <li>Resources Management</li>
+                            <li>Procurement</li>
+                            <li>Document Control</li>
+                            <li>Disseminatio</li>
+                        </ul>`,
                     ],
                     href: "/program-management-services",
                 },
@@ -126,8 +126,7 @@ export default function ServiceSection({ lang = "en" }) {
                     image: designBuild,
                     items: [
                         `<ul class='list-disc pl-6'>
-                        <li>ork closely with the</li>
-                        <li>Contractor</li>
+                        <li>Work closely with the Contractor</li>
                         <li>Produce Effective Value</li>
                         <li>Engineering Ideas</li>
                         <li>Project lifecycle schedules</li>

@@ -249,15 +249,15 @@ export default function ServicesSection({ lang = "en" }) {
                     image: image6,
                     items: [
                         `<ul class='list-disc pl-6'>
-                        <li>Determine the project timeline</li>
-                        <li>Cost management</li>
-                        <li>Managing relationships between reformers</li>
-                        <li>Quality control</li>
-                        <li>Resource management</li>
-                        <li>Securing needs</li>
-                        <li>File management</li>
-                        <li>Guidance</li>
-                    </ul>`,
+                           <li>Project life cycle schedules</li>
+                            <li>Cost Management</li>
+                            <li>Stakeholders Management</li>
+                            <li>Quality Assurance & Control</li>
+                            <li>Resources Management</li>
+                            <li>Procurement</li>
+                            <li>Document Control</li>
+                            <li>Disseminatio</li>
+                        </ul>`,
                     ],
                     href: "/program-management-services",
                 },
@@ -267,8 +267,7 @@ export default function ServicesSection({ lang = "en" }) {
                     image: image7,
                     items: [
                         `<ul class='list-disc pl-6'>
-                        <li>ork closely with the</li>
-                        <li>Contractor</li>
+                        <li>Work closely with the Contractor</li>
                         <li>Produce Effective Value</li>
                         <li>Engineering Ideas</li>
                         <li>Project lifecycle schedules</li>
@@ -472,11 +471,13 @@ export default function ServicesSection({ lang = "en" }) {
                                     onMouseEnter={() => handleHover(service.image)}
                                     className="group relative w-[90vw] group-hover:bg-black/60 sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-transparent duration-300 flex items-end p-6"
                                 >
-                                    <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
-                                        <div className="mb-3 font-ps absolute -top-96 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
+                                        
+                                        <div className="mb-3 font-ps absolute top-[10%] text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
                                             WebkitTextStroke: "1px #fff",
                                             fontFamily: "system-ui",
-                                        }}>0{service.id}</div>
+                                        }}>{service.id}</div>
+                                    <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
+
                                         <div className="brightness-50 group-hover:brightness-200 duration-300">
                                             <div className="mb-3">{service.icon}</div>
                                             <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
