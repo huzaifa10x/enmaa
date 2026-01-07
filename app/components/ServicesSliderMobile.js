@@ -14,7 +14,7 @@ export default function ServicesSliderMobile({ services }) {
                             <div className="relative md:rounded-2xl overflow-hidden shadow-lg group h-screen">
                                 {/* Background Image */}
                                 <Image
-                                    src={item.img}
+                                    src={item.image}
                                     alt={item.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                                 />

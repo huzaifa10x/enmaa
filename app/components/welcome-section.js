@@ -116,11 +116,10 @@ export default function WelcomeSection() {
 
                             <div className="bottom-20 left- right- grid grid-cols-3">
                                 {/* Counter 1: YEARS OF EXPERIENCE */}
-                                <div className="text-center">
-                                    <div
-                                        ref={counterV1Ref} // Assign the specific ref
+                                <div className=" relative md:left-0 ">
+                                    <div ref={counterV1Ref} // Assign the specific ref
                                         data-value="10" // Max value
-                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-4xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={counterStyle}
                                     >
                                         2
@@ -131,11 +130,10 @@ export default function WelcomeSection() {
                                 </div>
 
                                 {/* Counter 2: NUMBER OF CLIENTS */}
-                                <div className="text-center">
-                                    <div
-                                        ref={counterV2Ref} // Assign the specific ref
+                                <div className=" relative md:left-0 ">
+                                    <div ref={counterV2Ref} // Assign the specific ref
                                         data-value="2750" // Max value
-                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-4xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={counterStyle}
                                     >
                                         0
@@ -146,11 +144,10 @@ export default function WelcomeSection() {
                                 </div>
 
                                 {/* Counter 3: COMPLETED PROJECTS */}
-                                <div className="text-center ml-10">
-                                    <div
-                                        ref={counterV3Ref} // Assign the specific ref
+                                <div className="md:ml-10 relative md:left-0 ">
+                                    <div ref={counterV3Ref} // Assign the specific ref
                                         data-value="2963" // Max value
-                                        className="text-6xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
+                                        className="text-4xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
                                         style={counterStyle}
                                     >
                                         0
