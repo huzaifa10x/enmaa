@@ -101,16 +101,21 @@ export default function OurProjects() {
         const diff = (i - index + items.length) % items.length
 
         switch (diff) {
-            case 0: // main
-                return "z-30 lg:scale-130 md:scale-60 scale-60 opacity-100 drop-shadow-2xl/70 shadow-2xl translate-x-0"
+            case 0: // main (center)
+                return "z-30 lg:scale-125 md:scale-75 scale-45 opacity-100 drop-shadow-2xl shadow-2xl translate-x-0"
+
             case 1: // right
-                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 brightness-50 !md:translate-x-[5me] translate-x-[18em]"
-            case 2: // far right (slightly visible)
-                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 brightness-50 !md:translate-x-[8me] translate-x-[28em]"
+                return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 translate-x-[13rem] md:translate-x-[21rem] lg:translate-x-[38rem]"
+
+            case 2: // far right
+                return "z-10 lg:scale-75 md:scale-40 scale-0 opacity-80 brightness-50 translate-x-[6rem] md:translate-x-[20rem] lg:translate-x-[48rem]"
+
             case items.length - 1: // left
-                return "z-20 lg:scale-100 md:scale-40 scale-50 opacity-100 brightness-50 !md:-translate-x-[5me] -translate-x-[18em]"
-            case items.length - 2: // far left (slightly visible)
-                return "z-10 lg:scale-80 md:scale-30 scale-20 opacity-100 brightness-50 !md:translate-x-[8me] -translate-x-[28em]"
+                return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
+
+            case items.length - 2: // far left
+                return "z-10 lg:scale-75 md:scale-40 scale-0 opacity-80 brightness-50 -translate-x-[6rem] md:-translate-x-[20rem] lg:-translate-x-[48rem]"
+
             default:
                 return "opacity-0 lg:scale-50 md:scale-30"
         }
@@ -138,28 +143,28 @@ export default function OurProjects() {
                     {items.map((item, i) => (
                         <li
                             key={item.id}
-                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800 overflow-hidden transform ${getPositionClass(
+                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800  transform ${getPositionClass(
                                 i
                             )}`}
                         >
-                            <div className="relative w-full h-full">
-                                <Image
-                                    src={item.src}
-                                    alt={`Slide ${item.id}`}
-                                    // width={500}
-                                    // height={481}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-
-                                    className="w-full h-full object-cover brightness-75"
-                                />
-
+                            <div className="relative">
+                                <div className="relative w-full h-[300px]">
+                                    <Image
+                                        src={item.src}
+                                        alt={`Slide ${item.id}`}
+                                        // width={500}
+                                        // height={481}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="w-full h-full object-cover brightness-75"
+                                    />
+                                </div>
                                 {/* Overlay Text */}
-                                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                                    <h3 className="text-3xl font-bold text-cyan-400 mb-1">
+                                <div className="inset-0 flex items-center justify-between py-2">
+                                    <h3 className="text-xl font-bold text-black mb-1">
                                         {item.title}
                                     </h3>
-                                    <p className="text-white text-sm opacity-90">
+                                    <p className="text-black text-sm opacity-90">
                                         {item.description}
                                     </p>
                                 </div>
@@ -169,36 +174,41 @@ export default function OurProjects() {
                 </ul>
             </div>
 
-            {/* Progress Bar */}
-            <div className="max-w-6xl w-full mx-auto flex justify-end">
-                <div className="flex items-center space-x-4 text-black text-4xl">
-                    <div className="w-50 h-1 bg-white relative">
-                        <div className="absolute left-0 top-0 h-full bg-black transition-all duration-500 ease-out"
-                            style={{ width: `${((currentSlide + 1) / items.length) * 100}%` }}
-                        />
-                    </div>
-                    <span>{String(currentSlide + 1).padStart(2, "0")}</span>
-                    {/* <span>{String(items.length).padStart(2, "0")}</span> */}
-                </div>
-            </div>
-
             {/* Buttons */}
-            <div className="relative z-10 flex justify-center gap-4 mt-8">
-                <button
-                    onClick={prev}
-                    className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
-                >
-                    <ArrowLeft />
-                </button>
-                <Link href={'our-projects'} className="bg-neutral-800 text-white px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
-                    Explore All
-                </Link>
-                <button
-                    onClick={next}
-                    className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
-                >
-                    <ArrowRight />
-                </button>
+            <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center mt-38 w-full max-w-7xl">
+                <div></div>
+                <div></div>
+
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={prev}
+                        className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                    >
+                        <ArrowLeft />
+                    </button>
+                    <Link href={'our-projects'} className="bg-neutral-800 text-white text-nowrap px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
+                        Explore All
+                    </Link>
+                    <button
+                        onClick={next}
+                        className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                    >
+                        <ArrowRight />
+                    </button>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="max-w-6xl flex items-center justify-end">
+                    <div className="flex items-center space-x-4 text-black text-4xl">
+                        <div className="w-50 h-1 bg-white relative">
+                            <div className="absolute left-0 top-0 h-full bg-black transition-all duration-500 ease-out"
+                                style={{ width: `${((currentSlide + 1) / items.length) * 100}%` }}
+                            />
+                        </div>
+                        <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+                        {/* <span>{String(items.length).padStart(2, "0")}</span> */}
+                    </div>
+                </div>
             </div>
         </section>
     )

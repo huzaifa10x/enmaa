@@ -469,7 +469,7 @@ export default function ServicesSection({ lang = "en" }) {
                             {services.map((service) => (
                                 <div key={service.id}
                                     onMouseEnter={() => handleHover(service.image)}
-                                    className="group relative w-[90vw] group-hover:bg-black/60 sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-transparent duration-300 flex items-end p-6"
+                                    className="group relative w-[90vw] group-hover:bg-black/60 sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-primary/20 duration-300 flex items-end p-6"
                                 >
                                         
                                         <div className="mb-3 font-ps absolute top-[10%] text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{

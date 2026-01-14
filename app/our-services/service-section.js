@@ -14,7 +14,6 @@ import GIS from "@/public/images/Services-images/GIS-Services/65.jpg";
 export default function ServiceSection({ lang = "en" }) {
     const isArabic = lang === "ar";
 
-    // Translation object for titles & items
     const translations = {
         en: {
             header: {

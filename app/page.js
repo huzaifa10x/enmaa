@@ -43,6 +43,7 @@ import ProjectsScroller from "./components/projects-scroller";
 import OurProjects from "./components/our-projects";
 import LocationsSection from "./components/Locations-section";
 import FloatingSocials from "./components/FloatingSocials";
+import ProjectSlider from "./components/project-slider";
 
 export default function Home() {
   const faqData = [

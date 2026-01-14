@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import QuoteModal from "./components/multi-step-form";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -69,14 +70,15 @@ export default function Navbar() {
 
                 {/* Mobile Menu Button */}
                 <div className="lg:hidden">
-                    <Button
+                    {/* <Button
                         variant="ghost"
                         size="icon"
                         className="text-white"
-                        onClick={() => setOpenSidebar(true)}
+                        
                     >
                         ☰
-                    </Button>
+                    </Button> */}
+                    <Menu className="text-white" onClick={() => setOpenSidebar(true)} />
                 </div>
             </nav>
             {/* Backdrop */}

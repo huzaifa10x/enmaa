@@ -146,9 +146,9 @@ export default function ProjectModal({
                             <p className="text-blue-400 text-sm font-medium mb-2">
                                 {project.location}
                             </p>
-                            <h2 className="text-3xl md:text-4xl font-bold md:mb-6 mb-2">
+                            {/* <h2 className="text-3xl md:text-4xl font-bold md:mb-6 mb-2">
                                 {project.name}
-                            </h2>
+                            </h2> */}
                             <div className="md:mb-8 mb-4">
                                 <h3 className="text-white font-semibold mb-4">
                                     Project information

@@ -9,6 +9,7 @@ import image3 from "@/public/images/home-services/home3.jpg"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Navbar from "../Navbar"
 import useGsapPin from "./hooks/useGsapPin"
+import useCounterAnimation from "./useCounterAnimation"
 
 const slides = [
     {
@@ -35,9 +36,12 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
+    // const [yearExp, setyearExp] = useState("10")
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
+    const countersRef = useRef([])
+
     useGsapPin(sectionRef)
 
     useEffect(() => {
@@ -48,7 +52,53 @@ export default function DiscoverSlider() {
             { opacity: 0, y: 30 },
             { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" },
         )
+
+
+        countersRef.current.forEach((el) => {
+            const targetValue = parseInt(el.dataset.value, 10)
+            const animateCounter = () => {
+                gsap.fromTo(
+                    el,
+                    { innerText: 0 },
+                    {
+                        innerText: targetValue,
+                        duration: 10,
+                        snap: { innerText: 1 },
+                        ease: "power4.out",
+                        onUpdate: function () {
+                            el.innerText = Math.floor(el.innerText)
+                        },
+                    }
+                )
+            }
+
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top 70%",
+                onEnter: animateCounter,
+                onEnterBack: animateCounter,
+                onLeave: () => (el.innerText = 0),
+                onLeaveBack: () => (el.innerText = 0),
+            })
+        })
     }, [])
+
+    const date = new Date();
+    const currentYear = date.getFullYear()
+    const yearExp = currentYear - '2015'
+
+    const counterV1Ref = useRef(null);
+    const counterV2Ref = useRef(null);
+    const counterV3Ref = useRef(null);
+
+    useCounterAnimation(counterV1Ref, 400);
+    useCounterAnimation(counterV2Ref, 900);
+    useCounterAnimation(counterV3Ref, 900);
+
+    const counterStyle = {
+        WebkitTextStroke: "2px #fff",
+        fontFamily: "system-ui",
+    };
 
     const nextSlide = () => {
         const next = (currentSlide + 1) % slides.length
@@ -151,6 +201,7 @@ export default function DiscoverSlider() {
                         </div>
                     </div>
 
+
                     {/* Navigation Buttons */}
                     <div className="flex items-center space-x-6">
                         <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
@@ -159,6 +210,54 @@ export default function DiscoverSlider() {
                         <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
                             NEXT
                         </Button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent"></div>
+            <div className="max-w-4xl mx-auto absolute bottom-8 left-1/2 -translate-x-1/2">
+                <div className="bottom-20 grid grid-cols-3">
+                    {/* Counter 2: NUMBER OF CLIENTS */}
+                    <div className=" relative md:left-0 ">
+                        <div ref={counterV2Ref}
+                            data-value='2750'
+                            className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
+                            style={counterStyle}
+                        >
+                            0
+                        </div>
+                        <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
+                            NUMBER OF <br /> CLIENTS
+                        </p>
+                    </div>
+
+                    <div className=" relative md:left-0 ">
+                        <div ref={counterV1Ref}
+                            data-value={yearExp}
+                            className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
+                            style={counterStyle}
+                        >
+                            0
+                        </div>
+                        <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
+                            YEARS OF <br /> EXPERIENCE
+                        </p>
+                    </div>
+
+
+
+                    {/* Counter 3: COMPLETED PROJECTS */}
+                    <div className="md:ml-10 relative md:left-0 ">
+                        <div ref={counterV3Ref}
+                            data-value="2963"
+                            className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
+                            style={counterStyle}
+                        >
+                            0
+                        </div>
+                        <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
+                            COMPLETED <br /> PROJECTS
+                        </p>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
-import faqImg from "@/public/images/inspiration/1.jpg"
+import faqImg from "@/public/images/inspiration/28.jpg"
 import PillTitle from "./pill-title"
 import useGsapPin from "./hooks/useGsapPin"
 
@@ -13,7 +13,6 @@ export default function FAQ({ faqData }) {
         setOpenItem(prev => prev === id ? null : id)
     }
     const sectionRef = useRef(null)
-
     useGsapPin(sectionRef)
 
     return (

@@ -63,7 +63,7 @@ export default function WelcomeSection() {
     };
 
     return (
-        <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 p md:-mt-7 md:rounded-t-[50px]">
+        <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 md:rounded-t-[50px]">
             <div className="h-screen">
                 <Image
                     src={buildingProp}
@@ -106,49 +106,7 @@ export default function WelcomeSection() {
                                 <div className="h-px bg-gray-400 flex-1"></div>
                             </div>
 
-                            <div className="bottom-20 left- right- grid grid-cols-3">
-                                {/* Counter 1: YEARS OF EXPERIENCE */}
-                                <div className=" relative md:left-0 ">
-                                    <div ref={counterV1Ref} // Assign the specific ref
-                                        data-value="10" // Max value
-                                        className="text-4xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
-                                        style={counterStyle}
-                                    >
-                                        2
-                                    </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
-                                        YEARS OF <br /> EXPERIENCE
-                                    </p>
-                                </div>
-
-                                {/* Counter 2: NUMBER OF CLIENTS */}
-                                <div className=" relative md:left-0 ">
-                                    <div ref={counterV2Ref} // Assign the specific ref
-                                        data-value="2750" // Max value
-                                        className="text-4xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
-                                        style={counterStyle}
-                                    >
-                                        0
-                                    </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
-                                        NUMBER OF <br /> CLIENTS
-                                    </p>
-                                </div>
-
-                                {/* Counter 3: COMPLETED PROJECTS */}
-                                <div className="md:ml-10 relative md:left-0 ">
-                                    <div ref={counterV3Ref} // Assign the specific ref
-                                        data-value="2963" // Max value
-                                        className="text-4xl lg:text-8xl xl:text-[80px] font-light text-transparent lg:-mb-2 font-ps"
-                                        style={counterStyle}
-                                    >
-                                        0
-                                    </div>
-                                    <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
-                                        COMPLETED PROJECTS
-                                    </p>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
