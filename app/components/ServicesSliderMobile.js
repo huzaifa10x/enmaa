@@ -29,7 +29,7 @@ export default function ServicesSliderMobile({ services }) {
                                     <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
                                     <div
                                         className="text-sm opacity-90 leading-relaxed"
-                                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.desc), }}
+                                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.items), }}
                                     />
                                 </div>
                             </div>

@@ -102,7 +102,7 @@ export default function OurProjects() {
 
         switch (diff) {
             case 0: // main (center)
-                return "z-30 lg:scale-125 md:scale-75 scale-45 opacity-100 drop-shadow-2xl shadow-2xl translate-x-0"
+                return "z-30 lg:scale-125 md:scale-75 scale-50 opacity-100 drop-shadow-2xl shadow-2xl translate-x-0"
 
             case 1: // right
                 return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 translate-x-[13rem] md:translate-x-[21rem] lg:translate-x-[38rem]"
@@ -122,7 +122,7 @@ export default function OurProjects() {
     }
 
     return (
-        <section ref={sectionRef} className="relative w-full h-screen flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
+        <section ref={sectionRef} className="relative w-full  flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
             <div className="flex flex-wrap md:justify-between w-full max-w-7xl items-start lg:gap-0 gap-4 px-6">
                 <PillTitle title={'OUR PROJECTS'} />
                 <div className="md:mb-16 max-w-[500px]">
@@ -138,7 +138,7 @@ export default function OurProjects() {
                 className="absolute w-auto h-auto"
             />
             {/* Carousel container */}
-            <div className="relative w-[40em] h-[25em] flex items-center justify-center">
+            <div className="relative w-[40em] md:h-[25em] h-[15em] flex items-center justify-center">
                 <ul className="relative w-full h-full flex items-center justify-center">
                     {items.map((item, i) => (
                         <li
@@ -175,25 +175,25 @@ export default function OurProjects() {
             </div>
 
             {/* Buttons */}
-            <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center mt-38 w-full max-w-7xl">
-                <div></div>
-                <div></div>
+            <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center md:mt-38 gap-9 w-full max-w-7xl">
+                {/* <div></div>
+                <div></div> */}
 
                 <div className="flex items-center gap-4">
                     <button
                         onClick={prev}
                         className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
                     >
-                        <ArrowLeft />
+                        <ArrowLeft size={16} />
                     </button>
-                    <Link href={'our-projects'} className="bg-neutral-800 text-white text-nowrap px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
+                    <Link href={'our-projects'} className="bg-neutral-800 text-sm text-white text-nowrap px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
                         Explore All
                     </Link>
                     <button
                         onClick={next}
                         className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
                     >
-                        <ArrowRight />
+                        <ArrowRight size={16} />
                     </button>
                 </div>
 

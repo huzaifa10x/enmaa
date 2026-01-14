@@ -14,7 +14,7 @@ export default function GalleryPage() {
             <div className="max-w-7xl mx-auto px-4 text-center">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {DATA.map((img, i) => (
-                        <div key={img.id}
+                        <div key={i}
                             className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group"
                             onClick={() => {
                                 setIndex(i);
@@ -26,6 +26,7 @@ export default function GalleryPage() {
                                 height={300}
                                 width={300}
                                 alt="images"
+                                loading="lazy"
                                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-300"></div>

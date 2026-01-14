@@ -33,7 +33,6 @@ const slides = [
 ]
 
 gsap.registerPlugin(ScrollTrigger)
-
 export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
     // const [yearExp, setyearExp] = useState("10")
@@ -161,23 +160,70 @@ export default function DiscoverSlider() {
             <Navbar />
 
             {/* Main Content */}
-            <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="absolute inset-0 flex flex-col items-center justify-evenly z-10">
+                <div></div>
                 <div className="text-center">
-                    <h1 ref={titleRef} className="text-5xl md:text-9xl text-white font-black  mb-4 tracking-tight">
+                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black  mb-4 tracking-tight">
                         {slides[currentSlide].title}
                     </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
                         {slides[currentSlide].subtitle}
                     </p>
                 </div>
-            </div>
 
-            {/* Bottom Navigation */}
-            <div className="absolute bottom-16 left-0 right-0 z-20">
-                <div className="flex items-center justify-between px-8">
-                    {/* Slide Indicators */}
-                    <div className="flex items-center space-x-8">
-                        <div className="flex items-center space-x-4">
+                <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent"></div>
+                <div className="lg:max-w-4xl w-full mx-auto">
+                    <div className="bottom-20 grid grid-cols-3">
+                        {/* Counter 2: NUMBER OF CLIENTS */}
+                        <div className=" relative md:left-0 ">
+                            <div ref={counterV2Ref}
+                                data-value='2750'
+                                className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
+                                style={counterStyle}
+                            >
+                                0
+                            </div>
+                            <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
+                                NUMBER OF <br /> CLIENTS
+                            </p>
+                        </div>
+
+                        <div className=" relative md:left-0 ">
+                            <div ref={counterV1Ref}
+                                data-value={yearExp}
+                                className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
+                                style={counterStyle}
+                            >
+                                0
+                            </div>
+                            <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
+                                YEARS OF <br /> EXPERIENCE
+                            </p>
+                        </div>
+
+
+
+                        {/* Counter 3: COMPLETED PROJECTS */}
+                        <div className="md:ml-10 relative md:left-0 ">
+                            <div ref={counterV3Ref}
+                                data-value="2963"
+                                className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
+                                style={counterStyle}
+                            >
+                                0
+                            </div>
+                            <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
+                                COMPLETED <br /> PROJECTS
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {/* Bottom Navigation */}
+                <div className="bottom-16 left-0 right-0 z-20 max-w-7xl w-full mx-auto">
+                    <div className="flex items-center justify-between px-8">
+                        {/* Slide Indicators */}
+                        <div className="flex items-center space-x-8">
+                            {/* <div className="flex items-center space-x-4">
                             {slides.map((_, index) => (
                                 <button
                                     key={index}
@@ -186,78 +232,31 @@ export default function DiscoverSlider() {
                                         }`}
                                 />
                             ))}
-                        </div>
+                        </div> */}
 
-                        {/* Progress Bar */}
-                        <div className="flex items-center space-x-4 text-white/60 text-sm">
-                            <span>{String(currentSlide + 1).padStart(2, "0")}</span>
-                            <div className="w-24 h-px bg-white/20 relative">
-                                <div
-                                    className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"
-                                    style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-                                />
+                            {/* Progress Bar */}
+                            <div className="flex items-center space-x-4 text-white/60 text-sm">
+                                <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+                                <div className="w-24 h-px bg-white/20 relative">
+                                    <div
+                                        className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"
+                                        style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+                                    />
+                                </div>
+                                <span>{String(slides.length).padStart(2, "0")}</span>
                             </div>
-                            <span>{String(slides.length).padStart(2, "0")}</span>
                         </div>
-                    </div>
 
 
-                    {/* Navigation Buttons */}
-                    <div className="flex items-center space-x-6">
-                        <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
-                            PREV
-                        </Button>
-                        <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
-                            NEXT
-                        </Button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent"></div>
-            <div className="max-w-4xl mx-auto absolute bottom-8 left-1/2 -translate-x-1/2">
-                <div className="bottom-20 grid grid-cols-3">
-                    {/* Counter 2: NUMBER OF CLIENTS */}
-                    <div className=" relative md:left-0 ">
-                        <div ref={counterV2Ref}
-                            data-value='2750'
-                            className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
-                            style={counterStyle}
-                        >
-                            0
+                        {/* Navigation Buttons */}
+                        <div className="flex items-center space-x-6">
+                            <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
+                                PREV
+                            </Button>
+                            <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
+                                NEXT
+                            </Button>
                         </div>
-                        <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
-                            NUMBER OF <br /> CLIENTS
-                        </p>
-                    </div>
-
-                    <div className=" relative md:left-0 ">
-                        <div ref={counterV1Ref}
-                            data-value={yearExp}
-                            className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
-                            style={counterStyle}
-                        >
-                            0
-                        </div>
-                        <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
-                            YEARS OF <br /> EXPERIENCE
-                        </p>
-                    </div>
-
-
-
-                    {/* Counter 3: COMPLETED PROJECTS */}
-                    <div className="md:ml-10 relative md:left-0 ">
-                        <div ref={counterV3Ref}
-                            data-value="2963"
-                            className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
-                            style={counterStyle}
-                        >
-                            0
-                        </div>
-                        <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
-                            COMPLETED <br /> PROJECTS
-                        </p>
                     </div>
                 </div>
             </div>

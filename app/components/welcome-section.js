@@ -64,7 +64,7 @@ export default function WelcomeSection() {
 
     return (
         <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 md:rounded-t-[50px]">
-            <div className="h-screen">
+            <div className="">
                 <Image
                     src={buildingProp}
                     width={800}
@@ -81,7 +81,7 @@ export default function WelcomeSection() {
                     className="absolute left-0 top-0 w-auto h-auto"
                 />
                 <div className="max-w-7xl relative z-10 mx-auto px-6 md:py-20 h-full flex items-center">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
                         {/* Left side - Heading */}
                         <div className="">
                             <PillTitle title={'about us'} />
@@ -105,8 +105,6 @@ export default function WelcomeSection() {
                                 </button>
                                 <div className="h-px bg-gray-400 flex-1"></div>
                             </div>
-
-                            
                         </div>
                     </div>
                 </div>
