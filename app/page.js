@@ -171,7 +171,7 @@ export default function Home() {
 
   return (
     <>
-      <FloatingSocials />
+      
       <main className="min-h-screen scroll-smooth">
         <DiscoverSlider />
         <WelcomeSection />
