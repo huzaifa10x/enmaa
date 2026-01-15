@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Calendar, Clock, MapPin, Phone, User } from "lucide-react"
+import { Calendar, Clock, MapPin, MessageCircle, Phone, User } from "lucide-react"
 import { useState } from "react"
 import bg from "@/public/images/image532.webp"
 import footerLogo from "@/public/images/Enmaa-footer.webp"
@@ -81,6 +81,18 @@ export default function Footer() {
 
     return (
         <footer id="bookNow" className="bg-neutral-800 md:rounded-t-[50px] min-h-screen bottom-0 flex flex-col items-center justify-center !z-[100] text-white relative">
+
+            <Link className="fixed right-0 bg-primary grid rounded-full p-4 m-8 bottom-0" href='https://api.whatsapp.com/send/?phone=%2B971505160610&text=Hi+Barugzai,+checking+in+for+some+details&type=phone_number&app_absent=0'>
+                <button className="btn rounded btn-warning border-warning rounded-5 shadow">
+                    <MessageCircle size={26} />
+                </button>
+            </Link>
+            <Link className="fixed right-0 bg-primary grid rounded-full p-4 m-8 bottom-18" href='tel:+971505160610'>
+                <button className="btn rounded btn-warning border-warning rounded-5">
+                    <Phone size={26} />
+                </button>
+            </Link>
+
             <Image
                 src={bg}
                 height={300}
