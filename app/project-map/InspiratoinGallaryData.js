@@ -7,11 +7,11 @@ import img05 from "@/public/images/inspiration/05.jpg";
 import img06 from "@/public/images/inspiration/06.jpg";
 import img07 from "@/public/images/inspiration/07.jpg";
 import img08 from "@/public/images/inspiration/08.jpg";
-import img09 from "@/public/images/inspiration/09.jpg";
+// import img09 from "@/public/images/inspiration/09.jpg";
 import img10 from "@/public/images/inspiration/10.jpg";
 import img11 from "@/public/images/inspiration/11.jpg";
 import img12 from "@/public/images/inspiration/12.jpg";
-import img13 from "@/public/images/inspiration/13.jpg";
+// import img13 from "@/public/images/inspiration/13.jpg";
 import img14 from "@/public/images/inspiration/14.jpg";
 import img15 from "@/public/images/inspiration/15.jpg";
 import img16 from "@/public/images/inspiration/16.jpg";
@@ -75,8 +75,8 @@ import img73 from "@/public/images/inspiration/73.jpg";
 import img74 from "@/public/images/inspiration/74.jpg";
 
 export const InspiratoinGallaryData = [
-    img01, img02, img03, img04, img05, img06, img07, img08, img09, img10,
-    img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
+    img01, img02, img03, img04, img05, img06, img07, img08, img10,
+    img11, img12,  img14, img15, img16, img17, img18, img19, img20,
     img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
     img31, img32, img33, img34, img35, img36, img37, img38, img39, img40,
     img41, img42, img43, img44, img45, img46, img47, img48, img49, img50,
