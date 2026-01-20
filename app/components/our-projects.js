@@ -2,11 +2,10 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import image1 from "@/public/images/projecs slideshow/428.jpg"
-import image2 from "@/public/images/p3223.png"
-import image3 from "@/public/images/p4322.png"
-import image4 from "@/public/images/pe2e2.png"
-import image5 from "@/public/images/pe342.png"
-import image6 from "@/public/images/projects/image232.png"
+import image418 from "@/public/images/418.jpg"
+import image590 from "@/public/images/590.jpg"
+import image1717 from "@/public/images/1717.jpg"
+import image416 from "@/public/images/416.jpg"
 import bgProp from "@/public/images/bg-prop.webp"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -19,40 +18,84 @@ gsap.registerPlugin(ScrollTrigger)
 
 const items = [
     {
-        id: 1,
-        type: "image",
-        src: image6,
-        title: "Project 110 DXB",
-        description: "Enmaa Engineering Consultants – Dubai",
-    },
-    {
         id: 2,
         type: "image",
-        src: image2,
-        title: "Luxury Villa Design",
-        description: "Private Residence – Abu Dhabi",
+        src: image1,
+        title: "PROPOSED SHEDS & LABOR ACCOMMODATION",
+        description: `
+    <div>
+        <div>SHARJAH - SAJA'A / INDUSTRIAL</div>
+        <div>LAND AREA 63513.50 M2</div>
+        <div>PROPOSED SHEDS (G+M) + LABOR ACCOMMODATIONS (G+1) + C.W.</div>
+        <div>Built Up Area 1490.00 M2</div>
+    </div>`
     },
     {
         id: 3,
-        type: "iframe",
-        src: image3,
-        title: "Modern Office Tower",
-        description: "Skyline Group – Downtown Dubai",
+        type: "image",
+        src: image418,
+        title: "INDUSTRIAL WAREHOUSE",
+        description: `
+    <div>
+        <div>AL FEEL TR. L.L.C, DUBAI BRANCH</div>
+        <div>LOCATION: SAIH SHUAIB 4, DUBAI</div>
+        <div>TOTAL PARKING PROPOSED 11</div>
+        <div>INDUSTRIAL WAREHOUSE (G+M)</div>
+        <div>Built Up Area 4912.14 M2</div>
+    </div>`
     },
     {
         id: 4,
-        type: "iframe",
-        src: image4,
-        title: "Commercial Complex",
-        description: "Al Noor Developments – Sharjah",
+        type: "image",
+        src: image590,
+        title: "NURSERY",
+        description: `
+    <div>
+        <div>SHARJAH AL HAMRIYAH EAST</div>
+        <div>TOTAL PARKING PROPOSED 20</div>
+        <div>PROJECT PROPOSED NURSERY G ONLY <br/> + GUARD ROOM + SERVICE BLOCK + C/WALL</div>
+        <div>Built Up Area 2004.19 M2</div>
+    </div>`
     },
     {
         id: 5,
         type: "image",
-        src: image5,
-        title: "Beachfront Residence",
-        description: "Palm Jumeirah – Dubai",
+        src: image590,
+        title: "TOWER – COMMERCIAL / OFFICES / RESIDENTIAL",
+        description: `
+    <div>
+        <div>LOCATION: SHARJAH AL KHAN</div>
+        <div>TOTAL PARKING PROPOSED 526</div>
+        <div>TOWER BUILDING (B+G+5P+HC+2 SERVICE FLOORS + 48 FLOORS)</div>
+        <div>Built Up Area 4211.67 M2</div>
+    </div>`
     },
+    {
+        id: 6,
+        type: "image",
+        src: image1717,
+        title: "BUILDING – COMMERCIAL / OFFICES / RESIDENTIAL",
+        description: `
+    <div>
+        <div>LOCATION: SHARJAH MUWAILAH COMMERCIAL</div>
+        <div>BUILDING (G+4 + 50% FIFTH FLOOR + R.F)</div>
+        <div>Built Up Area 415.53 M2</div>
+    </div>`
+    },
+    {
+        id: 7,
+        type: "image",
+        src: image416,
+        title: "PROPOSED SCHOOL + NURSERY",
+        description: `
+    <div>
+        <div>FRENCH INTERNATIONAL PRIVATE SCHOOL L.L.C</div>
+        <div>PROPOSED SCHOOL (B+G+2+RF) + NURSERY</div>
+        <div>LOCATION: AL HEBIAH SIXTH, DUBAI</div>
+        <div>Built Up Area 1490.00 M2</div>
+    </div>`
+    }
+
 ]
 
 export default function OurProjects() {
@@ -108,13 +151,13 @@ export default function OurProjects() {
                 return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 translate-x-[13rem] md:translate-x-[21rem] lg:translate-x-[38rem]"
 
             case 2: // far right
-                return "z-10 lg:scale-75 md:scale-40 scale-0 opacity-80 brightness-50 translate-x-[6rem] md:translate-x-[20rem] lg:translate-x-[48rem]"
+                return "z-10 lg:scale-0 md:scale-40 scale-0 opacity-80 brightness-50 translate-x-[6rem] md:translate-x-[20rem] lg:translate-x-[48rem]"
 
             case items.length - 1: // left
-                return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
+                return "z-20 lg:scale-100 md:scale-50 scale-0 opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
 
             case items.length - 2: // far left
-                return "z-10 lg:scale-75 md:scale-40 scale-0 opacity-80 brightness-50 -translate-x-[6rem] md:-translate-x-[20rem] lg:-translate-x-[48rem]"
+                return "z-10 lg:scale-0 md:scale-40 scale-0 opacity-80 brightness-50 -translate-x-[6rem] md:-translate-x-[20rem] lg:-translate-x-[48rem]"
 
             default:
                 return "opacity-0 lg:scale-50 md:scale-30"
@@ -161,12 +204,10 @@ export default function OurProjects() {
                                 </div>
                                 {/* Overlay Text */}
                                 <div className="inset-0 flex items-center justify-between py-2">
-                                    <h3 className="text-xl font-bold text-black mb-1">
+                                    <h3 className="font-bold text-black mb-1">
                                         {item.title}
                                     </h3>
-                                    <p className="text-black text-sm opacity-90">
-                                        {item.description}
-                                    </p>
+                                    <div className="text-black text-xs  opacity-90" dangerouslySetInnerHTML={{ __html: item.description }} />
                                 </div>
                             </div>
                         </li>
