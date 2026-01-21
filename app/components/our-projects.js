@@ -6,7 +6,9 @@ import image418 from "@/public/images/418.jpg"
 import image590 from "@/public/images/590.jpg"
 import image1717 from "@/public/images/1717.jpg"
 import image416 from "@/public/images/416.jpg"
+import image1703 from "@/public/images/image1703.webp"
 import bgProp from "@/public/images/bg-prop.webp"
+import imagePlaceholder from "@/public/images/image-placeholder.png"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import gsap from "gsap"
@@ -20,13 +22,13 @@ const items = [
     {
         id: 2,
         type: "image",
-        src: image1,
-        title: "PROPOSED SHEDS & LABOR ACCOMMODATION",
+        src: imagePlaceholder,
+        title: "PROPOSED SHEDS <br/> & LABOR ACCOMMODATION",
         description: `
     <div>
         <div>SHARJAH - SAJA'A / INDUSTRIAL</div>
         <div>LAND AREA 63513.50 M2</div>
-        <div>PROPOSED SHEDS (G+M) + LABOR ACCOMMODATIONS (G+1) + C.W.</div>
+        <div>PROPOSED SHEDS (G+M) <br/> LABOR ACCOMMODATIONS (G+1) + C.W.</div>
         <div>Built Up Area 1490.00 M2</div>
     </div>`
     },
@@ -38,7 +40,7 @@ const items = [
         description: `
     <div>
         <div>AL FEEL TR. L.L.C, DUBAI BRANCH</div>
-        <div>LOCATION: SAIH SHUAIB 4, DUBAI</div>
+        <div>SAIH SHUAIB 4, DUBAI</div>
         <div>TOTAL PARKING PROPOSED 11</div>
         <div>INDUSTRIAL WAREHOUSE (G+M)</div>
         <div>Built Up Area 4912.14 M2</div>
@@ -60,13 +62,13 @@ const items = [
     {
         id: 5,
         type: "image",
-        src: image590,
-        title: "TOWER – COMMERCIAL / OFFICES / RESIDENTIAL",
+        src: image1703,
+        title: "TOWER – COMMERCIAL <br/> OFFICES / RESIDENTIAL",
         description: `
     <div>
-        <div>LOCATION: SHARJAH AL KHAN</div>
+        <div>SHARJAH AL KHAN</div>
         <div>TOTAL PARKING PROPOSED 526</div>
-        <div>TOWER BUILDING (B+G+5P+HC+2 SERVICE FLOORS + 48 FLOORS)</div>
+        <div>TOWER BUILDING (B+G+5P+HC+2 <br/> SERVICE FLOORS + 48 FLOORS)</div>
         <div>Built Up Area 4211.67 M2</div>
     </div>`
     },
@@ -74,10 +76,10 @@ const items = [
         id: 6,
         type: "image",
         src: image1717,
-        title: "BUILDING – COMMERCIAL / OFFICES / RESIDENTIAL",
+        title: "BUILDING – COMMERCIAL <br/> OFFICES / RESIDENTIAL",
         description: `
     <div>
-        <div>LOCATION: SHARJAH MUWAILAH COMMERCIAL</div>
+        <div>SHARJAH MUWAILAH COMMERCIAL</div>
         <div>BUILDING (G+4 + 50% FIFTH FLOOR + R.F)</div>
         <div>Built Up Area 415.53 M2</div>
     </div>`
@@ -89,9 +91,9 @@ const items = [
         title: "PROPOSED SCHOOL + NURSERY",
         description: `
     <div>
-        <div>FRENCH INTERNATIONAL PRIVATE SCHOOL L.L.C</div>
+        <div>FRENCH INTERNATIONAL PRIVATE SCHOOL</div>
         <div>PROPOSED SCHOOL (B+G+2+RF) + NURSERY</div>
-        <div>LOCATION: AL HEBIAH SIXTH, DUBAI</div>
+        <div>AL HEBIAH SIXTH, DUBAI</div>
         <div>Built Up Area 1490.00 M2</div>
     </div>`
     }
@@ -123,10 +125,10 @@ export default function OurProjects() {
     })
     const [index, setIndex] = useState(0)
     // Auto rotate
-    useEffect(() => {
-        const interval = setInterval(() => next(), 3000)
-        return () => clearInterval(interval)
-    }, [index])
+    // useEffect(() => {
+    //     const interval = setInterval(() => next(), 3000)
+    //     return () => clearInterval(interval)
+    // }, [index])
 
     const next = () => {
         const next = (currentSlide + 1) % items.length
@@ -199,14 +201,12 @@ export default function OurProjects() {
                                         // height={481}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="w-full h-full object-cover brightness-75"
+                                        className="w-full h-full object-cover brightness-75 "
                                     />
                                 </div>
                                 {/* Overlay Text */}
                                 <div className="inset-0 flex items-center justify-between py-2">
-                                    <h3 className="font-bold text-black mb-1">
-                                        {item.title}
-                                    </h3>
+                                    <div className="font-bold text-black mb-1" dangerouslySetInnerHTML={{ __html: item.title }} />
                                     <div className="text-black text-xs  opacity-90" dangerouslySetInnerHTML={{ __html: item.description }} />
                                 </div>
                             </div>
