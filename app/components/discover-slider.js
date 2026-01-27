@@ -33,7 +33,7 @@ const slides = [
 ]
 
 gsap.registerPlugin(ScrollTrigger)
-export default function DiscoverSlider() {
+export default function     DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
     // const [yearExp, setyearExp] = useState("10")
     const sectionRef = useRef(null)

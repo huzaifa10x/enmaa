@@ -19,19 +19,19 @@ import useGsapPin from "./hooks/useGsapPin"
 gsap.registerPlugin(ScrollTrigger)
 
 const items = [
-    {
-        id: 2,
-        type: "image",
-        src: imagePlaceholder,
-        title: "PROPOSED SHEDS <br/> & LABOR ACCOMMODATION",
-        description: `
-    <div>
-        <div>SHARJAH - SAJA'A / INDUSTRIAL</div>
-        <div>LAND AREA 63513.50 M2</div>
-        <div>PROPOSED SHEDS (G+M) <br/> LABOR ACCOMMODATIONS (G+1) + C.W.</div>
-        <div>Built Up Area 1490.00 M2</div>
-    </div>`
-    },
+    // {
+    //     id: 2,
+    //     type: "image",
+    //     src: imagePlaceholder,
+    //     title: "PROPOSED SHEDS <br/> & LABOR ACCOMMODATION",
+    //     description: `
+    // <div>
+    //     <div>SHARJAH - SAJA'A / INDUSTRIAL</div>
+    //     <div>LAND AREA 63513.50 M2</div>
+    //     <div>PROPOSED SHEDS (G+M) <br/> LABOR ACCOMMODATIONS (G+1) + C.W.</div>
+    //     <div>Built Up Area 1490.00 M2</div>
+    // </div>`
+    // },
     {
         id: 3,
         type: "image",
