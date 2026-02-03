@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button"
 import image1 from "@/public/images/home-services/home1.jpg"
 import image2 from "@/public/images/home-services/home2.jpg"
 import image3 from "@/public/images/home-services/home3.jpg"
+
+import mobImage1 from "@/public/images/home-services/home1-mob.jpg"
+import mobImage2 from "@/public/images/home-services/home2-mob.jpg"
+import mobImage3 from "@/public/images/home-services/home3-mob.jpg"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Navbar from "../Navbar"
 import useGsapPin from "./hooks/useGsapPin"
@@ -17,23 +21,26 @@ const slides = [
         title: "DISCOVER",
         subtitle: "DISCOVER CASE",
         background: image1,
+        mobBg: mobImage1
     },
     {
         id: 2,
         title: "EXPLORE",
         subtitle: "EXPLORE CASE",
         background: image2,
+        mobBg: mobImage2
     },
     {
         id: 3,
         title: "CREATE",
         subtitle: "CREATE CASE",
         background: image3,
+        mobBg: mobImage3
     },
 ]
 
 gsap.registerPlugin(ScrollTrigger)
-export default function     DiscoverSlider() {
+export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
     // const [yearExp, setyearExp] = useState("10")
     const sectionRef = useRef(null)
@@ -151,9 +158,13 @@ export default function     DiscoverSlider() {
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
-                style={{ backgroundImage: `url(${slides[currentSlide].background.src})` }}
-            >
+            <div className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
+                style={{ backgroundImage: `url(${slides[currentSlide].background.src})` }}>
+                <div className="absolute inset-0 bg-black/40" />
+            </div>
+
+            <div className="lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
+                style={{ backgroundImage: `url(${slides[currentSlide].mobBg.src})` }}>
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
