@@ -180,7 +180,7 @@ function TestimonialSlider() {
                                 <Image
                                     src={testimonial.image || "/placeholder.svg"}
                                     alt={testimonial.author}
-                                    className={`h-12 w-12 rounded-full object-cover border-2 transition-all duration-300 ${index === currentIndex ? "blur-none opacity-100 border-orange-400" : "blur-[2px] border-0 opacity-100"
+                                    className={`md:h-12  w-8 md:w-12 rounded-full object-cover border-2 transition-all duration-300 ${index === currentIndex ? "blur-none opacity-100 border-orange-400" : "blur-[2px] border-0 opacity-100"
                                         }`}
                                 />
                             </button>
@@ -188,7 +188,7 @@ function TestimonialSlider() {
                     </div>
 
                     {/* Navigation Dots */}
-                    <div className="flex items-center justify-center gap-4 mt-8 text-sm text-muted-foreground">
+                    <div className="lg:hidden flex items-center justify-center gap-4 mt-8 text-sm text-muted-foreground">
                         <button onClick={goToPrevious} className="font-semibold hover:text-foreground transition-colors">
                             . Previous
                         </button>

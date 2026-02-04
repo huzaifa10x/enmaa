@@ -89,7 +89,7 @@ export default function Footer() {
 
                 </button>
             </Link>
-            <Link className="fixed right-0 bg-primary grid rounded-full p-4 m-8 bottom-18" href='tel:+971505160610'>
+            <Link className="fixed right-0 bg-primary grid rounded-full p-4 m-8 bottom-18" href='tel:+971 50 618 5529'>
                 <button className="btn rounded btn-warning border-warning rounded-5">
                     <Phone size={26} />
                 </button>

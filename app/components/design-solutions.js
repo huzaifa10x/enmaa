@@ -97,7 +97,7 @@ export default function DesignSolutions() {
                                                 : "max-h-0 opacity-0"
                                         )}
                                     >
-                                        <div className="flex flex-col md:flex-row gap-6 items-start">
+                                        <div className="flex flex-col md:flex-row gap-6 items-center">
                                             <div className="relative w-full md:w-80 h-48 rounded-lg overflow-hidden flex-shrink-0">
                                                 <Image
                                                     src={solution.image || "/placeholder.svg"}
@@ -113,9 +113,9 @@ export default function DesignSolutions() {
                                                 <p className="text-neutral-600 leading-relaxed mb-4">
                                                     {solution.description}
                                                 </p>
-                                                <button className="text-gray-600 text-sm font-medium hover:text-neutral-400 transition-colors">
+                                                {/* <button className="text-gray-600 text-sm font-medium hover:text-neutral-400 transition-colors">
                                                     {solution.readMore}
-                                                </button>
+                                                </button> */}
                                             </div>
                                         </div>
                                     </div>

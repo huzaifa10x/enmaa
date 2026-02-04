@@ -23,7 +23,7 @@ const locations = [
             "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d451.04648455819586!2d55.5113347!3d25.2580728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761123561260!5m2!1sen!2s",
     },
     {
-        id: "dubai",
+        id: "Dubai",
         name: "Dubai",
         description:
             "Donna Towers - Office 905,906 - 64 street - Dubai Silicon Oasis - Dubai - United Arab Emirates",
@@ -35,7 +35,7 @@ const locations = [
     },
 
     {
-        id: "abudhabi",
+        id: "Abu Dhabi",
         name: "Abu Dhabi",
         description:
             "Shining Towers - Office No. 2402A - Mubarak Bin Mohammed St - Al Khalidiyah - W9 - Abu Dhabi - United Arab Emirates",

@@ -156,7 +156,7 @@ export default function OurProjects() {
                 return "z-10 lg:scale-0 md:scale-40 scale-0 opacity-80 brightness-50 translate-x-[6rem] md:translate-x-[20rem] lg:translate-x-[48rem]"
 
             case items.length - 1: // left
-                return "z-20 lg:scale-100 md:scale-50 scale-0 opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
+                return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
 
             case items.length - 2: // far left
                 return "z-10 lg:scale-0 md:scale-40 scale-0 opacity-80 brightness-50 -translate-x-[6rem] md:-translate-x-[20rem] lg:-translate-x-[48rem]"
@@ -220,21 +220,21 @@ export default function OurProjects() {
                 {/* <div></div>
                 <div></div> */}
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 lg-mt-0 mt-5">
                     <button
                         onClick={prev}
-                        className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                        className="text-black lg:px-6 lg:py-2 px-3 border border-neutral-400 rounded-full hover:bg-neutral-400 transition"
                     >
-                        <ArrowLeft size={16} />
+                        <ArrowLeft className="lg:w-10 w-3" />
                     </button>
-                    <Link href={'our-projects'} className="bg-neutral-800 text-sm text-white text-nowrap px-6 border border-neutral-400 py-2 rounded-full hover:bg-black transition" >
+                    <Link href={'our-projects'} className="bg-neutral-800 text-xs text-white text-nowrap lg:px-6 px-3 border border-neutral-400 py-1 lg:py-2 rounded-full hover:bg-black transition" >
                         Explore All
                     </Link>
                     <button
                         onClick={next}
-                        className="text-black px-6 border border-neutral-400 py-2 rounded-full hover:bg-neutral-400 transition"
+                        className="text-black lg:px-6 lg:py-2 px-3 border border-neutral-400 rounded-full hover:bg-neutral-400 transition"
                     >
-                        <ArrowRight size={16} />
+                        <ArrowRight className="lg:w-10 w-3" />
                     </button>
                 </div>
 
