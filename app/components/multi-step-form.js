@@ -45,7 +45,6 @@ const steps = [
     { id: 3, title: "Services" },
     { id: 4, title: "Requirements" },
     { id: 5, title: "Notes" },
-    // { id: 6, title: "Uploads" },
 ];
 
 const projectTypes = [
@@ -71,6 +70,7 @@ const servicesList = [
 const formSchema = z.object({
     // Step 1
     fullName: z.string().min(2, "Name is required"),
+    email: z.string().email("Invalid email address"),
     phoneNumber: z.string().min(5, "Phone number is required"),
     hearAbout: z.string().optional(),
 
@@ -89,7 +89,7 @@ const formSchema = z.object({
 
     // Step 4
     hasExistingDrawings: z.enum(["yes", "no"]),
-    existingDrawingsUrl: z.any().optional(), // In a real app, validate file type
+    existingDrawingsUrl: z.any().optional(),
     requireSiteVisit: z.enum(["yes", "no"]),
     preferredStyles: z.string().optional(),
     pinterestLink: z.string().url("Invalid URL").optional().or(z.literal("")),
@@ -97,18 +97,13 @@ const formSchema = z.object({
     // Step 5
     additionalNotes: z.string().optional(),
 
-    // Step 6 (File placeholders - in real app, use FileList validation)
+    // Step 6 (File placeholders)
     filesSitePhotos: z.any().optional(),
     filesSketches: z.any().optional(),
     filesExistingDrawings: z.any().optional(),
     filesPlotMap: z.any().optional(),
     filesRefImages: z.any().optional(),
     filesOther: z.any().optional(),
-
-    plotSize: z.string().optional(),
-    builtUpArea: z.string().optional(),
-
-    // ...rest of schema
 })
     .refine((data) => {
         if (!data.plotSize || !data.builtUpArea) return true;
@@ -121,9 +116,7 @@ const formSchema = z.object({
         path: ["builtUpArea"],
     });
 
-// type FormValues = z.infer<typeof formSchema>;
-
-export default function QuoteModal({text}) {
+export default function QuoteModal({ text }) {
     const [open, setOpen] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
 
@@ -131,6 +124,7 @@ export default function QuoteModal({text}) {
         resolver: zodResolver(formSchema),
         defaultValues: {
             fullName: "",
+            email: "",
             phoneNumber: "",
             hearAbout: "",
             projectType: "",
@@ -159,7 +153,7 @@ export default function QuoteModal({text}) {
 
         switch (currentStep) {
             case 1:
-                fieldsToValidate = ["fullName", "phoneNumber"];
+                fieldsToValidate = ["fullName", "email", "phoneNumber"];
                 break;
             case 2:
                 fieldsToValidate = ["projectType", "projectLocation"];
@@ -174,11 +168,8 @@ export default function QuoteModal({text}) {
                 break;
             case 5:
                 // No strict required fields in notes
-                fieldsToValidate = [""];
+                fieldsToValidate = [];
                 break;
-            // case 6:
-            //         fieldsToValidate = [""];
-            //     break;
         }
 
         const isValid = await trigger(fieldsToValidate);
@@ -191,13 +182,68 @@ export default function QuoteModal({text}) {
         setCurrentStep((prev) => Math.max(prev - 1, 1));
     };
 
-    const onSubmit = (data) => {
-        console.log("Form Submitted:", data);
-        // Handle API submission here
-        alert("Quote request submitted successfully!");
-        setOpen(false);
-        setCurrentStep(1);
-        form.reset();
+    const onSubmit = async (values) => {
+        try {
+            // 1. Create a structured object for the message content
+            const structuredMessage = {
+                contact: {
+                    fullName: values.fullName,
+                    email: values.email,
+                    phone: values.phoneNumber,
+                    referral: values.hearAbout || 'N/A'
+                },
+                project: {
+                    type: values.projectType === 'Other' ? values.projectTypeOther : values.projectType,
+                    location: values.projectLocation,
+                    plotSizeSqFt: values.plotSize || null,
+                    builtUpAreaSqFt: values.builtUpArea || null,
+                    budgetAED: values.budget || 0
+                },
+                services: values.services || [],
+                requirements: {
+                    hasExistingDrawings: values.hasExistingDrawings === 'yes',
+                    requiresSiteVisit: values.requireSiteVisit === 'yes',
+                    preferredStyles: values.preferredStyles || '',
+                    pinterestLink: values.pinterestLink || ''
+                },
+                notes: values.additionalNotes || 'None'
+            };
+
+            // 2. Prepare the final payload
+            const payload = {
+                name: values.fullName,
+                email: values.email,
+                // Convert the object to a JSON string for the 'message' field
+                message: JSON.stringify(structuredMessage),
+                image: values.pinterestLink || "https://example.com/default.png",
+                budget: Number(values.budget) || 0,
+            };
+
+            console.log("Submitting structured payload:", payload);
+
+            const response = await fetch('https://yellow-termite-327315.hostingersite.com/api/inquiries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+
+            const result = await response.json();
+            console.log("Success:", result);
+
+            alert("Quote request submitted successfully!");
+            setOpen(false);
+            setCurrentStep(1);
+            form.reset();
+        } catch (error) {
+            console.error("Submission Error:", error);
+            alert("Failed to submit request. Please check your connection and try again.");
+        }
     };
 
     // --- Sub-components for Steps ---
@@ -212,6 +258,19 @@ export default function QuoteModal({text}) {
                         <FormLabel>Full Name <span className="text-red-500">*</span></FormLabel>
                         <FormControl>
                             <Input placeholder="John Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                )}
+            />
+            <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Email <span className="text-red-500">*</span></FormLabel>
+                        <FormControl>
+                            <Input placeholder="ali@gmail.com" {...field} />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
@@ -320,7 +379,7 @@ export default function QuoteModal({text}) {
                         <FormItem>
                             <FormLabel>Plot Size</FormLabel>
                             <FormControl>
-                                <Input placeholder="Sq. ft." {...field} />
+                                <Input type="number" placeholder="Sq. ft." {...field} />
                             </FormControl>
                         </FormItem>
                     )}
@@ -332,25 +391,16 @@ export default function QuoteModal({text}) {
                         <FormItem>
                             <FormLabel>Est. Built-up Area</FormLabel>
                             <FormControl>
-                                <Input placeholder="Sq. ft." {...field} />
+                                <Input type="number" placeholder="Sq. ft." {...field} />
                             </FormControl>
-                            {/* {built < plot ?
-                                <div className="text-xs text-neutral-500">Built-up area cannot exceed plot size.</div>
-                                :
-                                <></>
-                            } */}
-                            {/* {console.log(field)} */}
                             <FormMessage />
-
                         </FormItem>
                     )}
                 />
-                <FormDescription className="text-xs">
-                    Please attach plot map in Step 6.
-                </FormDescription>
-
-
             </div>
+            <FormDescription className="text-xs">
+                Please attach plot map in Step 6.
+            </FormDescription>
 
             <FormField
                 control={form.control}
@@ -359,7 +409,7 @@ export default function QuoteModal({text}) {
                     <FormItem>
                         <FormLabel>Approximate Budget</FormLabel>
                         <FormControl>
-                            <Input placeholder="AED" {...field} />
+                            <Input type="number" placeholder="AED" {...field} />
                         </FormControl>
                     </FormItem>
                 )}
@@ -512,7 +562,7 @@ export default function QuoteModal({text}) {
                         <FormItem>
                             <FormLabel>Pinterest Board Link</FormLabel>
                             <FormControl>
-                                <Input placeholder="https://pinterest.com/..." {...field} />
+                                <Input type="url" placeholder="https://pinterest.com/..." {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -565,7 +615,7 @@ export default function QuoteModal({text}) {
                 </label>
             </div>
         </div>
-    )
+    );
 
     const renderStep6 = () => (
         <div className="space-y-2">
@@ -635,7 +685,7 @@ export default function QuoteModal({text}) {
                                         Next <ChevronRight className="w-4 h-4" />
                                     </Button>
                                 ) : (
-                                    <Button type="button" onClick={onSubmit} className="gap-2 bg-green-600 hover:bg-green-700">
+                                    <Button type="submit" className="gap-2 bg-green-600 hover:bg-green-700">
                                         Submit Request <Check className="w-4 h-4" />
                                     </Button>
                                 )}

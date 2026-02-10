@@ -10,50 +10,10 @@ import Link from "next/link"
 import WPIcon from "@/public/images/WP-icon.png"
 
 import { usePathname } from "next/navigation"
+import FooterForm from "./footerForm"
 
 export default function Footer() {
-    const branches = [
-        { id: "dubai", name: "Dubai office" },
-        { id: "abu-dhabi", name: "Abu Dhabi office" },
-        { id: "sharjah", name: "Sharjah office" },
-        { id: "ajman", name: "Ajman office" },
-    ]
-
-    const timeSlots = [
-        "09:00 AM",
-        "09:30 AM",
-        "10:00 AM",
-        "10:30 AM",
-        "11:00 AM",
-        "11:30 AM",
-        "12:00 PM",
-        "12:30 PM",
-        "02:00 PM",
-        "02:30 PM",
-        "03:00 PM",
-        "03:30 PM",
-        "04:00 PM",
-        "04:30 PM",
-        "05:00 PM",
-        "05:30 PM",
-    ]
-
-    const [formData, setFormData] = useState({
-        name: "",
-        number: "",
-        date: "",
-        time: "",
-        branch: "",
-    })
-
-    const handleInputChange = (field, value) => {
-        setFormData((prev) => ({ ...prev, [field]: value }))
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("Booking submitted:", formData)
-    }
+    
 
     const pathname = usePathname();
     const isArabic = pathname.startsWith("/ar");
@@ -161,128 +121,10 @@ export default function Footer() {
                     </div>
                 }
 
-                <div>
-                    <div className="max-w-7xl mx-auto">
-                        <div className="bg-gradient-to-r border rounded-2xl p-6 shadow-2xl">
-                            <form onSubmit={handleSubmit}>
-                                <div className="md:flex flex-wrap md:space-y-0 space-y-4 items-end gap-4">
-                                    {/* Name Field */}
-                                    <div className="flex-1 min-w-[200px]">
-                                        <div className="relative">
-                                            <div className="absolute left-3 top-3 z-10">
-                                                <User className="h-5 w-5 text-slate-400" />
-                                            </div>
-                                            <Input
-                                                type="text"
-                                                placeholder="Enter your name"
-                                                value={formData.name}
-                                                onChange={(e) => handleInputChange("name", e.target.value)}
-                                                className="h-12 pl-11 bg-white/10 border-white/20 text-white placeholder:text-slate-300 focus:bg-white/20 focus:border-white/40 transition-all"
-                                                required
-                                            />
-                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">NAME</div>
-                                        </div>
-                                    </div>
-                                    {/* Number Field */}
-                                    <div className="flex-1 min-w-[200px]">
-                                        <div className="relative">
-                                            <div className="absolute left-3 top-3 z-10">
-                                                <Phone className="h-5 w-5 text-slate-400" />
-                                            </div>
-                                            <Input
-                                                type="tel"
-                                                placeholder="Phone number"
-                                                value={formData.number}
-                                                onChange={(e) => handleInputChange("number", e.target.value)}
-                                                className="h-12 pl-11 bg-white/10 border-white/20 text-white placeholder:text-slate-300 focus:bg-white/20 focus:border-white/40 transition-all"
-                                                required
-                                            />
-                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
-                                                NUMBER
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* Date Field */}
-                                    <div className="flex-1 min-w-[180px]">
-                                        <div className="relative">
-                                            <div className="absolute left-3 top-3 z-10">
-                                                <Calendar className="h-5 w-5 text-slate-400" />
-                                            </div>
-                                            <Input
-                                                type="date"
-                                                value={formData.date}
-                                                onChange={(e) => handleInputChange("date", e.target.value)}
-                                                className="h-12 pl-11 bg-white/10 border-white/20 text-white focus:bg-white/20 focus:border-white/40 transition-all
-                                                    appearance-none w-full [&::-webkit-calendar-picker-indicator]:invert"
-                                                min={new Date().toISOString().split("T")[0]}
-                                                required
-                                            />
-
-                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">DATE</div>
-                                        </div>
-                                    </div>
-                                    {/* Time Field */}
-                                    <div className="flex-1 min-w-[160px]">
-                                        <div className="relative">
-                                            <div className="absolute left-3 top-3 z-10">
-                                                <Clock className="h-5 w-5 text-slate-400" />
-                                            </div>
-                                            <select
-                                                value={formData.time}
-                                                onChange={(e) => handleInputChange("time", e.target.value)}
-                                                className="h-12 w-full pl-11 pr-4 bg-white/10 border border-white/20 text-white rounded-md appearance-none focus:bg-white/20 focus:border-white/40 transition-all cursor-pointer"
-                                            >
-                                                <option value="" disabled>Select time</option>
-                                                {timeSlots.map((time) => (
-                                                    <option className="bg-neutral-800" key={time} value={time}>
-                                                        {time}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">TIME</div>
-                                        </div>
-                                    </div>
-                                    {/* Branch Field */}
-                                    <div className="flex-1 min-w-[200px]">
-                                        <div className="relative">
-                                            <div className="absolute left-3 top-3 z-10">
-                                                <MapPin className="h-5 w-5 text-slate-400" />
-                                            </div>
-                                            <select
-                                                value={formData.branch}
-                                                onChange={(e) => handleInputChange("branch", e.target.value)}
-                                                className="h-12 w-full pl-11 pr-4 bg-white/10 border border-white/20 text-white rounded-md appearance-none focus:bg-white/20 focus:border-white/40 transition-all cursor-pointer"
-                                            >
-                                                <option value="" disabled>Select Office</option>
-                                                {branches.map((branch) => (
-                                                    <option className="bg-neutral-800" key={branch.id} value={branch.id}>
-                                                        {branch.name}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            <div className="hidden absolute -top-2 left-3 bg-slate-700 px-2 text-xs text-slate-300 font-medium">
-                                                BRANCH
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* Book Button */}
-                                    <div className="flex-shrink-0">
-                                        <Button
-                                            type="submit"
-                                            className="h-12 px-8 bg-gradient-to-r from-[#01b2eb] to-primary hover:bg-primary text-white text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
-                                        >
-                                            BOOK
-                                        </Button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <FooterForm/>
                 {/* Contact Info and Email Signup */}
 
                 {isArabic ?
-
                     <div dir="rtl" className="grid md:grid-cols-2 gap-12 items-center border-t border-gray-700 pt-12">
                         <div className="space-y-4" dir="rtl">
                             <div className="text-gray-300">
