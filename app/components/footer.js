@@ -205,15 +205,18 @@ export default function Footer() {
                         :
                         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                             <p className="text-gray-400 text-sm">
-                                © Copyright 2025 - Enmaa Civil Engineering Consultants In Sharjah. Design by 10X Digital
+                                © Copyright 2025 - Enmaa Civil Engineering Consultants In Sharjah.
                             </p>
                             <div className="flex space-x-6">
-                                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                <p className="text-gray-400 text-sm transition-colors">
+                                    Design by <a href="https://10xdigital.ae/" className="hover:text-primary">10X Digital</a>
+                                </p>
+                                {/* <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Privacy Policy
                                 </a>
                                 <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Terms and conditions
-                                </a>
+                                </a> */}
                                 <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Support
                                 </a>
