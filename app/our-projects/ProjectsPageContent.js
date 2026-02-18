@@ -8,6 +8,7 @@ import projects from "@/public/images/projects.webp"
 import Image from "next/image"
 import image3 from "@/public/images/projects/1438-17.jpg"
 import HeroSection from "../components/Hero-section"
+import ProjectModalAr from "./project-modal-ar"
 
 export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArabic }) {
     const params = useSearchParams()
@@ -21,6 +22,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
     const [selectedProject, setSelectedProject] = useState(null)
     const filteredProjects = PROJECTS?.data.filter((project) => project.location_city === selectedLocation)
 
+    console.log(PROJECTS)
     return (
         <>
             {isArabic ?
@@ -64,16 +66,31 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                             </button>
                         ))}
                     </div>
-                    <ProjectGrid projects={filteredProjects} onProjectClick={setSelectedProject} />
+                    <ProjectGrid projects={filteredProjects} isArabic={isArabic} onProjectClick={setSelectedProject} />
                 </div>
-                {selectedProject && (
-                    <ProjectModal
-                        project={selectedProject}
-                        onClose={() => setSelectedProject(null)}
-                        allProjects={filteredProjects}
-                        onProjectChange={setSelectedProject}
-                    />
-                )}
+                {isArabic ?
+                    <div>
+                        {selectedProject && (
+                            <ProjectModalAr
+                                project={selectedProject}
+                                onClose={() => setSelectedProject(null)}
+                                allProjects={filteredProjects}
+                                onProjectChange={setSelectedProject}
+                            />
+                        )}
+                    </div>
+                    :
+                    <div>
+                        {selectedProject && (
+                            <ProjectModal
+                                project={selectedProject}
+                                onClose={() => setSelectedProject(null)}
+                                allProjects={filteredProjects}
+                                onProjectChange={setSelectedProject}
+                            />
+                        )}
+                    </div>
+                }
             </main>
         </>
     )

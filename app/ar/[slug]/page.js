@@ -122,7 +122,6 @@ export default function page({ params }) {
         case "gis-services":
             content = <></>;
             break;
-
         default:
             content = <div>Page not found</div>;
     }

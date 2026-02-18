@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Play } from "lucide-react"
 
-export default function ProjectCard({ project, onClick }) {
+export default function ProjectCard({ project, onClick, isArabic }) {
     return (
         <div onClick={onClick} className="group relative overflow-hidden rounded-lg cursor-pointer h-64 md:h-72">
             <Image
@@ -18,11 +18,19 @@ export default function ProjectCard({ project, onClick }) {
 
             {/* Content */}
             <div className="absolute inset-0 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start" dir={`${isArabic ? 'rtl' : 'ltr'}`}>
                     <div>
-                        {/* <h3 className="text-white font-bold text-lg">{project.name}</h3> */}
-                        <p className="text-white/80 text-sm">{project.location}</p>
-                        <p className="text-white/70 text-xs mt-1">{project.style}</p>
+                        {isArabic ?
+                            <div>
+                                <p className="text-white/80 text-sm">{project.location_ar}</p>
+                                <p className="text-white/70 text-xs mt-1">{project.style_ar}</p>
+                            </div>
+                            :
+                            <div>
+                                <p className="text-white/80 text-sm">{project.location}</p>
+                                <p className="text-white/70 text-xs mt-1">{project.style}</p>
+                            </div>
+                        }
                     </div>
                 </div>
 
