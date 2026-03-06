@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function ServiceCard({ service }) {
+export default function ServiceCard({ service  , isArabic}) {
     // if (service.featured) {
     return (
         <Card className="relative overflow-hidden group rounded-2xl h-full min-h-80 md:min-h-full p-0 bg-neutral-100 border border-black/40">
@@ -18,10 +18,10 @@ export default function ServiceCard({ service }) {
             
             <div className="relative p-8 h-full flex flex-col justify-between duration-300 group-hover:text-white">
                 <div>
-                    <div className="text-6xl font-light opacity-65 mb-4 text-end text-white font-ps" style={{
+                    <div className="text-6xl font-light opacity-65 mb-4 text-end text-white font-sans!" style={{
                         WebkitTextStroke: "2px #000",
                         fontFamily: "system-ui",
-                    }}>{service.id}</div>
+                    }}> {isArabic ? service.num : service.id}</div>
                     <h3 className="text-2xl font-bold mb-6">{service.title}</h3>
                     <ul className="space-y-2 text-sm">
                         {service.items.map((item, index) => (
@@ -30,11 +30,19 @@ export default function ServiceCard({ service }) {
                             </li>
                         ))}
                     </ul>
-                </div>
-                <Link href={service?.href} className="inline-flex items-center duration-300 group-hover:text-white mt-6">
-                    See Details
+                </div> 
+                 {isArabic ?
+                <Link href={service?.href} className="inline-flex items-center text-end duration-300 group-hover:text-white mt-6"> 
+                <span className="ml-2">⟵</span>
+                  انظر التفاصيل
+                   
+                </Link>
+                : 
+                 <Link href={service?.href} className="inline-flex items-center duration-300 group-hover:text-white mt-6">
+                   See Details
                     <span className="ml-2">→</span>
                 </Link>
+}
             </div>
         </Card>
     )

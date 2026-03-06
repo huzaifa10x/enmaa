@@ -69,7 +69,7 @@ export default function FAQ({ faqData }) {
                         className="flex flex-col items-center lg:items-start text-center lg:text-right"
                         dir="rtl"
                     >
-                        <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-2xl overflow-hidden mb-8 shadow-md">
+                        <div className="relative w-full lg:max-w-[380px] lg:max-h-[400px] md:max-w-[800px] md:max-h-[300px] aspect-[4/5] rounded-2xl overflow-hidden mb-8 shadow-md">
                             <Image
                                 src={faqImg}
                                 alt="صورة الأسئلة الشائعة"
@@ -96,16 +96,20 @@ export default function FAQ({ faqData }) {
                             <div key={item.id} className="border-b border-gray-200 pb-4">
                                 <button
                                     onClick={() => toggleItem(item.id)}
-                                    className="w-full flex items-start justify-between text-left group"
+                                    className="w-full flex items-start justify-between text-right group"
                                 >
-                                    <span className="ml-4 mt-1 flex-shrink-0">
-                                        {openItem === item.id ? (
-                                            <Minus className="w-5 h-5 text-sky-600" />
-                                        ) : (
-                                            <Plus className="w-5 h-5 text-gray-500 group-hover:text-sky-600 transition" />
-                                        )}
-                                    </span>
-                                    <div className="flex gap-5 items-start">
+                                    <div>
+                                        <div className="flex gap-5 items-start">
+                                            <span className="ml-4 mt-1 flex-shrink-0">
+                                                {openItem === item.id ? (
+                                                    <Minus className="w-5 h-5 text-sky-600" />
+                                                ) : (
+                                                    <Plus className="w-5 h-5 text-gray-500 group-hover:text-sky-600 transition" />
+                                                )}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
                                         <h3
                                             className={`text-base font-medium transition-colors duration-300 ${openItem === item.id
                                                 ? "text-sky-600"
@@ -114,10 +118,11 @@ export default function FAQ({ faqData }) {
                                         >
                                             {item.question}
                                         </h3>
+                                        <span className="text-gray-400 font-semibold text-lg md:text-xl leading-none mt-1">
+                                            {String(index + 1).padStart(2, "0")}
+                                        </span>
                                     </div>
-                                    <span className="text-gray-400 font-semibold text-lg md:text-xl leading-none mt-1">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
+
 
                                 </button>
 
@@ -128,7 +133,7 @@ export default function FAQ({ faqData }) {
                                         }`}
                                 >
                                     <p
-                                        className="text-gray-600 text-sm md:text-base ml-9 pr-8 leading-relaxed"
+                                        className="text-gray-600 text-end text-sm md:text-base ml-9 pr-8 leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: item.answer }}
                                     ></p>
                                 </div>

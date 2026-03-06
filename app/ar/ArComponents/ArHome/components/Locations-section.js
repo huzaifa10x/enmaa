@@ -23,7 +23,7 @@ const locations = [
             "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d451.04648455819586!2d55.5113347!3d25.2580728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2519eb4fcf%3A0x9add3920d3078245!2zRU5NQUEgRU5HSU5FRVJJTkcgQ09OU1VMVEFOVCDYpdmG2YXYp9ihINmE2YTYpdiz2KrYtNin2LHYp9iqINin2YTZh9mG2K_Ys9mK2Kk!5e0!3m2!1sen!2s!4v1761123561260!5m2!1sen!2s",
     },
     {
-        id: "dubai",
+        id: "Dubai",
         name: "دبي",
         description:
             "أبراج دونا – مكتب 905 و906 – شارع 64 – واحة دبي للسيليكون – دبي – الإمارات العربية المتحدة",
@@ -35,7 +35,7 @@ const locations = [
     },
 
     {
-        id: "abudhabi",
+        id: "Abu Dhabi",
         name: "أبوظبي",
         description:
             "أبراج شاينينغ – مكتب 2402A – شارع مبارك بن محمد – الخالدية – أبوظبي – الإمارات العربية المتحدة",
@@ -129,7 +129,7 @@ export default function LocationsSection() {
                                                 </div>
                                                 <div className="flex flex-wrap gap-1 mt-2">
                                                     {location.features.map((feature, index) => (
-                                                        <Link href={`/our-projects?location=${location.id}`} key={index}>
+                                                        <Link href={`/ar/our-projects?location=${location.id}`} key={index}>
                                                             <Badge
                                                                 variant={isSelected ? "secondary" : "outline"}
                                                                 className="text-xs px-2 py-0.5"

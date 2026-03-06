@@ -14,33 +14,33 @@ export default function Testimonial() {
     const testimonials = [
         {
             id: 1,
-            text: "From townhouse to luxury villa, from small building to high rise, Ermaa engineering consultants are available to cater all your design layout needs. One of the most professional team with humble attitude.",
-            author: "Mirza Maaz",
-            image: image1,
+            text: "من المنازل المتلاصقة إلى الفلل الفاخرة، ومن المباني الصغيرة إلى الأبراج الشاهقة، يتوفر مستشارو إرما الهندسيون لتلبية جميع احتياجاتكم في تصميم المخططات. فريق محترف للغاية يتميز بالتواضع.",
+            author: "ميرزا معاذ",
+            image: image1
         },
         {
             id: 2,
-            text: "Exceptional service and attention to detail. The team went above and beyond to ensure our project was completed on time and within budget.",
-            author: "Sarah Johnson",
-            image: image2,
+            text: "خدمة استثنائية واهتمام دقيق بالتفاصيل. بذل الفريق جهداً يفوق التوقعات لضمان إنجاز مشروعنا في الوقت المحدد وضمن الميزانية.",
+            author: "سارة جونسون",
+            image: image2
         },
         {
             id: 3,
-            text: "Outstanding architectural solutions. Their innovative approach transformed our vision into reality with remarkable precision.",
-            author: "Ahmed Hassan",
-            image: image3,
+            text: "حلول معمارية متميزة. نهجهم الابتكاري حوّل رؤيتنا إلى واقع بدقة لافتة.",
+            author: "أحمد حسن",
+            image: image3
         },
         {
             id: 4,
-            text: "Professional, reliable, and creative. Ermaa has been our trusted partner for multiple projects over the years.",
-            author: "Emma Wilson",
-            image: image4,
-        },
+            text: "احترافيون، موثوقون، ومبدعون. كانت إرما شريكنا الموثوق في عدة مشاريع على مرّ السنوات.",
+            author: "إيما ويلسون",
+            image: image4
+        }
     ]
 
     return (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <h2 className="text-4xl mb-12">What People Say</h2>
+            <h2 className="text-4xl mb-12 text-right">ما يقوله الناس</h2>
             <Carousel
                 opts={{
                     align: "start",
@@ -50,24 +50,25 @@ export default function Testimonial() {
                     {testimonials.map((content, index) => (
                         <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                             <div className="relative">
-                                <span className="absolute -top-[90px] -left-3 text-[200px] font-black text-black/80 z-40">
+                                <span className="absolute -top-[90px] -right-1 text-[200px] font-black text-black/80 z-40">
                                     &quot;
                                 </span>
                                 <Card className="border border-gray-300 p-10 pt-16 min-h-[300px]">
                                     <div className="border-t border-gray-300 pt-6">
-                                        <p className="text-gray-700 leading-relaxed">
+                                        <p className="text-gray-700 text-end leading-relaxed">
                                             {content.text}
                                         </p>
                                     </div>
                                 </Card>
-                                <div className="flex items-center gap-4 mt-6">
+                                <div className="flex items-center justify-end gap-4 mt-6">
+                                    
+                                        <p className="font-semibold text-lg">{content.author}</p>
                                     <div className="w-16 overflow-hidden h-16 rounded-full bg-gray-300">
                                         <Image
                                             src={content.image || "/placeholder.svg"}
                                             alt={content.author}
                                         />
                                     </div>
-                                    <p className="font-semibold text-lg">{content.author}</p>
                                 </div>
                             </div>
                         </CarouselItem>

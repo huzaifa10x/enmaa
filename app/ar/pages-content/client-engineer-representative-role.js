@@ -1,7 +1,7 @@
 import image1 from "@/public/images/projects/448...1.jpg"
 import image2 from "@/public/images/projects/1438-07.jpg"
 import Image from 'next/image'
-import Testimonial from "@/app/components/Testimonial"
+import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 import ServicesBanner from "@/app/components/services-banner"
 
 export default function ClientEngineerRepresentativeRole() {
@@ -9,11 +9,11 @@ export default function ClientEngineerRepresentativeRole() {
         <main className="rtl text-end" dir="rtl">
             <ServicesBanner />
 
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 className="text-4xl font-bold text-foreground mb-2">
+            <section className="max-w-7xl mx-auto px-4  sm:px-6 lg:px-8 py-8">
+                <h1 className="text-4xl font-bold text-right text-foreground mb-2">
                     دور ممثل المهندس لدى العميل
                 </h1>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm text-right">
                     الرئيسية / دور ممثل المهندس لدى العميل
                 </p>
             </section>
@@ -41,12 +41,12 @@ export default function ClientEngineerRepresentativeRole() {
                 </div>
             </section>
 
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-end">
-                <h1 className='text-2xl font-semibold mb-5'>
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 ">
+                <h1 className='text-2xl font-semibold mb-5 text-right'>
                     ممثلك التقني الملتزم لضمان نجاح المشروع
                 </h1>
 
-                <p className="text-foreground text-base leading-relaxed mb-6">
+                <p className="text-foreground text-base leading-relaxed mb-6 text-right">
                     تقدم شركة إنماء للاستشارات الهندسية خدمة ممثل المهندس لدى العميل من خلال
                     تعيين مهندسينا المحترفين داخل مؤسسات العملاء للعمل كمستشارين تقنيين ومدافعين
                     عن مصلحة المشروع. يعتمد نهجنا على فهم كامل لأهداف العميل ونطاق المشروع،
@@ -57,7 +57,7 @@ export default function ClientEngineerRepresentativeRole() {
                     للحفاظ على تقدم المشاريع بشكل سلس.
                 </p>
 
-                <p className="text-foreground text-base leading-relaxed mb-6">
+                <p className="text-foreground text-base leading-relaxed mb-6 text-right">
                     يتطلب تمثيل مهندس العميل قدرة تقنية عالية وإدراكًا تجاريًا ودبلوماسية في
                     التعامل مع المصالح المتعددة والمتضاربة أحيانًا. يشارك ممثلونا في التخطيط
                     وإعداد الميزانيات والمشتريات لضمان أخذ الجوانب الفنية في القرارات التجارية.
@@ -66,7 +66,7 @@ export default function ClientEngineerRepresentativeRole() {
                     ضمن أو قبل المواعيد المحددة.
                 </p>
 
-                <p className="text-foreground text-base leading-relaxed mb-6">
+                <p className="text-foreground text-base leading-relaxed mb-6 text-right">
                     يحرص ممثلونا على المتابعة المستمرة—سواء في الموقع أو خارجه—للجدول الزمني
                     وتكاليف المشروع ومعايير الجودة، بهدف تحديد الفرص لتحسين الوقت والتكلفة
                     ومعالجة المشكلات قبل تفاقمها. ويمنح هذا التمثيل عملاءنا الثقة بأن مشاريعهم

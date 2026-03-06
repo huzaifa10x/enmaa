@@ -4,6 +4,8 @@ import image3 from "@/public/images/projects/1438-17.jpg";
 import ContactForm from '@/app/contact-us/ContactForm';
 import ProjectLocation from '@/app/contact-us/ProjectLocation';
 import HeroSection from '@/app/components/Hero-section';
+import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTiktok, FaUser } from 'react-icons/fa6';
+import { IoMail } from 'react-icons/io5';
 
 export default function ContactUs({ lang = "ar" }) {
     const isArabic = lang === "ar";
@@ -65,7 +67,8 @@ export default function ContactUs({ lang = "ar" }) {
                                         </p>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        <PhoneIncoming className='text-white' />
+                                        {/* <PhoneIncoming className='text-white' />   */}
+                                        <FaPhone className='text-white' />
                                     </div>
                                 </div>
 
@@ -85,7 +88,8 @@ export default function ContactUs({ lang = "ar" }) {
                                         </p>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        <Mail className='text-white' />
+                                        {/* <Mail className='text-white' /> */}
+                                        <IoMail className='text-white' />
                                     </div>
                                 </div>
 
@@ -94,7 +98,7 @@ export default function ContactUs({ lang = "ar" }) {
                                     <div>
                                         <h3 className="text-2xl font-semibold">{t.followTitle}</h3>
                                         <div className="flex items-center gap-4 mt-1 text-2xl">
-                                            <a href="https://tr.ee/0mGAI6SSog">
+                                            {/* <a href="https://tr.ee/0mGAI6SSog">
                                                 <Facebook className='hover:text-primary duration-300' />
                                             </a>
                                             <a href="https://tr.ee/0mGAI6SSog">
@@ -102,11 +106,24 @@ export default function ContactUs({ lang = "ar" }) {
                                             </a>
                                             <a href="https://tr.ee/BEfYD4GgiR">
                                                 <Twitter className='hover:text-primary duration-300' />
+                                            </a> */}
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.instagram.com/enmaaengcon/">
+                                                <FaInstagram className='duration-300' />
+                                            </a>
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.facebook.com/enmaa.engcon/">
+                                                <FaFacebook className='duration-300' />
+                                            </a>
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
+                                                <FaLinkedin className='duration-300' />
+                                            </a>
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.tiktok.com/@enmaaengcon">
+                                                <FaTiktok className='duration-300' />
                                             </a>
                                         </div>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        <UserRoundPlus className="text-white" />
+                                        {/* <UserRoundPlus className="text-white" /> */}
+                                        <FaUser className="text-white" />
                                     </div>
                                 </div>
 
@@ -116,7 +133,8 @@ export default function ContactUs({ lang = "ar" }) {
                 </div>
             </section>
 
-            {/* <ProjectLocation isArabic={isArabic} /> */}
+            <ProjectLocation isArabic={isArabic} />
+              {/* <ProjectLocation /> */}
         </div>
     );
 }

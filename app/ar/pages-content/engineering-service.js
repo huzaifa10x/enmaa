@@ -9,7 +9,7 @@ import image8 from "@/public/images/projects/1855-01.jpg"
 import image12 from "@/public/images/projects/1902.jpg"
 import ServicesBanner from "@/app/components/services-banner"
 import ServicesPageSlider from "@/app/components/services-page-slider"
-import Testimonial from "@/app/components/Testimonial"
+import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 
 export default function EngineeringService() {
     const images = [image1, image2, image3, image4, image5, image12, image7, image8]

@@ -23,12 +23,12 @@ export default function ServicesSliderMobile({ services }) {
                                 {/* Card Content */}
                                 <div className="absolute inset-0 p-5 flex flex-col justify-end text-white bottom-24">
 
-                                    <div className="mb-3 font-ps text-3xl relative -top-50">{`0${item.id}`}</div>
+                                    <div className="mb-3 font-ps text-3xl relative text-right -top-50 font-sans!">{`${item.num}`}</div>
 
-                                    <div className="mb-4">{item.icon}</div>
-                                    <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+                                    {/* <div className="mb-4">{item.icon}</div> */}
+                                    <h2 className="text-xl font-semibold mb-2 text-right">{item.title}</h2>
                                     <div
-                                        className="text-sm opacity-90 leading-relaxed"
+                                        className="text-sm opacity-90 leading-relaxed text-right"
                                         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.desc), }}
                                     />
                                 </div>

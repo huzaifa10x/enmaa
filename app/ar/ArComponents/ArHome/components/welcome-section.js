@@ -68,13 +68,13 @@ export default function WelcomeSection() {
 
     return (
         <section ref={sectionRef} className="bg-gray-50 relative z-10 md:p-y-0 py-10 p md:-mt-7 md:rounded-t-[50px]">
-            <div className="h-screen">
+            <div className="">
                 <Image
                     src={buildingProp}
                     width={800}
                     height={200}
                     alt=""
-                    className="absolute right-0 bottom-0 w-auto h-auto"
+                    className="absolute right-0 bottom-0 "
                 />
 
                 <Image
@@ -82,11 +82,11 @@ export default function WelcomeSection() {
                     width={500}
                     height={200}
                     alt=""
-                    className="absolute left-0 top-0 w-auto h-auto"
+                    className="absolute left-0 top-0" 
                 />
                 <div
                     dir="rtl"
-                    className="max-w-7xl relative z-10 mx-auto px-6 md:py-20 h-full flex items-center text-right"
+                    className="max-w-7xl relative z-10 mx-auto px-6 md:py-20 flex items-center text-right"
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
                         {/* Left / Top Content */}
@@ -117,9 +117,9 @@ export default function WelcomeSection() {
                                 <div className="h-px bg-gray-400 flex-1"></div>
                             </div>
 
-                            <div className="grid grid-cols-3">
+                            {/* <div className="grid grid-cols-3"> */}
                                 {/* Experience */}
-                                <div className="text-center">
+                                {/* <div className="text-center">
                                     <div
                                         ref={counterV1Ref}
                                         data-value="10"
@@ -131,10 +131,10 @@ export default function WelcomeSection() {
                                     <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         سنوات <br /> الخبرة
                                     </p>
-                                </div>
+                                </div> */}
 
                                 {/* Clients */}
-                                <div className="text-center">
+                                {/* <div className="text-center">
                                     <div
                                         ref={counterV2Ref}
                                         data-value="2750"
@@ -146,10 +146,10 @@ export default function WelcomeSection() {
                                     <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         عدد <br /> العملاء
                                     </p>
-                                </div>
+                                </div> */}
 
                                 {/* Projects */}
-                                <div className="text-center">
+                                {/* <div className="text-center">
                                     <div
                                         ref={counterV3Ref}
                                         data-value="2963"
@@ -161,8 +161,8 @@ export default function WelcomeSection() {
                                     <p className="text-xs lg:text-sm text-[#565656] mt-5 md:tracking-[0.15em] font-medium">
                                         المشاريع <br /> المنجزة
                                     </p>
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                         </div>
                     </div>
                 </div>

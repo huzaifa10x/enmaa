@@ -33,6 +33,7 @@ const services = [
             <li>المواصفات الفنية</li>
             <li>حصر الكميات</li>
         </ul>`,
+        num: "١",
         img: image1,
         icon: <MdOutlineEngineering className="text-white" size={60} />,
     },
@@ -47,6 +48,7 @@ const services = [
            <li>التصميم التفصيلي</li>
            <li>التصميم النهائي</li>
         </ul>`,
+        num: "٢",
         img: image2,
         icon: <BsBuildings className="text-white" size={60} />,
     },
@@ -62,6 +64,7 @@ const services = [
             <li>التقرير النهائي</li>
             <li>اختيار المقاولين</li>
         </ul>`,
+        num: "٣",
         img: image3,
         icon: <SiAffinitydesigner className="text-white" size={60} />,
     },
@@ -75,6 +78,7 @@ const services = [
             <li>الإشراف على الجدول الزمني والتكاليف</li>
             <li>المطالبات وإنهاء العقود</li>
         </ul>`,
+        num: "٤",
         img: image4,
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
@@ -87,6 +91,7 @@ const services = [
             <li>التنسيق المباشر مع العملاء في الموقع</li>
             <li>إدارة المشروع لتحقيق الجودة المطلوبة ضمن الوقت والميزانية المحددة</li>
         </ul>`,
+        num: "٥",
         img: image5,
         icon: <MdOutlineEngineering className="text-white" size={60} />,
     },
@@ -104,6 +109,7 @@ const services = [
             <li>إدارة الملفات</li>
             <li>الإشراف والتوجيه</li>
         </ul>`,
+        num: "٦",
         img: image6,
         icon: <BsBuildings className="text-white" size={60} />,
     },
@@ -118,6 +124,7 @@ const services = [
             <li>خفض التكاليف</li>
             <li>الجداول الزمنية</li>
         </ul>`,
+        num: "٧",
         img: image7,
         icon: <SiAffinitydesigner className="text-white" size={60} />,
     },
@@ -133,6 +140,7 @@ const services = [
             <li>تطوير وتكامل المشاريع</li>
             <li>بناء القدرات والدعم التشغيلي</li>
         </ul>`,
+        num: "٨",
         img: image8,
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
@@ -154,7 +162,7 @@ export default function ServicesSection() {
     return (
         <>
             <section className="lg:block hidden relative z-40 md:rounded-t-[50px] overflow-y-hidden h-screen" ref={sectionRef}>
-                <section ref={sliderRef} className="md:flex hidden flex-col items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary  overflow-hidden">
+                <section ref={sliderRef} className="relative md:flex hidden flex-col items-center justify-center bg-gradient-to-r from-[#01b2eb] to-primary  overflow-hidden">
                     {/* background image */}
                     <Image
                         src={activeImg}
@@ -163,27 +171,27 @@ export default function ServicesSection() {
                         className="object-cover transition-opacity duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-0"></div>
-
                     {/* slider container */}
                     <div className="relative z-10 w-full h-full overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth scrollbar-hide">
-                        <div className="flex w-max">
-                            {services.map((service) => (
-                                <div key={service.id}
-                                    onMouseEnter={() => handleHover(service.img)}
-                                    className="group relative w-[90vw] sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-900/45 duration-300 flex justify-end items-end p-6"
+                        <div className="flex w-max group">
+                            {services.map((services) => (
+                                <div key={services.id}
+                                    onMouseEnter={() => handleHover(services.img)}
+                                    className="group relative w-[90vw] group-hover:bg-black/60 sm:w-[50vw] lg:w-[25vw] h-screen snap-center shrink-0 border-r border-white/35 overflow-hidden hover:bg-blue-500/30 duration-300 flex items-end p-6 justify-end"
                                 >
-                                    <div className="z-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
-                                        <div className="mb-3 font-ps absolute -top-96 end-1 text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent" style={{
-                                            WebkitTextStroke: "1px #fff",
-                                            fontFamily: "system-ui",
-                                        }}>{`0${service.id}`}</div>
 
-                                        <div className="brightness-50 group-hover:brightness-200 duration-300 text-end">
-                                            <div className="mb-3">{service.icon}</div>
-                                            <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
-                                                {service.title}
+                                    <div className="mb-3 me-10 font-ps absolute top-[10%] text-3xl group-hover:opacity-100 opacity-0 duration-300 font-light text-transparent font-sans!" style={{
+                                        WebkitTextStroke: "1px #fff",
+                                        // fontFamily: "",
+                                    }}>{services.num}</div>
+                                    <div className="z-10 me-10 transition-all duration-300 relative group-hover:bottom-0 bottom-12">
+
+                                        <div className="brightness-50 group-hover:brightness-200 duration-300">
+                                            {/* <div className="mb-3">{services.icon}</div> */}
+                                            <h3 className="text-xl md:text-2xl font-semibold text-white mb-2 text-right">
+                                                {services.title}
                                             </h3>
-                                            <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 transition-opacity duration-300 text-white text-sm" dangerouslySetInnerHTML={{ __html: service.desc }} />
+                                            <div className="opacity-0 group-hover:block hidden group-hover:opacity-100 text-right transition-opacity duration-300 text-white text-sm" dangerouslySetInnerHTML={{ __html: services.desc }} />
                                         </div>
                                     </div>
                                 </div>

@@ -111,9 +111,9 @@ export default function DesignSolutions() {
                                                 <p className="text-neutral-600 leading-relaxed mb-4">
                                                     {solution.description}
                                                 </p>
-                                                <button className="text-gray-600 text-sm font-medium hover:text-neutral-400 transition-colors">
+                                                {/* <button className="text-gray-600 text-sm font-medium hover:text-neutral-400 transition-colors">
                                                     {solution.readMore}
-                                                </button>
+                                                </button> */}
                                             </div>
                                         </div>
                                     </div>

@@ -1,4 +1,4 @@
-import Testimonial from '../components/Testimonial'
+import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
 import image1 from "@/public/images/projects/448...1.jpg"

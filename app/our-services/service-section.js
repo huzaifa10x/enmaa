@@ -164,6 +164,7 @@ export default function ServiceSection({ lang = "en" }) {
             services: [
                 {
                     id: "01",
+                    num : "١",
                     title: "الخدمات الهندسية",
                     image: engineering,
                     items: [
@@ -176,10 +177,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>جداول الكميات</li>
                 </ul>`,
                     ],
-                    href: "/engineering-service",
+                    href: "/ar/engineering-service",
                 },
                 {
                     id: "02",
+                    num : "٣",
                     title: "خدمات التصميم",
                     image: design,
                     items: [
@@ -191,10 +193,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>التصميم النهائي</li>
                 </ul>`,
                     ],
-                    href: "/design-services",
+                    href: "/ar/design-services",
                 },
                 {
                     id: "03",
+                    num : "٣",
                     title: "خدمات المناقصات",
                     image: tender,
                     items: [
@@ -207,10 +210,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>ترسية العقد</li>
                 </ul>`,
                     ],
-                    href: "/tenderings-services",
+                    href: "/ar/tenderings-services",
                 },
                 {
                     id: "04",
+                    num : "٤",
                     title: "الإشراف",
                     image: supervision,
                     items: [
@@ -221,10 +225,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>المطالبات والتشغيل</li>
                 </ul>`,
                     ],
-                    href: "/supervision",
+                    href: "/ar/supervision",
                 },
                 {
                     id: "05",
+                    num : "٥",
                     title: "دور ممثل مهندس العميل",
                     image: clientEng,
                     items: [
@@ -239,10 +244,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>الالتزام بمعايير الجودة</li>
                 </ul>`,
                     ],
-                    href: "/client-engineer-representative-role",
+                    href: "/ar/client-engineer-representative-role",
                 },
                 {
                     id: "06",
+                    num : "٦",
                     title: "خدمات إدارة البرامج",
                     image: program,
                     items: [
@@ -257,10 +263,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>التوجيه والإرشاد</li>
                 </ul>`,
                     ],
-                    href: "/program-management-services",
+                    href: "/ar/program-management-services",
                 },
                 {
                     id: "07",
+                    num : "٧",
                     title: "المشاركة في مشاريع التصميم والبناء",
                     image: designBuild,
                     items: [
@@ -274,10 +281,11 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>الالتزام بالجدول الزمني</li>
                 </ul>`
                     ],
-                    href: "/design-build-project-participation",
+                    href: "/ar/design-build-project-participation",
                 },
                 {
                     id: "08",
+                    num : "٨",
                     title: "خدمات نظم المعلومات الجغرافية (GIS)",
                     image: GIS,
                     items: [
@@ -291,7 +299,7 @@ export default function ServiceSection({ lang = "en" }) {
                     <li>بناء القدرات، التشغيل والدعم</li>
                 </ul>`,
                     ],
-                    href: "/gis-services",
+                    href: "/ar/gis-services",
                 },
             ],
         },

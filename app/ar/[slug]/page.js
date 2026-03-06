@@ -59,7 +59,6 @@ export async function generateMetadata({ params }) {
     };
 }
 
-import TenderingsServices from "@/app/tenderings-services/page";
 import ArabicPage from "../pages-content/ArabicPage";
 import ContactUs from "../pages-content/contact-us";
 import EngineeringConsultantsInAjman from "../pages-content/engineering-consultants-in-ajman";
@@ -71,6 +70,9 @@ import Supervision from "../pages-content/supervision";
 import ClientEngineerRepresentativeRole from "../pages-content/client-engineer-representative-role";
 import ProgramManagementServices from "../pages-content/program-management-services";
 import HomePage from "../pages-content/homePage";
+import TenderingServicesArabic from "../pages-content/tenderings-services";
+import DesignBuildProjectParticipationArabic from "../pages-content/design-build-project-participation";
+import GisArabic from "../pages-content/gis-services";
 
 export default function page({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
@@ -105,7 +107,7 @@ export default function page({ params }) {
             content = <EngineeringService />;
             break;
         case "tenderings-services":
-            content = <TenderingsServices />;
+            content = <TenderingServicesArabic />;
             break;
         case "supervision":
             content = <Supervision />;
@@ -117,10 +119,10 @@ export default function page({ params }) {
             content = <ProgramManagementServices />;
             break;
         case "design-build-project-participation":
-            content = <></>;
+            content = <DesignBuildProjectParticipationArabic/>;
             break;
         case "gis-services":
-            content = <></>;
+            content = <GisArabic/>;
             break;
         default:
             content = <div>Page not found</div>;

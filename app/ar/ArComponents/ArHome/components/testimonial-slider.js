@@ -216,7 +216,7 @@ function TestimonialSlider() {
                     </div>
 
                     {/* Navigation Dots */}
-                    <div
+                    {/* <div
                         className="flex items-center justify-center gap-6 mt-8 text-sm text-muted-foreground"
                         dir="rtl"
                     >
@@ -233,7 +233,7 @@ function TestimonialSlider() {
                         >
                             السابق
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

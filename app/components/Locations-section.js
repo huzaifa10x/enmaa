@@ -29,7 +29,7 @@ const locations = [
             "Donna Towers - Office 905,906 - 64 street - Dubai Silicon Oasis - Dubai - United Arab Emirates",
         icon: MapPin,
         features: ["View Projects"],
-        link: '/our-projects',
+        link: '/ar/our-projects',
         mapEmbed:
             "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.546712935814!2d55.3695698!3d25.1172011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f42ef24a0273f%3A0x573117b316e0bda0!2z2KfZhtmF2KfYoSDZhNmE2KXYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipINmB2LHYuSDYr9io2YogLSBFbm1hYSBFbmdpbmVlcmluZyBDb25zdWx0YW50IGR1YmFp!5e0!3m2!1sen!2s!4v1761124635396!5m2!1sen!2s",
     },

@@ -154,8 +154,8 @@ export default function Testimonial() {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className={'md:flex hidden'} />
-                <CarouselNext className={'md:flex hidden'} />
+                <CarouselPrevious className={'md:flex hidden!'} />
+                <CarouselNext className={'md:flex hidden!'} />
             </Carousel>
         </section>
     )

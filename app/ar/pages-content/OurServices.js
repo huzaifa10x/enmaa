@@ -14,7 +14,7 @@ export default function OurServices() {
             />
             <main className="max-w-7xl mx-auto px-4 sm:px-6 space-y-5 lg:px-8 py-8 rtl text-right">
                 <ServiceSection isArabic lang='ar'/>
-                <h1 className="text-3xl font-bold">أفضل شركات التصميم الداخلي في الشارقة</h1>
+                {/* <h1 className="text-3xl font-bold">أفضل شركات التصميم الداخلي في الشارقة</h1>
                 <p className="text-lg">
                     نحن نؤمن في إنماء للاستشارات الهندسية بأن التصميم الداخلي يعتبر من أهم العناصر
                     وأكثر الأدوات فعالية في بناء وتجهيز كل منزل بل وكل مبنى سواء مكتب أو شركة أو
@@ -37,9 +37,9 @@ export default function OurServices() {
                     والفنادق، وكذلك تصميم بيئة عمل مريحة وجميلة توفر المال وتزيد من إنتاجية
                     الموظفين. إن نهجنا يعتمد بشكل أساسي على تحقيق النجاح والجودة، فكل مشروع هو
                     فرصة جديدة لتقييم رؤية العميل وتقديمها بأفكار مبتكرة تتجاوز توقعاتهم.
-                </p>
+                </p> */}
 
-                <section className="space-y-4">
+                {/* <section className="space-y-4">
                     <h2 className="text-2xl font-bold">احصل على تصميم داخلي فخم من إنماء</h2>
 
                     <p>
@@ -60,9 +60,9 @@ export default function OurServices() {
                         بقدرتنا على إنتاج تصاميم تفوق الخيال في روعتها وجمالها. نعمل بحماس متقد وشغف
                         كبير يقودنا إلى الإبداع والحيوية داخل بيئة مهنية مبتكرة.
                     </p>
-                </section>
+                </section> */}
 
-                <Testimonial />
+                {/* <Testimonial /> */}
             </main>
         </>
     )
