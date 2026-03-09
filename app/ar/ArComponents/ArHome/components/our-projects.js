@@ -1,12 +1,11 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import image1 from "@/public/images/projecs slideshow/428.jpg"
-import image2 from "@/public/images/p3223.png"
-import image3 from "@/public/images/p4322.png"
-import image4 from "@/public/images/pe2e2.png"
-import image5 from "@/public/images/pe342.png"
-import image6 from "@/public/images/projects/image232.png"
+import image418 from "@/public/images/418.jpg"
+import image590 from "@/public/images/590.jpg"
+import image1717 from "@/public/images/1717.jpg"
+import image416 from "@/public/images/416.jpg"
+import image1703 from "@/public/images/image1703.webp"
 import bgProp from "@/public/images/bg-prop.webp"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -17,42 +16,110 @@ import useGsapPin from "@/app/components/hooks/useGsapPin"
 
 gsap.registerPlugin(ScrollTrigger)
 
+// const items = [
+//     {
+//         id: 1,
+//         type: "image",
+//         src: image6,
+//         title: "مشروع 110 – دبي",
+//         description: "إنماء للاستشارات الهندسية – دبي",
+//     },
+//     {
+//         id: 2,
+//         type: "image",
+//         src: image2,
+//         title: "تصميم فيلا فاخرة",
+//         description: "سكن خاص – أبوظبي",
+//     },
+//     {
+//         id: 3,
+//         type: "iframe",
+//         src: image3,
+//         title: "برج مكاتب حديث",
+//         description: "مجموعة سكاي لاين – وسط مدينة دبي",
+//     },
+//     {
+//         id: 4,
+//         type: "iframe",
+//         src: image4,
+//         title: "مجمع تجاري",
+//         description: "شركة النور للتطوير العقاري – الشارقة",
+//     },
+//     {
+//         id: 5,
+//         type: "image",
+//         src: image5,
+//         title: "مسكن على الواجهة البحرية",
+//         description: "نخلة جميرا – دبي",
+//     },
+// ]
+
 const items = [
     {
-        id: 1,
-        type: "image",
-        src: image6,
-        title: "مشروع 110 – دبي",
-        description: "إنماء للاستشارات الهندسية – دبي",
-    },
-    {
-        id: 2,
-        type: "image",
-        src: image2,
-        title: "تصميم فيلا فاخرة",
-        description: "سكن خاص – أبوظبي",
-    },
-    {
         id: 3,
-        type: "iframe",
-        src: image3,
-        title: "برج مكاتب حديث",
-        description: "مجموعة سكاي لاين – وسط مدينة دبي",
+        type: "image",
+        src: image418,
+        title: "مستودع صناعي",
+        description: `
+    <div>
+        <div>شركة الفيل للتجارة ذ.م.م – فرع دبي</div>
+        <div>سيح شعيب 4، دبي</div>
+        <div>إجمالي مواقف السيارات المقترحة 11</div>
+        <div>مستودع صناعي (أرضي + ميزانين)</div>
+        <div>المساحة المبنية 4912.14 م²</div>
+    </div>`
     },
     {
         id: 4,
-        type: "iframe",
-        src: image4,
-        title: "مجمع تجاري",
-        description: "شركة النور للتطوير العقاري – الشارقة",
+        type: "image",
+        src: image590,
+        title: "حضانة",
+        description: `
+    <div>
+        <div>الشارقة – الحمرية الشرقية</div>
+        <div>إجمالي مواقف السيارات المقترحة 20</div>
+        <div>مشروع حضانة مقترح – طابق أرضي فقط <br/> + غرفة حارس + مبنى خدمات + سور</div>
+        <div>المساحة المبنية 2004.19 م²</div>
+    </div>`
     },
     {
         id: 5,
         type: "image",
-        src: image5,
-        title: "مسكن على الواجهة البحرية",
-        description: "نخلة جميرا – دبي",
+        src: image1703,
+        title: "برج – تجاري <br/> مكاتب / سكني",
+        description: `
+    <div>
+        <div>الشارقة – الخان</div>
+        <div>إجمالي مواقف السيارات المقترحة 526</div>
+        <div>مبنى برج (قبو + أرضي + 5 مواقف + طابق صحي + طابقين خدمات <br/> + 48 طابق)</div>
+        <div>المساحة المبنية 4211.67 م²</div>
+    </div>`
     },
+    {
+        id: 6,
+        type: "image",
+        src: image1717,
+        title: "مبنى – تجاري <br/> مكاتب / سكني",
+        description: `
+    <div>
+        <div>الشارقة – مويلح التجارية</div>
+        <div>مبنى (أرضي + 4 طوابق + 50% من الطابق الخامس + السطح)</div>
+        <div>المساحة المبنية 415.53 م²</div>
+    </div>`
+    },
+    {
+        id: 7,
+        type: "image",
+        src: image416,
+        title: "مدرسة مقترحة + حضانة",
+        description: `
+    <div>
+        <div>المدرسة الفرنسية الدولية الخاصة</div>
+        <div>مدرسة مقترحة (قبو + أرضي + طابقين + سطح) + حضانة</div>
+        <div>الهبية السادسة، دبي</div>
+        <div>المساحة المبنية 1490.00 م²</div>
+    </div>`
+    }
 ]
 
 
@@ -264,8 +331,8 @@ export default function OurProjects() {
                                         </div>
                                         {/* Overlay Text */}
                                         <div className="inset-0 flex items-center justify-between py-2">
-                                            <div className="text-black text-xs  opacity-90" dangerouslySetInnerHTML={{ __html: item.description }} />
-                                            <div className="font-bold text-black mb-1" dangerouslySetInnerHTML={{ __html: item.title }} />
+                                            <div className="text-black text-right text-xs  opacity-90" dangerouslySetInnerHTML={{ __html: item.description }} />
+                                            <div className="font-bold text-right text-black mb-1" dangerouslySetInnerHTML={{ __html: item.title }} />
                                         </div>
                                     </div>
                                 </li>

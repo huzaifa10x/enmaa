@@ -1,13 +1,12 @@
 import ServicesBanner from '@/app/components/services-banner'
-import image1 from "@/public/images/Services-images/GIS-Services/43.jpg"
-import image2 from "@/public/images/Services-images/GIS-Services/54.jpg"
-import image3 from "@/public/images/Services-images/GIS-Services/65.jpg"
-import image4 from "@/public/images/Services-images/GIS-Services/76.jpg"
-import ServicesPageSlider from '@/app/components/services-page-slider'
+import image1 from "@/public/images/Services-images/Tendering-Services/43.jpg"
+import image2 from "@/public/images/Services-images/Tendering-Services/453.jpg"
+import image3 from "@/public/images/Services-images/Tendering-Services/e5w.jpg"
+import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 
 export default function TenderingServicesArabic() {
-    const images = [image1, image2, image3, image4]
+    const images = [image1, image2, image3]
     return (
         <main className="">
             <ServicesBanner />

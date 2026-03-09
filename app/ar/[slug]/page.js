@@ -73,6 +73,7 @@ import HomePage from "../pages-content/homePage";
 import TenderingServicesArabic from "../pages-content/tenderings-services";
 import DesignBuildProjectParticipationArabic from "../pages-content/design-build-project-participation";
 import GisArabic from "../pages-content/gis-services";
+import DeesignServices from "../pages-content/design-services";
 
 export default function page({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
@@ -104,7 +105,7 @@ export default function page({ params }) {
             content = <EngineeringService />;
             break;
         case "design-services":
-            content = <EngineeringService />;
+            content = <DeesignServices />;
             break;
         case "tenderings-services":
             content = <TenderingServicesArabic />;

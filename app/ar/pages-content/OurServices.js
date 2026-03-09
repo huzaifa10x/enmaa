@@ -12,7 +12,7 @@ export default function OurServices() {
                 title={' خدماتنا '}
                 desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
             />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 space-y-5 lg:px-8 py-8 rtl text-right">
+            <main className={`max-w-7xl mx-auto px-4 sm:px-6 space-y-5 lg:px-8 py-8 rtl text-right flex flex-row-reverse`}>
                 <ServiceSection isArabic lang='ar'/>
                 {/* <h1 className="text-3xl font-bold">أفضل شركات التصميم الداخلي في الشارقة</h1>
                 <p className="text-lg">

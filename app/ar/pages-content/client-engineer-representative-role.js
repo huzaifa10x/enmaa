@@ -1,10 +1,14 @@
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
+import image1 from "@/public/images/Services-images/Client-Engineer-Representative/23.jpg"
+import image2 from "@/public/images/Services-images/Client-Engineer-Representative/25.jpg"
+import image3 from "@/public/images/Services-images/Client-Engineer-Representative/26.jpg"
+import image4 from "@/public/images/Services-images/Client-Engineer-Representative/27.jpg"
 import Image from 'next/image'
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 import ServicesBanner from "@/app/components/services-banner"
+import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 
 export default function ClientEngineerRepresentativeRole() {
+     const images = [image1, image2, image3, image4]
     return (
         <main className="rtl text-end" dir="rtl">
             <ServicesBanner />
@@ -18,7 +22,7 @@ export default function ClientEngineerRepresentativeRole() {
                 </p>
             </section>
 
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="h-64 md:h-80 rounded-xl overflow-hidden">
                         <Image
@@ -39,6 +43,9 @@ export default function ClientEngineerRepresentativeRole() {
                         />
                     </div>
                 </div>
+            </section> */}
+               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+                <ServicesPageSlider images={images} />
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 ">

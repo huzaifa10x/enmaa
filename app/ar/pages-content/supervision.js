@@ -1,9 +1,13 @@
 import ServicesBanner from "@/app/components/services-banner"
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
-import image1 from "@/public/images/projects/448...1.jpg"
+import image1 from "@/public/images/Services-images/Supervision/20.jpg"
+import image2 from "@/public/images/Services-images/Supervision/21.jpg"
+import image3 from "@/public/images/Services-images/Supervision/23.jpg"
 import Image from 'next/image'
+import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 
 export default function Supervision() {
+     const images = [image1, image2, image3]
 
     return (
         <main className="">
@@ -16,7 +20,7 @@ export default function Supervision() {
             </section>
 
             {/* Images */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="h-64 md:h-80 rounded-xl overflow-hidden">
                         <Image
@@ -37,7 +41,10 @@ export default function Supervision() {
                         />
                     </div>
                 </div>
-            </section>
+            </section> */}
+               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+                            <ServicesPageSlider images={images} />
+                        </section>
 
             {/* Arabic Content */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-end">

@@ -8,6 +8,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import QuoteModal from "./components/multi-step-form";
 import { Menu } from "lucide-react";
+import LanguageSwitcher from "@/components/ui/language-switcher";
+// import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -59,6 +61,10 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <QuoteModal />
+                </div>
+
+                <div className="hidden lg:flex items-center gap-4">
+                    <LanguageSwitcher />
                 </div>
 
                 {/* CTA */}
@@ -120,6 +126,13 @@ export default function Navbar() {
                             {item.name}
                         </Link>
                     ))}
+
+
+                      <div className="flex items-center gap-4">
+                    <LanguageSwitcher />
+                </div>
+
+
                     <QuoteModal text={'Request a Quote Now'} />
 
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>

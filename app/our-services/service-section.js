@@ -164,7 +164,7 @@ export default function ServiceSection({ lang = "en" }) {
             services: [
                 {
                     id: "01",
-                    num : "١",
+                    num: "١",
                     title: "الخدمات الهندسية",
                     image: engineering,
                     items: [
@@ -181,7 +181,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "02",
-                    num : "٣",
+                    num: "٢",
                     title: "خدمات التصميم",
                     image: design,
                     items: [
@@ -197,7 +197,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "03",
-                    num : "٣",
+                    num: "٣",
                     title: "خدمات المناقصات",
                     image: tender,
                     items: [
@@ -214,7 +214,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "04",
-                    num : "٤",
+                    num: "٤",
                     title: "الإشراف",
                     image: supervision,
                     items: [
@@ -229,7 +229,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "05",
-                    num : "٥",
+                    num: "٥",
                     title: "دور ممثل مهندس العميل",
                     image: clientEng,
                     items: [
@@ -248,7 +248,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "06",
-                    num : "٦",
+                    num: "٦",
                     title: "خدمات إدارة البرامج",
                     image: program,
                     items: [
@@ -267,7 +267,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "07",
-                    num : "٧",
+                    num: "٧",
                     title: "المشاركة في مشاريع التصميم والبناء",
                     image: designBuild,
                     items: [
@@ -285,7 +285,7 @@ export default function ServiceSection({ lang = "en" }) {
                 },
                 {
                     id: "08",
-                    num : "٨",
+                    num: "٨",
                     title: "خدمات نظم المعلومات الجغرافية (GIS)",
                     image: GIS,
                     items: [
@@ -309,7 +309,7 @@ export default function ServiceSection({ lang = "en" }) {
     const header = translations[lang].header;
 
     return (
-        <section className={`py-16 px-4 md:px-8 lg:px-12 ${isArabic ? "rtl" : "ltr"}`}>
+        <section className={`py-16 px-4 md:px-8 lg:px-12 ${isArabic ? "rtl " : "ltr"}`}>
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center relative mb-10">
@@ -328,9 +328,22 @@ export default function ServiceSection({ lang = "en" }) {
                     </div>
                 </div>
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${isArabic ? "" : ""}`}
+                 >
                     {services.map((service) => (
                         <ServiceCard key={service.id} service={service} isArabic={isArabic} />
+                    ))}
+                </div> */}
+                <div
+                    className={`flex flex-wrap gap-6 ${isArabic ? "flex-row-reverse" : "flex-row"}`}
+                >
+                    {services.map((service) => (
+                        <div
+                            key={service.id}
+                            className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                        >
+                            <ServiceCard service={service} isArabic={isArabic} />
+                        </div>
                     ))}
                 </div>
             </div>

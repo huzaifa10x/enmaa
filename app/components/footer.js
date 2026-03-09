@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation"
 import FooterForm from "./footerForm"
 
 export default function Footer() {
-    
+
 
     const pathname = usePathname();
     const isArabic = pathname.startsWith("/ar");
@@ -43,12 +43,22 @@ export default function Footer() {
     return (
         <footer id="bookNow" className="bg-neutral-800 md:rounded-t-[50px] min-h-screen bottom-0 flex flex-col items-center justify-center !z-[100] text-white relative">
 
-            <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-0" target="_blank" href='https://api.whatsapp.com/send/?phone=%2B+971506185529&text=Hi Enmaa Engineering Consultancy, I’m checking in to request some details about your services.&type=phone_number&app_absent=0'>
-                <button className="btn rounded btn-warning border-warning rounded-5 shadow">
-                    <Image src={WPIcon} width={25} height={25} alt="WPICon" />
+            {isArabic ?
 
-                </button>
-            </Link>
+                <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-0" target="_blank" href='https://api.whatsapp.com/send/?phone=%2B+971506185529&text=مرحباً شركة إنما للاستشارات الهندسية، أتواصل معكم للاستفسار عن بعض التفاصيل المتعلقة بخدماتكم.&type=phone_number&app_absent=0'>
+                    <button className="btn rounded btn-warning border-warning rounded-5 shadow">
+                        <Image src={WPIcon} width={25} height={25} alt="WPICon" />
+
+                    </button>
+                </Link>
+                :
+                <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-0" target="_blank" href='https://api.whatsapp.com/send/?phone=%2B+971506185529&text=Hi Enmaa Engineering Consultancy, I’m checking in to request some details about your services.&type=phone_number&app_absent=0'>
+                    <button className="btn rounded btn-warning border-warning rounded-5 shadow">
+                        <Image src={WPIcon} width={25} height={25} alt="WPICon" />
+
+                    </button>
+                </Link>
+            }
             <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-18" href='tel:+971 50 618 5529'>
                 <button className="btn rounded btn-warning border-warning rounded-5">
                     <Phone size={26} />
@@ -121,7 +131,7 @@ export default function Footer() {
                     </div>
                 }
 
-                <FooterForm/>
+                <FooterForm />
                 {/* Contact Info and Email Signup */}
 
                 {isArabic ?
@@ -188,8 +198,8 @@ export default function Footer() {
                     {isArabic ?
                         <div className="flex flex-col md:flex-row justify-between items-center gap-4" dir="rtl">
                             <p className="text-gray-400 text-sm">
-                                © حقوق الطبع والنشر 2025 - شركة إنما للاستشارات الهندسية المدنية في الشارقة                            
-                                </p>
+                                © حقوق الطبع والنشر 2025 - شركة إنما للاستشارات الهندسية المدنية في الشارقة
+                            </p>
                             <div className="flex space-x-6 space-x-reverse">
                                 <p className="text-gray-400 text-sm transition-colors">
                                     Design by <a href="https://10xdigital.ae/" className="hover:text-primary">10X Digital</a>

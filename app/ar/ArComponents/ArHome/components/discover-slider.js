@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
+import image1 from "@/public/images/home-services/home1.jpg"
+import image2 from "@/public/images/home-services/home2.jpg"
+import image3 from "@/public/images/home-services/home3.jpg"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Navbar from "@/app/Navbar"
 import useGsapPin from "@/app/components/hooks/useGsapPin"
@@ -69,7 +69,7 @@ export default function DiscoverSlider() {
         fontFamily: "system-ui",
     };
 
-    const nextSlide = () => {
+     const nextSlide = () => {
         const next = (currentSlide + 1) % slides.length
         animateSlideChange(next)
     }
@@ -110,13 +110,13 @@ export default function DiscoverSlider() {
 
     // Autoplay logic
     useEffect(() => {
-        const interval = setInterval(() => {
-            const nextIndex = (currentSlide + 1) % slides.length
-            animateSlideChange(nextIndex)
-        }, 5000)
-
-        return () => clearInterval(interval)
-    }, [currentSlide])
+           const interval = setInterval(() => {
+               const nextIndex = (currentSlide + 1) % slides.length
+               animateSlideChange(nextIndex)
+           }, 5000)
+   
+           return () => clearInterval(interval)
+       }, [currentSlide])
 
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden">
@@ -220,14 +220,23 @@ export default function DiscoverSlider() {
          
          
                                  {/* Navigation Buttons */}
-                                 <div className="flex items-center space-x-6">
+                                 {/* <div className="flex items-center space-x-6">
                                      <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
-                                         السابق
+                                         
                                      </Button>
                                      <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
                                          التالي
                                      </Button>
-                                 </div>
+                                 </div> */}
+                                 {/* Navigation Buttons */}
+                        <div className="flex items-center space-x-6">
+                            <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
+                                السابق
+                            </Button>
+                            <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
+                                التالي
+                            </Button>
+                        </div>
                              </div>
                          </div>
                      </div>

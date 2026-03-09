@@ -1,18 +1,13 @@
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 import Image from 'next/image'
-import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
-import image4 from "@/public/images/projects/1438-19.jpg"
-import image5 from "@/public/images/projects/1841-01.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
-import ServicesPageSlider from '../components/services-page-slider'
+import ServicesBanner from '@/app/components/services-banner'
+import image1 from "@/public/images/Services-images/Design Services/565.jpg"
+import image2 from "@/public/images/Services-images/Design Services/876.jpg"
+import image3 from "@/public/images/Services-images/Design Services/9878.jpg"
+import ServicesPageSlider from '@/app/ar/ArComponents/ArHome/components/services-page-slider'
 
-export default function EngineeringService() {
-    const images = [image1, image2, image3, image4, image5, image12, image7, image8]
+export default function DesignServices() {
+    const images = [image1, image2, image3]
 
     return (
         <main className="">

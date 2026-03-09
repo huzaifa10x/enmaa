@@ -1,18 +1,13 @@
-
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
-import image4 from "@/public/images/projects/1438-19.jpg"
-import image5 from "@/public/images/projects/1841-01.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
+import image1 from "@/public/images/Services-images/Design-Build-Project/345.jpg"
+import image2 from "@/public/images/Services-images/Design-Build-Project/534.jpg"
+import image3 from "@/public/images/Services-images/Design-Build-Project/3456.jpg"
+import image4 from "@/public/images/Services-images/Design-Build-Project/46445.jpg"
 import ServicesBanner from "@/app/components/services-banner"
 import ServicesPageSlider from "@/app/components/services-page-slider"
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 
 export default function DesignBuildProjectParticipationArabic() {
-    const images = [image1, image2, image3, image4, image5, image12, image7, image8]
+    const images = [image1, image2, image3, image4]
 
     return (
         <main className="">
