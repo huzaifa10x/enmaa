@@ -25,7 +25,7 @@ export default function Navbar() {
     ];
 
     const navItemsAr = [
-        { name: "الرئيسية", href: "/ar/home" },
+        { name: "الرئيسية", href: "/ar/" },
         { name: "أفكار المشاريع", href: "/ar/project-map" },
         { name: "مشاريعنا", href: "/ar/our-projects" },
         { name: "خدماتنا", href: "/ar/our-services" },
