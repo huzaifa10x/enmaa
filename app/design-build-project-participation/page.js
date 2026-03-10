@@ -1,3 +1,40 @@
+export const metadata = {
+    title: "Design & Build Project Participation | Enma Engineering Companies",
+    description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
+
+    alternates: {
+        canonical: "https://www.enmaaengcon.com/design-build-project-participation",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/design-build-project-participation",
+            en: "https://www.enmaaengcon.com/design-build-project-participation",
+            ar: "https://www.enmaaengcon.com/ar/design-build-project-participation",
+        },
+    },
+
+    openGraph: {
+        title: "Design & Build Project Participation | Enma Engineering Companies",
+        description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/design-build-project-participation",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Design & Build Project Participation | Enma Engineering Companies",
+        description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+};
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'

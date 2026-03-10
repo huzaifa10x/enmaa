@@ -1,36 +1,3 @@
-export const metadata = {
-    title: "شركات استشارات هندسية في ابوظبي | استشاري هندسي ابوظبي",
-    description: "هل تبحث عن أفضل شركة استشارات هندسية في أبو ظبي؟ تقدم شركة إنماء للاستشارات الهندسية في أبو ظبي خدمات وحلول متخصصة. ثق في شركتنا للاستشارات الهندسية في أبو ظبي للحصول على استشارات موثوقة ومبتكرة.",
-    alternates: {
-        canonical: 'https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي',
-        languages: {
-            "x-default": "https://www.enmaaengcon.com/استشارات-هندسية-ابوظبي/",
-            en: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
-            ar: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي/",
-        },
-    },
-    openGraph: {
-        title: "شركات استشارات هندسية في ابوظبي | استشاري هندسي ابوظبي",
-        description: "هل تبحث عن أفضل شركة استشارات هندسية في أبو ظبي؟ تقدم شركة إنماء للاستشارات الهندسية في أبو ظبي خدمات وحلول متخصصة. ثق في شركتنا للاستشارات الهندسية في أبو ظبي للحصول على استشارات موثوقة ومبتكرة.",
-        type: "website",
-        url: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي/"
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "شركات استشارات هندسية في ابوظبي | استشاري هندسي ابوظبي",
-        description: "هل تبحث عن أفضل شركة استشارات هندسية في أبو ظبي؟ تقدم شركة إنماء للاستشارات الهندسية في أبو ظبي خدمات وحلول متخصصة. ثق في شركتنا للاستشارات الهندسية في أبو ظبي للحصول على استشارات موثوقة ومبتكرة.",
-    },
-    robots: {
-        index: true,
-        follow: true,
-        nocache: false,
-        googleBot: {
-            index: true,
-            follow: true,
-            noimageindex: false,
-        },
-    },
-}
 import ServicesBanner from '@/app/components/services-banner'
 import Testimonial from '@/app/components/Testimonial'
 import Image from 'next/image'

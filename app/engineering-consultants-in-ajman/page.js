@@ -1,3 +1,37 @@
+export const metadata = {
+    title: "Engineering Consultants & Companies in Ajman | Engineering consultants Ajman",
+    description : "Looking for expert engineering consultants in Ajman? Our top firm provides innovative, tailored solutions for your projects. Contact us today.",
+    alternates: {
+    canonical: "https://www.enmaaengcon.com/engineering-consultants-in-ajman/",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/engineering-consultants-in-ajman/",
+            en: "https://www.enmaaengcon.com/engineering-consultants-in-ajman/",
+            ar: "https://www.enmaaengcon.com/ar/engineering-consultants-in-ajman/",
+        },
+    },
+    openGraph: {
+        title: "Engineering Consultants & Companies in Ajman | Engineering consultants Ajman",
+    description : "Looking for expert engineering consultants in Ajman? Our top firm provides innovative, tailored solutions for your projects. Contact us today.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/engineering-consultants-in-ajman/"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Engineering Consultants & Companies in Ajman | Engineering consultants Ajman",
+    description : "Looking for expert engineering consultants in Ajman? Our top firm provides innovative, tailored solutions for your projects. Contact us today.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+}
+
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
@@ -22,9 +56,7 @@ export default function page() {
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <ServicesPageSlider images={images} />
-                </div>
+                <ServicesPageSlider images={images} />
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">

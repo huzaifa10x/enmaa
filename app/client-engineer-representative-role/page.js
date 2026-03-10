@@ -1,3 +1,40 @@
+export const metadata = {
+    title: "Client Engineer Representative Role | Enma Engineering Consultancy",
+    description: "Learn the role of a Client Engineer Representative at Enma Engineering Consultancy, ensuring project quality, compliance, and efficient coordination.",
+
+    alternates: {
+        canonical: "https://www.enmaaengcon.com/client-engineer-representative-role/",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/client-engineer-representative-role/",
+            en: "https://www.enmaaengcon.com/client-engineer-representative-role/",
+            ar: "https://www.enmaaengcon.com/ar/client-engineer-representative-role/",
+        },
+    },
+
+    openGraph: {
+        title: "Client Engineer Representative Role | Enma Engineering Consultancy",
+        description: "Learn the role of a Client Engineer Representative at Enma Engineering Consultancy, ensuring project quality, compliance, and efficient coordination.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/client-engineer-representative-role/",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Client Engineer Representative Role | Enma Engineering Consultancy",
+        description: "Learn the role of a Client Engineer Representative at Enma Engineering Consultancy, ensuring project quality, compliance, and efficient coordination.",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+};
 import Testimonial from '../components/Testimonial'
 import image1 from "@/public/images/Services-images/Client-Engineer-Representative/23.jpg"
 import image2 from "@/public/images/Services-images/Client-Engineer-Representative/25.jpg"

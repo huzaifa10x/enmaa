@@ -1,3 +1,36 @@
+export const metadata = {
+  title: "Tenderings Services | Enma Engineering Companies",
+  description: "Enma Engineering Companies offer professional tendering services, including bid management, project evaluation, and contract preparation for engineering projects in the UAE.",
+  alternates: {
+    canonical: 'https://www.enmaaengcon.com/supervision/',
+    languages: {
+      "x-default": "https://www.enmaaengcon.com/supervision/",
+      en: "https://www.enmaaengcon.com/supervision/",
+      ar: "https://www.enmaaengcon.com/ar/supervision/",
+    },
+  },
+  openGraph: {
+    title: "Tenderings Services | Enma Engineering Companies",
+    description: "Enma Engineering Companies offer professional tendering services, including bid management, project evaluation, and contract preparation for engineering projects in the UAE.",
+    type: "website",
+    url: "https://www.enmaaengcon.com/supervision/"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tenderings Services | Enma Engineering Companies",
+    description: "Enma Engineering Companies offer professional tendering services, including bid management, project evaluation, and contract preparation for engineering projects in the UAE.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
+}
 import ServicesBanner from "../components/services-banner"
 import Testimonial from "../components/Testimonial"
 import image1 from "@/public/images/Services-images/Tendering-Services/43.jpg"

@@ -1,3 +1,36 @@
+export const metadata = {
+  title: "Our Project Map | Enma Engineering Companies",
+  description: "Explore the Enma Engineering Companies project map showcasing our completed and ongoing architectural and engineering projects across the UAE.",
+  alternates: {
+    canonical: 'https://www.enmaaengcon.com/project-map/',
+    languages: {
+      "x-default": "https://www.enmaaengcon.com/project-map/",
+      en: "https://www.enmaaengcon.com/project-map/",
+      ar: "https://www.enmaaengcon.com/ar/project-map/",
+    },
+  },
+  openGraph: {
+    title: "Our Project Map | Enma Engineering Companies",
+    description: "Explore the Enma Engineering Companies project map showcasing our completed and ongoing architectural and engineering projects across the UAE.",
+    type: "website",
+    url: "https://www.enmaaengcon.com/project-map/"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Project Map | Enma Engineering Companies",
+    description: "Explore the Enma Engineering Companies project map showcasing our completed and ongoing architectural and engineering projects across the UAE.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
+}
 import projects from "@/public/images/projects.webp"
 import Image from "next/image"
 import GalleryPage from "./Gallery"

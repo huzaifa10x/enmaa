@@ -1,3 +1,40 @@
+export const metadata = {
+    title: "Contact Us | Engineering Companies",
+    description: "Contact our engineering company for expert architectural design, civil engineering, and project consultation. Our team is ready to support your next project.",
+
+    alternates: {
+        canonical: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+            en: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+            ar: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي",
+        },
+    },
+
+    openGraph: {
+        title: "Contact Us | Engineering Companies",
+        description: "Contact our engineering company for expert architectural design, civil engineering, and project consultation. Our team is ready to support your next project.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Us | Engineering Companies",
+        description: "Contact our engineering company for expert architectural design, civil engineering, and project consultation. Our team is ready to support your next project.",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+};
 import React from 'react'
 import ContactForm from './ContactForm'
 import ProjectLocation from './ProjectLocation'

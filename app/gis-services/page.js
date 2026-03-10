@@ -1,3 +1,40 @@
+export const metadata = {
+    title: "GIS Services | Enma Engineering Companies",
+    description: "Enma Engineering Companies provide advanced GIS services, offering accurate mapping, spatial analysis, and data-driven solutions for engineering and construction projects.",
+
+    alternates: {
+        canonical: "https://www.enmaaengcon.com/design-services",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/design-services",
+            en: "https://www.enmaaengcon.com/design-services",
+            ar: "https://www.enmaaengcon.com/ar/design-services",
+        },
+    },
+
+    openGraph: {
+        title: "GIS Services | Enma Engineering Companies",
+        description: "Enma Engineering Companies provide advanced GIS services, offering accurate mapping, spatial analysis, and data-driven solutions for engineering and construction projects.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/design-services",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "GIS Services | Enma Engineering Companies",
+        description: "Enma Engineering Companies provide advanced GIS services, offering accurate mapping, spatial analysis, and data-driven solutions for engineering and construction projects.",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+};
 import Testimonial from '../components/Testimonial'
 import ServicesBanner from '../components/services-banner'
 import image1 from "@/public/images/Services-images/GIS-Services/43.jpg"

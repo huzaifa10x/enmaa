@@ -1,3 +1,40 @@
+export const metadata = {
+    title: "Design Services | Enma Engineering Companies",
+    description: "Explore professional design services by Enma Engineering Companies, offering innovative architectural and engineering solutions tailored for residential and commercial projects.",
+
+    alternates: {
+        canonical: "https://www.enmaaengcon.com/design-services",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/design-services",
+            en: "https://www.enmaaengcon.com/design-services",
+            ar: "https://www.enmaaengcon.com/ar/design-services",
+        },
+    },
+
+    openGraph: {
+        title: "Design Services | Enma Engineering Companies",
+        description: "Explore professional design services by Enma Engineering Companies, offering innovative architectural and engineering solutions tailored for residential and commercial projects.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/design-services",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Design Services | Enma Engineering Companies",
+        description: "Explore professional design services by Enma Engineering Companies, offering innovative architectural and engineering solutions tailored for residential and commercial projects.",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+};
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'

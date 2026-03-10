@@ -1,3 +1,40 @@
+export const metadata = {
+    title: "Engineering Consultants In Abu Dhabi | Abu Dhabi Engineering Companies",
+    description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
+
+    alternates: {
+        canonical: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+        languages: {
+            "x-default": "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+            en: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+            ar: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي",
+        },
+    },
+
+    openGraph: {
+        title: "Engineering Consultants In Abu Dhabi | Abu Dhabi Engineering Companies",
+        description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
+        type: "website",
+        url: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "Engineering Consultants In Abu Dhabi | Abu Dhabi Engineering Companies",
+        description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: false,
+        },
+    },
+};
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
