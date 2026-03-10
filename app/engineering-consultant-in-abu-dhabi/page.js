@@ -18,8 +18,8 @@ export default function page() {
             <ServicesBanner />
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 className="text-4xl font-bold text-foreground mb-2">engineering-consultant-in-abu-dhabi</h1>
-                <p className="text-muted-foreground text-sm">Home / engineering-consultant-in-abu-dhabi</p>
+                <h1 className="text-4xl font-bold text-foreground mb-2">Engineering Consultant In Abu Dhabi</h1>
+                <p className="text-muted-foreground text-sm">Home / Engineering Consultant In Abu Dhabi</p>
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
