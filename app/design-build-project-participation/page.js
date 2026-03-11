@@ -10,7 +10,6 @@ export const metadata = {
             ar: "https://www.enmaaengcon.com/ar/design-build-project-participation",
         },
     },
-
     openGraph: {
         title: "Design & Build Project Participation | Enma Engineering Companies",
         description: "Find the best engineering consultants and companies in Abu Dhabi. We offer innovative and tailored engineering solutions for all your needs.",
