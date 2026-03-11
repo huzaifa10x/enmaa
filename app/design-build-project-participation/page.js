@@ -16,7 +16,6 @@ export const metadata = {
         type: "website",
         url: "https://www.enmaaengcon.com/design-build-project-participation",
     },
-
     twitter: {
         card: "summary_large_image",
         title: "Design & Build Project Participation | Enma Engineering Companies",
