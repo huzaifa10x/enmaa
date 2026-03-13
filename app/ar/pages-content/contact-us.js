@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import { Facebook, Instagram, Mail, PhoneIncoming, Twitter, UserRoundPlus } from 'lucide-react';
 import image3 from "@/public/images/projects/1438-17.jpg";
@@ -7,8 +9,9 @@ import HeroSection from '@/app/components/Hero-section';
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTiktok, FaUser } from 'react-icons/fa6';
 import { IoMail } from 'react-icons/io5';
 
-export default function ContactUs({ lang = "ar" }) {
-    const isArabic = lang === "ar";
+export default function ContactUs() {
+    const pathname = usePathname(); // gets current path
+    const isArabic = pathname.startsWith('/ar/'); // if URL starts with /ar → Arabic
 
     const translations = {
         en: {
@@ -24,16 +27,16 @@ export default function ContactUs({ lang = "ar" }) {
         ar: {
             hero: {
                 title: "تواصل معنا",
-                desc: "يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان."
+                desc: "للاستفسارات أو الاستشارات أو مناقشة المشاريع، يُرجى التواصل مع إنماء. سيقوم فريقنا بالرد بسرعة لمساعدتكم."
             },
-            heading: "تواصل مع إنما",
-            phoneTitle: "الهاتف الأرضي",
+            heading: "تواصل مع  إنماء",
+            phoneTitle: "الهاتف ",
             emailTitle: "البريد الإلكتروني",
             followTitle: "تابعنا على",
         }
     };
 
-    const t = translations[lang];
+    const t = isArabic ? translations.ar : translations.en;
 
     return (
         <div className={isArabic ? "rtl" : "ltr"}>
@@ -61,13 +64,12 @@ export default function ContactUs({ lang = "ar" }) {
                                     <div>
                                         <h3 className="text-2xl font-semibold">{t.phoneTitle}</h3>
                                         <p className="text-gray-600">
-                                            <a className='hover:text-primary duration-300' href="tel:+971 50 618 5529">
+                                            <a className='hover:text-primary duration-300' href="tel:+971506185529">
                                                 +971 50 618 5529
                                             </a>
                                         </p>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        {/* <PhoneIncoming className='text-white' />   */}
                                         <FaPhone className='text-white' />
                                     </div>
                                 </div>
@@ -88,7 +90,6 @@ export default function ContactUs({ lang = "ar" }) {
                                         </p>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        {/* <Mail className='text-white' /> */}
                                         <IoMail className='text-white' />
                                     </div>
                                 </div>
@@ -98,31 +99,21 @@ export default function ContactUs({ lang = "ar" }) {
                                     <div>
                                         <h3 className="text-2xl font-semibold">{t.followTitle}</h3>
                                         <div className="flex items-center gap-4 mt-1 text-2xl">
-                                            {/* <a href="https://tr.ee/0mGAI6SSog">
-                                                <Facebook className='hover:text-primary duration-300' />
-                                            </a>
-                                            <a href="https://tr.ee/0mGAI6SSog">
-                                                <Instagram className='hover:text-primary duration-300' />
-                                            </a>
-                                            <a href="https://tr.ee/BEfYD4GgiR">
-                                                <Twitter className='hover:text-primary duration-300' />
-                                            </a> */}
-                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.instagram.com/enmaaengcon/">
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.instagram.com/enmaaengcon/">
                                                 <FaInstagram className='duration-300' />
                                             </a>
-                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.facebook.com/enmaa.engcon/">
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.facebook.com/enmaa.engcon/">
                                                 <FaFacebook className='duration-300' />
                                             </a>
-                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.linkedin.com/company/73412794/admin/page-posts/published/">
                                                 <FaLinkedin className='duration-300' />
                                             </a>
-                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white! rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.tiktok.com/@enmaaengcon">
+                                            <a className='text-black bg-neutral-200 hover:bg-primary hover:text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors' href="https://www.tiktok.com/@enmaaengcon">
                                                 <FaTiktok className='duration-300' />
                                             </a>
                                         </div>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                                        {/* <UserRoundPlus className="text-white" /> */}
                                         <FaUser className="text-white" />
                                     </div>
                                 </div>
@@ -134,7 +125,6 @@ export default function ContactUs({ lang = "ar" }) {
             </section>
 
             <ProjectLocation isArabic={isArabic} />
-              {/* <ProjectLocation /> */}
         </div>
     );
 }

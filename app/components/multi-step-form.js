@@ -38,90 +38,139 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+
 // --- Constants ---
-const steps = [
-    { id: 1, title: "Personal Info" },
-    { id: 2, title: "Project Details" },
-    { id: 3, title: "Services" },
-    { id: 4, title: "Requirements" },
-    { id: 5, title: "Notes" },
-];
+const translations = {
+    en: {
+        steps: [
+            { id: 1, title: "Personal Info" },
+            { id: 2, title: "Project Details" },
+            { id: 3, title: "Services" },
+            { id: 4, title: "Requirements" },
+            { id: 5, title: "Notes" },
+        ],
 
-const projectTypes = [
-    "Residential Villa",
-    "Commercial Building",
-    "Renovation",
-    "Exterior Design",
-    "Engineering Supervision",
-    "Other",
-];
+        projectTypes: [
+            "Residential Villa",
+            "Commercial Building",
+            "Renovation",
+            "Exterior Design",
+            "Engineering Supervision",
+            "Other",
+        ],
 
-const servicesList = [
-    "Architectural Design",
-    "Structural Drawings",
-    "Electrical & Mechanical Drawings",
-    "3D Visualization",
-    "Facade Design",
-    "Engineering Supervision",
-    "Building Permits",
-];
+        servicesList: [
+            "Architectural Design",
+            "Structural Drawings",
+            "Electrical & Mechanical Drawings",
+            "3D Visualization",
+            "Facade Design",
+            "Engineering Supervision",
+            "Building Permits",
+        ],
+    },
+
+    ar: {
+        steps: [
+            { id: 1, title: "المعلومات الشخصية" },
+            { id: 2, title: "تفاصيل المشروع" },
+            { id: 3, title: "الخدمات" },
+            { id: 4, title: "المتطلبات" },
+            { id: 5, title: "ملاحظات" },
+        ],
+
+        projectTypes: [
+            "فيلا سكنية",
+            "مبنى تجاري",
+            "تجديد",
+            "تصميم خارجي",
+            "إشراف هندسي",
+            "أخرى",
+        ],
+
+        servicesList: [
+            "التصميم المعماري",
+            "الرسومات الإنشائية",
+            "رسومات الكهرباء والميكانيكا",
+            "تصور ثلاثي الأبعاد",
+            "تصميم الواجهات",
+            "الإشراف الهندسي",
+            "تصاريح البناء",
+        ],
+    },
+};
 
 // --- Zod Schema ---
-const formSchema = z.object({
-    // Step 1
-    fullName: z.string().min(2, "Name is required"),
+const getFormSchema = (isArabic) => {
+  const arabicRegex = /^[\u0600-\u06FF\s]+$/;
+
+  return z.object({
+    fullName: z.string()
+      .min(2, "Name is required")
+      .refine((val) => !isArabic || arabicRegex.test(val), {
+        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
+      }),
     email: z.string().email("Invalid email address"),
     phoneNumber: z.string().min(5, "Phone number is required"),
     hearAbout: z.string().optional(),
 
-    // Step 2
     projectType: z.string().min(1, "Project type is required"),
-    projectTypeOther: z.string().optional(),
-    projectLocation: z.string().min(2, "Location is required"),
+    projectTypeOther: z.string()
+      .optional()
+      .refine((val) => !isArabic || arabicRegex.test(val), {
+        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
+      }),
+
+    projectLocation: z.string()
+      .min(2, "Location is required")
+      .refine((val) => !isArabic || arabicRegex.test(val), {
+        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
+      }),
+
     plotSize: z.string().optional(),
     builtUpArea: z.string().optional(),
     budget: z.string().optional(),
 
-    // Step 3
-    services: z.array(z.string()).refine((value) => value.length > 0, {
-        message: "Select at least one service.",
+    services: z.array(z.string()).refine((val) => val.length > 0, {
+      message: "Select at least one service.",
     }),
 
-    // Step 4
     hasExistingDrawings: z.enum(["yes", "no"]),
-    existingDrawingsUrl: z.any().optional(),
     requireSiteVisit: z.enum(["yes", "no"]),
-    preferredStyles: z.string().optional(),
+
+    preferredStyles: z.string()
+      .optional()
+      .refine((val) => !isArabic || arabicRegex.test(val), {
+        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
+      }),
+
     pinterestLink: z.string().url("Invalid URL").optional().or(z.literal("")),
 
-    // Step 5
-    additionalNotes: z.string().optional(),
+    additionalNotes: z.string()
+      .optional()
+      .refine((val) => !isArabic || arabicRegex.test(val), {
+        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
+      }),
+  });
+};
+    // .refine((data) => {
+    //     if (!data.plotSize || !data.builtUpArea) return true;
+    //     const plot = Number(data.plotSize);
+    //     const built = Number(data.builtUpArea);
+    //     if (isNaN(plot) || isNaN(built)) return true;
+    //     return built < plot;
+    // }, {
+    //     message: "Value should be less than Plot Size",
+    //     path: ["builtUpArea"],
+    // });
 
-    // Step 6 (File placeholders)
-    filesSitePhotos: z.any().optional(),
-    filesSketches: z.any().optional(),
-    filesExistingDrawings: z.any().optional(),
-    filesPlotMap: z.any().optional(),
-    filesRefImages: z.any().optional(),
-    filesOther: z.any().optional(),
-})
-    .refine((data) => {
-        if (!data.plotSize || !data.builtUpArea) return true;
-        const plot = Number(data.plotSize);
-        const built = Number(data.builtUpArea);
-        if (isNaN(plot) || isNaN(built)) return true;
-        return built < plot;
-    }, {
-        message: "Value should be less than Plot Size",
-        path: ["builtUpArea"],
-    });
-
-export default function QuoteModal({ text }) {
+export default function QuoteModal({ text, isArabic }) {
     const [open, setOpen] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
 
-    const form = useForm({
-        resolver: zodResolver(formSchema),
+    
+  const form = useForm({
+    resolver: zodResolver(getFormSchema(isArabic)),
         defaultValues: {
             fullName: "",
             email: "",
@@ -174,7 +223,7 @@ export default function QuoteModal({ text }) {
 
         const isValid = await trigger(fieldsToValidate);
         if (isValid) {
-            setCurrentStep((prev) => Math.min(prev + 1, steps.length));
+            setCurrentStep((prev) => Math.min(prev + 1, translations.en.steps.length));
         }
     };
 
@@ -249,65 +298,107 @@ export default function QuoteModal({ text }) {
     // --- Sub-components for Steps ---
 
     const renderStep1 = () => (
-        <div className="space-y-4">
+        <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
+
             <FormField
                 control={form.control}
                 name="fullName"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Full Name <span className="text-red-500">*</span></FormLabel>
+
+                        <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic ? "الاسم الكامل" : "Full Name"} <span className="text-red-500">*</span>
+                        </FormLabel>
                         <FormControl>
-                            <Input placeholder="John Doe" {...field} />
+                            <Input
+                                placeholder={isArabic ? "محمد أحمد" : "John Doe"}
+                                className={isArabic ? "text-right" : "text-left"}
+                                {...field}
+                            />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
                 )}
             />
+
             <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Email <span className="text-red-500">*</span></FormLabel>
+
+                        <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic ? "البريد الإلكتروني" : "Email"} <span className="text-red-500">*</span>
+                        </FormLabel>
                         <FormControl>
-                            <Input placeholder="ali@gmail.com" {...field} />
+                            <Input
+                                placeholder={isArabic ? "example@email.com" : "ali@gmail.com"}
+                                className={isArabic ? "text-right" : "text-left"}
+                                {...field}
+                            />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
                 )}
             />
+
             <FormField
                 control={form.control}
                 name="phoneNumber"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Phone Number <span className="text-red-500">*</span></FormLabel>
+                        <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic ? "رقم الهاتف" : "Phone Number"} <span className="text-red-500">*</span>
+                        </FormLabel>
                         <FormControl>
-                            <Input placeholder="+971 50 000 0000" {...field} />
+                            <Input
+                                placeholder={isArabic ? "+971 50 000 0000" : "+971 50 000 0000"}
+                                className={isArabic ? "text-right" : "text-left"}
+                                {...field}
+                            />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
                 )}
             />
+
             <FormField
                 control={form.control}
                 name="hearAbout"
                 render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>How did you hear about Enmaa? (Optional)</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormItem className={`flex flex-col ${isArabic ? "text-right items-end justify-end" : "text-left items-start justify-start"}`}>
+                        <FormLabel className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`} >
+                            {isArabic
+                                ? "كيف سمعت عن إنماء؟ (اختياري)"
+                                : "How did you hear about Enmaa? (Optional)"}
+                        </FormLabel>
+
+
+                        <Select onValueChange={field.onChange} defaultValue={field.value} className="" >
                             <FormControl>
-                                <SelectTrigger>
-                                    <SelectValue placeholder="Select an option" />
+                                <SelectTrigger >
+                                    <SelectValue
+                                        placeholder={isArabic ? "اختر خياراً" : "Select an option"}
+                                    />
                                 </SelectTrigger>
                             </FormControl>
+
                             <SelectContent>
-                                <SelectItem value="social">Social Media</SelectItem>
-                                <SelectItem value="friend">Friend / Referral</SelectItem>
-                                <SelectItem value="search">Google Search</SelectItem>
-                                <SelectItem value="other">Other</SelectItem>
+                                <SelectItem value="social">
+                                    {isArabic ? "وسائل التواصل الاجتماعي" : "Social Media"}
+                                </SelectItem>
+                                <SelectItem value="friend">
+                                    {isArabic ? "صديق / إحالة" : "Friend / Referral"}
+                                </SelectItem>
+                                <SelectItem value="search">
+                                    {isArabic ? "بحث جوجل" : "Google Search"}
+                                </SelectItem>
+                                <SelectItem value="other">
+                                    {isArabic ? "أخرى" : "Other"}
+                                </SelectItem>
                             </SelectContent>
                         </Select>
+
                         <FormMessage />
                     </FormItem>
                 )}
@@ -316,40 +407,63 @@ export default function QuoteModal({ text }) {
     );
 
     const renderStep2 = () => (
-        <div className="space-y-4">
+        <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
+
             <FormField
                 control={form.control}
                 name="projectType"
                 render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>Project Type <span className="text-red-500">*</span></FormLabel>
+                    <FormItem className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                        <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic ? "نوع المشروع" : "Project Type"} <span className="text-red-500">*</span>
+                        </FormLabel>
+
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                                <SelectTrigger>
-                                    <SelectValue placeholder="Select Type" />
+                                <SelectTrigger className={isArabic ? "text-right" : "text-left"}>
+                                    <SelectValue placeholder={isArabic ? "اختر النوع" : "Select Type"} />
                                 </SelectTrigger>
                             </FormControl>
-                            <SelectContent>
-                                {projectTypes.map((type) => (
-                                    <SelectItem key={type} value={type}>
-                                        {type}
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
+                            {isArabic ?
+                                <SelectContent >
+                                    {translations.ar.projectTypes.map((type) => (
+                                        <SelectItem className='flex justify-end text-right' key={type} value={type}>
+                                            {type}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                                :
+
+                                <SelectContent>
+                                    {translations.en.projectTypes.map((type) => (
+                                        <SelectItem key={type} value={type}>
+                                            {type}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            }
                         </Select>
+
                         <FormMessage />
                     </FormItem>
                 )}
             />
+
             {projectType === "Other" && (
                 <FormField
                     control={form.control}
                     name="projectTypeOther"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Please specify</FormLabel>
+                            <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                                {isArabic ? "يرجى التحديد" : "Please specify"}
+                            </FormLabel>
                             <FormControl>
-                                <Input {...field} />
+                                <Input
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    placeholder={isArabic ? "اكتب نوع المشروع" : ""}
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -362,9 +476,20 @@ export default function QuoteModal({ text }) {
                 name="projectLocation"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Project Location (Emirate / Area) <span className="text-red-500">*</span></FormLabel>
+                        <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic
+                                ? "موقع المشروع (الإمارة / المنطقة)"
+                                : "Project Location (Emirate / Area)"}{" "}
+                            <span className="text-red-500">*</span>
+                        </FormLabel>
                         <FormControl>
-                            <Input placeholder="e.g. Dubai, Jumeirah" {...field} />
+                            <Input
+                                placeholder={
+                                    isArabic ? "مثال: دبي، جميرا" : "e.g. Dubai, Jumeirah"
+                                }
+                                className={isArabic ? "text-right" : "text-left"}
+                                {...field}
+                            />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
@@ -377,29 +502,45 @@ export default function QuoteModal({ text }) {
                     name="plotSize"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Plot Size</FormLabel>
+                            <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>{isArabic ? "مساحة الأرض" : "Plot Size"}</FormLabel>
                             <FormControl>
-                                <Input type="number" placeholder="Sq. ft." {...field} />
+                                <Input
+                                    type="number"
+                                    placeholder={isArabic ? "قدم مربع" : "Sq. ft."}
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    {...field}
+                                />
                             </FormControl>
                         </FormItem>
                     )}
                 />
+
                 <FormField
                     control={form.control}
                     name="builtUpArea"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Est. Built-up Area</FormLabel>
+                            <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                                {isArabic ? "المساحة المبنية التقديرية" : "Est. Built-up Area"}
+                            </FormLabel>
                             <FormControl>
-                                <Input type="number" placeholder="Sq. ft." {...field} />
+                                <Input
+                                    type="number"
+                                    placeholder={isArabic ? "قدم مربع" : "Sq. ft."}
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
             </div>
-            <FormDescription className="text-xs">
-                Please attach plot map in Step 6.
+
+            <FormDescription className={`flex items-center text-xs ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                {isArabic
+                    ? "يرجى إرفاق خريطة الأرض في الخطوة 6."
+                    : "Please attach plot map in Step 6."}
             </FormDescription>
 
             <FormField
@@ -407,40 +548,56 @@ export default function QuoteModal({ text }) {
                 name="budget"
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Approximate Budget</FormLabel>
+                        <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic ? "الميزانية التقريبية" : "Approximate Budget"}
+                        </FormLabel>
                         <FormControl>
-                            <Input type="number" placeholder="AED" {...field} />
+                            <Input
+                                type="number"
+                                placeholder={isArabic ? "درهم إماراتي" : "AED"}
+                                className={isArabic ? "text-right" : "text-left"}
+                                {...field}
+                            />
                         </FormControl>
                     </FormItem>
                 )}
             />
         </div>
     );
+    const renderStep3 = () => {
+        const t = isArabic ? translations.ar : translations.en;
 
-    const renderStep3 = () => (
-        <div className="space-y-4">
-            <FormField
-                control={form.control}
-                name="services"
-                render={() => (
-                    <FormItem>
-                        <div className="mb-4">
-                            <FormLabel className="text-base">Required Services <span className="text-red-500">*</span></FormLabel>
-                            <FormDescription>
-                                Select all that apply.
-                            </FormDescription>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {servicesList.map((service) => (
-                                <FormField
-                                    key={service}
-                                    control={form.control}
-                                    name="services"
-                                    render={({ field }) => {
+        return (
+            <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
+                <FormField
+                    control={form.control}
+                    name="services"
+                    render={() => (
+                        <FormItem>
+                            <div className="mb-4">
+                                <FormLabel
+                                    className={`flex items-center text-base ${isArabic ? "justify-end text-right" : "justify-start text-left"
+                                        }`}
+                                >
+                                    {isArabic ? "الخدمات المطلوبة" : "Required Services"}{" "}
+                                    <span className="text-red-500">*</span>
+                                </FormLabel>
+
+                                <FormDescription className={isArabic ? "text-right" : "text-left"}>
+                                    {isArabic ? "اختر كل ما ينطبق." : "Select all that apply."}
+                                </FormDescription>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                {t.servicesList.map((service) => (
+                                    <FormField key={service} control={form.control} name="services" render={({ field }) => {
                                         return (
                                             <FormItem
                                                 key={service}
-                                                className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 shadow-sm hover:bg-gray-50 cursor-pointer"
+                                                className={`flex items-end rounded-md border p-3 shadow-sm hover:bg-gray-50 cursor-pointer ${isArabic
+                                                        ? "flex-row-reverse"
+                                                        : "flex-row"
+                                                    }`}
                                             >
                                                 <FormControl>
                                                     <Checkbox
@@ -456,151 +613,211 @@ export default function QuoteModal({ text }) {
                                                         }}
                                                     />
                                                 </FormControl>
-                                                <FormLabel className="font-normal cursor-pointer w-full">
+
+                                                <FormLabel className="font-normal cursor-pointer ">
                                                     {service}
                                                 </FormLabel>
                                             </FormItem>
                                         );
                                     }}
-                                />
-                            ))}
-                        </div>
-                        <FormMessage />
-                    </FormItem>
-                )}
-            />
-        </div>
-    );
+                                    />
+                                ))}
+                            </div>
 
-    const renderStep4 = () => (
-        <div className="space-y-6">
-            <FormField
-                control={form.control}
-                name="hasExistingDrawings"
-                render={({ field }) => (
-                    <FormItem className="space-y-3">
-                        <FormLabel>Do you already have existing drawings?</FormLabel>
-                        <FormControl>
-                            <RadioGroup
-                                onValueChange={field.onChange}
-                                defaultValue={field.value}
-                                className="flex space-x-4"
-                            >
-                                <FormItem className="flex items-center space-x-2 space-y-0">
-                                    <FormControl>
-                                        <RadioGroupItem value="yes" />
-                                    </FormControl>
-                                    <FormLabel className="font-normal">Yes</FormLabel>
-                                </FormItem>
-                                <FormItem className="flex items-center space-x-2 space-y-0">
-                                    <FormControl>
-                                        <RadioGroupItem value="no" />
-                                    </FormControl>
-                                    <FormLabel className="font-normal">No</FormLabel>
-                                </FormItem>
-                            </RadioGroup>
-                        </FormControl>
-                    </FormItem>
-                )}
-            />
-
-            {hasExistingDrawings === "yes" && (
-                <div className="p-4 border border-dashed rounded-md bg-gray-50">
-                    <FormLabel className="mb-2 block">Upload Existing Drawings</FormLabel>
-                    <Input type="file" multiple className="cursor-pointer" />
-                </div>
-            )}
-
-            <FormField
-                control={form.control}
-                name="requireSiteVisit"
-                render={({ field }) => (
-                    <FormItem className="space-y-3">
-                        <FormLabel>Do you require a site visit from our team?</FormLabel>
-                        <FormControl>
-                            <RadioGroup
-                                onValueChange={field.onChange}
-                                defaultValue={field.value}
-                                className="flex space-x-4"
-                            >
-                                <FormItem className="flex items-center space-x-2 space-y-0">
-                                    <FormControl>
-                                        <RadioGroupItem value="yes" />
-                                    </FormControl>
-                                    <FormLabel className="font-normal">Yes</FormLabel>
-                                </FormItem>
-                                <FormItem className="flex items-center space-x-2 space-y-0">
-                                    <FormControl>
-                                        <RadioGroupItem value="no" />
-                                    </FormControl>
-                                    <FormLabel className="font-normal">No</FormLabel>
-                                </FormItem>
-                            </RadioGroup>
-                        </FormControl>
-                    </FormItem>
-                )}
-            />
-
-            <div className="space-y-4">
-                <FormLabel className="text-base">Styles & References</FormLabel>
-                <FormField
-                    control={form.control}
-                    name="preferredStyles"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Preferred Styles</FormLabel>
-                            <FormControl>
-                                <Input placeholder="e.g. Modern, Islamic, Minimalist" {...field} />
-                            </FormControl>
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="pinterestLink"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Pinterest Board Link</FormLabel>
-                            <FormControl>
-                                <Input type="url" placeholder="https://pinterest.com/..." {...field} />
-                            </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <div className="p-4 border border-dashed rounded-md bg-gray-50">
-                    <FormLabel className="mb-2 block">Upload Reference Images</FormLabel>
-                    <Input type="file" multiple accept="image/*" className="cursor-pointer" />
-                </div>
             </div>
-        </div>
-    );
+        );
+    };
 
-    const renderStep5 = () => (
-        <div className="space-y-4">
-            <FormField
-                control={form.control}
-                name="additionalNotes"
-                render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>Additional Notes</FormLabel>
-                        <FormDescription>
-                            Provide any extra details or project requirements here.
-                        </FormDescription>
-                        <FormControl>
-                            <Textarea
-                                placeholder="Tell us more about your vision..."
-                                className="min-h-[200px]"
-                                {...field}
-                            />
-                        </FormControl>
-                        <FormMessage />
-                    </FormItem>
-                )}
+   const renderStep4 = () => (
+  <div className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}>
+    
+    <FormField
+      control={form.control}
+      name="hasExistingDrawings"
+      render={({ field }) => (
+        <FormItem className="space-y-3">
+          <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+            {isArabic
+              ? "هل لديك مخططات موجودة مسبقاً؟"
+              : "Do you already have existing drawings?"}
+          </FormLabel>
+
+          <FormControl>
+            <RadioGroup
+              onValueChange={field.onChange}
+              defaultValue={field.value}
+              className={`flex ${isArabic ? "flex-row-reverse space-x-reverse space-x-4" : "space-x-4"}`}
+            >
+              <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="yes" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  {isArabic ? "نعم" : "Yes"}
+                </FormLabel>
+              </FormItem>
+
+              <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="no" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  {isArabic ? "لا" : "No"}
+                </FormLabel>
+              </FormItem>
+            </RadioGroup>
+          </FormControl>
+        </FormItem>
+      )}
+    />
+
+    {hasExistingDrawings === "yes" && (
+      <div className="p-4 border border-dashed rounded-md bg-gray-50">
+        <FormLabel className={`mb-2 block ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+          {isArabic ? "تحميل المخططات الحالية" : "Upload Existing Drawings"}
+        </FormLabel>
+        <Input type="file" multiple className="cursor-pointer" />
+      </div>
+    )}
+
+    <FormField
+      control={form.control}
+      name="requireSiteVisit"
+      render={({ field }) => (
+        <FormItem className="space-y-3">
+          <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+            {isArabic
+              ? "هل تحتاج إلى زيارة موقع من فريقنا؟"
+              : "Do you require a site visit from our team?"}
+          </FormLabel>
+
+          <FormControl>
+            <RadioGroup
+              onValueChange={field.onChange}
+              defaultValue={field.value}
+              className={`flex ${isArabic ? "flex-row-reverse space-x-reverse space-x-4" : "space-x-4"}`}
+            >
+              <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="yes" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  {isArabic ? "نعم" : "Yes"}
+                </FormLabel>
+              </FormItem>
+
+              <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value="no" />
+                </FormControl>
+                <FormLabel className="font-normal">
+                  {isArabic ? "لا" : "No"}
+                </FormLabel>
+              </FormItem>
+            </RadioGroup>
+          </FormControl>
+        </FormItem>
+      )}
+    />
+
+    <div className="space-y-4">
+      <FormLabel className={`text-base ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+        {isArabic ? "الأنماط والمراجع" : "Styles & References"}
+      </FormLabel>
+
+      <FormField
+        control={form.control}
+        name="preferredStyles"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+              {isArabic ? "الأنماط المفضلة" : "Preferred Styles"}
+            </FormLabel>
+            <FormControl>
+              <Input
+                placeholder={
+                  isArabic
+                    ? "مثال: حديث، إسلامي، بسيط"
+                    : "e.g. Modern, Islamic, Minimalist"
+                }
+                className={isArabic ? "text-right" : "text-left"}
+                {...field}
+              />
+            </FormControl>
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="pinterestLink"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+              {isArabic ? "رابط لوحة Pinterest" : "Pinterest Board Link"}
+            </FormLabel>
+            <FormControl>
+              <Input
+                type="url"
+                placeholder="https://pinterest.com/..."
+                className={isArabic ? "text-right" : "text-left"}
+                {...field}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <div className="p-4 border border-dashed rounded-md bg-gray-50">
+        <FormLabel className="mb-2 block">
+          {isArabic ? "تحميل صور مرجعية" : "Upload Reference Images"}
+        </FormLabel>
+        <Input type="file" multiple accept="image/*" className="cursor-pointer" />
+      </div>
+    </div>
+  </div>
+);
+
+  const renderStep5 = () => (
+  <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
+    <FormField
+      control={form.control}
+      name="additionalNotes"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>
+            {isArabic ? "ملاحظات إضافية" : "Additional Notes"}
+          </FormLabel>
+
+          <FormDescription className={isArabic ? "text-right" : "text-left"}>
+            {isArabic
+              ? "يرجى إضافة أي تفاصيل إضافية أو متطلبات خاصة بالمشروع هنا."
+              : "Provide any extra details or project requirements here."}
+          </FormDescription>
+
+          <FormControl>
+            <Textarea
+              placeholder={
+                isArabic
+                  ? "أخبرنا المزيد عن رؤيتك للمشروع..."
+                  : "Tell us more about your vision..."
+              }
+              className={`min-h-[200px] ${isArabic ? "text-right" : "text-left"}`}
+              {...field}
             />
-        </div>
-    );
+          </FormControl>
 
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  </div>
+);
     const FileUploadField = ({ label, description }) => (
         <div className="mb-4">
             <FormLabel className="mb-1 block text-sm font-medium">{label}</FormLabel>
@@ -636,22 +853,33 @@ export default function QuoteModal({ text }) {
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger className='lg:justify-center justify-start' asChild>
                     <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4">
-                        Request a Quote Now
+                        {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
                     </Button>
                 </DialogTrigger>
 
                 <DialogContent className="sm:max-w-[600px] overflow-y-auto flex flex-col p-0 gap-0">
                     <DialogHeader className="p-6 pb-2">
-                        <DialogTitle>Get a Quote</DialogTitle>
-                        <DialogDescription>
-                            Step {currentStep} of {steps.length}: {steps[currentStep - 1].title}
-                        </DialogDescription>
+                        <DialogTitle className={`${isArabic ? 'text-right mt-5' : 'text-left'}`}>
+                            {isArabic ? "احصل على عرض أسعار" : "Get a Quote"}
+
+                        </DialogTitle>
+                        {isArabic ?
+                            <DialogDescription className={`${isArabic ? 'text-right' : 'text-left'}`}>
+                                خطوات{currentStep} / {translations.ar.steps.length} : {translations.ar.steps[currentStep - 1].title}
+                            </DialogDescription>
+
+                            :
+
+                            <DialogDescription className={`${isArabic ? 'text-right' : 'text-left'}`}>
+                                Step {currentStep} of {translations.en.steps.length}: {translations.en.steps[currentStep - 1].title}
+                            </DialogDescription>
+                        }
 
                         {/* Progress Bar */}
                         <div className="w-full bg-gray-200 h-2 mt-4 rounded-full overflow-hidden">
                             <div
                                 className="bg-blue-600 h-full transition-all duration-300 ease-in-out"
-                                style={{ width: `${(currentStep / steps.length) * 100}%` }}
+                                style={{ width: `${(currentStep / translations.en.steps.length) * 100}%` }}
                             />
                         </div>
                     </DialogHeader>
@@ -680,7 +908,7 @@ export default function QuoteModal({ text }) {
                                     <ChevronLeft className="w-4 h-4" /> Back
                                 </Button>
 
-                                {currentStep < steps.length ? (
+                                {currentStep < translations.en.steps.length ? (
                                     <Button type="button" onClick={handleNext} className="gap-2">
                                         Next <ChevronRight className="w-4 h-4" />
                                     </Button>

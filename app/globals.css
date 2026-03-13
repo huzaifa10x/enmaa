@@ -189,3 +189,7 @@ body {
 .font-ps {
   font-family: "Product Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
 }
+
+.svg-hover{
+  color: black;
+}

@@ -4,7 +4,8 @@ import { Input } from "@/components/ui/input"
 import { Calendar, Clock, MapPin, MessageCircle, Phone, User } from "lucide-react"
 import { useState } from "react"
 import bg from "@/public/images/image532.webp"
-import footerLogo from "@/public/images/Enmaa-footer.webp"
+import footerLogoengish from "@/public/images/Enmaa-footer.webp"
+import footerLogoarabic from "@/public/images/image10.png"
 import Image from "next/image"
 import Link from "next/link"
 import WPIcon from "@/public/images/WP-icon.png"
@@ -116,7 +117,7 @@ export default function Footer() {
                 {isArabic ?
                     <div className="text-center mb-16" dir="rtl">
                         <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">
-                            ابدأ الآن
+                            احجز الآن
                         </h2>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
                             إذا كنت ترغب في العمل معنا أو التواصل معنا، يسعدنا سماعك!
@@ -131,7 +132,7 @@ export default function Footer() {
                     </div>
                 }
 
-                <FooterForm />
+                <FooterForm isArabic={isArabic}/>
                 {/* Contact Info and Email Signup */}
 
                 {isArabic ?
@@ -154,13 +155,24 @@ export default function Footer() {
 
                         {/* Email Signup */}
                         <div className="space-y-4 flex md:justify-end justify-center">
-                            <Image
-                                src={footerLogo}
+                            {isArabic ? 
+                               <Image
+                                src={footerLogoarabic}
                                 height={320}
                                 width={320}
                                 alt="image"
                                 className="h-auto w-auto"
                             />
+                            :
+                               <Image
+                                src={footerLogoengish}
+                                height={320}
+                                width={320}
+                                alt="image"
+                                className="h-auto w-auto"
+                            />
+                            }
+                           
                         </div>
                     </div>
 
@@ -180,15 +192,28 @@ export default function Footer() {
                         </div>
 
                         {/* Email Signup */}
+                        {isArabic ? 
                         <div className="space-y-4 flex md:justify-end justify-center">
                             <Image
-                                src={footerLogo}
+                                src={footerLogoarabic}
                                 height={320}
                                 width={320}
                                 alt="image"
                                 className="h-auto w-auto object-center"
                             />
                         </div>
+                        :
+                        
+                        <div className="space-y-4 flex md:justify-end justify-center">
+                            <Image
+                                src={footerLogoengish}
+                                height={320}
+                                width={320}
+                                alt="image"
+                                className="h-auto w-auto object-center"
+                            />
+                        </div>
+                        }
                     </div>}
 
             </div>

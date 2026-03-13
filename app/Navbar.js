@@ -1,7 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import Logo from "@/public/images/enmaa-logo.webp";
+// import Logo from "@/public/images/enmaa-logo.webp";
+import Logoengish from "@/public/images/Enmaa-footer.webp"
+import Logoarabic from "@/public/images/image10.png"
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,7 +46,13 @@ export default function Navbar() {
             <nav className="max-w-7xl w-full min-w-[360px] flex items-center justify-between px-4 py-6">
                 {/* Logo */}
                 <Link href={isArabic ? "/ar" : "/"}>
-                    <Image src={Logo} height={100} width={100} className="w-auto h-auto" alt="Logo" />
+                {isArabic ? 
+                    <Image src={Logoarabic} height={100} width={100} className="w-auto h-auto" alt="Logo" />
+                
+                :
+                
+                    <Image src={Logoengish} height={100} width={100} className="w-auto h-auto" alt="Logo" />
+                }
                 </Link>
 
                 {/* Desktop Menu */}
@@ -60,7 +68,7 @@ export default function Navbar() {
                             </Button>
                         </Link>
                     ))}
-                    <QuoteModal />
+                    <QuoteModal isArabic={isArabic} />
                 </div>
 
                 <div className="hidden lg:flex items-center gap-4">
@@ -104,7 +112,12 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex justify-between items-center mb-8">
-                    <Image src={Logo} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+                    {isArabic ? 
+                    <Image src={Logoarabic} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+                    :
+                    <Image src={Logoengish} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+
+                }
                     <Button
                         variant="ghost"
                         onClick={() => setOpenSidebar(false)}
@@ -133,7 +146,7 @@ export default function Navbar() {
                 </div>
 
 
-                    <QuoteModal text={'Request a Quote Now'} />
+                    <QuoteModal text={'Request a Quote Now'} isArabic={isArabic} />
 
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>
                         <Button className="w-full bg-gradient-to-r from-[#01b2eb] to-primary text-white py-3 rounded-full">

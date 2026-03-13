@@ -27,14 +27,45 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Engineering Services",
                     image: engineering,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Feasibility studies</li>
-                        <li>Planning</li>
-                        <li>Program development</li>
-                        <li>Value engineering</li>
-                        <li>Technical specifications</li>
-                        <li>Bills of quantities</li>
-                    </ul>`,
+                        `
+                    <div>
+   <div class="flex items-center gap-2 group">
+    <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+    </svg>
+    <span class="text-black group-hover:text-white">Feasibility studies</span></div>
+
+   <div class="flex items-center gap-2 group">
+    <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+    </svg>
+    <span class="text-black group-hover:text-white">Planning</span></div>
+
+   <div class="flex items-center gap-2 group">
+    <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+    </svg>
+    <span class="text-black group-hover:text-white">Program development</span></div>
+
+  <div class="flex items-center gap-2 group">
+    <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+    </svg>
+    <span class="text-black group-hover:text-white">Value engineering</span></div>
+    
+<div class="flex items-center gap-2 group">
+    <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+    </svg>
+    <span class="text-black group-hover:text-white">Technical specifications</span></div>
+  
+  <div class="flex items-center gap-2 group">
+    <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+    </svg>
+    <span class="text-black group-hover:text-white"> Bills of quantities</span></div>
+</div>
+                    `,
                     ],
                     href: "/engineering-service",
                 },
@@ -43,13 +74,40 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Design Services",
                     image: design,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Data collection</li>
-                        <li>Concept Design</li>
-                        <li>Preliminary Design</li>
-                        <li>Detailed Design</li>
-                        <li>Final Design</li>
-                    </ul>`,
+                        `
+  <div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">Data collection</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">Concept Design</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">Preliminary Design</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">Detailed Design</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">Final Design</span>
+    </div>
+  </div>
+  `
                     ],
                     href: "/design-services",
                 },
@@ -58,14 +116,34 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Tendering Services",
                     image: tender,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Conditions of Contracts</li>
-                        <li>Pre qualification of tender</li>
-                        <li>Invitation to tender</li>
-                        <li>Tender Analysis</li>
-                        <li>Final Report &</li>
-                        <li>Contract Award</li>
-                    </ul>`,
+                        `
+  <div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">Conditions of Contracts</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">Pre qualification of tender</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">Invitation to tender</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">Tender Analysis</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">Final Report &</span>
+    </div>
+    <div class="flex items-center gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">Contract Award</span>
+    </div>
+  </div>
+  `
                     ],
                     href: "/tenderings-services",
                 },
@@ -74,12 +152,14 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Supervision",
                     image: supervision,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Supervision of construction</li>
-                        <li>Quality</li>
-                        <li>Time & Cost Control</li>
-                        <li>Claims & Commissioning</li>
-                    </ul>`,
+                        `
+  <div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Supervision of construction</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Quality</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Time & Cost Control</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Claims & Commissioning</span></div>
+  </div>
+  `
                     ],
                     href: "/supervision",
                 },
@@ -88,16 +168,18 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Client Engineer Representative Role",
                     image: clientEng,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Integrated within</li>
-                        <li>Client s organization</li>
-                        <li>Co Location with clients</li>
-                        <li>For Better Coordination</li>
-                        <li>Project Interfaces Managment</li>
-                        <li>On time or better completion</li>
-                        <li>On Budget or better completion</li>
-                        <li>Quality compliance</li>
-                    </ul>`,
+                        `
+  <div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Integrated within</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Client s organization</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Co Location with clients</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">For Better Coordination</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Project Interfaces Management</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">On time or better completion</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">On Budget or better completion</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Quality compliance</span></div>
+  </div>
+  `
                     ],
                     href: "/client-engineer-representative-role",
                 },
@@ -106,16 +188,18 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Program Management Services",
                     image: program,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                            <li>Project life cycle schedules</li>
-                            <li>Cost Management</li>
-                            <li>Stakeholders Management</li>
-                            <li>Quality Assurance & Control</li>
-                            <li>Resources Management</li>
-                            <li>Procurement</li>
-                            <li>Document Control</li>
-                            <li>Disseminatio</li>
-                        </ul>`,
+                        `
+  <div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Project life cycle schedules</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Cost Management</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Stakeholders Management</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Quality Assurance & Control</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Resources Management</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Procurement</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Document Control</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Dissemination</span></div>
+  </div>
+  `
                     ],
                     href: "/program-management-services",
                 },
@@ -124,14 +208,16 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "Design & Build Project Participation",
                     image: designBuild,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Work closely with the Contractor</li>
-                        <li>Produce Effective Value</li>
-                        <li>Engineering Ideas</li>
-                        <li>Project lifecycle schedules</li>
-                        <li>Preserving budget</li>
-                        <li>Schedule concern</li>
-                    </ul>`
+                        `
+  <div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Work closely with the Contractor</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Produce Effective Value</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Engineering Ideas</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Project lifecycle schedules</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Preserving budget</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Schedule concern</span></div>
+  </div>
+  `
                     ],
                     href: "/design-build-project-participation",
                 },
@@ -140,15 +226,17 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "GIS Services",
                     image: GIS,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                        <li>Enterprise Solutions</li>
-                        <li>Consultancy Services & Strategy Development</li>
-                        <li>Data Modeling Development</li>
-                        <li>Analysis & Visualization</li>
-                        <li>Solution Design</li>
-                        <li>Development & Integration</li>
-                        <li>Capacity BLDG, Operation & Support</li>
-                    </ul>`,
+                        `
+  <div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Enterprise Solutions</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Consultancy Services & Strategy Development</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Data Modeling Development</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Analysis & Visualization</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Solution Design</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Development & Integration</span></div>
+    <div class="flex items-center gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">Capacity BLDG, Operation & Support</span></div>
+  </div>
+  `
                     ],
                     href: "/gis-services",
                 },
@@ -168,14 +256,25 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "الخدمات الهندسية",
                     image: engineering,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>دراسات الجدوى</li>
-                    <li>التخطيط</li>
-                    <li>تطوير البرامج</li>
-                    <li>هندسة القيمة</li>
-                    <li>المواصفات الفنية</li>
-                    <li>جداول الكميات</li>
-                </ul>`,
+                        `<div>
+  <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">دراسات الجدوى</span>
+  </div>
+
+  <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">التخطيط</span>
+  </div>
+
+  <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">تطوير البرامج</span>
+  </div>
+
+ <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white"> هندسة القيمة</span>
+  </div>
+
+  <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">المواصفات الفنية</span>
+  </div>
+
+  <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">جداول الكميات</span>
+  </div>
+</div>`,
                     ],
                     href: "/ar/engineering-service",
                 },
@@ -185,13 +284,44 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "خدمات التصميم",
                     image: design,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>جمع البيانات</li>
-                    <li>التصميم المفاهيمي</li>
-                    <li>التصميم المبدئي</li>
-                    <li>التصميم التفصيلي</li>
-                    <li>التصميم النهائي</li>
-                </ul>`,
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">جمع البيانات</span>
+    </div>
+
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">التصميم المفاهيمي</span>
+    </div>
+
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">التصميم المبدئي</span>
+    </div>
+
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">التصميم التفصيلي</span>
+    </div>
+
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24">
+        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/>
+      </svg>
+      <span class="text-black group-hover:text-white">التصميم النهائي</span>
+    </div>
+  </div>
+  `
                     ],
                     href: "/ar/design-services",
                 },
@@ -201,14 +331,34 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "خدمات المناقصات",
                     image: tender,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>شروط العقود</li>
-                    <li>التأهيل المسبق للمناقصات</li>
-                    <li>دعوة لتقديم العطاءات</li>
-                    <li>تحليل العطاءات</li>
-                    <li>التقرير النهائي</li>
-                    <li>ترسية العقد</li>
-                </ul>`,
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">شروط العقود</span>
+    </div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">التأهيل المسبق للمناقصات</span>
+    </div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">دعوة لتقديم العطاءات</span>
+    </div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">تحليل العطاءات</span>
+    </div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">التقرير النهائي</span>
+    </div>
+    <div class="flex items-center flex-row-reverse gap-2 group">
+      <svg class="w-1.5 h-1.5 fill-black group-hover:fill-white" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg>
+      <span class="text-black group-hover:text-white">ترسية العقد</span>
+    </div>
+  </div>
+  `
                     ],
                     href: "/ar/tenderings-services",
                 },
@@ -218,12 +368,14 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "الإشراف",
                     image: supervision,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>الإشراف على أعمال البناء</li>
-                    <li>ضبط الجودة</li>
-                    <li>التحكم في الوقت والتكلفة</li>
-                    <li>المطالبات والتشغيل</li>
-                </ul>`,
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الإشراف على أعمال البناء</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">ضبط الجودة</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">التحكم في الوقت والتكلفة</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24" viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">المطالبات والتشغيل</span></div>
+  </div>
+  `
                     ],
                     href: "/ar/supervision",
                 },
@@ -233,16 +385,18 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "دور ممثل مهندس العميل",
                     image: clientEng,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>الاندماج ضمن</li>
-                    <li>هيكل مؤسسة العميل</li>
-                    <li>التواجد المشترك مع العميل</li>
-                    <li>لتعزيز التنسيق</li>
-                    <li>إدارة واجهات المشروع</li>
-                    <li>الإنجاز في الوقت المحدد أو أفضل</li>
-                    <li>الالتزام بالميزانية أو أفضل</li>
-                    <li>الالتزام بمعايير الجودة</li>
-                </ul>`,
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الاندماج ضمن</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">هيكل مؤسسة العميل</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">التواجد المشترك مع العميل</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">لتعزيز التنسيق</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">إدارة واجهات المشروع</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الإنجاز في الوقت المحدد أو أفضل</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الالتزام بالميزانية أو أفضل</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الالتزام بمعايير الجودة</span></div>
+  </div>
+  `
                     ],
                     href: "/ar/client-engineer-representative-role",
                 },
@@ -252,16 +406,18 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "خدمات إدارة البرامج",
                     image: program,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>تحديد الجدول الزمني للمشروع</li>
-                    <li>إدارة التكاليف</li>
-                    <li>إدارة العلاقات بين الأطراف المعنية</li>
-                    <li>مراقبة الجودة</li>
-                    <li>إدارة الموارد</li>
-                    <li>تأمين الاحتياجات</li>
-                    <li>إدارة الملفات</li>
-                    <li>التوجيه والإرشاد</li>
-                </ul>`,
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">تحديد الجدول الزمني للمشروع</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">إدارة التكاليف</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">إدارة العلاقات بين الأطراف المعنية</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">مراقبة الجودة</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">إدارة الموارد</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">تأمين الاحتياجات</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">إدارة الملفات</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">التوجيه والإرشاد</span></div>
+  </div>
+  `
                     ],
                     href: "/ar/program-management-services",
                 },
@@ -271,15 +427,17 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "المشاركة في مشاريع التصميم والبناء",
                     image: designBuild,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>العمل عن قرب مع</li>
-                    <li>المقاول</li>
-                    <li>تقديم حلول هندسية ذات قيمة فعّالة</li>
-                    <li>أفكار هندسية مبتكرة</li>
-                    <li>جداول دورة حياة المشروع</li>
-                    <li>الحفاظ على الميزانية</li>
-                    <li>الالتزام بالجدول الزمني</li>
-                </ul>`
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">العمل عن قرب مع</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">المقاول</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">تقديم حلول هندسية ذات قيمة فعّالة</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">أفكار هندسية مبتكرة</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">جداول دورة حياة المشروع</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الحفاظ على الميزانية</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الالتزام بالجدول الزمني</span></div>
+  </div>
+  `
                     ],
                     href: "/ar/design-build-project-participation",
                 },
@@ -289,15 +447,17 @@ export default function ServiceSection({ lang = "en" }) {
                     title: "خدمات نظم المعلومات الجغرافية (GIS)",
                     image: GIS,
                     items: [
-                        `<ul class='list-disc pl-6'>
-                    <li>حلول مؤسسية</li>
-                    <li>الخدمات الاستشارية وتطوير الاستراتيجيات</li>
-                    <li>تطوير نماذج البيانات</li>
-                    <li>التحليل والتصور</li>
-                    <li>تصميم الحلول</li>
-                    <li>التطوير والتكامل</li>
-                    <li>بناء القدرات، التشغيل والدعم</li>
-                </ul>`,
+                        `
+  <div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">حلول مؤسسية</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">الخدمات الاستشارية وتطوير الاستراتيجيات</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">تطوير نماذج البيانات</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">التحليل والتصور</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">تصميم الحلول</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">التطوير والتكامل</span></div>
+    <div class="flex items-center flex-row-reverse gap-2 group"><svg class="w-1.5 h-1.5 fill-black group-hover:fill-white"  viewBox="0 0 24 24"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"/></svg><span class="text-black group-hover:text-white">بناء القدرات، التشغيل والدعم</span></div>
+  </div>
+  `
                     ],
                     href: "/ar/gis-services",
                 },

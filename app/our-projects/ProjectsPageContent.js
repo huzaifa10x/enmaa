@@ -29,7 +29,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                 <HeroSection
                     bg={image3}
                     title={' مواقع لمشاريع'}
-                    desc={'تشمل مشاريعنا الفلل والمباني السكنية والتطويرات التجارية المصممة لتجمع بين العملية والراحة والتصميم الراقي.'}
+                    desc={'تشمل مشاريعنا الفلل والمباني السكنية والتطويرات التجارية المصممة لتجمع بين العملية والراحة والتصميم الراقي'}
                 /> :
                 <HeroSection
                     bg={image3}
@@ -49,7 +49,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                         />
                         <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <h1 className="text-4xl md:text-5xl text-nowrap font-bold mb-2">
-                                {isArabic ? <><span className="text-primary">مواقع</span> <span className="text-foreground">المشاريع.</span></> :
+                                {isArabic ? <><span className="text-primary">مواقع</span> <span className="text-foreground">المشاريع</span></> :
                                     <><span className="text-primary">Project</span> <span className="text-foreground">Locations.</span></>
                                 }
                             </h1>

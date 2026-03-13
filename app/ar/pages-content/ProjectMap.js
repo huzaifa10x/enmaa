@@ -12,7 +12,7 @@ export default function ProjectMap() {
             <HeroSection
                 bg={image3}
                 title={'مشاريع <br/> مُلهمة'}
-                desc={'يمثّل التصميم الداخلي الأنيق والمنظّم طريقًا للشعور بالسعادة والاكتفاء. يُعدّ التصميم والراحة عنصرين أساسيين لنجاح حياة الإنسان.'}
+                desc={'عرض بصري لمفاهيم التصميم وأفكار المشاريع التي تؤثر على أعمالنا الهندسية والتطويرية.'}
             />
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">

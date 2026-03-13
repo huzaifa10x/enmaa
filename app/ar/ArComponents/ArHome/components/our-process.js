@@ -5,9 +5,7 @@ import image1 from "@/public/images/14.jpg"
 import image2 from "@/public/images/2972.jpg"
 import image3 from "@/public/images/3322.jpg"
 import image5 from "@/public/images/432.jpg"
-
-
-import image4 from "@/public/images/Enmaa.webp"
+import imagearabic from "@/public/images/image17.png"
 import Image from "next/image"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import PillTitle from "@/app/components/pill-title"
@@ -122,9 +120,9 @@ export default function OurProcess() {
                 </div>
 
                 <Image
-                    src={image4}
+                    src={imagearabic}
                     width={600}
-                    alt={image4}
+                    alt={imagearabic}
                     height={200}
                     className="mt-16"
                 />
