@@ -11,7 +11,6 @@ export default function ContactForm() {
   const [isArabic, setIsArabic] = useState(false);
 
   useEffect(() => {
-    // Detect language based on URL
     setIsArabic(pathname.startsWith('/ar/'));
   }, [pathname]);
 
@@ -27,9 +26,6 @@ export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [responseMsg, setResponseMsg] = useState('');
 
-  // Regex to allow: Arabic letters, spaces, and Arabic punctuation
-  const ARABIC_ONLY_REGEX = /^[\u0600-\u06FF\s!@#$%^&*()_+={}\[\]:;"'<>,.?/-]*$/;
-
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = isArabic ? 'الاسم مطلوب' : 'Name is required';
@@ -42,15 +38,7 @@ export default function ContactForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // RESTRICTION LOGIC: 
-    // If in Arabic mode, block typing English letters in Name and Message
-    if (isArabic && (name === 'name' || name === 'message')) {
-      if (value !== "" && !ARABIC_ONLY_REGEX.test(value)) {
-        return; // Prevent state update if character is not Arabic
-      }
-    }
-
+    // Allow any language now
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -98,7 +86,7 @@ export default function ContactForm() {
           <input
             type="text"
             name="name"
-            placeholder={isArabic ? " * أدخل اسمك (بالعربية)" : "Enter Your Name *"}
+            placeholder={isArabic ? " * أدخل اسمك" : "Enter Your Name *"}
             value={formData.name}
             onChange={handleChange}
             className={`w-full rounded-md px-4 py-3 border bg-white ${isArabic ? "text-right" : "text-left"}`}
@@ -110,7 +98,7 @@ export default function ContactForm() {
           <input
             type="email"
             name="email"
-            dir="ltr" // Emails are always LTR
+            dir="ltr"
             placeholder={isArabic ? " * البريد الإلكتروني" : "Enter Your Email Address *"}
             value={formData.email}
             onChange={handleChange}
@@ -128,7 +116,7 @@ export default function ContactForm() {
             onChange={(e) => setFormData(prev => ({ ...prev, services: [e.target.value] }))}
             className={`w-full rounded-md px-4 py-3 border bg-white appearance-none ${isArabic ? "text-right" : "text-left"}`}
           >
-            {[
+            {[ 
               { en: "Choose Service", ar: "اختر الخدمة", value: "" },
               { en: "Engineering Services", ar: "الخدمات الهندسية" },
               { en: "Design Services", ar: "خدمات التصميم" },
@@ -153,7 +141,7 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={(value) => setFormData(prev => ({ ...prev, phone: value }))}
             inputStyle={{ width: '100%', height: '50px' }}
-            containerStyle={{ direction: 'ltr' }} // Phone numbers are always LTR
+            containerStyle={{ direction: 'ltr' }}
           />
           {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
         </div>
@@ -164,7 +152,7 @@ export default function ContactForm() {
         <textarea
           rows="4"
           name="message"
-          placeholder={isArabic ? " * استفسارك / ملاحظاتك (بالعربية)" : "Your Query / Feedback *"}
+          placeholder={isArabic ? " * استفسارك / ملاحظاتك" : "Your Query / Feedback *"}
           value={formData.message}
           onChange={handleChange}
           className={`w-full rounded-md px-4 py-3 border bg-white ${isArabic ? "text-right" : "text-left"}`}

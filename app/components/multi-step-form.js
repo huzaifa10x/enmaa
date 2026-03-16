@@ -101,76 +101,53 @@ const translations = {
 };
 
 // --- Zod Schema ---
-const getFormSchema = (isArabic) => {
-  const arabicRegex = /^[\u0600-\u06FF\s]+$/;
+// --- Zod Schema (Any language allowed in inputs) ---
+const getFormSchema = () => {
+    return z.object({
+        fullName: z.string().min(2, "Name is required"),
+        email: z.string().email("Invalid email address"),
+        phoneNumber: z.string().min(5, "Phone number is required"),
+        hearAbout: z.string().optional(),
 
-  return z.object({
-    fullName: z.string()
-      .min(2, "Name is required")
-      .refine((val) => !isArabic || arabicRegex.test(val), {
-        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
-      }),
-    email: z.string().email("Invalid email address"),
-    phoneNumber: z.string().min(5, "Phone number is required"),
-    hearAbout: z.string().optional(),
+        projectType: z.string().min(1, "Project type is required"),
+        projectTypeOther: z.string().optional(),
 
-    projectType: z.string().min(1, "Project type is required"),
-    projectTypeOther: z.string()
-      .optional()
-      .refine((val) => !isArabic || arabicRegex.test(val), {
-        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
-      }),
+        projectLocation: z.string().min(2, "Location is required"),
 
-    projectLocation: z.string()
-      .min(2, "Location is required")
-      .refine((val) => !isArabic || arabicRegex.test(val), {
-        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
-      }),
+        plotSize: z.string().optional(),
+        builtUpArea: z.string().optional(),
+        budget: z.string().optional(),
 
-    plotSize: z.string().optional(),
-    builtUpArea: z.string().optional(),
-    budget: z.string().optional(),
+        services: z.array(z.string()).refine((val) => val.length > 0, {
+            message: "Select at least one service.",
+        }),
 
-    services: z.array(z.string()).refine((val) => val.length > 0, {
-      message: "Select at least one service.",
-    }),
+        hasExistingDrawings: z.enum(["yes", "no"]),
+        requireSiteVisit: z.enum(["yes", "no"]),
 
-    hasExistingDrawings: z.enum(["yes", "no"]),
-    requireSiteVisit: z.enum(["yes", "no"]),
-
-    preferredStyles: z.string()
-      .optional()
-      .refine((val) => !isArabic || arabicRegex.test(val), {
-        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
-      }),
-
-    pinterestLink: z.string().url("Invalid URL").optional().or(z.literal("")),
-
-    additionalNotes: z.string()
-      .optional()
-      .refine((val) => !isArabic || arabicRegex.test(val), {
-        message: isArabic ? "الرجاء إدخال نص عربي فقط" : undefined,
-      }),
-  });
+        preferredStyles: z.string().optional(),
+        pinterestLink: z.string().url("Invalid URL").optional().or(z.literal("")),
+        additionalNotes: z.string().optional(),
+    });
 };
-    // .refine((data) => {
-    //     if (!data.plotSize || !data.builtUpArea) return true;
-    //     const plot = Number(data.plotSize);
-    //     const built = Number(data.builtUpArea);
-    //     if (isNaN(plot) || isNaN(built)) return true;
-    //     return built < plot;
-    // }, {
-    //     message: "Value should be less than Plot Size",
-    //     path: ["builtUpArea"],
-    // });
+// .refine((data) => {
+//     if (!data.plotSize || !data.builtUpArea) return true;
+//     const plot = Number(data.plotSize);
+//     const built = Number(data.builtUpArea);
+//     if (isNaN(plot) || isNaN(built)) return true;
+//     return built < plot;
+// }, {
+//     message: "Value should be less than Plot Size",
+//     path: ["builtUpArea"],
+// });
 
 export default function QuoteModal({ text, isArabic }) {
     const [open, setOpen] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
 
-    
-  const form = useForm({
-    resolver: zodResolver(getFormSchema(isArabic)),
+
+    const form = useForm({
+        resolver: zodResolver(getFormSchema()), // No more isArabic dependency
         defaultValues: {
             fullName: "",
             email: "",
@@ -595,8 +572,8 @@ export default function QuoteModal({ text, isArabic }) {
                                             <FormItem
                                                 key={service}
                                                 className={`flex items-end rounded-md border p-3 shadow-sm hover:bg-gray-50 cursor-pointer ${isArabic
-                                                        ? "flex-row-reverse"
-                                                        : "flex-row"
+                                                    ? "flex-row-reverse"
+                                                    : "flex-row"
                                                     }`}
                                             >
                                                 <FormControl>
@@ -632,192 +609,192 @@ export default function QuoteModal({ text, isArabic }) {
         );
     };
 
-   const renderStep4 = () => (
-  <div className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}>
-    
-    <FormField
-      control={form.control}
-      name="hasExistingDrawings"
-      render={({ field }) => (
-        <FormItem className="space-y-3">
-          <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
-            {isArabic
-              ? "هل لديك مخططات موجودة مسبقاً؟"
-              : "Do you already have existing drawings?"}
-          </FormLabel>
+    const renderStep4 = () => (
+        <div className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}>
 
-          <FormControl>
-            <RadioGroup
-              onValueChange={field.onChange}
-              defaultValue={field.value}
-              className={`flex ${isArabic ? "flex-row-reverse space-x-reverse space-x-4" : "space-x-4"}`}
-            >
-              <FormItem className="flex items-center space-x-2 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="yes" />
-                </FormControl>
-                <FormLabel className="font-normal">
-                  {isArabic ? "نعم" : "Yes"}
-                </FormLabel>
-              </FormItem>
+            <FormField
+                control={form.control}
+                name="hasExistingDrawings"
+                render={({ field }) => (
+                    <FormItem className="space-y-3">
+                        <FormLabel className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic
+                                ? "هل لديك مخططات موجودة مسبقاً؟"
+                                : "Do you already have existing drawings?"}
+                        </FormLabel>
 
-              <FormItem className="flex items-center space-x-2 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="no" />
-                </FormControl>
-                <FormLabel className="font-normal">
-                  {isArabic ? "لا" : "No"}
-                </FormLabel>
-              </FormItem>
-            </RadioGroup>
-          </FormControl>
-        </FormItem>
-      )}
-    />
+                        <FormControl>
+                            <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                                className={`flex ${isArabic ? "flex-row-reverse space-x-reverse space-x-4" : "space-x-4"}`}
+                            >
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                        <RadioGroupItem value="yes" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                        {isArabic ? "نعم" : "Yes"}
+                                    </FormLabel>
+                                </FormItem>
 
-    {hasExistingDrawings === "yes" && (
-      <div className="p-4 border border-dashed rounded-md bg-gray-50">
-        <FormLabel className={`mb-2 block ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
-          {isArabic ? "تحميل المخططات الحالية" : "Upload Existing Drawings"}
-        </FormLabel>
-        <Input type="file" multiple className="cursor-pointer" />
-      </div>
-    )}
-
-    <FormField
-      control={form.control}
-      name="requireSiteVisit"
-      render={({ field }) => (
-        <FormItem className="space-y-3">
-          <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
-            {isArabic
-              ? "هل تحتاج إلى زيارة موقع من فريقنا؟"
-              : "Do you require a site visit from our team?"}
-          </FormLabel>
-
-          <FormControl>
-            <RadioGroup
-              onValueChange={field.onChange}
-              defaultValue={field.value}
-              className={`flex ${isArabic ? "flex-row-reverse space-x-reverse space-x-4" : "space-x-4"}`}
-            >
-              <FormItem className="flex items-center space-x-2 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="yes" />
-                </FormControl>
-                <FormLabel className="font-normal">
-                  {isArabic ? "نعم" : "Yes"}
-                </FormLabel>
-              </FormItem>
-
-              <FormItem className="flex items-center space-x-2 space-y-0">
-                <FormControl>
-                  <RadioGroupItem value="no" />
-                </FormControl>
-                <FormLabel className="font-normal">
-                  {isArabic ? "لا" : "No"}
-                </FormLabel>
-              </FormItem>
-            </RadioGroup>
-          </FormControl>
-        </FormItem>
-      )}
-    />
-
-    <div className="space-y-4">
-      <FormLabel className={`text-base ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
-        {isArabic ? "الأنماط والمراجع" : "Styles & References"}
-      </FormLabel>
-
-      <FormField
-        control={form.control}
-        name="preferredStyles"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
-              {isArabic ? "الأنماط المفضلة" : "Preferred Styles"}
-            </FormLabel>
-            <FormControl>
-              <Input
-                placeholder={
-                  isArabic
-                    ? "مثال: حديث، إسلامي، بسيط"
-                    : "e.g. Modern, Islamic, Minimalist"
-                }
-                className={isArabic ? "text-right" : "text-left"}
-                {...field}
-              />
-            </FormControl>
-          </FormItem>
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="pinterestLink"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel  className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
-              {isArabic ? "رابط لوحة Pinterest" : "Pinterest Board Link"}
-            </FormLabel>
-            <FormControl>
-              <Input
-                type="url"
-                placeholder="https://pinterest.com/..."
-                className={isArabic ? "text-right" : "text-left"}
-                {...field}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-
-      <div className="p-4 border border-dashed rounded-md bg-gray-50">
-        <FormLabel className="mb-2 block">
-          {isArabic ? "تحميل صور مرجعية" : "Upload Reference Images"}
-        </FormLabel>
-        <Input type="file" multiple accept="image/*" className="cursor-pointer" />
-      </div>
-    </div>
-  </div>
-);
-
-  const renderStep5 = () => (
-  <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
-    <FormField
-      control={form.control}
-      name="additionalNotes"
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel>
-            {isArabic ? "ملاحظات إضافية" : "Additional Notes"}
-          </FormLabel>
-
-          <FormDescription className={isArabic ? "text-right" : "text-left"}>
-            {isArabic
-              ? "يرجى إضافة أي تفاصيل إضافية أو متطلبات خاصة بالمشروع هنا."
-              : "Provide any extra details or project requirements here."}
-          </FormDescription>
-
-          <FormControl>
-            <Textarea
-              placeholder={
-                isArabic
-                  ? "أخبرنا المزيد عن رؤيتك للمشروع..."
-                  : "Tell us more about your vision..."
-              }
-              className={`min-h-[200px] ${isArabic ? "text-right" : "text-left"}`}
-              {...field}
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                        <RadioGroupItem value="no" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                        {isArabic ? "لا" : "No"}
+                                    </FormLabel>
+                                </FormItem>
+                            </RadioGroup>
+                        </FormControl>
+                    </FormItem>
+                )}
             />
-          </FormControl>
 
-          <FormMessage />
-        </FormItem>
-      )}
-    />
-  </div>
-);
+            {hasExistingDrawings === "yes" && (
+                <div className="p-4 border border-dashed rounded-md bg-gray-50">
+                    <FormLabel className={`mb-2 block ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                        {isArabic ? "تحميل المخططات الحالية" : "Upload Existing Drawings"}
+                    </FormLabel>
+                    <Input type="file" multiple className="cursor-pointer" />
+                </div>
+            )}
+
+            <FormField
+                control={form.control}
+                name="requireSiteVisit"
+                render={({ field }) => (
+                    <FormItem className="space-y-3">
+                        <FormLabel className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                            {isArabic
+                                ? "هل تحتاج إلى زيارة موقع من فريقنا؟"
+                                : "Do you require a site visit from our team?"}
+                        </FormLabel>
+
+                        <FormControl>
+                            <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                                className={`flex ${isArabic ? "flex-row-reverse space-x-reverse space-x-4" : "space-x-4"}`}
+                            >
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                        <RadioGroupItem value="yes" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                        {isArabic ? "نعم" : "Yes"}
+                                    </FormLabel>
+                                </FormItem>
+
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                        <RadioGroupItem value="no" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                        {isArabic ? "لا" : "No"}
+                                    </FormLabel>
+                                </FormItem>
+                            </RadioGroup>
+                        </FormControl>
+                    </FormItem>
+                )}
+            />
+
+            <div className="space-y-4">
+                <FormLabel className={`text-base ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                    {isArabic ? "الأنماط والمراجع" : "Styles & References"}
+                </FormLabel>
+
+                <FormField
+                    control={form.control}
+                    name="preferredStyles"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                                {isArabic ? "الأنماط المفضلة" : "Preferred Styles"}
+                            </FormLabel>
+                            <FormControl>
+                                <Input
+                                    placeholder={
+                                        isArabic
+                                            ? "مثال: حديث، إسلامي، بسيط"
+                                            : "e.g. Modern, Islamic, Minimalist"
+                                    }
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    {...field}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="pinterestLink"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className={`${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
+                                {isArabic ? "رابط لوحة Pinterest" : "Pinterest Board Link"}
+                            </FormLabel>
+                            <FormControl>
+                                <Input
+                                    type="url"
+                                    placeholder="https://pinterest.com/..."
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <div className="p-4 border border-dashed rounded-md bg-gray-50">
+                    <FormLabel className="mb-2 block">
+                        {isArabic ? "تحميل صور مرجعية" : "Upload Reference Images"}
+                    </FormLabel>
+                    <Input type="file" multiple accept="image/*" className="cursor-pointer" />
+                </div>
+            </div>
+        </div>
+    );
+
+    const renderStep5 = () => (
+        <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
+            <FormField
+                control={form.control}
+                name="additionalNotes"
+                render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>
+                            {isArabic ? "ملاحظات إضافية" : "Additional Notes"}
+                        </FormLabel>
+
+                        <FormDescription className={isArabic ? "text-right" : "text-left"}>
+                            {isArabic
+                                ? "يرجى إضافة أي تفاصيل إضافية أو متطلبات خاصة بالمشروع هنا."
+                                : "Provide any extra details or project requirements here."}
+                        </FormDescription>
+
+                        <FormControl>
+                            <Textarea
+                                placeholder={
+                                    isArabic
+                                        ? "أخبرنا المزيد عن رؤيتك للمشروع..."
+                                        : "Tell us more about your vision..."
+                                }
+                                className={`min-h-[200px] ${isArabic ? "text-right" : "text-left"}`}
+                                {...field}
+                            />
+                        </FormControl>
+
+                        <FormMessage />
+                    </FormItem>
+                )}
+            />
+        </div>
+    );
     const FileUploadField = ({ label, description }) => (
         <div className="mb-4">
             <FormLabel className="mb-1 block text-sm font-medium">{label}</FormLabel>

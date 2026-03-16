@@ -35,7 +35,7 @@ export default function FooterForm() {
 
     const [formData, setFormData] = useState({
         name: "",
-        phone: "", // changed from number to match your state logic
+        phone: "",
         date: "",
         time: "",
         branch: "",
@@ -44,13 +44,8 @@ export default function FooterForm() {
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState("")
 
-    // Regex: Blocks English letters in Arabic mode
-    const ARABIC_REGEX = /^[\u0600-\u06FF\s]*$/;
-
+    // Removed Arabic-only restriction, allow any language
     const handleInputChange = (field, value) => {
-        if (isArabic && field === "name") {
-            if (value !== "" && !ARABIC_REGEX.test(value)) return;
-        }
         setFormData((prev) => ({ ...prev, [field]: value }))
     }
 
@@ -109,7 +104,7 @@ export default function FooterForm() {
                             />
                         </div>
 
-                        {/* Phone - Using your requested method */}
+                        {/* Phone */}
                         <div className={`flex-1 min-w-[200px] text-black ${isArabic ? "phone-input-rtl" : ""}`}>
                             <PhoneInput
                                 country={'ae'}
@@ -132,29 +127,14 @@ export default function FooterForm() {
                         </div>
 
                         {/* Date */}
-                        {/* <div className="flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[150px]">
-                            <Calendar className="text-white/40 shrink-0" />
-                            <input
-                            type="date" lang="ar-u-ca-gregory"
-                                // type="date"
-                                // lang={isArabic ? "ar" : "en"}
-                                value={formData.date}
-                                onChange={(e) => handleInputChange("date", e.target.value)}
-                                className={`bg-transparent outline-none w-full text-white [&::-webkit-calendar-picker-indicator]:invert ${isArabic ? "text-right" : ""}`}
-                                required
-                            />
-                        </div> */}
                         <div className={`flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[150px]`}>
                             <Calendar className="text-white/40 shrink-0" />
                             <input
                                 type="date"
-                                /* Forces Arabic language with Gregorian calendar */
                                 lang="ar-u-ca-gregory"
                                 value={formData.date}
                                 onChange={(e) => handleInputChange("date", e.target.value)}
-                                className={`bg-transparent outline-none w-full text-white 
-      [&::-webkit-calendar-picker-indicator]:invert 
-      ${isArabic ? "text-right [direction:rtl]" : "text-left"}`}
+                                className={`bg-transparent outline-none w-full text-white [&::-webkit-calendar-picker-indicator]:invert ${isArabic ? "text-right [direction:rtl]" : "text-left"}`}
                                 required
                             />
                         </div>
@@ -201,9 +181,7 @@ export default function FooterForm() {
 
                         {/* Submit */}
                         <Button className="h-11 px-8 font-bold" type="submit" disabled={loading}>
-                            {isArabic
-                                ? (loading ? "جاري..." : "حجز")
-                                : (loading ? "BOOKING..." : "BOOK")}
+                            {isArabic ? (loading ? "جاري..." : "احجز") : (loading ? "BOOKING..." : "BOOK")}
                         </Button>
 
                     </div>
@@ -222,11 +200,9 @@ export default function FooterForm() {
                     direction: ltr !important;
                     padding-left: 48px !important;
                 }
-                /* Hide default arrow for cleaner selects in RTL */
                 select {
                     background-image: none;
                 }
-                /* Ensure date picker text aligns right in Arabic */
                 input[type="date"]::-webkit-datetime-edit {
                     text-align: ${isArabic ? 'right' : 'left'};
                 }
