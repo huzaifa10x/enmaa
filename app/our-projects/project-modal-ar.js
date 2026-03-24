@@ -187,8 +187,9 @@ export default function ProjectModalAr({
                             </div>
                         </div>
                         <div className="md:pt-6 pt-4 border-t border-white/10">
-                            <p className="text-white/60 text-xs">ENMAA</p>
-                            <p className="text-white/40 text-xs">Engineering Consultants</p>
+                       
+                            <p className="text-white/60 text-xs">إنما</p>
+                            <p className="text-white/40 text-xs">استشارات هندسية</p>
                         </div>
                         <div className="relative flex items-center gap-3 mt-5">
                             <button
