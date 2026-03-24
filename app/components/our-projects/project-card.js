@@ -17,8 +17,7 @@ export default function ProjectCard({ project, onClick, isArabic }) {
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-start" dir={`${isArabic ? 'rtl' : 'ltr'}`}>
+                <div className="absolute bottom-4 left-3 flex justify-between items-start" dir={`${isArabic ? 'rtl' : 'ltr'}`}>
                     <div>
                         {isArabic ?
                             <div>
@@ -33,14 +32,9 @@ export default function ProjectCard({ project, onClick, isArabic }) {
                         }
                     </div>
                 </div>
-
-                {/* Play Icon */}
-                <div className="flex justify-end">
-                    <div className="bg-white/20 backdrop-blur-sm p-2 rounded-full group-hover:bg-white/30 transition-colors">
+                <div className="absolute bottom-3 right-3 bg-white/20 backdrop-blur-sm p-2 rounded-full group-hover:bg-white/30 transition-colors">
                         <Play className="w-5 h-5 text-white fill-white" />
                     </div>
-                </div>
-            </div>
         </div>
     )
 }

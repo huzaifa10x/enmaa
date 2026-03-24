@@ -1,4 +1,4 @@
-import projects from "@/public/images/projects.webp"
+import projects from "@/public/images/المشاريع.png"
 import Image from "next/image"
 import HeroSection from "@/app/components/Hero-section"
 import GalleryPage from "@/app/project-map/Gallery"

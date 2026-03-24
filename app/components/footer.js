@@ -27,11 +27,11 @@ export default function Footer() {
     ];
 
     const footerItemsAr = [
-        { name: "الرئيسية", href: "/ar/home" },
-        { name: "أفكار المشاريع", href: "/ar/project-map" },
-        { name: "مشاريعنا", href: "/ar/our-projects" },
-        { name: "خدماتنا", href: "/ar/our-services" },
         { name: "تواصل معنا", href: "/ar/contact-us" },
+        { name: "خدماتنا", href: "/ar/our-services" },
+        { name: "مشاريعنا", href: "/ar/our-projects" },
+        { name: "أفكار المشاريع", href: "/ar/project-map" },
+        { name: "الرئيسية", href: "/ar/home" },
     ];
 
     const footerItems = isArabic ? footerItemsAr : footerItemsEn;

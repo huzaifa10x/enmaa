@@ -10,33 +10,32 @@ import Image from 'next/image'
 
 
 export default function Testimonial() {
-
     const testimonials = [
         {
             id: 1,
-            text: "من المنازل المتلاصقة إلى الفلل الفاخرة، ومن المباني الصغيرة إلى الأبراج الشاهقة، يتوفر مستشارو إرما الهندسيون لتلبية جميع احتياجاتكم في تصميم المخططات. فريق محترف للغاية يتميز بالتواضع.",
+            text: "من المنازل المتلاصقة إلى الفلل الفاخرة، ومن المباني الصغيرة إلى الأبراج الشاهقة، يتوفر مستشارو إرما الهندسيون لتلبية جميع احتياجاتكم في تصميم المخططات. فريق محترف للغاية يتميز بالتواضع",
             author: "ميرزا معاذ",
             image: image1
         },
         {
             id: 2,
-            text: "خدمة استثنائية واهتمام دقيق بالتفاصيل. بذل الفريق جهداً يفوق التوقعات لضمان إنجاز مشروعنا في الوقت المحدد وضمن الميزانية.",
+            text: "خدمة استثنائية واهتمام دقيق بالتفاصيل. بذل الفريق جهداً يفوق التوقعات لضمان إنجاز مشروعنا في الوقت المحدد وضمن الميزانية",
             author: "سارة جونسون",
             image: image2
         },
         {
             id: 3,
-            text: "حلول معمارية متميزة. نهجهم الابتكاري حوّل رؤيتنا إلى واقع بدقة لافتة.",
+            text: "حلول معمارية متميزة. نهجهم الابتكاري حوّل رؤيتنا إلى واقع بدقة لافتة",
             author: "أحمد حسن",
             image: image3
         },
         {
             id: 4,
-            text: "احترافيون، موثوقون، ومبدعون. كانت إرما شريكنا الموثوق في عدة مشاريع على مرّ السنوات.",
+            text: "احترافيون، موثوقون، ومبدعون. كانت إرما شريكنا الموثوق في عدة مشاريع على مرّ السنوات",
             author: "إيما ويلسون",
             image: image4
         }
-    ]
+    ];
 
     return (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -55,14 +54,14 @@ export default function Testimonial() {
                                 </span>
                                 <Card className="border border-gray-300 p-10 pt-16 min-h-[300px]">
                                     <div className="border-t border-gray-300 pt-6">
-                                        <p className="text-gray-700 text-end leading-relaxed">
+                                        <p className="text-gray-700 leading-relaxed text-right">
                                             {content.text}
                                         </p>
                                     </div>
                                 </Card>
                                 <div className="flex items-center justify-end gap-4 mt-6">
-                                    
-                                        <p className="font-semibold text-lg">{content.author}</p>
+
+                                    <p className="font-semibold text-lg">{content.author}</p>
                                     <div className="w-16 overflow-hidden h-16 rounded-full bg-gray-300">
                                         <Image
                                             src={content.image || "/placeholder.svg"}

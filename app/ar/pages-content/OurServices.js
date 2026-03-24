@@ -43,7 +43,7 @@ export default function OurServices() {
             <HeroSection
                 bg={image3}
                 title={' خدماتنا '}
-                desc={'نقدّم مجموعة من الحلول المعمارية والهندسية المصممة لتلبية احتياجاتكم الفريدة، بدءًا من الفكرة الأولى وحتى التنفيذ النهائي.'}
+                desc={'نقدّم مجموعة من الحلول المعمارية والهندسية المصممة لتلبية احتياجاتكم الفريدة، بدءًا من الفكرة الأولى وحتى التنفيذ النهائي'}
             />
             <main className={`max-w-7xl mx-auto px-4 sm:px-6 space-y-5 lg:px-8 py-8 rtl text-right`}>
                 <ServiceSection isArabic lang='ar'/>

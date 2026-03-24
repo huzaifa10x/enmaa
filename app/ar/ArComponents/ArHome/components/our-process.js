@@ -51,7 +51,7 @@ function StepRow({ step, reverseOnDesktop }) {
                 className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 md:block"
                 aria-hidden="true"
             >
-                <div className="h-full border-l border-border" />
+                <div className="h-full border-s border-border" />
             </div>
 
             <div
@@ -65,7 +65,7 @@ function StepRow({ step, reverseOnDesktop }) {
             <div className={`grid items-center gap-10 md:grid-cols-2 ${reverseOnDesktop ? "!flex-row-reverse md:flex" : ""}`}>
 
                 {/* Text */}
-                <div className={`flex flex-col justify-center text-center md:text-end ${reverseOnDesktop ? "md:w-1/2" : ""}`}>
+                <div className={`flex flex-col justify-center text-center md:text-start ${reverseOnDesktop ? "md:w-1/2" : ""}`}>
                     <h3 className="text-3xl font-semibold tracking-tight text-foreground">
                         {step.title}
                     </h3>
@@ -93,39 +93,37 @@ export default function OurProcess() {
     useGsapPin(sectionRef)
 
     return (
-        <div className="relative w-full rounded-t-[50px] !z-50 bg-gray-100">
+       <div className="relative w-full rounded-t-[50px] z-50 bg-gray-100">
             <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-20">
-                <div dir="rtl" className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4 text-right">
+                
+                {/* Header Section aligned to start (right in RTL) */}
+                <div className="flex flex-col md:flex-row md:justify-between items-start gap-6">
                     <PillTitle title={'آلية العمل'} />
-
-                    <h2 className="text-balance text-3xl leading-tight text-foreground md:text-4xl lg:text-5xl">
+                    <h2 className="text-3xl leading-tight text-foreground md:text-4xl lg:text-5xl text-start">
                         نحب إيجاد <span className="text-primary font-bold">الحلول</span>
                         <br />
                         للتحديات <span className="text-primary font-bold">المعقدة</span>
                     </h2>
                 </div>
 
-                <div className="mt-10 space-y-12 md:space-y-6">
+                {/* Steps Container */}
+                <div className="mt-20 space-y-16 md:space-y-24">
                     <StepRow step={STEPS[0]} />
-                    <div className="hidden md:block">
-                        <div className="mx-auto h-px w-full max-w-5xl border-t border-border/60" aria-hidden="true" />
-                    </div>
-
                     <StepRow step={STEPS[1]} reverseOnDesktop />
-                    <div className="hidden md:block">
-                        <div className="mx-auto h-px w-full max-w-5xl border-t border-border/60" aria-hidden="true" />
-                    </div>
                     <StepRow step={STEPS[2]} />
                     <StepRow step={STEPS[3]} reverseOnDesktop />
                 </div>
 
-                <Image
-                    src={imagearabic}
-                    width={600}
-                    alt={imagearabic}
-                    height={200}
-                    className="mt-16"
-                />
+                {/* Decorative Bottom Image */}
+                <div className="flex justify-center md:justify-start">
+                    <Image
+                        src={imagearabic}
+                        width={600}
+                        alt="Decorative element"
+                        height={200}
+                        className="mt-16 opacity-80"
+                    />
+                </div>
             </div>
         </div>
     )

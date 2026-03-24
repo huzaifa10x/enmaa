@@ -288,7 +288,7 @@ export default function QuoteModal({ text, isArabic }) {
                         </FormLabel>
                         <FormControl>
                             <Input
-                                placeholder={isArabic ? "محمد أحمد" : "John Doe"}
+                                placeholder={isArabic ? "أدخل اسمك" : "Enter your name"}
                                 className={isArabic ? "text-right" : "text-left"}
                                 {...field}
                             />

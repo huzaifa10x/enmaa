@@ -38,12 +38,12 @@ export const metadata = {
 import { Suspense } from "react"
 import ProjectsPageContent from "./ProjectsPageContent"
 
-const LOCATIONS = [
-    "Abu Dhabi",
-    "Dubai",
-    "Sharjah",
-    "Ajman"
-];
+    const LOCATIONS = [
+        { label: "Abu Dhabi", value: "Abu Dhabi" },
+        { label: "Dubai", value: "Dubai" },
+        { label: "Sharjah", value: "Sharjah" },
+        { label: "Ajman", value: "Ajman" },
+    ];
 
 export default async function Page() {
     let data = await fetch('https://yellow-termite-327315.hostingersite.com/api/projects')
