@@ -69,7 +69,7 @@ function StepRow({ step, reverseOnDesktop }) {
                     <h3 className="text-3xl font-semibold text-right tracking-tight text-foreground">
                         {step.title}
                     </h3>
-                    <p className="mt-3 max-w-prose text-lg text-right leading-relaxed text-muted-foreground text-pretty">
+                    <p className="mt-3 max-w-prose text-lg text-right leading-relaxed text-muted-foreground text-pretty" dir="rtl">
                         {step.description}
                     </p>
                 </div>
