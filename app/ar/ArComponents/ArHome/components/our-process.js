@@ -66,10 +66,10 @@ function StepRow({ step, reverseOnDesktop }) {
 
                 {/* Text */}
                 <div className={`flex flex-col justify-center text-center md:text-start ${reverseOnDesktop ? "md:w-1/2" : ""}`}>
-                    <h3 className="text-3xl font-semibold tracking-tight text-foreground">
+                    <h3 className="text-3xl font-semibold text-right tracking-tight text-foreground">
                         {step.title}
                     </h3>
-                    <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted-foreground text-pretty">
+                    <p className="mt-3 max-w-prose text-lg text-right leading-relaxed text-muted-foreground text-pretty">
                         {step.description}
                     </p>
                 </div>
