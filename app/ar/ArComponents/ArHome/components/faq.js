@@ -133,7 +133,7 @@ export default function FAQ({ faqData }) {
                                         }`}
                                 >
                                     <p
-                                        className="text-gray-600 text-end text-sm md:text-base ml-9 pr-8 leading-relaxed"
+                                        dir="rtl" className="text-gray-600 text-right text-end text-sm md:text-base ml-9 pr-8 leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: item.answer }}
                                     ></p>
                                 </div>
