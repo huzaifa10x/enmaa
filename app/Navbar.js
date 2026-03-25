@@ -36,10 +36,16 @@ export default function Navbar() {
 
     const navItems = isArabic ? navItemsAr : navItemsEn;
 
+    // const isActive = (href) => {
+    //     if (href === "/" || href === "/ar") return pathname === href;
+    //     return pathname.startsWith(href);
+    // };
     const isActive = (href) => {
-        if (href === "/" || href === "/ar") return pathname === href;
-        return pathname.startsWith(href);
-    };
+    if (href === "/" || href === "/ar" || href === "/ar/") {
+        return pathname === href;
+    }
+    return pathname.startsWith(href);
+};
 
     return (
         <div className="absolute w-full top-0 left-0 z-50 flex lg:justify-center" dir={isArabic ? "rtl" : "ltr"}>
