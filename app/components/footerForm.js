@@ -94,7 +94,7 @@ export default function FooterForm() {
 
                         {/* Name */}
                         <div className="flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[200px]">
-                            <User className="text-white/40 shrink-0" />
+                            {/* <User className="text-white/40 shrink-0" /> */}
                             <input
                                 value={formData.name}
                                 onChange={(e) => handleInputChange("name", e.target.value)}
@@ -128,7 +128,7 @@ export default function FooterForm() {
 
                         {/* Date */}
                         <div className={`flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[150px]`}>
-                            <Calendar className="text-white/40 shrink-0" />
+                            {/* <Calendar className="text-white/40 shrink-0 px-5" /> */}
                             <input
                                 type="date"
                                 lang="ar-u-ca-gregory"
@@ -141,7 +141,7 @@ export default function FooterForm() {
 
                         {/* Time */}
                         <div className="flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[150px]">
-                            <Clock className="text-white/40 shrink-0" />
+                            {/* <Clock className="text-white/40 shrink-0" /> */}
                             <select
                                 value={formData.time}
                                 onChange={(e) => handleInputChange("time", e.target.value)}
@@ -161,7 +161,7 @@ export default function FooterForm() {
 
                         {/* Branch */}
                         <div className="flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[150px]">
-                            <MapPin className="text-white/40 shrink-0" />
+                            {/* <MapPin className="text-white/40 shrink-0" /> */}
                             <select
                                 value={formData.branch}
                                 onChange={(e) => handleInputChange("branch", e.target.value)}
