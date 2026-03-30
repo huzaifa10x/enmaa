@@ -288,96 +288,96 @@ export default function OurProjects() {
         //     </div>
         // </section>
 
-          <section ref={sectionRef} className="relative w-full  flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
-                    <div className="flex flex-wrap md:justify-between w-full max-w-7xl items-start lg:gap-0 gap-4 px-6">
-                         <PillTitle title="مشاريعنا" />
+        <section ref={sectionRef} className="relative w-full  flex flex-col py-10 overflow-x-hidden items-center justify-center rounded-t-[50px] !z-[60] bg-neutral-200 -mt-10">
+            <div className="flex flex-wrap md:justify-between w-full max-w-7xl items-start lg:gap-0 gap-4 px-6">
+                <PillTitle title="مشاريعنا" />
 
-                        <div className="md:mb-16 max-w-[500px]">
-                             <h2 className="text-4xl md:text-5xl mb-4 text-balance text-right">
-                         مشاريع <span className="text-primary font-bold">إبداعية</span> تعكس
-                         <br />
-                         أسلوبنا
-                     </h2>
-                        </div>
-                    </div>
-        
-                    <Image
-                        src={bgProp}
-                        width={300}
-                        height={300}
-                        alt=""
-                        className="absolute w-auto h-auto"
-                    />
-                    {/* Carousel container */}
-                    <div className="relative w-[40em] md:h-[25em] h-[15em] flex items-center justify-center">
-                        <ul className="relative w-full h-full flex items-center justify-center">
-                            {items.map((item, i) => (
-                                <li
-                                    key={item.id}
-                                    className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800  transform ${getPositionClass(
-                                        i
-                                    )}`}
-                                >
-                                    <div className="relative">
-                                        <div className="relative w-full h-[300px]">
-                                            <Image
-                                                src={item.src}
-                                                alt={`Slide ${item.id}`}
-                                                // width={500}
-                                                // height={481}
-                                                fill
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                className="w-full h-full object-cover brightness-75 "
-                                            />
-                                        </div>
-                                        {/* Overlay Text */}
-                                        <div className="inset-0 flex items-center justify-between py-2">
-                                            <div className="text-black text-right text-xs  opacity-90" dangerouslySetInnerHTML={{ __html: item.description }} />
-                                            <div className="font-bold text-right text-black mb-1" dangerouslySetInnerHTML={{ __html: item.title }} />
-                                        </div>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-        
-                    {/* Buttons */}
-                    <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center md:mt-38 gap-9 w-full max-w-7xl">
-                        {/* <div></div>
-                        <div></div> */}
-        
-                        <div className="flex items-center gap-4 lg-mt-0 mt-5">
-                            <button
-                                onClick={prev}
-                                className="text-black lg:px-6 lg:py-2 px-3 border border-neutral-400 rounded-full hover:bg-neutral-400 transition"
-                            >
-                                <ArrowLeft className="lg:w-10 w-3" />
-                            </button>
-                            <Link href={'our-projects'} className="bg-neutral-800 text-xs text-white text-nowrap lg:px-6 px-3 border border-neutral-400 py-1 lg:py-2 rounded-full hover:bg-black transition" >
-                                استكشاف الكل
-                                
-                            </Link>
-                            <button
-                                onClick={next}
-                                className="text-black lg:px-6 lg:py-2 px-3 border border-neutral-400 rounded-full hover:bg-neutral-400 transition"
-                            >
-                                <ArrowRight className="lg:w-10 w-3" />
-                            </button>
-                        </div>
-        
-                        {/* Progress Bar */}
-                        <div className="max-w-6xl flex items-center justify-end">
-                            <div className="flex items-center space-x-4 text-black text-4xl">
-                                <div className="w-50 h-1 bg-white relative">
-                                    <div className="absolute left-0 top-0 h-full bg-black transition-all duration-500 ease-out"
-                                        style={{ width: `${((currentSlide + 1) / items.length) * 100}%` }}
+                <div className="md:mb-16 max-w-[500px]">
+                    <h2 className="text-4xl md:text-5xl mb-4 text-balance text-right">
+                        مشاريع <span className="text-primary font-bold">إبداعية</span> تعكس
+                        <br />
+                        أسلوبنا
+                    </h2>
+                </div>
+            </div>
+
+            <Image
+                src={bgProp}
+                width={300}
+                height={300}
+                alt=""
+                className="absolute w-auto h-auto"
+            />
+            {/* Carousel container */}
+            <div className="relative w-[40em] md:h-[25em] h-[15em] flex items-center justify-center">
+                <ul className="relative w-full h-full flex items-center justify-center">
+                    {items.map((item, i) => (
+                        <li
+                            key={item.id}
+                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800  transform ${getPositionClass(
+                                i
+                            )}`}
+                        >
+                            <div className="relative">
+                                <div className="relative w-full h-[300px]">
+                                    <Image
+                                        src={item.src}
+                                        alt={`Slide ${item.id}`}
+                                        // width={500}
+                                        // height={481}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="w-full h-full object-cover brightness-75 "
                                     />
                                 </div>
-                                <span>{String(currentSlide + 1).padStart(2, "0")}</span>
-                                {/* <span>{String(items.length).padStart(2, "0")}</span> */}
+                                {/* Overlay Text */}
+                                <div className="inset-0 flex items-center justify-between py-2">
+                                    <div className="text-black text-right text-xs  opacity-90" dangerouslySetInnerHTML={{ __html: item.description }} />
+                                    <div className="font-bold text-right text-black mb-1" dangerouslySetInnerHTML={{ __html: item.title }} />
+                                </div>
                             </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            {/* Buttons */}
+            <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center md:mt-38 gap-9 w-full max-w-7xl">
+                {/* <div></div>
+                        <div></div> */}
+
+                <div className="flex items-center gap-4 lg-mt-0 mt-5">
+                    <button
+                        onClick={prev}
+                        className="text-black lg:px-6 lg:py-2 px-3 border border-neutral-400 rounded-full hover:bg-neutral-400 transition"
+                    >
+                        <ArrowLeft className="lg:w-10 w-3" />
+                    </button>
+                    <Link href={'our-projects'} className="bg-neutral-800 text-xs text-white text-nowrap lg:px-6 px-3 border border-neutral-400 py-1 lg:py-2 rounded-full hover:bg-black transition" >
+                        استكشاف الكل
+
+                    </Link>
+                    <button
+                        onClick={next}
+                        className="text-black lg:px-6 lg:py-2 px-3 border border-neutral-400 rounded-full hover:bg-neutral-400 transition"
+                    >
+                        <ArrowRight className="lg:w-10 w-3" />
+                    </button>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="max-w-6xl flex items-center justify-end">
+                    <div className="flex items-center space-x-4 text-black text-4xl">
+                        <div className="w-50 h-1 bg-white relative">
+                            <div className="absolute left-0 top-0 h-full bg-black transition-all duration-500 ease-out"
+                                style={{ width: `${((currentSlide + 1) / items.length) * 100}%` }}
+                            />
                         </div>
+                        <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+                        {/* <span>{String(items.length).padStart(2, "0")}</span> */}
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
     )
 }

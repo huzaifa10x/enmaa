@@ -147,7 +147,7 @@ export default function Footer() {
                             <div className="text-gray-300">
                                 <p className="text-lg">
                                     <a href="tel:+971506185529">
-                                        <b>اتصل بنا</b>: +٩٧١ ٥٠ ٦١٨ ٥٥٢٩
+                                        <b>اتصل بنا</b>: +971 50 618 5529
                                     </a>
                                 </p>
                             </div>

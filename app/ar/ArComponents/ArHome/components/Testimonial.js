@@ -6,7 +6,10 @@ import image1 from "@/public/images/person/professional-man-with-glasses-in-pink
 import image2 from "@/public/images/person/professional-man-in-pink-shirt-smiling - Copy.jpg"
 import image3 from "@/public/images/person/smiling-curly-woman.png"
 import image4 from "@/public/images/person/smiling-professional-woman.png"
+import male from "@/public/images/male-placeholder.webp"
+import female from "@/public/images/female-placeholder.webp"
 import Image from 'next/image'
+
 
 
 export default function Testimonial() {
@@ -15,25 +18,25 @@ export default function Testimonial() {
             id: 1,
             text: "من المنازل المتلاصقة إلى الفلل الفاخرة، ومن المباني الصغيرة إلى الأبراج الشاهقة، يتوفر مستشارو إرما الهندسيون لتلبية جميع احتياجاتكم في تصميم المخططات. فريق محترف للغاية يتميز بالتواضع",
             author: "ميرزا معاذ",
-            image: image1
+            image: male
         },
         {
             id: 2,
             text: "خدمة استثنائية واهتمام دقيق بالتفاصيل. بذل الفريق جهداً يفوق التوقعات لضمان إنجاز مشروعنا في الوقت المحدد وضمن الميزانية",
             author: "سارة جونسون",
-            image: image2
+            image: female
         },
         {
             id: 3,
             text: "حلول معمارية متميزة. نهجهم الابتكاري حوّل رؤيتنا إلى واقع بدقة لافتة",
             author: "أحمد حسن",
-            image: image3
+            image: male
         },
         {
             id: 4,
             text: "احترافيون، موثوقون، ومبدعون. كانت إرما شريكنا الموثوق في عدة مشاريع على مرّ السنوات",
             author: "إيما ويلسون",
-            image: image4
+            image: female
         }
     ];
 
@@ -62,12 +65,12 @@ export default function Testimonial() {
                                 <div className="flex items-center justify-end gap-4 mt-6">
 
                                     <p className="font-semibold text-lg">{content.author}</p>
-                                    {/* <div className="w-16 overflow-hidden h-16 rounded-full bg-gray-300">
+                                    <div className="w-10 overflow-hidden h-10 rounded-full bg-gray-300">
                                         <Image
                                             src={content.image || "/placeholder.svg"}
                                             alt={content.author}
                                         />
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </CarouselItem>
