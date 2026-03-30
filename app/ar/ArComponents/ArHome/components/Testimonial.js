@@ -62,12 +62,12 @@ export default function Testimonial() {
                                 <div className="flex items-center justify-end gap-4 mt-6">
 
                                     <p className="font-semibold text-lg">{content.author}</p>
-                                    <div className="w-16 overflow-hidden h-16 rounded-full bg-gray-300">
+                                    {/* <div className="w-16 overflow-hidden h-16 rounded-full bg-gray-300">
                                         <Image
                                             src={content.image || "/placeholder.svg"}
                                             alt={content.author}
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </CarouselItem>

@@ -146,10 +146,11 @@ export default function OurProjects() {
     })
     const [index, setIndex] = useState(0)
     // Auto rotate
-    useEffect(() => {
-        const interval = setInterval(() => next(), 3000)
-        return () => clearInterval(interval)
-    }, [index])
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => next(), 3000)
+    //     return () => clearInterval(interval)
+    // }, [index])
 
     // const next = () => setIndex((prev) => (prev + 1) % items.length)
     // const prev = () => setIndex((prev) => (prev - 1 + items.length) % items.length)

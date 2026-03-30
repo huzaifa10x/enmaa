@@ -30,7 +30,7 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                 <HeroSection
                     bg={image3}
                     title={' مواقع لمشاريع'}
-                    desc={'تشمل مشاريعنا الفلل والمباني السكنية والتطويرات التجارية المصممة لتجمع بين العملية والراحة والتصميم الراقي'}
+                    desc={'تشمل مشاريعنا الفلل والمباني السكنية والتطويرات التجارية المصممة لتجمع بين العملية والراحة والتصميم الراقي.'}
                 /> :
                 <HeroSection
                     bg={image3}

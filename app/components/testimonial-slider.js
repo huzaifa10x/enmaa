@@ -97,7 +97,7 @@ const testimonials = [
 
 gsap.registerPlugin(ScrollTrigger)
 
-function TestimonialSlider() {
+function    TestimonialSlider() {
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const goToPrevious = () => {

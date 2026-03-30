@@ -97,7 +97,6 @@ const items = [
         <div>Built Up Area 1490.00 M2</div>
     </div>`
     }
-
 ]
 
 export default function OurProjects() {
@@ -124,7 +123,9 @@ export default function OurProjects() {
         }
     })
     const [index, setIndex] = useState(0)
+
     // Auto rotate
+
     // useEffect(() => {
     //     const interval = setInterval(() => next(), 3000)
     //     return () => clearInterval(interval)

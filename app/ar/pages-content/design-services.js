@@ -1,5 +1,4 @@
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
-import Image from 'next/image'
 import ServicesBanner from '@/app/components/services-banner'
 import image1 from "@/public/images/Services-images/Design Services/565.jpg"
 import image2 from "@/public/images/Services-images/Design Services/876.jpg"
