@@ -16,22 +16,30 @@ export default function ProjectCard({ project, onClick, isArabic }) {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
 
-            {/* Content */}
-                <div className="absolute bottom-4 left-3 flex justify-between items-start" dir={`${isArabic ? 'rtl' : 'ltr'}`}>
+            {/* Content */} 
+             {isArabic ?
+                <div className="absolute top-4 right-3 flex justify-between items-start">
                     <div>
-                        {isArabic ?
+                      
                             <div>
-                                <p className="text-white/80 text-sm">{project.location_ar}</p>
-                                <p className="text-white/70 text-xs mt-1">{project.style_ar}</p>
+                                <p className="text-white/80 text-md text-right">{project.location_ar}</p>
+                                <p className="text-white/70 text-sm mt-1 text-right">{project.style_ar}</p>
                             </div>
-                            :
-                            <div>
-                                <p className="text-white/80 text-sm">{project.location}</p>
-                                <p className="text-white/70 text-xs mt-1">{project.style}</p>
-                            </div>
-                        }
+                         
                     </div>
                 </div>
+                   :
+                 <div className="absolute top-4 left-3 flex justify-between items-start">
+                    <div>
+                       
+                            <div>
+                                <p className="text-white/80 text-md">{project.location}</p>
+                                <p className="text-white/70 text-sm mt-1">{project.style}</p>
+                            </div>
+                        
+                    </div>
+                </div>
+}
                 <div className="absolute bottom-3 right-3 bg-white/20 backdrop-blur-sm p-2 rounded-full group-hover:bg-white/30 transition-colors">
                         <Play className="w-5 h-5 text-white fill-white" />
                     </div>
