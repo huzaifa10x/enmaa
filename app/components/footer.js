@@ -9,13 +9,10 @@ import footerLogoarabic from "@/public/images/image10.png"
 import Image from "next/image"
 import Link from "next/link"
 import WPIcon from "@/public/images/WP-icon.png"
-
 import { usePathname } from "next/navigation"
 import FooterForm from "./footerForm"
 
 export default function Footer() {
-
-
     const pathname = usePathname();
     const isArabic = pathname.startsWith("/ar");
     const footerItemsEn = [
@@ -132,7 +129,7 @@ export default function Footer() {
                     </div>
                 }
 
-                <FooterForm isArabic={isArabic}/>
+                <FooterForm isArabic={isArabic} />
                 {/* Contact Info and Email Signup */}
 
                 {isArabic ?
@@ -147,7 +144,7 @@ export default function Footer() {
                             <div className="text-gray-300">
                                 <p className="text-lg">
                                     <a href="tel:+971506185529">
-                                        <b>اتصل بنا</b>: +971 50 618 5529
+                                        <b>اتصل بنا</b> : 5529 618 50 971+
                                     </a>
                                 </p>
                             </div>
@@ -155,29 +152,26 @@ export default function Footer() {
 
                         {/* Email Signup */}
                         <div className="space-y-4 flex md:justify-end justify-center">
-                            {isArabic ? 
-                               <Image
-                                src={footerLogoarabic}
-                                height={320}
-                                width={320}
-                                alt="image"
-                                className="h-auto w-auto"
-                            />
-                            :
-                               <Image
-                                src={footerLogoengish}
-                                height={320}
-                                width={320}
-                                alt="image"
-                                className="h-auto w-auto"
-                            />
+                            {isArabic ?
+                                <Image
+                                    src={footerLogoarabic}
+                                    height={320}
+                                    width={320}
+                                    alt="image"
+                                    className="h-auto w-auto"
+                                />
+                                :
+                                <Image
+                                    src={footerLogoengish}
+                                    height={320}
+                                    width={320}
+                                    alt="image"
+                                    className="h-auto w-auto"
+                                />
                             }
-                           
                         </div>
                     </div>
-
                     :
-
                     <div className="grid md:grid-cols-2 gap-12 items-center border-t border-gray-700 pt-12">
                         <div className="space-y-4">
                             <div className="text-gray-300">
@@ -192,27 +186,26 @@ export default function Footer() {
                         </div>
 
                         {/* Email Signup */}
-                        {isArabic ? 
-                        <div className="space-y-4 flex md:justify-end justify-center">
-                            <Image
-                                src={footerLogoarabic}
-                                height={320}
-                                width={320}
-                                alt="image"
-                                className="h-auto w-auto object-center"
-                            />
-                        </div>
-                        :
-                        
-                        <div className="space-y-4 flex md:justify-end justify-center">
-                            <Image
-                                src={footerLogoengish}
-                                height={320}
-                                width={320}
-                                alt="image"
-                                className="h-auto w-auto object-center"
-                            />
-                        </div>
+                        {isArabic ?
+                            <div className="space-y-4 flex md:justify-end justify-center">
+                                <Image
+                                    src={footerLogoarabic}
+                                    height={320}
+                                    width={320}
+                                    alt="image"
+                                    className="h-auto w-auto object-center"
+                                />
+                            </div>
+                            :
+                            <div className="space-y-4 flex md:justify-end justify-center">
+                                <Image
+                                    src={footerLogoengish}
+                                    height={320}
+                                    width={320}
+                                    alt="image"
+                                    className="h-auto w-auto object-center"
+                                />
+                            </div>
                         }
                     </div>}
 
