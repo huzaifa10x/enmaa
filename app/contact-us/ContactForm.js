@@ -6,6 +6,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import QuoteModal from '../components/multi-step-form';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { captcha_site_key } from '@/lib/config';
 
 export default function ContactForm() {
   const pathname = usePathname();
@@ -53,7 +54,6 @@ export default function ContactForm() {
       return;
     }
 
-    // 🔐 captcha token lo
     const token = recaptchaRef.current.getValue();
 
     if (!token) {
@@ -199,7 +199,7 @@ export default function ContactForm() {
       )}
 
       <ReCAPTCHA
-        sitekey={'6LfFwaIsAAAAAGoHWh_nj9dqlxiRy0SU_xDpA9QP'}
+        sitekey={captcha_site_key}
         ref={recaptchaRef}
       />
 

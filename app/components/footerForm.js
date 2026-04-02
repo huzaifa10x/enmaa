@@ -1,14 +1,18 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { captcha_site_key } from '@/lib/config'
 import { Calendar, Clock, MapPin, User } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
 export default function FooterForm() {
     const pathname = usePathname();
     const [isArabic, setIsArabic] = useState(false);
+    const [showCaptcha, setShowCaptcha] = useState(false);
+    const recaptchaRef = useRef(null);
 
     useEffect(() => {
         setIsArabic(pathname.startsWith('/ar/'));
@@ -50,9 +54,23 @@ export default function FooterForm() {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setLoading(true)
-        setMessage("")
+        e.preventDefault();
+
+        // 👇 pehli baar submit pe captcha show hoga
+        if (!showCaptcha) {
+            setShowCaptcha(true);
+            return;
+        }
+
+        const token = recaptchaRef.current.getValue();
+
+        if (!token) {
+            setMessage("⚠️ Please verify captcha");
+            return;
+        }
+
+        setLoading(true);
+        setMessage("");
 
         try {
             const res = await fetch(
@@ -69,28 +87,32 @@ export default function FooterForm() {
                         date: formData.date,
                         time: formData.time,
                         location: formData.branch,
+                        recaptchaToken: token,
                     }),
                 }
-            )
+            );
 
-            const data = await res.json()
-            if (!res.ok) throw new Error(data.message || (isArabic ? "حدث خطأ ما" : "Something went wrong"))
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || "Something went wrong");
 
-            setMessage(isArabic ? "✅ تم حجز الموعد بنجاح!" : "✅ Appointment booked successfully!")
-            setFormData({ name: "", phone: "", date: "", time: "", branch: "" })
+            setMessage("✅ Appointment booked successfully!");
+            setFormData({ name: "", phone: "", date: "", time: "", branch: "" });
+
+            recaptchaRef.current.reset();
+            setShowCaptcha(false); // 👈 reset UX
 
         } catch (error) {
-            setMessage("❌ " + error.message)
+            setMessage("❌ " + error.message);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    }
+    };
 
     return (
         <div className="max-w-7xl mx-auto" dir={isArabic ? "rtl" : "ltr"}>
             <div className="bg-gradient-to-r border rounded-2xl p-6 shadow-2xl">
                 <form onSubmit={handleSubmit}>
-                    <div className="md:flex md:space-y-0 space-y-4 items-center gap-4">
+                    <div className="md:flex flex-wrap md:space-y-0 space-y-4 items-center gap-4">
 
                         {/* Name */}
                         <div className="flex items-center gap-3 px-4 h-11 border rounded-md bg-white/10 border-white/20 text-white flex-1 min-w-[200px]">
@@ -184,6 +206,12 @@ export default function FooterForm() {
                             {isArabic ? (loading ? "جاري..." : "احجز") : (loading ? "BOOKING..." : "BOOK")}
                         </Button>
 
+                        {showCaptcha && (
+                            <ReCAPTCHA
+                                sitekey={captcha_site_key}
+                                ref={recaptchaRef}
+                            />
+                        )}
                     </div>
 
                     {message && (

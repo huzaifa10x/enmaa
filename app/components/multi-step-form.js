@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -37,6 +37,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import ReCAPTCHA from "react-google-recaptcha";
+import { captcha_site_key } from "@/lib/config";
 
 
 // --- Constants ---
@@ -144,7 +146,8 @@ const getFormSchema = () => {
 export default function QuoteModal({ text, isArabic }) {
     const [open, setOpen] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
-
+    const [showCaptcha, setShowCaptcha] = useState(false);
+    const recaptchaRef = useRef(null);
 
     const form = useForm({
         resolver: zodResolver(getFormSchema()), // No more isArabic dependency
@@ -208,9 +211,90 @@ export default function QuoteModal({ text, isArabic }) {
         setCurrentStep((prev) => Math.max(prev - 1, 1));
     };
 
+    // const onSubmit = async (values) => {
+    //     try {
+    //         // 1. Create a structured object for the message content
+    //         const structuredMessage = {
+    //             contact: {
+    //                 fullName: values.fullName,
+    //                 email: values.email,
+    //                 phone: values.phoneNumber,
+    //                 referral: values.hearAbout || 'N/A'
+    //             },
+    //             project: {
+    //                 type: values.projectType === 'Other' ? values.projectTypeOther : values.projectType,
+    //                 location: values.projectLocation,
+    //                 plotSizeSqFt: values.plotSize || null,
+    //                 builtUpAreaSqFt: values.builtUpArea || null,
+    //                 budgetAED: values.budget || 0
+    //             },
+    //             services: values.services || [],
+    //             requirements: {
+    //                 hasExistingDrawings: values.hasExistingDrawings === 'yes',
+    //                 requiresSiteVisit: values.requireSiteVisit === 'yes',
+    //                 preferredStyles: values.preferredStyles || '',
+    //                 pinterestLink: values.pinterestLink || ''
+    //             },
+    //             notes: values.additionalNotes || 'None'
+    //         };
+
+    //         // 2. Prepare the final payload
+    //         const payload = {
+    //             name: values.fullName,
+    //             email: values.email,
+    //             // Convert the object to a JSON string for the 'message' field
+    //             message: JSON.stringify(structuredMessage),
+    //             image: values.pinterestLink || "https://example.com/default.png",
+    //             budget: Number(values.budget) || 0,
+    //         };
+
+    //         console.log("Submitting structured payload:", payload);
+
+    //         const response = await fetch('https://yellow-termite-327315.hostingersite.com/api/inquiries', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(payload),
+    //         });
+
+    //         if (!response.ok) {
+    //             throw new Error(`Error: ${response.statusText}`);
+    //         }
+
+    //         const result = await response.json();
+    //         console.log("Success:", result);
+
+    //         alert("Quote request submitted successfully!");
+    //         setOpen(false);
+    //         setCurrentStep(1);
+    //         form.reset();
+    //     } catch (error) {
+    //         console.error("Submission Error:", error);
+    //         alert("Failed to submit request. Please check your connection and try again.");
+    //     }
+    // };
+
+    // --- Sub-components for Steps ---
+
+
     const onSubmit = async (values) => {
+
+        // 👇 pehli click pe captcha show hoga
+        if (!showCaptcha) {
+            setShowCaptcha(true);
+            return;
+        }
+
+        const token = recaptchaRef.current.getValue();
+
+        if (!token) {
+            alert("⚠️ Please verify captcha");
+            return;
+        }
+
         try {
-            // 1. Create a structured object for the message content
+            // 1. structured object
             const structuredMessage = {
                 contact: {
                     fullName: values.fullName,
@@ -235,25 +319,28 @@ export default function QuoteModal({ text, isArabic }) {
                 notes: values.additionalNotes || 'None'
             };
 
-            // 2. Prepare the final payload
+            // 2. payload
             const payload = {
                 name: values.fullName,
                 email: values.email,
-                // Convert the object to a JSON string for the 'message' field
                 message: JSON.stringify(structuredMessage),
                 image: values.pinterestLink || "https://example.com/default.png",
                 budget: Number(values.budget) || 0,
+                recaptchaToken: token, // 🔐 add this
             };
 
             console.log("Submitting structured payload:", payload);
 
-            const response = await fetch('https://yellow-termite-327315.hostingersite.com/api/inquiries', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-            });
+            const response = await fetch(
+                'https://yellow-termite-327315.hostingersite.com/api/inquiries',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                }
+            );
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
@@ -263,16 +350,20 @@ export default function QuoteModal({ text, isArabic }) {
             console.log("Success:", result);
 
             alert("Quote request submitted successfully!");
+
+            // reset sab kuch
             setOpen(false);
             setCurrentStep(1);
             form.reset();
+
+            recaptchaRef.current.reset();
+            setShowCaptcha(false);
+
         } catch (error) {
             console.error("Submission Error:", error);
             alert("Failed to submit request. Please check your connection and try again.");
         }
     };
-
-    // --- Sub-components for Steps ---
 
     const renderStep1 = () => (
         <div className={`space-y-4 ${isArabic ? "text-right" : "text-left"}`}>
@@ -884,7 +975,12 @@ export default function QuoteModal({ text, isArabic }) {
                                 >
                                     <ChevronLeft className="w-4 h-4" /> Back
                                 </Button>
-
+                                {showCaptcha && (
+                                    <ReCAPTCHA
+                                        sitekey={captcha_site_key}
+                                        ref={recaptchaRef}
+                                    />
+                                )}
                                 {currentStep < translations.en.steps.length ? (
                                     <Button type="button" onClick={handleNext} className="gap-2">
                                         Next <ChevronRight className="w-4 h-4" />
