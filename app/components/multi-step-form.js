@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -132,16 +132,17 @@ const getFormSchema = () => {
         additionalNotes: z.string().optional(),
     });
 };
+
 // .refine((data) => {
-//     if (!data.plotSize || !data.builtUpArea) return true;
-//     const plot = Number(data.plotSize);
-//     const built = Number(data.builtUpArea);
-//     if (isNaN(plot) || isNaN(built)) return true;
-//     return built < plot;
-// }, {
-//     message: "Value should be less than Plot Size",
-//     path: ["builtUpArea"],
-// });
+//         if (!data.plotSize || !data.builtUpArea) return true;
+//         const plot = Number(data.plotSize);
+//         const built = Number(data.builtUpArea);
+//         if (isNaN(plot) || isNaN(built)) return true;
+//         return built < plot;
+//     }, {
+//         message: "Value should be less than Plot Size",
+//         path: ["builtUpArea"],
+//     });
 
 export default function QuoteModal({ text, isArabic }) {
     const [open, setOpen] = useState(false);
@@ -279,7 +280,6 @@ export default function QuoteModal({ text, isArabic }) {
 
 
     const onSubmit = async (values) => {
-
         // 👇 pehli click pe captcha show hoga
         if (!showCaptcha) {
             setShowCaptcha(true);
@@ -292,6 +292,18 @@ export default function QuoteModal({ text, isArabic }) {
             alert("⚠️ Please verify captcha");
             return;
         }
+
+        useEffect(() => {
+            if (showCaptcha) {
+                document.body.style.pointerEvents = "all"; // 👈 enable
+            } else {
+                document.body.style.pointerEvents = "auto";
+            }
+
+            return () => {
+                document.body.style.pointerEvents = "auto";
+            };
+        }, [showCaptcha]);
 
         try {
             // 1. structured object
@@ -918,83 +930,87 @@ export default function QuoteModal({ text, isArabic }) {
 
     return (
         <>
-            <Dialog open={open} onOpenChange={setOpen}>
-                <DialogTrigger className='lg:justify-center justify-start' asChild>
-                    <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4">
-                        {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
-                    </Button>
-                </DialogTrigger>
+            <div style={{ pointerEvents: showCaptcha ? "none" : "auto" }}>
+                <Dialog open={open} onOpenChange={setOpen} className='pointer-events-auto'>
+                    <DialogTrigger className='lg:justify-center justify-start' asChild>
+                        <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4">
+                            {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
+                        </Button>
+                    </DialogTrigger>
 
-                <DialogContent className="sm:max-w-[600px] overflow-y-auto flex flex-col p-0 gap-0">
-                    <DialogHeader className="p-6 pb-2">
-                        <DialogTitle className={`${isArabic ? 'text-right mt-5' : 'text-left'}`}>
-                            {isArabic ? "احصل على عرض أسعار" : "Get a Quote"}
+                    <DialogContent className="sm:max-w-[600px] overflow-y-auto flex flex-col p-0 gap-0">
+                        <DialogHeader className="p-6 pb-2">
+                            <DialogTitle className={`${isArabic ? 'text-right mt-5' : 'text-left'}`}>
+                                {isArabic ? "احصل على عرض أسعار" : "Get a Quote"}
 
-                        </DialogTitle>
-                        {isArabic ?
-                            <DialogDescription className={`${isArabic ? 'text-right' : 'text-left'}`}>
-                                خطوات{currentStep} / {translations.ar.steps.length} : {translations.ar.steps[currentStep - 1].title}
-                            </DialogDescription>
+                            </DialogTitle>
+                            {isArabic ?
+                                <DialogDescription className={`${isArabic ? 'text-right' : 'text-left'}`}>
+                                    خطوات{currentStep} / {translations.ar.steps.length} : {translations.ar.steps[currentStep - 1].title}
+                                </DialogDescription>
 
-                            :
+                                :
 
-                            <DialogDescription className={`${isArabic ? 'text-right' : 'text-left'}`}>
-                                Step {currentStep} of {translations.en.steps.length}: {translations.en.steps[currentStep - 1].title}
-                            </DialogDescription>
-                        }
+                                <DialogDescription className={`${isArabic ? 'text-right' : 'text-left'}`}>
+                                    Step {currentStep} of {translations.en.steps.length}: {translations.en.steps[currentStep - 1].title}
+                                </DialogDescription>
+                            }
 
-                        {/* Progress Bar */}
-                        <div className="w-full bg-gray-200 h-2 mt-4 rounded-full overflow-hidden">
-                            <div
-                                className="bg-blue-600 h-full transition-all duration-300 ease-in-out"
-                                style={{ width: `${(currentStep / translations.en.steps.length) * 100}%` }}
-                            />
-                        </div>
-                    </DialogHeader>
+                            {/* Progress Bar */}
+                            <div className="w-full bg-gray-200 h-2 mt-4 rounded-full overflow-hidden">
+                                <div
+                                    className="bg-blue-600 h-full transition-all duration-300 ease-in-out"
+                                    style={{ width: `${(currentStep / translations.en.steps.length) * 100}%` }}
+                                />
+                            </div>
+                        </DialogHeader>
 
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 flex flex-col overflow-hidden">
-                            <ScrollArea className="flex-1 p-6 pt-2">
-                                <div className="px-1">
-                                    {currentStep === 1 && renderStep1()}
-                                    {currentStep === 2 && renderStep2()}
-                                    {currentStep === 3 && renderStep3()}
-                                    {currentStep === 4 && renderStep4()}
-                                    {currentStep === 5 && renderStep5()}
-                                    {currentStep === 6 && renderStep6()}
-                                </div>
-                            </ScrollArea>
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 flex flex-col overflow-hidden">
+                                <ScrollArea className="flex-1 p-6 pt-2">
+                                    <div className="px-1">
+                                        {currentStep === 1 && renderStep1()}
+                                        {currentStep === 2 && renderStep2()}
+                                        {currentStep === 3 && renderStep3()}
+                                        {currentStep === 4 && renderStep4()}
+                                        {currentStep === 5 && renderStep5()}
+                                        {currentStep === 6 && renderStep6()}
+                                    </div>
+                                </ScrollArea>
 
-                            <DialogFooter className="p-6 border-t mt-auto flex flex-row justify-between sm:justify-between">
-                                <Button
-                                    type="button"
-                                    variant="outline"
-                                    onClick={handleBack}
-                                    disabled={currentStep === 1}
-                                    className="gap-2"
-                                >
-                                    <ChevronLeft className="w-4 h-4" /> Back
-                                </Button>
+                                <DialogFooter className="p-6 border-t mt-auto flex flex-row justify-between sm:justify-between">
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        onClick={handleBack}
+                                        disabled={currentStep === 1}
+                                        className="gap-2"
+                                    >
+                                        <ChevronLeft className="w-4 h-4" /> Back
+                                    </Button>
+                                    {currentStep < translations.en.steps.length ? (
+                                        <Button type="button" onClick={handleNext} className="gap-2">
+                                            Next <ChevronRight className="w-4 h-4" />
+                                        </Button>
+                                    ) : (
+                                        <Button type="submit" className="gap-2 bg-green-600 hover:bg-green-700">
+                                            Submit Request <Check className="w-4 h-4" />
+                                        </Button>
+                                    )}
+                                </DialogFooter>
                                 {showCaptcha && (
-                                    <ReCAPTCHA
-                                        sitekey={captcha_site_key}
-                                        ref={recaptchaRef}
-                                    />
+                                    <div style={{ pointerEvents: "auto" }}>
+                                        <ReCAPTCHA
+                                            sitekey={captcha_site_key}
+                                            ref={recaptchaRef}
+                                        />
+                                    </div>
                                 )}
-                                {currentStep < translations.en.steps.length ? (
-                                    <Button type="button" onClick={handleNext} className="gap-2">
-                                        Next <ChevronRight className="w-4 h-4" />
-                                    </Button>
-                                ) : (
-                                    <Button type="submit" className="gap-2 bg-green-600 hover:bg-green-700">
-                                        Submit Request <Check className="w-4 h-4" />
-                                    </Button>
-                                )}
-                            </DialogFooter>
-                        </form>
-                    </Form>
-                </DialogContent>
-            </Dialog>
+                            </form>
+                        </Form>
+                    </DialogContent>
+                </Dialog>
+            </div>
         </>
     );
 }
