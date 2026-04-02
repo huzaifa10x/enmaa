@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import QuoteModal from '../components/multi-step-form';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactForm() {
   const pathname = usePathname();
@@ -25,6 +26,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [responseMsg, setResponseMsg] = useState('');
+  const recaptchaRef = useRef(null);
 
   const validateForm = () => {
     const newErrors = {};
@@ -44,9 +46,18 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      return;
+    }
+
+    // 🔐 captcha token lo
+    const token = recaptchaRef.current.getValue();
+
+    if (!token) {
+      setResponseMsg("Please verify captcha ⚠️");
       return;
     }
 
@@ -57,27 +68,47 @@ export default function ContactForm() {
     try {
       const res = await fetch('https://yellow-termite-327315.hostingersite.com/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken: token, // 👈 IMPORTANT
+        }),
       });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Something went wrong');
 
-      setResponseMsg(isArabic ? 'تم إرسال الرسالة بنجاح ✅' : 'Message sent successfully ✅');
+      setResponseMsg(isArabic
+        ? 'تم إرسال الرسالة بنجاح ✅'
+        : 'Message sent successfully ✅'
+      );
+
       setFormData({ name: '', email: '', services: [], phone: '', message: '' });
+
+      // 🔄 captcha reset karo
+      recaptchaRef.current.reset();
+
     } catch (error) {
-      setResponseMsg(error.message || (isArabic ? 'فشل في إرسال الرسالة ❌' : 'Failed to send message ❌'));
+      setResponseMsg(
+        error.message ||
+        (isArabic
+          ? 'فشل في إرسال الرسالة ❌'
+          : 'Failed to send message ❌'
+        )
+      );
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <form 
-      className="space-y-4 bg-black/5 border p-6 rounded-2xl" 
-      onSubmit={handleSubmit} 
-      noValidate 
+    <form
+      className="space-y-4 bg-black/5 border p-6 rounded-2xl"
+      onSubmit={handleSubmit}
+      noValidate
       dir={isArabic ? "rtl" : "ltr"}
     >
       {/* Name + Email */}
@@ -116,7 +147,7 @@ export default function ContactForm() {
             onChange={(e) => setFormData(prev => ({ ...prev, services: [e.target.value] }))}
             className={`w-full rounded-md px-4 py-3 border bg-white appearance-none ${isArabic ? "text-right" : "text-left"}`}
           >
-            {[ 
+            {[
               { en: "Choose Service", ar: "اختر الخدمة", value: "" },
               { en: "Engineering Services", ar: "الخدمات الهندسية" },
               { en: "Design Services", ar: "خدمات التصميم" },
@@ -167,6 +198,11 @@ export default function ContactForm() {
         </p>
       )}
 
+      <ReCAPTCHA
+        sitekey={'6LfFwaIsAAAAAGoHWh_nj9dqlxiRy0SU_xDpA9QP'}
+        ref={recaptchaRef}
+      />
+
       {/* Submit */}
       <button
         type="submit"
@@ -181,7 +217,7 @@ export default function ContactForm() {
       </div>
 
       <div className="bg-[#284494] text-white px-6 py-1 flex justify-center rounded-md w-full">
-        <QuoteModal isArabic={isArabic}/>
+        <QuoteModal isArabic={isArabic} />
       </div>
 
       <style jsx global>{`
