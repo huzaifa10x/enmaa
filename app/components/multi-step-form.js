@@ -917,19 +917,19 @@ export default function QuoteModal({ text, isArabic }) {
     );
 
 
-    // useEffect(() => {
-    //     if (open) {
-    //         setShowOverlay(true);
-    //     } else {
-    //         setShowOverlay(false);            
-    //     }
-    // }, [open]);
+    useEffect(() => {
+        if (open) {
+            setShowOverlay(true);
+        } else {
+            setShowOverlay(false);
+        }
+    }, [open]);
 
     return (
         <>
             <div style={{ pointerEvents: showCaptcha ? "none" : "auto" }}>
-                {/* <div className={`${showOverlay ? 'bg-black/50 w-full h-screen fixed top-0 left-0 block' : 'hidden'}`}></div> */}
-                <Dialog  open={open} onOpenChange={setOpen} className='pointer-events-auto'>
+                <div className={`${showOverlay ? 'bg-black/50 w-full pointer-events-none! h-screen fixed top-0 left-0 block' : 'hidden'}`}></div>
+                <Dialog modal={false} open={open} onOpenChange={setOpen} className='pointer-events-none!'>
                     <DialogTrigger className='lg:justify-center justify-start' asChild>
                         <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4">
                             {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
