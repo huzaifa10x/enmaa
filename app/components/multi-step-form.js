@@ -148,6 +148,7 @@ export default function QuoteModal({ text, isArabic }) {
     const [open, setOpen] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
     const [showCaptcha, setShowCaptcha] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(false);
     const recaptchaRef = useRef(null);
 
     const form = useForm({
@@ -201,12 +202,12 @@ export default function QuoteModal({ text, isArabic }) {
                 fieldsToValidate = [];
                 break;
         }
-
         const isValid = await trigger(fieldsToValidate);
         if (isValid) {
             setCurrentStep((prev) => Math.min(prev + 1, translations.en.steps.length));
         }
     };
+
 
     const handleBack = () => {
         setCurrentStep((prev) => Math.max(prev - 1, 1));
@@ -278,7 +279,6 @@ export default function QuoteModal({ text, isArabic }) {
 
     // --- Sub-components for Steps ---
 
-
     const onSubmit = async (values) => {
         // 👇 pehli click pe captcha show hoga
         if (!showCaptcha) {
@@ -286,24 +286,13 @@ export default function QuoteModal({ text, isArabic }) {
             return;
         }
 
+
         const token = recaptchaRef.current.getValue();
 
         if (!token) {
             alert("⚠️ Please verify captcha");
             return;
         }
-
-        useEffect(() => {
-            if (showCaptcha) {
-                document.body.style.pointerEvents = "all"; // 👈 enable
-            } else {
-                document.body.style.pointerEvents = "auto";
-            }
-
-            return () => {
-                document.body.style.pointerEvents = "auto";
-            };
-        }, [showCaptcha]);
 
         try {
             // 1. structured object
@@ -385,7 +374,6 @@ export default function QuoteModal({ text, isArabic }) {
                 name="fullName"
                 render={({ field }) => (
                     <FormItem>
-
                         <FormLabel className={`flex items-center ${isArabic ? "text-right! justify-end" : "text-left! justify-start"}`}>
                             {isArabic ? "الاسم الكامل" : "Full Name"} <span className="text-red-500">*</span>
                         </FormLabel>
@@ -452,7 +440,6 @@ export default function QuoteModal({ text, isArabic }) {
                                 ? "كيف سمعت عن إنماء؟ (اختياري)"
                                 : "How did you hear about Enmaa? (Optional)"}
                         </FormLabel>
-
 
                         <Select onValueChange={field.onChange} defaultValue={field.value} className="" >
                             <FormControl>
@@ -898,6 +885,7 @@ export default function QuoteModal({ text, isArabic }) {
             />
         </div>
     );
+
     const FileUploadField = ({ label, description }) => (
         <div className="mb-4">
             <FormLabel className="mb-1 block text-sm font-medium">{label}</FormLabel>
@@ -928,10 +916,20 @@ export default function QuoteModal({ text, isArabic }) {
         </div>
     );
 
+
+    useEffect(() => {
+        if (open) {
+            setShowOverlay(true);
+        } else {
+            setShowOverlay(false);            
+        }
+    }, [open]);
+
     return (
         <>
             <div style={{ pointerEvents: showCaptcha ? "none" : "auto" }}>
-                <Dialog open={open} onOpenChange={setOpen} className='pointer-events-auto'>
+                <div className={`${showOverlay ? 'bg-black/50 w-full h-screen fixed top-0 left-0 block' : 'hidden'}`}></div>
+                <Dialog modal={false} open={open} onOpenChange={setOpen} className='pointer-events-auto'>
                     <DialogTrigger className='lg:justify-center justify-start' asChild>
                         <Button size="lg" className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4">
                             {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}

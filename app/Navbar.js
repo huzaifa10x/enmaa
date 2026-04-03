@@ -41,24 +41,24 @@ export default function Navbar() {
     //     return pathname.startsWith(href);
     // };
     const isActive = (href) => {
-    if (href === "/" || href === "/ar" || href === "/ar/") {
-        return pathname === href;
-    }
-    return pathname.startsWith(href);
-};
+        if (href === "/" || href === "/ar" || href === "/ar/") {
+            return pathname === href;
+        }
+        return pathname.startsWith(href);
+    };
 
     return (
         <div className="absolute w-full top-0 left-0 z-50 flex lg:justify-center" dir={isArabic ? "rtl" : "ltr"}>
             <nav className="max-w-7xl w-full min-w-[360px] flex items-center justify-between px-4 py-6">
                 {/* Logo */}
                 <Link href={isArabic ? "/ar" : "/"}>
-                {isArabic ? 
-                    <Image src={Logoarabic} height={100} width={100} className="w-auto h-auto" alt="Logo" />
-                
-                :
-                
-                    <Image src={Logoengish} height={100} width={100} className="w-auto h-auto" alt="Logo" />
-                }
+                    {isArabic ?
+                        <Image src={Logoarabic} height={100} width={100} className="w-auto h-auto" alt="Logo" />
+
+                        :
+
+                        <Image src={Logoengish} height={100} width={100} className="w-auto h-auto" alt="Logo" />
+                    }
                 </Link>
 
                 {/* Desktop Menu */}
@@ -118,12 +118,12 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex justify-between items-center mb-8">
-                    {isArabic ? 
-                    <Image src={Logoarabic} width={50} height={50} alt="Logo" className="w-auto h-auto" />
-                    :
-                    <Image src={Logoengish} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+                    {isArabic ?
+                        <Image src={Logoarabic} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+                        :
+                        <Image src={Logoengish} width={50} height={50} alt="Logo" className="w-auto h-auto" />
 
-                }
+                    }
                     <Button
                         variant="ghost"
                         onClick={() => setOpenSidebar(false)}
@@ -147,9 +147,9 @@ export default function Navbar() {
                     ))}
 
 
-                      <div className="flex items-center gap-4">
-                    <LanguageSwitcher />
-                </div>
+                    <div className="flex items-center gap-4">
+                        <LanguageSwitcher />
+                    </div>
 
 
                     <QuoteModal text={'Request a Quote Now'} isArabic={isArabic} />
