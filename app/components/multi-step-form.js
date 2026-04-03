@@ -119,27 +119,33 @@ const translations = {
     },
 };
 
-const getFormSchema = () =>
-    z.object({
-        fullName: z.string().min(2, "Name is required"),
-        email: z.string().email("Invalid email address"),
-        phoneNumber: z.string().min(5, "Phone number is required"),
-        hearAbout: z.string().optional(),
-        projectType: z.string().min(1, "Project type is required"),
-        projectTypeOther: z.string().optional(),
-        projectLocation: z.string().min(2, "Location is required"),
-        plotSize: z.string().optional(),
-        builtUpArea: z.string().optional(),
-        budget: z.string().optional(),
-        services: z.array(z.string()).refine((val) => val.length > 0, {
-            message: "Select at least one service.",
-        }),
-        hasExistingDrawings: z.enum(["yes", "no"]),
-        requireSiteVisit: z.enum(["yes", "no"]),
-        preferredStyles: z.string().optional(),
-        pinterestLink: z.string().url("Invalid URL").optional().or(z.literal("")),
-        additionalNotes: z.string().optional(),
+const getFormSchema = () => z.object({
+    fullName: z.string().min(2, "Name is required"),
+    email: z.string().email("Invalid email address"),
+    phoneNumber: z.string().min(5, "Phone number is required"),
+    hearAbout: z.string().optional(),
+    projectType: z.string().min(1, "Project type is required"),
+    projectTypeOther: z.string().optional(),
+    projectLocation: z.string().min(2, "Location is required"),
+
+    plotSize: z.coerce.number().min(1, "Plot size is required"),
+    builtUpArea: z.coerce.number().min(1, "Built-up area is required"),
+
+    budget: z.string().optional(),
+    services: z.array(z.string()).refine((val) => val.length > 0, {
+        message: "Select at least one service.",
+    }),
+    hasExistingDrawings: z.enum(["yes", "no"]),
+    requireSiteVisit: z.enum(["yes", "no"]),
+    preferredStyles: z.string().optional(),
+    pinterestLink: z.string().url("Invalid URL").optional().or(z.literal("")),
+    additionalNotes: z.string().optional(),
+})
+    .refine((data) => data.builtUpArea <= data.plotSize, {
+        message: "Built-up area cannot be larger than the plot size",
+        path: ["builtUpArea"],
     });
+
 
 export default function QuoteModal({ text, isArabic }) {
     const [open, setOpen] = useState(false);
@@ -342,23 +348,51 @@ export default function QuoteModal({ text, isArabic }) {
             )} />
 
             <div className="grid grid-cols-2 gap-4">
-                <FormField control={form.control} name="plotSize" render={({ field }) => (
-                    <FormItem>
-                        <FormLabel className={`flex items-center ${isArabic ? "justify-end" : "justify-start"}`}>{isArabic ? "مساحة الأرض" : "Plot Size"}</FormLabel>
-                        <FormControl>
-                            <Input type="number" placeholder={isArabic ? "قدم مربع" : "Sq. ft."} className={isArabic ? "text-right" : "text-left"} {...field} />
-                        </FormControl>
-                    </FormItem>
-                )} />
-                <FormField control={form.control} name="builtUpArea" render={({ field }) => (
-                    <FormItem>
-                        <FormLabel className={`flex items-center ${isArabic ? "justify-end" : "justify-start"}`}>{isArabic ? "المساحة المبنية التقديرية" : "Est. Built-up Area"}</FormLabel>
-                        <FormControl>
-                            <Input type="number" placeholder={isArabic ? "قدم مربع" : "Sq. ft."} className={isArabic ? "text-right" : "text-left"} {...field} />
-                        </FormControl>
-                        <FormMessage />
-                    </FormItem>
-                )} />
+                {/* Plot Size Field */}
+                <FormField
+                    control={form.control}
+                    name="plotSize"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className={`flex items-center ${isArabic ? "justify-end" : "justify-start"}`}>
+                                {isArabic ? "مساحة الأرض" : "Plot Size"}
+                            </FormLabel>
+                            <FormControl>
+                                <Input
+                                    type="number"
+                                    placeholder={isArabic ? "قدم مربع" : "Sq. ft."}
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    {...field}
+                                    onChange={(e) => field.onChange(e.target.valueAsNumber || 0)}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                {/* Built-up Area Field */}
+                <FormField
+                    control={form.control}
+                    name="builtUpArea"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className={`flex items-center ${isArabic ? "justify-end" : "justify-start"}`}>
+                                {isArabic ? "المساحة المبنية التقديرية" : "Est. Built-up Area"}
+                            </FormLabel>
+                            <FormControl>
+                                <Input
+                                    type="number"
+                                    placeholder={isArabic ? "قدم مربع" : "Sq. ft."}
+                                    className={isArabic ? "text-right" : "text-left"}
+                                    {...field}
+                                    onChange={(e) => field.onChange(e.target.valueAsNumber || 0)}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
             </div>
 
             <FormDescription className={`flex items-center text-xs ${isArabic ? "justify-end" : "justify-start"}`}>
