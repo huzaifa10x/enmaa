@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-// import Logo from "@/public/images/enmaa-logo.webp";
 import Logoengish from "@/public/images/Enmaa-footer.webp"
 import Logoarabic from "@/public/images/image10.png"
 import React, { useState } from "react";
@@ -11,7 +10,6 @@ import { usePathname } from "next/navigation";
 import QuoteModal from "./components/multi-step-form";
 import { Menu } from "lucide-react";
 import LanguageSwitcher from "@/components/ui/language-switcher";
-// import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -53,11 +51,9 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href={isArabic ? "/ar" : "/"}>
                     {isArabic ?
-                        <Image src={Logoarabic} height={100} width={100} className="w-auto h-auto" alt="Logo" />
-
+                        <Image src={Logoarabic} height={180} width={190} className="w- h-" alt="Logo" />
                         :
-
-                        <Image src={Logoengish} height={100} width={100} className="w-auto h-auto" alt="Logo" />
+                        <Image src={Logoengish} height={180} width={190} className="w- h-" alt="Logo" />
                     }
                 </Link>
 
@@ -67,7 +63,7 @@ export default function Navbar() {
                         <Link key={item.name} href={item.href}>
                             <Button
                                 variant="ghost"
-                                className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""
+                                className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-2 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""
                                     }`}
                             >
                                 {item.name}

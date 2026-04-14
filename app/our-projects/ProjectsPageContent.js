@@ -23,7 +23,6 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
     const [selectedProject, setSelectedProject] = useState(null)
     const filteredProjects = PROJECTS?.data.filter((project) => project.location_city === selectedLocation)
 
-    console.log(PROJECTS)
     return (
         <>
             {isArabic ?
@@ -41,24 +40,24 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
             <main className="bg-background relative">
                 <div className="max-w-7xl mx-auto px-4 py-16 ">
                     <div className="text-center relative">
-                          {isArabic ?
-                                    <Image
-                                      src={projectsarabic}
-                                      width={800}
-                                      height={300}
-                                      alt="services"
-                                      className="w-auto h-auto mx-auto"
-                                    />
-                                    :
-                                  <Image
-                            src={projects}
-                            width={800}
-                            height={100}
-                            alt="projects"
-                            className="w-auto h-auto mx-auto"
-                        />
+                        {isArabic ?
+                            <Image
+                                src={projectsarabic}
+                                width={800}
+                                height={300}
+                                alt="services"
+                                className="w-auto h-auto mx-auto"
+                            />
+                            :
+                            <Image
+                                src={projects}
+                                width={800}
+                                height={100}
+                                alt="projects"
+                                className="w-auto h-auto mx-auto"
+                            />
                         }
-                        
+
                         <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <h1 className="text-4xl md:text-5xl text-nowrap font-bold mb-2">
                                 {isArabic ? <><span className="text-primary">مواقع</span> <span className="text-foreground">المشاريع</span></> :
