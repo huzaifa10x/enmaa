@@ -1,9 +1,15 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+    experimental: {
+        cpus: 1,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     trailingSlash: true,
+    output: 'export',
+    assetPrefix: '../',
     images: {
-        domains: ["yellow-termite-327315.hostingersite.com"],
+        unoptimized: true,
     },
 };
-
 export default nextConfig;

@@ -1,11 +1,14 @@
 import ProjectsPageContent from "@/app/our-projects/ProjectsPageContent";
-import { headers } from "next/headers";
+// import { headers } from "next/headers";
 import { Suspense } from "react";
 
-export default async function OurProject() {
-    const headersList = await headers();
-    const pathname = headersList.get("x-current-path") || "";
-    const isArabic = pathname.startsWith("/ar/");
+export default async function OurProject({ params }) {
+    // const headersList = await headers();
+    // const pathname = headersList.get("x-current-path") || "";
+    // const isArabic = pathname.startsWith("/ar/");
+
+    const isArabic = true; // since this is /ar route
+    // const isArabic = params?.lang === "ar";
 
     const LOCATIONS = [
         { label: isArabic ? "أبوظبي" : "Abu Dhabi", value: "Abu Dhabi" },
@@ -20,7 +23,7 @@ export default async function OurProject() {
     return (
         <Suspense fallback={<div>Loading projects...</div>}>
             <ProjectsPageContent
-                isArabic
+                isArabic={isArabic}
                 PROJECTS={PROJECTS}
                 LOCATIONS={LOCATIONS}
             />

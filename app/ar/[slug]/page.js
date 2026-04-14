@@ -1,5 +1,20 @@
-const metaDataBySlug = {
+import ArabicPage from "../pages-content/ArabicPage";
+import ContactUs from "../pages-content/contact-us";
+import EngineeringConsultantsInAjman from "../pages-content/engineering-consultants-in-ajman";
+import EngineeringService from "../pages-content/engineering-service";
+import OurProject from "../pages-content/our-projects";
+import OurServices from "../pages-content/OurServices";
+import ProjectMap from "../pages-content/ProjectMap";
+import Supervision from "../pages-content/supervision";
+import ClientEngineerRepresentativeRole from "../pages-content/client-engineer-representative-role";
+import ProgramManagementServices from "../pages-content/program-management-services";
+import HomePage from "../pages-content/homePage";
+import TenderingServicesArabic from "../pages-content/tenderings-services";
+import DesignBuildProjectParticipationArabic from "../pages-content/design-build-project-participation";
+import GisArabic from "../pages-content/gis-services";
+import DeesignServices from "../pages-content/design-services";
 
+const metaDataBySlug = {
     "استشارات-هندسية-ابوظبي": {
         title: "شركات استشارات هندسية في ابوظبي | استشاري هندسي ابوظبي",
         description: "هل تبحث عن أفضل شركة استشارات هندسية في أبو ظبي؟ تقدم شركة إنماء للاستشارات الهندسية في أبو ظبي خدمات وحلول متخصصة. ثق في شركتنا للاستشارات الهندسية في أبو ظبي للحصول على استشارات موثوقة ومبتكرة.",
@@ -10,7 +25,6 @@ const metaDataBySlug = {
         description: "اكتشف خريطة مواقعنا في الشارقة، الإمارات. نقدم خدمات استشارات هندسية متميزة في جميع أنحاء المنطقة.",
         canonical: 'https://www.enmaaengcon.com/ar/project-map',
     },
-
     "our-services": {
         title: "أفضل شركات التصميم الداخلي في الشارقة، الإمارات - شركة ديكور في الشارقة",
         description: "إذا كنت بحاجة إلى مصمم داخلي محترف يعمل داخل منزلك, مكتبك, مطعمك أو غير ذلك وتبحث عن أفضل شركات التصميم الداخلي في الشارقة ! فإن إنماء للاستشارات الهندسية هي خيارك الأمثل.",
@@ -59,65 +73,65 @@ const metaDataBySlug = {
     "tenderings-services": {
         title: "خدمات المناقصات | إنماء للاستشارات الهندسية",
         description: "نقدم خدمات المناقصات المتقدمة لتقديم حلول هندسية متكاملة وفعالة. نحن نقدم خدمة متميزة لتقديم خدمات المناقصات في جميع أنحاء",
-         canonical: "https://www.enmaaengcon.com/ar/tenderings-services",
-    },
-    
-}
-    export async function generateMetadata({ params }) {
-        const decodedSlug = decodeURIComponent(params.slug);
-const data = metaDataBySlug[decodedSlug];
-
-if (!data) {
-    return {
-        title: "Page Not Found",
-        description: "The requested page does not exist.",
-    };
-}
-
-return {
-    title: data.title,
-    description: data.description,
-    alternates: {
-        canonical: data.canonical,
-        languages: {
-            "x-default": data.canonical,
-            en: data.canonical.replace("/ar/", "/en/"),
-            ar: data.canonical,
-        },
-    },
-    openGraph: {
-        title: data.title,
-        description: data.description,
-        type: "website",
-        url: data.canonical,
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: data.title,
-        description: data.description,
-    },
-    robots: {
-        index: true,
-        follow: true,
+        canonical: "https://www.enmaaengcon.com/ar/tenderings-services",
     },
 };
-}
 
-import ArabicPage from "../pages-content/ArabicPage";
-import ContactUs from "../pages-content/contact-us";
-import EngineeringConsultantsInAjman from "../pages-content/engineering-consultants-in-ajman";
-import EngineeringService from "../pages-content/engineering-service";
-import OurProject from "../pages-content/our-projects";
-import OurServices from "../pages-content/OurServices";
-import ProjectMap from "../pages-content/ProjectMap";
-import Supervision from "../pages-content/supervision";
-import ClientEngineerRepresentativeRole from "../pages-content/client-engineer-representative-role";
-import ProgramManagementServices from "../pages-content/program-management-services";
-import HomePage from "../pages-content/homePage";
-import TenderingServicesArabic from "../pages-content/tenderings-services";
-import DesignBuildProjectParticipationArabic from "../pages-content/design-build-project-participation";
-import GisArabic from "../pages-content/gis-services";
-import DeesignServices from "../pages-content/design-services";
+// --- ADD THIS FUNCTION FOR STATIC EXPORT ---
+export function generateStaticParams() {
+    // Collect all unique slugs from your metadata and your switch cases
+    const slugs = [
+        "home", // from your switch case
+        "engineering-service", // from your switch case
+        "design-services", // from your switch case
+        ...Object.keys(metaDataBySlug)
+    ];
+
+    return slugs.map((slug) => ({
+        slug: slug,
+    }));
+}
+// -------------------------------------------
+
+export async function generateMetadata({ params }) {
+    const decodedSlug = decodeURIComponent(params.slug);
+    const data = metaDataBySlug[decodedSlug];
+
+    if (!data) {
+        return {
+            title: "Page Not Found",
+            description: "The requested page does not exist.",
+        };
+    }
+
+    return {
+        title: data.title,
+        description: data.description,
+        alternates: {
+            canonical: data.canonical,
+            languages: {
+                "x-default": data.canonical,
+                en: data.canonical.replace("/ar/", "/en/"),
+                ar: data.canonical,
+            },
+        },
+        openGraph: {
+            title: data.title,
+            description: data.description,
+            type: "website",
+            url: data.canonical,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: data.title,
+            description: data.description,
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
+    };
+}
 
 export default function page({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
@@ -172,9 +186,10 @@ export default function page({ params }) {
         default:
             content = <div>Page not found</div>;
     }
+
     return (
         <>
             {content}
         </>
-    )
+    );
 }
