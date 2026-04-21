@@ -98,20 +98,13 @@ export default function Navbar() {
                 </div>
             </nav>
             {/* Backdrop */}
-            <div
-                className={`fixed inset-0 bg-black/60 backdrop-blur-sm duration-300 ${openSidebar ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                    }`}
+            <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm duration-300 ${openSidebar ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                }`}
                 onClick={() => setOpenSidebar(false)}
             />
             {/* Sidebar */}
-            <div
-                className={`fixed top-0 ${isArabic ? "right-0" : "left-0"
-                    } h-full w-64 bg-black/95 p-6 border-white/10 duration-300 ${openSidebar
-                        ? "translate-x-0"
-                        : isArabic
-                            ? "translate-x-full"
-                            : "-translate-x-full"
-                    }`}
+            <div className={`fixed top-0 ${isArabic ? "right-0" : "left-0"
+                } h-full w-64 bg-black/95 p-6 border-white/10 duration-300 ${openSidebar ? "translate-x-0" : isArabic ? "translate-x-full " : "-translate-x-full"}`}
             >
                 <div className="flex justify-between items-center mb-8">
                     {isArabic ?

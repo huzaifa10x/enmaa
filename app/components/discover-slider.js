@@ -39,8 +39,11 @@ const slides = [
     },
 ]
 
-gsap.registerPlugin(ScrollTrigger)
+
 export default function DiscoverSlider() {
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+    }, []);
     const [currentSlide, setCurrentSlide] = useState(0)
     // const [yearExp, setyearExp] = useState("10")
     const sectionRef = useRef(null)
@@ -53,6 +56,7 @@ export default function DiscoverSlider() {
     useEffect(() => {
         // Initial animation
         gsap.fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
+
         gsap.fromTo(
             subtitleRef.current,
             { opacity: 0, y: 30 },
@@ -78,20 +82,39 @@ export default function DiscoverSlider() {
                 )
             }
 
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top 70%",
-                onEnter: animateCounter,
-                onEnterBack: animateCounter,
-                onLeave: () => (el.innerText = 0),
-                onLeaveBack: () => (el.innerText = 0),
-            })
+            // ScrollTrigger.create({
+            //     trigger: sectionRef.current,
+            //     start: "top 70%",
+            //     onEnter: animateCounter,
+            //     onEnterBack: animateCounter,
+            //     onLeave: () => (el.innerText = 0),
+            //     onLeaveBack: () => (el.innerText = 0),
+            // })
+
+            useEffect(() => {
+                const triggers = [];
+                countersRef.current.forEach((el) => {
+                    const trigger = ScrollTrigger.create({
+                        trigger: sectionRef.current,
+                        start: "top 70%",
+                        onEnter: animateCounter,
+                        onEnterBack: animateCounter,
+                        onLeave: () => (el.innerText = 0),
+                        onLeaveBack: () => (el.innerText = 0),
+                    });
+                    triggers.push(trigger);
+                });
+
+                return () => {
+                    triggers.forEach(t => t.kill());
+                };
+            }, []);
         })
     }, [])
 
     const date = new Date();
     const currentYear = date.getFullYear()
-    const yearExp = currentYear - '2015'
+    const yearExp = currentYear - 2015
 
     const counterV1Ref = useRef(null);
     const counterV2Ref = useRef(null);
