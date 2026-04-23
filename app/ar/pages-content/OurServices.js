@@ -34,8 +34,8 @@ export const metadata = {
 import Testimonial from '@/app/components/Testimonial'
 import React from 'react'
 import ServiceSection from '@/app/our-services/service-section'
-import HeroSection from '@/app/components/Hero-section'
 import image3 from "@/public/images/projects/1438-17.jpg"
+import HeroSection from '../ArComponents/ArHome/components/Hero-section'
 
 export default function OurServices() {
     return (

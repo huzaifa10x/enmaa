@@ -1,19 +1,19 @@
 import React from 'react'
-import Navbar from '../Navbar'
 import Image from 'next/image'
+import ArNavbar from '@/app/Ar-navbar'
 
 export default function HeroSection({ title, desc, bg }) {
     return (
         <>
-            <Navbar />
-            <section className='relative h-[400px]'>
+            <ArNavbar />
+            <section className='relative h-100'>
                 <Image
                     src={bg}
                     width={800}
                     height={200}
                     priority
                     alt='image'
-                    className='w-full h-[400px] object-cover brightness-[0.7] absolute'
+                    className='w-full h-100 object-cover brightness-[0.7] absolute'
                 />
 
                 <div className='relative z-10 flex flex-wrap items-center h-full text-white'>

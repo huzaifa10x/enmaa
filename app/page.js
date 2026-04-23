@@ -42,8 +42,7 @@ import OurProcess from "./components/our-process";
 import ProjectsScroller from "./components/projects-scroller";
 import OurProjects from "./components/our-projects";
 import LocationsSection from "./components/Locations-section";
-import FloatingSocials from "./components/FloatingSocials";
-import ProjectSlider from "./components/project-slider";
+import Footer from "./components/footer";
 
 export default function Home() {
   const faqData = [
@@ -184,6 +183,7 @@ export default function Home() {
         <TestimonialSlider />
         <ProjectsScroller />
       </main>
+      <Footer />
     </>
   );
 }

@@ -33,11 +33,13 @@ export const metadata = {
 }
 import React from 'react'
 import HomePage from './pages-content/homePage'
+import ArFooter from '../components/ArFoter'
 
 export default function page() {
-    return (
-        <div>
-            <HomePage />
-        </div>
-    )
+  return (
+    <div>
+      <HomePage />
+      <ArFooter />
+    </div>
+  )
 }

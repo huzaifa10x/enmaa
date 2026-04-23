@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+rename child file name out folder
+
+Get-ChildItem -Recurse -Filter index.html -File | ForEach-Object {
+  $dir = $_.DirectoryName
+  $base = Split-Path $dir -Leaf
+  $parent = Split-Path $dir -Parent
+  $newPath = Join-Path $parent "$base.html"
+ 
+  if (-not (Test-Path $newPath)) {
+    # Rename + move (same step)
+    Move-Item $_.FullName $newPath
+ 
+    # Folder delete (only if empty)
+    if ((Get-ChildItem $dir | Measure-Object).Count -eq 0) {
+      Remove-Item $dir
+    }
+  }
+}

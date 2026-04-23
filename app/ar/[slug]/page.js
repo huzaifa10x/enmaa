@@ -13,6 +13,7 @@ import TenderingServicesArabic from "../pages-content/tenderings-services";
 import DesignBuildProjectParticipationArabic from "../pages-content/design-build-project-participation";
 import GisArabic from "../pages-content/gis-services";
 import DeesignServices from "../pages-content/design-services";
+import ArFooter from "@/app/components/ArFoter";
 
 const metaDataBySlug = {
     "استشارات-هندسية-ابوظبي": {
@@ -190,6 +191,7 @@ export default function page({ params }) {
     return (
         <>
             {content}
+            <ArFooter/>
         </>
     );
 }

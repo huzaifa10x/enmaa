@@ -1,13 +1,12 @@
 "use client";
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { Facebook, Instagram, Mail, PhoneIncoming, Twitter, UserRoundPlus } from 'lucide-react';
 import image3 from "@/public/images/projects/1438-17.jpg";
-import ContactForm from '@/app/contact-us/ContactForm';
-import ProjectLocation from '@/app/contact-us/ProjectLocation';
-import HeroSection from '@/app/components/Hero-section';
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTiktok, FaUser } from 'react-icons/fa6';
 import { IoMail } from 'react-icons/io5';
+import ArContactForm from '@/app/contact-us/ArContactForm';
+import ArProjectLocation from '@/app/contact-us/ArProjectLocation';
+import HeroSection from '../ArComponents/ArHome/components/Hero-section';
 
 export default function ContactUs() {
     const pathname = usePathname(); // gets current path
@@ -50,7 +49,7 @@ export default function ContactUs() {
                 <div className='max-w-7xl mx-auto px-6'>
                     <div className={`grid md:grid-cols-2 gap-9 ${isArabic ? "text-right" : "text-left"}`}>
                         {/* Contact Form */}
-                        <div><ContactForm isArabic={isArabic} /></div>
+                        <div><ArContactForm /></div>
 
                         {/* Contact Info */}
                         <div>
@@ -124,7 +123,7 @@ export default function ContactUs() {
                 </div>
             </section>
 
-            <ProjectLocation isArabic={isArabic} />
+            <ArProjectLocation />
         </div>
     );
 }

@@ -42,6 +42,7 @@ import image3 from "@/public/images/projects/1438-17.jpg"
 import HeroSection from '../components/Hero-section'
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTiktok, FaUser } from 'react-icons/fa6'
 import { IoMail } from "react-icons/io5";
+import Footer from '../components/footer';
 
 export default function page() {
     return (
@@ -113,6 +114,7 @@ export default function page() {
                 </div>
             </section>
             <ProjectLocation />
+            <Footer />
         </>
     )
 }

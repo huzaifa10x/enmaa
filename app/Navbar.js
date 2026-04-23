@@ -116,7 +116,7 @@ export default function Navbar() {
                     <Button
                         variant="ghost"
                         onClick={() => setOpenSidebar(false)}
-                        className="text-white"
+                        className={`text-white ${openSidebar ? 'block' : 'hidden'}`}
                     >
                         ✕
                     </Button>

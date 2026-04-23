@@ -35,7 +35,7 @@ export default async function RootLayout({ children, params }) {
           {/* <CustomCursor /> */}
           {children}
         </SmoothScroll>
-        <Footer />
+
       </body>
     </html>
   );

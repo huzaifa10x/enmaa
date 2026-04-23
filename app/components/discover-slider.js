@@ -39,13 +39,11 @@ const slides = [
     },
 ]
 
-
 export default function DiscoverSlider() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
     }, []);
     const [currentSlide, setCurrentSlide] = useState(0)
-    // const [yearExp, setyearExp] = useState("10")
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
@@ -63,24 +61,24 @@ export default function DiscoverSlider() {
             { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" },
         )
 
-
         countersRef.current.forEach((el) => {
             const targetValue = parseInt(el.dataset.value, 10)
-            const animateCounter = () => {
-                gsap.fromTo(
-                    el,
-                    { innerText: 0 },
-                    {
-                        innerText: targetValue,
-                        duration: 10,
-                        snap: { innerText: 1 },
-                        ease: "power4.out",
-                        onUpdate: function () {
-                            el.innerText = Math.floor(el.innerText)
-                        },
-                    }
-                )
-            }
+            gsap.fromTo(
+                el,
+                { innerText: 0 },
+                {
+                    innerText: targetValue,
+                    duration: 10,
+                    snap: { innerText: 1 },
+                    ease: "power4.out",
+                    onUpdate: function () {
+                        el.innerText = Math.floor(el.innerText)
+                    },
+                }
+            )
+
+            // const animateCounter = () => {
+            // }
 
             // ScrollTrigger.create({
             //     trigger: sectionRef.current,
@@ -91,26 +89,27 @@ export default function DiscoverSlider() {
             //     onLeaveBack: () => (el.innerText = 0),
             // })
 
-            useEffect(() => {
-                const triggers = [];
-                countersRef.current.forEach((el) => {
-                    const trigger = ScrollTrigger.create({
-                        trigger: sectionRef.current,
-                        start: "top 70%",
-                        onEnter: animateCounter,
-                        onEnterBack: animateCounter,
-                        onLeave: () => (el.innerText = 0),
-                        onLeaveBack: () => (el.innerText = 0),
-                    });
-                    triggers.push(trigger);
-                });
-
-                return () => {
-                    triggers.forEach(t => t.kill());
-                };
-            }, []);
         })
     }, [])
+
+    useEffect(() => {
+        const triggers = [];
+        countersRef.current.forEach((el) => {
+            const trigger = ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: "top 70%",
+                onEnter: animateCounter,
+                onEnterBack: animateCounter,
+                onLeave: () => (el.innerText = 0),
+                onLeaveBack: () => (el.innerText = 0),
+            });
+            triggers.push(trigger);
+        });
+
+        return () => {
+            triggers.forEach(t => t.kill());
+        };
+    }, []);
 
     const date = new Date();
     const currentYear = date.getFullYear()
@@ -280,7 +279,6 @@ export default function DiscoverSlider() {
                                 <span>{String(slides.length).padStart(2, "0")}</span>
                             </div>
                         </div>
-
 
                         {/* Navigation Buttons */}
                         <div className="flex items-center space-x-6">
