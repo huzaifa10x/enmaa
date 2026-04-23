@@ -37,20 +37,24 @@ export const metadata = {
 };
 import { Suspense } from "react"
 import ProjectsPageContent from "./ProjectsPageContent"
+import Footer from "../components/footer";
 
-    const LOCATIONS = [
-        { label: "Abu Dhabi", value: "Abu Dhabi" },
-        { label: "Dubai", value: "Dubai" },
-        { label: "Sharjah", value: "Sharjah" },
-        { label: "Ajman", value: "Ajman" },
-    ];
+const LOCATIONS = [
+    { label: "Abu Dhabi", value: "Abu Dhabi" },
+    { label: "Dubai", value: "Dubai" },
+    { label: "Sharjah", value: "Sharjah" },
+    { label: "Ajman", value: "Ajman" },
+];
 
 export default async function Page() {
     let data = await fetch('https://yellow-termite-327315.hostingersite.com/api/projects')
     let PROJECTS = await data.json()
     return (
-        <Suspense fallback={<div>Loading projects...</div>}>
-            <ProjectsPageContent PROJECTS={PROJECTS} LOCATIONS={LOCATIONS} />
-        </Suspense>
+        <>
+            <Suspense fallback={<div>Loading projects...</div>}>
+                <ProjectsPageContent PROJECTS={PROJECTS} LOCATIONS={LOCATIONS} />
+            </Suspense>
+            <Footer />
+        </>
     )
 }

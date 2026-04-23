@@ -36,6 +36,7 @@ import Image from "next/image"
 import GalleryPage from "./Gallery"
 import HeroSection from "../components/Hero-section"
 import image3 from "@/public/images/projects/1438-17.jpg"
+import Footer from "../components/footer"
 export default function page() {
 
     return (
@@ -66,6 +67,7 @@ export default function page() {
                     <GalleryPage />
                 </div>
             </main>
+        <Footer />
         </>
     )
 }
