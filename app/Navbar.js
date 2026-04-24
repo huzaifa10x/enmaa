@@ -135,11 +135,9 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-
                     <div className="flex items-center gap-4">
                         <LanguageSwitcher />
                     </div>
-
 
                     <QuoteModal text={'Request a Quote Now'} isArabic={isArabic} />
 
