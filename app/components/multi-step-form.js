@@ -29,6 +29,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import ReCAPTCHA from "react-google-recaptcha";
 import { captcha_site_key } from "@/lib/config";
+import { useDialog } from "@/context/DialogContex";
 
 // ─── Custom Dialog ────────────────────────────────────────────────────────────
 function CustomDialog({ open, onClose, children, dir }) {
@@ -43,19 +44,14 @@ function CustomDialog({ open, onClose, children, dir }) {
     return (
         // Backdrop
         <div
-            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
             onClick={onClose}
         >
             {/* Panel — stop clicks bubbling to backdrop */}
             <div
                 dir={dir}
                 onClick={(e) => e.stopPropagation()}
-                className="
-                    relative w-full sm:max-w-[600px] max-h-[90vh]
-                    bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl
-                    flex flex-col overflow-hidden
-                    animate-in slide-in-from-bottom duration-300
-                "
+                className="fixed w-full md:max-w-150 max-w-90 max-h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-300"
             >
                 {children}
             </div>
@@ -147,8 +143,8 @@ const getFormSchema = () => z.object({
     });
 
 
-export default function QuoteModal({ text, isArabic }) {
-    const [open, setOpen] = useState(false);
+export default function QuoteModal({ text, isArabic, open, onClose }) {
+
     const [currentStep, setCurrentStep] = useState(1);
     const [showCaptcha, setShowCaptcha] = useState(false);
     const recaptchaRef = useRef(null);
@@ -195,7 +191,7 @@ export default function QuoteModal({ text, isArabic }) {
     const handleBack = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
 
     const handleClose = () => {
-        setOpen(false);
+        onClose(); // Use the prop passed from DialogProvider
         setCurrentStep(1);
         setShowCaptcha(false);
         form.reset();
@@ -582,19 +578,18 @@ export default function QuoteModal({ text, isArabic }) {
     return (
         <>
             {/* Trigger Button */}
-            <Button
+            {/* <Button
                 size="lg"
                 onClick={() => setOpen(true)}
                 className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4"
             >
                 {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
-            </Button>
+            </Button> */}
 
             {/* Custom Dialog */}
             <CustomDialog open={open} onClose={handleClose} dir={isArabic ? "rtl" : "ltr"}>
-
                 {/* Header */}
-                <div className="px-6 pt-6 pb-4 border-b flex-shrink-0">
+                <div className="px-6 pt-6 pb-4 border-b shrink-0">
                     <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                             <h2 className={`text-lg font-semibold ${isArabic ? "text-right mt-1" : "text-left"}`}>
@@ -609,7 +604,7 @@ export default function QuoteModal({ text, isArabic }) {
                         {/* Close button */}
                         <button
                             onClick={handleClose}
-                            className="p-1.5 rounded-full hover:bg-gray-100 transition-colors text-gray-500 hover:text-gray-900 flex-shrink-0"
+                            className="p-1.5 rounded-full hover:bg-gray-100 transition-colors text-gray-500 hover:text-gray-900 shrink-0"
                             aria-label="Close"
                         >
                             <X className="w-5 h-5" />
@@ -638,7 +633,7 @@ export default function QuoteModal({ text, isArabic }) {
                         </div>
 
                         {/* Footer */}
-                        <div className="px-6 py-4 border-t flex-shrink-0 flex flex-row items-center justify-between gap-3">
+                        <div className="px-6 py-4 border-t shrink-0 flex flex-row items-center justify-between gap-3">
                             <Button type="button" variant="outline" onClick={handleBack} disabled={currentStep === 1} className="gap-2">
                                 <ChevronLeft className="w-4 h-4" />
                                 {isArabic ? "السابق" : "Back"}
@@ -659,7 +654,7 @@ export default function QuoteModal({ text, isArabic }) {
 
                         {/* reCAPTCHA */}
                         {showCaptcha && (
-                            <div className="px-6 pb-4 flex-shrink-0">
+                            <div className="px-6 pb-4 shrink-0">
                                 <ReCAPTCHA sitekey={captcha_site_key} ref={recaptchaRef} />
                             </div>
                         )}

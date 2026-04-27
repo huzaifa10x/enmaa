@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import QuoteModal from "./components/multi-step-form";
 import { Menu } from "lucide-react";
 import LanguageSwitcher from "@/components/ui/language-switcher";
+import { useDialog } from "@/context/DialogContex";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -45,6 +46,8 @@ export default function Navbar() {
         return pathname.startsWith(href);
     };
 
+    const { openDialog, closeDialog } = useDialog();
+
     return (
         <div className="absolute w-full top-0 left-0 z-50 flex lg:justify-center" dir={isArabic ? "rtl" : "ltr"}>
             <nav className="max-w-7xl w-full min-w-[360px] flex items-center justify-between px-4 py-6">
@@ -70,7 +73,16 @@ export default function Navbar() {
                             </Button>
                         </Link>
                     ))}
-                    <QuoteModal isArabic={isArabic} />
+                    {/* <QuoteModal isArabic={isArabic} /> */}
+                    <Button
+                        size="lg"
+                        // Pass the language prop directly to the Context
+                        onClick={() => openDialog({ isArabic })}
+                        className="bg-transparent hover:bg-transparent shadow-none pl-0 pr-4"
+                    >
+                        {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
+                    </Button>
+
                 </div>
 
                 <div className="hidden lg:flex items-center gap-4">
@@ -134,12 +146,21 @@ export default function Navbar() {
                             {item.name}
                         </Link>
                     ))}
+                    <button
+                        size="lg"
+                        // Pass the language prop directly to the Context
+                        onClick={() => openDialog({ isArabic })}
+                        className="bg-transparent text-start hover:bg-transparent shadow-none pl-0"
+                    >
+                        {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
+                    </button>
 
                     <div className="flex items-center gap-4">
                         <LanguageSwitcher />
                     </div>
 
-                    <QuoteModal text={'Request a Quote Now'} isArabic={isArabic} />
+
+                    {/* <QuoteModal text={'Request a Quote Now'} isArabic={isArabic} /> */}
 
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>
                         <Button className="w-full bg-gradient-to-r from-[#01b2eb] to-primary text-white py-3 rounded-full">

@@ -4,6 +4,8 @@ import Footer from "./components/footer";
 // import { headers } from "next/headers";
 import SmoothScroll from "./components/SmoothScroll";
 import FloatingSocials from "./components/FloatingSocials";
+import { DialogProvider } from "@/context/DialogContex";
+import ScrollAnimationProvider from "./components/ScrollAnimationProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,10 +34,12 @@ export default async function RootLayout({ children, params }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SmoothScroll>
           <FloatingSocials />
-          {/* <CustomCursor /> */}
-          {children}
+          <DialogProvider>
+            <ScrollAnimationProvider>
+              {children}
+            </ScrollAnimationProvider>
+          </DialogProvider>
         </SmoothScroll>
-
       </body>
     </html>
   );

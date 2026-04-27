@@ -36,7 +36,6 @@ export const metadata = {
     },
 };
 import Testimonial from '../components/Testimonial'
-import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
 import image1 from "@/public/images/Services-images/Design Services/565.jpg"
 import image2 from "@/public/images/Services-images/Design Services/876.jpg"

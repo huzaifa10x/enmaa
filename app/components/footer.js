@@ -158,7 +158,7 @@ export default function Footer() {
                                     height={320}
                                     width={320}
                                     alt="image"
-                                    className="h-auto w-auto"
+                                    className=""
                                 />
                                 :
                                 <Image
@@ -203,7 +203,7 @@ export default function Footer() {
                                     height={320}
                                     width={320}
                                     alt="image"
-                                    className="h-auto w-auto object-center"
+                                    className=" object-center"
                                 />
                             </div>
                         }

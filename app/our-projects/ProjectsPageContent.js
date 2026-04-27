@@ -43,18 +43,18 @@ export default function ProjectsPageContent({ PROJECTS, LOCATIONS, TYPES, isArab
                         {isArabic ?
                             <Image
                                 src={projectsarabic}
-                                width={800}
+                                width={500}
                                 height={300}
                                 alt="services"
-                                className="w-auto h-auto mx-auto"
+                                className="mx-auto"
                             />
                             :
                             <Image
                                 src={projects}
-                                width={800}
+                                width={600}
                                 height={100}
                                 alt="projects"
-                                className="w-auto h-auto mx-auto"
+                                className="mx-auto"
                             />
                         }
 

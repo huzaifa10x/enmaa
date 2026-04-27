@@ -22,10 +22,10 @@ export default function ProjectMap() {
                     <div className="text-center relative">
                         <Image
                             src={projects}
-                            width={800}
+                            width={500}
                             height={100}
                             alt="projects"
-                            className="w-auto h-auto mx-auto"
+                            className="mx-auto"
                         />
                         <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <h1 className="text-4xl md:text-5xl text-nowrap font-bold mb-2">

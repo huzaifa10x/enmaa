@@ -19,7 +19,7 @@ export default function ServiceSection({ lang = "en" }) {
     en: {
       header: {
         main: "Explore our",
-        bold: "comprehensive <br /> Services",
+        bold: "comprehensive Services",
         services: "services",
       },
       services: [
@@ -477,34 +477,33 @@ export default function ServiceSection({ lang = "en" }) {
           {isArabic ?
             <Image
               src={arabicservicesText}
-              width={800}
+              width={700}
               height={300}
               alt="services"
-              className="w-auto h-auto mx-auto"
+              className="mx-auto"
             />
             :
             <Image
               src={engservicesText}
-          width={800}
-          height={300}
-          alt="services"
-          className="w-auto h-auto mx-auto"
-                    />
-}
+              width={700}
+              height={300}
+              alt="services"
+              className="mx-auto"
+            />
+          }
           <div className="text-center mb-12 absolute z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <h1
-              className="text-2xl md:text-5xl text-nowrap mb-2"
+              className="text-2xl md:text-5xl text  -nowrap mb-2"
               dangerouslySetInnerHTML={{ __html: `${header.main} <span class="text-primary font-bold">${header.bold}</span>` }}
             />
           </div>
         </div>
-        {/* Services Grid */}
-        {/* <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${isArabic ? "" : ""}`}
-                 >
-                    {services.map((service) => (
+          {/* Services Grid */}
+            {/* <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${isArabic ? "" : ""}`}>
+                {services.map((service) => (
                         <ServiceCard key={service.id} service={service} isArabic={isArabic} />
-                    ))}
-                </div> */}
+                ))}
+            </div> */}
         <div
           className={`flex flex-wrap gap-6 ${isArabic ? "flex-row-reverse" : "flex-row"}`}
         >
