@@ -92,15 +92,11 @@ export default function ArNavbar() {
                 onClick={() => setOpenSidebar(false)}
             />
             {/* Sidebar */}
-            <div className={`fixed top-0 right-0 h-full w-64 bg-black/95 p-6 border-white/10 duration-300 ${openSidebar ? " translate-x-0" : "translate-x-full"}`}
+            <div className={`fixed top-0 right-0 h-full w-72 bg-black/95 px-12 py-10 border-white/10 duration-300 ${openSidebar ? " translate-x-0" : "translate-x-full"}`}
             >
                 <div className="flex justify-between items-center mb-8">
-                    <Image src={Logoarabic} width={50} height={50} alt="Logo" className="w-auto h-auto" />
-                    <Button
-                        variant="ghost"
-                        onClick={() => setOpenSidebar(false)}
-                        className={`text-white ${openSidebar ? 'block' : 'hidden'}`}
-                    >
+                    <Image src={Logoarabic} width={150} height={150} alt="Logo" />
+                    <Button variant="ghost" onClick={() => setOpenSidebar(false)} className={`text-white absolute left-0 top-4 text-xl ${openSidebar ? 'block' : 'hidden'}`}>
                         ✕
                     </Button>
                 </div>

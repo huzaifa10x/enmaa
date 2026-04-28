@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative flex items-center p-1 bg-gray-200/50 backdrop-blur-md rounded-full border border-gray-300/50 w-fit" dir="ltr">
+    <div className="relative flex items-center p-1 bg-white/20 backdrop-blur-md rounded-full border border-gray-300/50 w-fit" dir="ltr">
       {/* Sliding Active Indicator */}
       <div
         className={`absolute h-[calc(100%-8px)] w-[calc(50%-4px)] bg-white rounded-full shadow-md transition-all duration-300 ease-out ${isArabic ? "translate-x-full" : "translate-x-0"
@@ -32,18 +32,16 @@ export default function LanguageSwitcher() {
       {/* English Link */}
       <Link
         href={getEnPath()}
-        className={`relative z-10 px-5 py-1.5 text-xs font-bold tracking-wider transition-colors duration-300 rounded-full text-center ${!isArabic ? "text-primary" : "text-gray-500 hover:text-black"
-          }`}
-      >
+        className={`relative z-10 px-5 py-1.5 text-xs font-bold tracking-wider transition-colors duration-300 rounded-full text-center ${!isArabic ? "text-primary" : "text-white"
+          }`}>
         EN
       </Link>
 
       {/* Arabic Link */}
       <Link
         href={getArPath()}
-        className={`relative z-10 px-5 py-1.5 text-xs font-bold tracking-wider transition-colors duration-300 rounded-full text-center ${isArabic ? "text-primary" : "text-gray-500 hover:text-black"
-          }`}
-      >
+        className={`relative z-10 px-5 py-1.5 text-xs font-bold tracking-wider transition-colors duration-300 rounded-full text-center ${isArabic ? "text-primary" : "text-white"
+          }`}>
         AR
       </Link>
     </div>

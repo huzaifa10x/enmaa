@@ -2,7 +2,7 @@
 
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa6";
 
-export default function FloatingSocials() {
+export default function FloatingSocials({ lang }) {
     const socials = [
         { name: "Instagram", icon: "instagram", link: "https://www.instagram.com/enmaaengcon" },
         { name: "Facebook", icon: "facebook", link: "https://www.facebook.com/enmaa.engcon/" },

@@ -54,9 +54,9 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href={isArabic ? "/ar" : "/"}>
                     {isArabic ?
-                        <Image src={Logoarabic} height={180} width={190} className="w- h-" alt="Logo" />
+                        <Image src={Logoarabic} height={180} width={190} alt="Logo" />
                         :
-                        <Image src={Logoengish} height={180} width={190} className="w- h-" alt="Logo" />
+                        <Image src={Logoengish} height={180} width={190} alt="Logo" />
                     }
                 </Link>
 
@@ -82,7 +82,6 @@ export default function Navbar() {
                     >
                         {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
                     </Button>
-
                 </div>
 
                 <div className="hidden lg:flex items-center gap-4">
@@ -116,20 +115,16 @@ export default function Navbar() {
             />
             {/* Sidebar */}
             <div className={`fixed top-0 ${isArabic ? "right-0" : "left-0"
-                } h-full w-64 bg-black/95 p-6 border-white/10 duration-300 ${openSidebar ? "translate-x-0" : isArabic ? "translate-x-full " : "-translate-x-full"}`}
-            >
+                } h-full w-64 bg-black/95 p-6 border-white/10 duration-300 ${openSidebar ? "translate-x-0" : isArabic ? "translate-x-full " : "-translate-x-full"}`}>
                 <div className="flex justify-between items-center mb-8">
                     {isArabic ?
-                        <Image src={Logoarabic} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+                        <Image src={Logoarabic} width={130} height={130} alt="Logo" />
                         :
-                        <Image src={Logoengish} width={50} height={50} alt="Logo" className="w-auto h-auto" />
+                        <Image src={Logoengish} width={150} height={150} alt="Logo" />
 
                     }
-                    <Button
-                        variant="ghost"
-                        onClick={() => setOpenSidebar(false)}
-                        className={`text-white ${openSidebar ? 'block' : 'hidden'}`}
-                    >
+                    <Button variant="ghost" onClick={() => setOpenSidebar(false)}
+                        className={`text-white absolute right-0 top-3 text-xl ${openSidebar ? 'block' : 'hidden'}`}>
                         ✕
                     </Button>
                 </div>
@@ -158,8 +153,6 @@ export default function Navbar() {
                     <div className="flex items-center gap-4">
                         <LanguageSwitcher />
                     </div>
-
-
                     {/* <QuoteModal text={'Request a Quote Now'} isArabic={isArabic} /> */}
 
                     <a href="#bookNow" onClick={() => setOpenSidebar(false)}>
