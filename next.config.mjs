@@ -1,12 +1,4 @@
 const nextConfig = {
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-    experimental: {
-        serverActions: {
-            bodySizeLimit: "2mb",
-        },
-    },
     trailingSlash: true,
     // output: 'export',
     // assetPrefix: './',
