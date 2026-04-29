@@ -1,3 +1,0 @@
-module.exports=[790,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(11857);a.n(d("[project]/node_modules/next/dist/client/app-dir/link.js <module evaluation>"))},84707,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(11857);a.n(d("[project]/node_modules/next/dist/client/app-dir/link.js"))},97647,a=>{"use strict";a.i(790);var b=a.i(84707);a.n(b)},99276,a=>{"use strict";a.s(["default",()=>e]);var b=a.i(7997),c=a.i(97647),d=a.i(24427);function e(){return(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)("h2",{children:"Not Found"}),(0,b.jsx)("p",{children:"Could not find requested resource"}),(0,b.jsx)(c.default,{href:"/",children:"Return Home"}),(0,b.jsx)(d.default,{})]})}}];
-
-//# sourceMappingURL=_f6c5749f._.js.map
