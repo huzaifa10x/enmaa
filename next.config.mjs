@@ -1,9 +1,11 @@
 const nextConfig = {
-    experimental: {
-        cpus: 1,
-    },
     eslint: {
         ignoreDuringBuilds: true,
+    },
+    experimental: {
+        serverActions: {
+            bodySizeLimit: "2mb",
+        },
     },
     trailingSlash: true,
     // output: 'export',
