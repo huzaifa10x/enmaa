@@ -1,15 +1,15 @@
 const nextConfig = {
+    experimental: {
+        cpus: 1,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     trailingSlash: true,
     // output: 'export',
     // assetPrefix: './',
     images: {
         unoptimized: true,
-    },
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-    typescript: {
-        ignoreBuildErrors: true,
     },
     async redirects() {
         return [
