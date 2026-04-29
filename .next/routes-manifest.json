@@ -1,0 +1,255 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+    },
+    {
+      "source": "/projects/",
+      "destination": "/our-projects/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/projects/(?:/)?$"
+    },
+    {
+      "source": "/projects-2/",
+      "destination": "/our-projects/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/projects-2/(?:/)?$"
+    },
+    {
+      "source": "/projects-3/",
+      "destination": "/our-projects/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/projects-3/(?:/)?$"
+    },
+    {
+      "source": "/engineering-consultants/project-map/",
+      "destination": "/project-map/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/engineering-consultants/project-map/(?:/)?$"
+    },
+    {
+      "source": "/ar/engineering-consultants/project-map/",
+      "destination": "/ar/project-map/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/ar/engineering-consultants/project-map/(?:/)?$"
+    },
+    {
+      "source": "/services/:slug(residential-design-2|commercial-design-2|office-design)/",
+      "destination": "/our-services/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/services(?:/(residential-design-2|commercial-design-2|office-design))/(?:/)?$"
+    },
+    {
+      "source": "/ar/projects-2/",
+      "destination": "/our-projects/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/ar/projects-2/(?:/)?$"
+    },
+    {
+      "source": "/ar/projects-3/",
+      "destination": "/our-projects/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/ar/projects-3/(?:/)?$"
+    },
+    {
+      "source": "/ar/projects/",
+      "destination": "/ar/our-projects/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/ar/projects/(?:/)?$"
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact-us/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/contact/(?:/)?$"
+    },
+    {
+      "source": "/ar/contact/",
+      "destination": "/ar/contact-us/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/ar/contact/(?:/)?$"
+    },
+    {
+      "source": "/awards/",
+      "destination": "/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/awards/(?:/)?$"
+    },
+    {
+      "source": "/team/",
+      "destination": "/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/team/(?:/)?$"
+    },
+    {
+      "source": "/%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D8%A7%D8%A8%D9%88%D8%B8%D8%A8%D9%8A/",
+      "destination": "/ar/استشارات-هندسية-ابوظبي/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D8%A7%D8%A8%D9%88%D8%B8%D8%A8%D9%8A/(?:/)?$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/ar/[slug]",
+      "regex": "^/ar/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/ar/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/ar",
+      "regex": "^/ar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ar(?:/)?$"
+    },
+    {
+      "page": "/client-engineer-representative-role",
+      "regex": "^/client\\-engineer\\-representative\\-role(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client\\-engineer\\-representative\\-role(?:/)?$"
+    },
+    {
+      "page": "/contact-us",
+      "regex": "^/contact\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact\\-us(?:/)?$"
+    },
+    {
+      "page": "/design-build-project-participation",
+      "regex": "^/design\\-build\\-project\\-participation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/design\\-build\\-project\\-participation(?:/)?$"
+    },
+    {
+      "page": "/design-services",
+      "regex": "^/design\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/design\\-services(?:/)?$"
+    },
+    {
+      "page": "/engineering-consultant-in-abu-dhabi",
+      "regex": "^/engineering\\-consultant\\-in\\-abu\\-dhabi(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/engineering\\-consultant\\-in\\-abu\\-dhabi(?:/)?$"
+    },
+    {
+      "page": "/engineering-consultants-in-ajman",
+      "regex": "^/engineering\\-consultants\\-in\\-ajman(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/engineering\\-consultants\\-in\\-ajman(?:/)?$"
+    },
+    {
+      "page": "/engineering-service",
+      "regex": "^/engineering\\-service(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/engineering\\-service(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/gis-services",
+      "regex": "^/gis\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/gis\\-services(?:/)?$"
+    },
+    {
+      "page": "/our-projects",
+      "regex": "^/our\\-projects(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/our\\-projects(?:/)?$"
+    },
+    {
+      "page": "/our-services",
+      "regex": "^/our\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/our\\-services(?:/)?$"
+    },
+    {
+      "page": "/program-management-services",
+      "regex": "^/program\\-management\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/program\\-management\\-services(?:/)?$"
+    },
+    {
+      "page": "/project-map",
+      "regex": "^/project\\-map(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/project\\-map(?:/)?$"
+    },
+    {
+      "page": "/supervision",
+      "regex": "^/supervision(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/supervision(?:/)?$"
+    },
+    {
+      "page": "/tenderings-services",
+      "regex": "^/tenderings\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tenderings\\-services(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
