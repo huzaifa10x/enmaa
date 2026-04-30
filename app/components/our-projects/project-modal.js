@@ -15,13 +15,13 @@ export default function ProjectModal({
 
     const handlePrevImage = () => {
         setCurrentImageIndex((prev) =>
-            prev === 0 ? project.images.length - 1 : prev - 1
+            prev === 0 ? project?.images?.length - 1 : prev - 1
         );
     };
 
     const handleNextImage = () => {
         setCurrentImageIndex((prev) =>
-            prev === project.images.length - 1 ? 0 : prev + 1
+            prev === project?.images?.length - 1 ? 0 : prev + 1
         );
     };
 
@@ -49,7 +49,7 @@ export default function ProjectModal({
                         <div className="group">
                             <Image
                                 src={
-                                    `https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}` ||
+                                    `https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project?.images[currentImageIndex]?.filename}` ||
                                     "/placeholder.svg"
                                 }
                                 alt={`${project.name} - Image ${currentImageIndex + 1}`}
@@ -60,7 +60,7 @@ export default function ProjectModal({
                                 className="lg:w-12 lg:h-12 w-9 h-9 absolute duration-200 lg:opacity-0 lg:invisible group-hover:visible group-hover:opacity-100 lg:top-1/2 lg:left-1/2 lg:-translate-1/2 right-3 bottom-3 rounded-xl text-white bg-black/50 hover:bg-white/40 backdrop-blur-sm transition-colors p-2 cursor-pointer"
                                 onClick={() =>
                                     setZoomImage(
-                                        `https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}`
+                                        `https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project?.images[currentImageIndex]?.filename}`
                                     )
                                 }
                                 strokeWidth={1.25}
@@ -78,7 +78,7 @@ export default function ProjectModal({
 
                                 <div className="relative w-full max-w-5xl h-[80vh]">
                                     <Image
-                                        src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project.images[currentImageIndex]?.filename}`}
+                                        src={`https://yellow-termite-327315.hostingersite.com/storage/app/public/projects/${project?.images[currentImageIndex]?.filename}`}
                                         alt="Zoomed image"
                                         fill
                                         className="object-contain"
@@ -87,7 +87,7 @@ export default function ProjectModal({
                             </div>
                         )}
 
-                        {project.images.length > 1 && (
+                        {project?.images?.length > 1 && (
                             <>
                                 {/* PREV BUTTON */}
                                 <button
@@ -119,7 +119,7 @@ export default function ProjectModal({
                                 : "absolute bottom-4 left-4 bg-black/50"
                                 }  backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm transition-all duration-300`}
                         >
-                            {currentImageIndex + 1} / {project.images.length}
+                            {currentImageIndex + 1} / {project?.images?.length}
                         </div>
                     </div>
 
