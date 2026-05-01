@@ -14,7 +14,7 @@ import DesignBuildProjectParticipationArabic from "../pages-content/design-build
 import GisArabic from "../pages-content/gis-services";
 import DeesignServices from "../pages-content/design-services";
 import ArFooter from "@/app/components/ArFoter";
-
+ 
 const metaDataBySlug = {
     "استشارات-هندسية-ابوظبي": {
         title: "شركات استشارات هندسية في ابوظبي | استشاري هندسي ابوظبي",
@@ -77,7 +77,7 @@ const metaDataBySlug = {
         canonical: "https://www.enmaaengcon.com/ar/tenderings-services",
     },
 };
-
+ 
 // --- ADD THIS FUNCTION FOR STATIC EXPORT ---
 export function generateStaticParams() {
     // Collect all unique slugs from your metadata and your switch cases
@@ -87,24 +87,24 @@ export function generateStaticParams() {
         "design-services", // from your switch case
         ...Object.keys(metaDataBySlug)
     ];
-
+ 
     return slugs.map((slug) => ({
         slug: slug,
     }));
 }
 // -------------------------------------------
-
+ 
 export async function generateMetadata({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
     const data = metaDataBySlug[decodedSlug];
-
+ 
     if (!data) {
         return {
             title: "Page Not Found",
             description: "The requested page does not exist.",
         };
     }
-
+ 
     return {
         title: data.title,
         description: data.description,
@@ -133,11 +133,11 @@ export async function generateMetadata({ params }) {
         },
     };
 }
-
+ 
 export default function page({ params }) {
     const decodedSlug = decodeURIComponent(params.slug);
     let content;
-
+ 
     switch (decodedSlug) {
         case "home":
             content = <HomePage />;
@@ -187,7 +187,7 @@ export default function page({ params }) {
         default:
             content = <div>Page not found</div>;
     }
-
+ 
     return (
         <>
             {content}

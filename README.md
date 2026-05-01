@@ -53,3 +53,11 @@ Get-ChildItem -Recurse -Filter index.html -File | ForEach-Object {
     }
   }
 }
+
+for mac
+find . -type f -name "index.html" -print0 | while IFS= read -r -d '' file; do
+  dir="$(dirname "$file")"
+  base="$(basename "$dir")"
+
+  mv "$file" "$dir/$base.html"
+done
