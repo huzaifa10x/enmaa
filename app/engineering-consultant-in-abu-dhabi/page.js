@@ -108,7 +108,7 @@ export default function page() {
 
                     <h2 className='text-xl font-semibold mb-5'>Connect With Us Today</h2>
                     <p className="text-neutral-500 text-base leading-relaxed mb-6">
-                        If you are looking through the list of top engineering consultant companies Abu Dhabi, then connect with us today. Give us a call at <a className='text-primary' href="tel:+971 50 618 5529"> +971 50 618 5529</a> to schedule a meeting. You can also drop us an email at <a className='text-primary' href="mailto:info@enmaaengcon.com">info@enmaaengcon.com</a> We are just a call away to bring your ideal imagination into a proper functional design.
+                        If you are looking through the list of top engineering consultant companies Abu Dhabi, then connect with us today. Give us a call at <a className='text-primary' href="tel:+971 50 618 5529"> +971 50 618 5529</a> to schedule a meeting. You can also drop us an email at <a className='text-primary' href="mailto:marketing@enmaaengcon.com">marketing@enmaaengcon.com</a> We are just a call away to bring your ideal imagination into a proper functional design.
                     </p>
 
                 </section>

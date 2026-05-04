@@ -3,7 +3,6 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
-import { InspiratoinGallaryData } from "./InspiratoinGallaryData";
 
 let data = await fetch('https://yellow-termite-327315.hostingersite.com/api/galleries')
 let DATA = await data.json()
@@ -11,7 +10,6 @@ let DATA = await data.json()
 export default function GalleryPage() {
     const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(0);
-    // const DATA = InspiratoinGallaryData;
 
     return (
         <div className="py-8">

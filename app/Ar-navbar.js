@@ -43,7 +43,7 @@ export default function ArNavbar() {
             <nav className="max-w-7xl w-full min-w-[360px] flex items-center justify-between px-4 py-6">
                 {/* Logo */}
                 <Link href={"/ar"}>
-                    <Image src={Logoarabic} height={180} width={190} className="w- h-" alt="Logo" />
+                    <Image src={Logoarabic} height={140} width={150} className="w- h-" alt="Logo" />
                 </Link>
 
                 {/* Desktop Menu */}

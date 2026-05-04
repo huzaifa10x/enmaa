@@ -74,7 +74,7 @@ export default function Home() {
       Our crew’s practical experience in the field of construction and investment is sure to deliver the best architectural and engineering solution that satisfy any client, investor, or stakeholder.
       <br>
       <br>
-      Browse our site to check out our latest projects and designs. Call us on +971 50 618 5529 to schedule an appointment or email us on info@enmaaengcon.com
+      Browse our site to check out our latest projects and designs. Call us on +971 50 618 5529 to schedule an appointment or email us on marketing@enmaaengcon.com
       <br>
       <br>
       What specialized engineering and architectural solutions does Enmaa Engineering offer for Sharjah’s unique environment?

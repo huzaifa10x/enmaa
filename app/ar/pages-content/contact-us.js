@@ -78,8 +78,8 @@ export default function ContactUs() {
                                     <div>
                                         <h3 className="text-2xl font-semibold">{t.emailTitle}</h3>
                                         <p className="text-gray-600">
-                                            <a className='hover:text-primary duration-300' href="mailto:info@enmaaengcon.com">
-                                                info@enmaaengcon.com
+                                            <a className='hover:text-primary duration-300' href="mailto:marketing@enmaaengcon.com">
+                                                marketing@enmaaengcon.com
                                             </a>
                                         </p>
                                         <p className="text-gray-600">

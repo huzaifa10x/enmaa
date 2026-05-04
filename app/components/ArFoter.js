@@ -16,7 +16,14 @@ export default function ArFooter() {
         { name: "الرئيسية", href: "/ar/home" },
         { name: "أفكار المشاريع", href: "/ar/project-map" },
         { name: "مشاريعنا", href: "/ar/our-projects" },
-        { name: "خدماتنا", href: "/ar/our-services" },
+        {
+            name: "خدماتنا",
+            href: "/ar/our-services",
+            dropdown: [
+                { name: "استشارات-هندسية-ابوظبي", href: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي" },
+                { name: "الاستشاريون الهندسيون في عجمان", href: "https://www.enmaaengcon.com/ar/engineering-consultants-in-ajman/" },
+            ],
+        },
         { name: "تواصل معنا", href: "/ar/contact-us" },
     ];
 
@@ -54,14 +61,30 @@ export default function ArFooter() {
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
                     <nav className="flex flex-wrap gap-5 text-center justify-center items-center">
                         {footerItemsAr.map((item) => (
-                            <Link key={item.name} href={item.href}>
-                                <Button
-                                    variant="ghost"
-                                    className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""}`}
-                                >
-                                    {item.name}
-                                </Button>
-                            </Link>
+                            <div key={item.name} className="relative group">
+                                <Link href={item.href}>
+                                    <Button
+                                        variant="ghost"
+                                        className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""
+                                            }`}
+                                    >
+                                        {item.name}
+                                    </Button>
+                                </Link>
+
+                                {/* Dropdown */}
+                                {item.dropdown && (
+                                    <div className="absolute right-27 translate-x-1/2 top-6 mt-2 hidden group-hover:block bg-white rounded-lg shadow-lg min-w-55 z-50 overflow-hidden">
+                                        {item.dropdown.map((subItem) => (
+                                            <Link key={subItem.name} href={subItem.href}>
+                                                <div className="px-3 py-3 text-gray-800 hover:bg-[#01b2eb] hover:text-white transition text-right">
+                                                    {subItem.name}
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>  
+                                )}
+                            </div>
                         ))}
                     </nav>
                 </div>
@@ -101,10 +124,10 @@ export default function ArFooter() {
                     <div className="space-y-4 flex md:justify-end justify-center">
                         <Image
                             src={footerLogoarabic}
-                            height={320}
-                            width={320}
+                            height={300}
+                            width={300}
                             alt="إنما للاستشارات الهندسية"
-                            className="h-auto w-auto"
+                            className=""
                         />
                     </div>
                 </div>

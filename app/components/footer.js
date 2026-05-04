@@ -19,7 +19,16 @@ export default function Footer() {
         { name: "Home", href: "/" },
         { name: "Project Inspirations", href: "/project-map" },
         { name: "Our Projects", href: "/our-projects" },
-        { name: "Our Services", href: "/our-services" },
+        {
+            name: "Our Services",
+            href: "/our-services",
+            dropdown: [
+                { name: "engineering-consultant-in-abu-dhabi", href: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/" },
+                {
+                    name: "engineering-consultants-in-ajman", href: "https://www.enmaaengcon.com/engineering-consultants-in-ajman/"
+                },
+            ],
+        },
         { name: "Contact Us", href: "/contact-us" },
     ];
 
@@ -40,9 +49,7 @@ export default function Footer() {
 
     return (
         <footer id="bookNow" className="bg-neutral-800 md:rounded-t-[50px] min-h-screen bottom-0 flex flex-col items-center justify-center !z-[100] text-white relative">
-
             {isArabic ?
-
                 <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-0" target="_blank" href='https://api.whatsapp.com/send/?phone=%2B+971506185529&text=مرحباً شركة إنما للاستشارات الهندسية، أتواصل معكم للاستفسار عن بعض التفاصيل المتعلقة بخدماتكم.&type=phone_number&app_absent=0'>
                     <button className="btn rounded btn-warning border-warning rounded-5 shadow">
                         <Image src={WPIcon} width={25} height={25} alt="WPICon" />
@@ -74,35 +81,31 @@ export default function Footer() {
             {/* Navigation */}
             <div className="border-gray-700">
                 <div className="max-w-7xl mx-auto px-6 pt-10 py-4">
-                    {/* <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center items-center">
-                        <Link href={'/'} className="text-white hover:text-gray-300 transition-colors">
-                            Home
-                        </Link>
-                        <Link href={'project-map'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Project inspirations
-                        </Link>
-                        <Link href={'/our-projects'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Our Projects
-                        </Link>
-                        <Link href={'/our-services'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Our Services
-                        </Link>
-                        <Link href={'/contact-us'} className="text-gray-400 hover:text-gray-300 transition-colors">
-                            Contact Us
-                        </Link>
-                    </nav> */}
-
                     <nav className="md:flex grid gap-5 flex-wrap text-center md:space-x-20 justify-center items-center">
                         {footerItems.map((item) => (
-                            <Link key={item.name} href={item.href}>
-                                <Button
-                                    variant="ghost"
-                                    className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""
-                                        }`}
-                                >
-                                    {item.name}
-                                </Button>
-                            </Link>
+                            <div key={item.name} className="relative group">
+                                <Link href={item.href}>
+                                    <Button
+                                        variant="ghost"
+                                        className={`text-white hover:text-[#01b2eb] hover:bg-white/10 px-4 py-2 transition ${isActive(item.href) ? "text-[#01b2eb]" : ""
+                                            }`}
+                                    >
+                                        {item.name}
+                                    </Button>
+                                </Link>
+                                {/* Dropdown */}
+                                {item.dropdown && (
+                                    <div className="absolute left-28 -translate-x-1/2 top-7 delay-100 duration-300 mt-2 hidden group-hover:block bg-white rounded-lg shadow-lg min-w-55 z-50 overflow-hidden">
+                                        {item.dropdown.map((subItem) => (
+                                            <Link key={subItem.name} href={subItem.href}>
+                                                <div className="px-3 py-3 text-gray-800 hover:bg-[#01b2eb] hover:text-white transition text-left">
+                                                    {subItem.name}
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </nav>
                 </div>
