@@ -72,7 +72,6 @@ export default function ContactUs() {
                                         <FaPhone className='text-white' />
                                     </div>
                                 </div>
-
                                 {/* Email */}
                                 <div className="flex items-start justify-end gap-4">
                                     <div>
@@ -92,7 +91,6 @@ export default function ContactUs() {
                                         <IoMail className='text-white' />
                                     </div>
                                 </div>
-
                                 {/* Social */}
                                 <div className="flex items-start justify-end gap-4">
                                     <div>
