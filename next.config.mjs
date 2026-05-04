@@ -1,8 +1,8 @@
 const nextConfig = {
     experimental: {
         cpus: 1,
-        parallelServerBuildTraces: false,
-        parallelServerCompiles: false,
+        // parallelServerBuildTraces: false,
+        // parallelServerCompiles: false,
     },
     eslint: {
         ignoreDuringBuilds: true,

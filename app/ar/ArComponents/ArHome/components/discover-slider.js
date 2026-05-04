@@ -10,7 +10,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Navbar from "@/app/Navbar"
 import useGsapPin from "@/app/components/hooks/useGsapPin"
 import useCounterAnimation from "@/app/components/useCounterAnimation"
-import ArNavbar from "@/app/Ar-navbar"
 
 
 const slides = [
@@ -129,7 +128,7 @@ export default function DiscoverSlider() {
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
-            <ArNavbar />
+            <Navbar />
 
             {/* Main Content */}
              <div className="absolute inset-0 flex flex-col items-space-between justify-evenly z-10">

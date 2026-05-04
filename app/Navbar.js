@@ -54,7 +54,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href={isArabic ? "/ar" : "/"}>
                     {isArabic ?
-                        <Image src={Logoarabic} height={180} width={190} alt="Logo" />
+                        <Image src={Logoarabic} height={180} width={130} alt="Logo" />
                         :
                         <Image src={Logoengish} height={180} width={190} alt="Logo" />
                     }

@@ -13,8 +13,8 @@ import TenderingServicesArabic from "../pages-content/tenderings-services";
 import DesignBuildProjectParticipationArabic from "../pages-content/design-build-project-participation";
 import GisArabic from "../pages-content/gis-services";
 import DeesignServices from "../pages-content/design-services";
-import ArFooter from "@/app/components/ArFoter";
- 
+import Footer from "@/app/components/footer";
+
 const metaDataBySlug = {
     "استشارات-هندسية-ابوظبي": {
         title: "شركات استشارات هندسية في ابوظبي | استشاري هندسي ابوظبي",
@@ -77,7 +77,7 @@ const metaDataBySlug = {
         canonical: "https://www.enmaaengcon.com/ar/tenderings-services",
     },
 };
- 
+
 // --- ADD THIS FUNCTION FOR STATIC EXPORT ---
 export function generateStaticParams() {
     // Collect all unique slugs from your metadata and your switch cases
@@ -87,24 +87,26 @@ export function generateStaticParams() {
         "design-services", // from your switch case
         ...Object.keys(metaDataBySlug)
     ];
- 
+
     return slugs.map((slug) => ({
         slug: slug,
     }));
 }
 // -------------------------------------------
- 
+
 export async function generateMetadata({ params }) {
-    const decodedSlug = decodeURIComponent(params.slug);
+    // Await the params before using them
+    const { slug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
     const data = metaDataBySlug[decodedSlug];
- 
+
     if (!data) {
         return {
             title: "Page Not Found",
             description: "The requested page does not exist.",
         };
     }
- 
+
     return {
         title: data.title,
         description: data.description,
@@ -133,9 +135,11 @@ export async function generateMetadata({ params }) {
         },
     };
 }
- 
-export default function page({ params }) {
-    const decodedSlug = decodeURIComponent(params.slug);
+
+export default async function page({ params }) {
+    const { slug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
+    
     let content;
  
     switch (decodedSlug) {
@@ -187,11 +191,11 @@ export default function page({ params }) {
         default:
             content = <div>Page not found</div>;
     }
- 
+
     return (
         <>
             {content}
-            <ArFooter/>
+            <Footer />
         </>
     );
 }

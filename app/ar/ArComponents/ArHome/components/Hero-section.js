@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-import ArNavbar from '@/app/Ar-navbar'
+import Navbar from '@/app/Navbar'
 
 export default function HeroSection({ title, desc, bg }) {
     return (
         <>
-            <ArNavbar />
+            <Navbar />
             <section className='relative h-100'>
                 <Image
                     src={bg}

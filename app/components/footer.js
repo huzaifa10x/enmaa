@@ -21,9 +21,9 @@ export default function Footer() {
             name: "Our Services",
             href: "/our-services",
             dropdown: [
-                { name: "engineering-consultant-in-abu-dhabi", href: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/" },
+                { name: "engineering-consultant-in-abu-dhabi", href: "/engineering-consultant-in-abu-dhabi/" },
                 {
-                    name: "engineering-consultants-in-ajman", href: "https://www.enmaaengcon.com/engineering-consultants-in-ajman/"
+                    name: "engineering-consultants-in-ajman", href: "/engineering-consultants-in-ajman/"
                 },
             ],
         },
@@ -32,10 +32,17 @@ export default function Footer() {
 
     const footerItemsAr = [
         { name: "تواصل معنا", href: "/ar/contact-us" },
-        { name: "خدماتنا", href: "/ar/our-services" },
+        {
+            name: "خدماتنا",
+            href: "/ar/our-services",
+            dropdown: [
+                { name: "استشارات هندسية في أبوظبي", href: "/ar/استشارات-هندسية-ابوظبي" },
+                { name: "استشارات هندسية في عجمان", href: "/ar/engineering-consultants-in-ajman" },
+            ],
+        },
         { name: "مشاريعنا", href: "/ar/our-projects" },
         { name: "أفكار المشاريع", href: "/ar/project-map" },
-        { name: "الرئيسية", href: "/ar/home" },
+        { name: "الرئيسية", href: "/ar/" },
     ];
 
     const footerItems = isArabic ? footerItemsAr : footerItemsEn;
@@ -91,12 +98,13 @@ export default function Footer() {
                                         {item.name}
                                     </Button>
                                 </Link>
-                                {/* Dropdown */}
+
+                                {/* Dropdown logic works for both EN and AR now */}
                                 {item.dropdown && (
-                                    <div className="absolute left-28 -translate-x-1/2 top-7 delay-100 duration-300 mt-2 hidden group-hover:block bg-white rounded-lg shadow-lg min-w-55 z-50 overflow-hidden">
+                                    <div className={`absolute ${isArabic ? 'right-0' : 'left-28 -translate-x-1/2'} top-7 delay-100 duration-300 mt-2 hidden group-hover:block bg-white rounded-lg shadow-lg min-w-55 z-50 overflow-hidden`}>
                                         {item.dropdown.map((subItem) => (
                                             <Link key={subItem.name} href={subItem.href}>
-                                                <div className="px-3 py-3 text-gray-800 hover:bg-[#01b2eb] hover:text-white transition text-left">
+                                                <div className={`px-3 py-3 text-gray-800 hover:bg-[#01b2eb] hover:text-white transition ${isArabic ? 'text-right' : 'text-left'}`}>
                                                     {subItem.name}
                                                 </div>
                                             </Link>
@@ -157,7 +165,7 @@ export default function Footer() {
                                 <Image
                                     src={footerLogoarabic}
                                     height={320}
-                                    width={320}
+                                    width={220}
                                     alt="image"
                                     className=""
                                 />
@@ -192,7 +200,7 @@ export default function Footer() {
                                 <Image
                                     src={footerLogoarabic}
                                     height={320}
-                                    width={320}
+                                    width={220}
                                     alt="image"
                                     className="h-auto w-auto object-center"
                                 />
