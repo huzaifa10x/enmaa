@@ -6,6 +6,8 @@ import 'react-phone-input-2/lib/style.css';
 import QuoteModal from '../components/multi-step-form';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { captcha_site_key } from '@/lib/config';
+import { useDialog } from '@/context/DialogContex';
+import { usePathname } from 'next/navigation';
 
 export default function ArContactForm() {
   const [formData, setFormData] = useState({
@@ -20,6 +22,12 @@ export default function ArContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [responseMsg, setResponseMsg] = useState('');
   const recaptchaRef = useRef(null);
+  const { openDialog, closeDialog } = useDialog();
+
+  const pathname = usePathname(); // gets current path
+  const isArabic = pathname.startsWith('/ar/'); // if URL starts with /ar → Arabic
+
+
 
   const validateForm = () => {
     const newErrors = {};
@@ -192,8 +200,8 @@ export default function ArContactForm() {
         أو اضغط أدناه
       </div>
 
-      <div className="bg-[#284494] text-white px-6 py-1 flex justify-center rounded-md w-full">
-        <QuoteModal isArabic={true} />
+      <div onClick={() => openDialog({ isArabic })} className="bg-[#284494] text-white px-6 py-3 cursor-pointer flex justify-center rounded-md w-full">
+        اطلب عرض سعر الآن
       </div>
 
       <style jsx global>{`

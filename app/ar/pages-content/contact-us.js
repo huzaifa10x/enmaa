@@ -81,11 +81,6 @@ export default function ContactUs() {
                                                 marketing@enmaaengcon.com
                                             </a>
                                         </p>
-                                        <p className="text-gray-600">
-                                            <a className='hover:text-primary duration-300' href="mailto:marketing@enmaaengcon.com">
-                                                marketing@enmaaengcon.com
-                                            </a>
-                                        </p>
                                     </div>
                                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
                                         <IoMail className='text-white' />
@@ -114,13 +109,11 @@ export default function ContactUs() {
                                         <FaUser className="text-white" />
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
             <ArProjectLocation />
         </div>
     );
