@@ -121,7 +121,7 @@ export default function Testimonial() {
 
     return (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <h2 className="text-4xl mb-12">What People Say</h2>
+            <p className="text-4xl mb-12">What People Say</p>
             <Carousel
                 opts={{
                     align: "start",

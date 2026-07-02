@@ -122,16 +122,16 @@ export default function Footer() {
 
                 {isArabic ?
                     <div className="text-center mb-16" dir="rtl">
-                        <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">
+                        <p className="text-4xl md:text-8xl font-semibold mb-6 text-balance">
                             احجز الآن
-                        </h2>
+                        </p>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
                             إذا كنت ترغب في العمل معنا أو التواصل معنا، يسعدنا سماعك!
                         </p>
                     </div>
                     :
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</h2>
+                        <p className="text-4xl md:text-8xl font-semibold mb-6 text-balance">Get Started Now</p>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto text-balance">
                             If you would like to work with us or just want to get in touch, we&apos;d love to hear from you!
                         </p>
