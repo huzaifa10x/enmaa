@@ -7,14 +7,10 @@ import 'react-phone-input-2/lib/style.css';
 import QuoteModal from '../components/multi-step-form';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { captcha_site_key } from '@/lib/config';
-import { Button } from '@/components/ui/button';
-import { useDialog } from '@/context/DialogContex';
 
 export default function ContactForm() {
   const pathname = usePathname();
   const [isArabic, setIsArabic] = useState(false);
-  const { openDialog, closeDialog } = useDialog();
-
 
   useEffect(() => {
     setIsArabic(pathname.startsWith('/ar/'));
@@ -220,8 +216,8 @@ export default function ContactForm() {
         {isArabic ? "أو اضغط أدناه" : "or click below"}
       </div>
 
-      <div onClick={() => openDialog({ isArabic })} className="bg-[#284494] text-white px-6 py-3 cursor-pointer flex justify-center rounded-md w-full">
-        {isArabic ? "اطلب عرض سعر الآن" : "Request a Quote Now"}
+      <div className="bg-[#284494] text-white px-6 py-1 flex justify-center rounded-md w-full">
+        <QuoteModal isArabic={isArabic} />
       </div>
 
       <style jsx global>{`

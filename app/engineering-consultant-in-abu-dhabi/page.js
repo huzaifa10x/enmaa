@@ -106,7 +106,7 @@ export default function page() {
                         We are the most trusted service provider in Abu Dhabi. With local insights in the industry, we can guide you in the best way possible. We have years of expertise that makes us a reliable choice to opt for. Our service is just a phone call away. Connect with us today and bring you imagination to life with our talent.
                     </p>
 
-                    <h3 className='text-xl font-semibold mb-5'>Connect With Us Today</h3>
+                    <h2 className='text-xl font-semibold mb-5'>Connect With Us Today</h2>
                     <p className="text-neutral-500 text-base leading-relaxed mb-6">
                         If you are looking through the list of top engineering consultant companies Abu Dhabi, then connect with us today. Give us a call at <a className='text-primary' href="tel:+971 50 618 5529"> +971 50 618 5529</a> to schedule a meeting. You can also drop us an email at <a className='text-primary' href="mailto:marketing@enmaaengcon.com">marketing@enmaaengcon.com</a> We are just a call away to bring your ideal imagination into a proper functional design.
                     </p>

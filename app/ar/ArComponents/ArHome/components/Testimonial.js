@@ -2,9 +2,15 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import React, { useState, useEffect } from 'react'
+import image1 from "@/public/images/person/professional-man-with-glasses-in-pink-shirt-smilin.jpg"
+import image2 from "@/public/images/person/professional-man-in-pink-shirt-smiling - Copy.jpg"
+import image3 from "@/public/images/person/smiling-curly-woman.png"
+import image4 from "@/public/images/person/smiling-professional-woman.png"
 import male from "@/public/images/male-placeholder.webp"
 import female from "@/public/images/female-placeholder.webp"
 import Image from 'next/image'
+
+
 
 export default function Testimonial() {
     const testimonials = [
@@ -36,7 +42,7 @@ export default function Testimonial() {
 
     return (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <p className="text-4xl mb-12 text-right">ما يقوله الناس</p>
+            <h2 className="text-4xl mb-12 text-right">ما يقوله الناس</h2>
             <Carousel
                 opts={{
                     align: "start",
