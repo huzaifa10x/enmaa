@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image" // Added for LCP optimization
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
 import image1 from "@/public/images/home-services/home1.jpg"
@@ -43,73 +44,23 @@ export default function DiscoverSlider() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
     }, []);
+
     const [currentSlide, setCurrentSlide] = useState(0)
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
-    const countersRef = useRef([])
 
     useGsapPin(sectionRef)
 
+    // Initial load animation for Text
     useEffect(() => {
-        // Initial animation
         gsap.fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
-
         gsap.fromTo(
             subtitleRef.current,
             { opacity: 0, y: 30 },
             { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" },
         )
-
-        countersRef.current.forEach((el) => {
-            const targetValue = parseInt(el.dataset.value, 10)
-            gsap.fromTo(
-                el,
-                { innerText: 0 },
-                {
-                    innerText: targetValue,
-                    duration: 10,
-                    snap: { innerText: 1 },
-                    ease: "power4.out",
-                    onUpdate: function () {
-                        el.innerText = Math.floor(el.innerText)
-                    },
-                }
-            )
-
-            // const animateCounter = () => {
-            // }
-
-            // ScrollTrigger.create({
-            //     trigger: sectionRef.current,
-            //     start: "top 70%",
-            //     onEnter: animateCounter,
-            //     onEnterBack: animateCounter,
-            //     onLeave: () => (el.innerText = 0),
-            //     onLeaveBack: () => (el.innerText = 0),
-            // })
-
-        })
     }, [])
-
-    useEffect(() => {
-        const triggers = [];
-        countersRef.current.forEach((el) => {
-            const trigger = ScrollTrigger.create({
-                trigger: sectionRef.current,
-                start: "top 70%",
-                onEnter: animateCounter,
-                onEnterBack: animateCounter,
-                onLeave: () => (el.innerText = 0),
-                onLeaveBack: () => (el.innerText = 0),
-            });
-            triggers.push(trigger);
-        });
-
-        return () => {
-            triggers.forEach(t => t.kill());
-        };
-    }, []);
 
     const date = new Date();
     const currentYear = date.getFullYear()
@@ -119,6 +70,7 @@ export default function DiscoverSlider() {
     const counterV2Ref = useRef(null);
     const counterV3Ref = useRef(null);
 
+    // Using your custom counter hooks safely
     useCounterAnimation(counterV1Ref, 400);
     useCounterAnimation(counterV2Ref, 900);
     useCounterAnimation(counterV3Ref, 900);
@@ -138,17 +90,11 @@ export default function DiscoverSlider() {
         animateSlideChange(prev)
     }
 
-    const goToSlide = (index) => {
-        if (index !== currentSlide) {
-            animateSlideChange(index)
-        }
-    }
-
     const animateSlideChange = (newIndex) => {
         gsap.to([titleRef.current, subtitleRef.current], {
             opacity: 0,
             y: -30,
-            duration: 0.5,
+            duration: 0.4,
             ease: "power2.in",
             onComplete: () => {
                 setCurrentSlide(newIndex)
@@ -158,7 +104,7 @@ export default function DiscoverSlider() {
                     {
                         opacity: 1,
                         y: 0,
-                        duration: 0.8,
+                        duration: 0.6,
                         ease: "power2.out",
                         stagger: 0.1,
                     },
@@ -178,37 +124,64 @@ export default function DiscoverSlider() {
     }, [currentSlide])
 
     return (
-        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden">
-            {/* Background Image */}
-            <div className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
-                style={{ backgroundImage: `url(${slides[currentSlide].background.src})` }}>
-                <div className="absolute inset-0 bg-black/40" />
+        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
+            
+            {/* LCP Fix: Desktop Images Preloaded dynamically */}
+            <div className="hidden lg:block absolute inset-0 z-0">
+                {slides.map((slide, index) => (
+                    index === currentSlide && (
+                        <Image
+                            key={slide.id}
+                            src={slide.background}
+                            alt={slide.title}
+                            fill
+                            priority={index === 0} // Highest priority for the first slide
+                            className="object-cover object-center transition-opacity duration-1000"
+                        />
+                    )
+                ))}
+                <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
 
-            <div className="lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
-                style={{ backgroundImage: `url(${slides[currentSlide].mobBg.src})` }}>
-                <div className="absolute inset-0 bg-black/40" />
+            {/* LCP Fix: Mobile Images Preloaded dynamically */}
+            <div className="lg:hidden absolute inset-0 z-0">
+                {slides.map((slide, index) => (
+                    index === currentSlide && (
+                        <Image
+                            key={`mob-${slide.id}`}
+                            src={slide.mobBg}
+                            alt={slide.title}
+                            fill
+                            priority={index === 0}
+                            className="object-cover object-center transition-opacity duration-1000"
+                        />
+                    )
+                ))}
+                <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
 
             <Navbar />
 
             {/* Main Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-evenly z-10">
+            <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
                 <div></div>
+                
+                {/* Single H1 Wrapper */}
                 <div className="text-center">
-                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black  mb-4 tracking-tight">
+                    <p ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight">
                         {slides[currentSlide].title}
-                    </h1>
+                    </p>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
                         {slides[currentSlide].subtitle}
                     </p>
                 </div>
 
-                <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent"></div>
-                <div className="lg:max-w-4xl w-full mx-auto">
+                <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent z-10"></div>
+                
+                <div className="lg:max-w-4xl w-full mx-auto z-20">
                     <div className="bottom-20 grid grid-cols-3">
-                        {/* Counter 2: NUMBER OF CLIENTS */}
-                        <div className=" relative md:left-0 ">
+                        {/* Counter 1 */}
+                        <div className="relative md:left-0">
                             <div ref={counterV2Ref}
                                 data-value='2750'
                                 className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
@@ -221,7 +194,8 @@ export default function DiscoverSlider() {
                             </p>
                         </div>
 
-                        <div className=" relative md:left-0 ">
+                        {/* Counter 2 */}
+                        <div className="relative md:left-0">
                             <div ref={counterV1Ref}
                                 data-value={yearExp}
                                 className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
@@ -234,10 +208,8 @@ export default function DiscoverSlider() {
                             </p>
                         </div>
 
-
-
-                        {/* Counter 3: COMPLETED PROJECTS */}
-                        <div className="md:ml-10 relative md:left-0 ">
+                        {/* Counter 3 */}
+                        <div className="md:ml-10 relative md:left-0">
                             <div ref={counterV3Ref}
                                 data-value="2963"
                                 className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
@@ -251,22 +223,11 @@ export default function DiscoverSlider() {
                         </div>
                     </div>
                 </div>
-                {/* Bottom Navigation */}
-                <div className="bottom-16 left-0 right-0 z-20 max-w-7xl w-full mx-auto">
-                    <div className="flex items-center justify-between px-8">
-                        {/* Slide Indicators */}
-                        <div className="flex items-center space-x-8">
-                            {/* <div className="flex items-center space-x-4">
-                            {slides.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => goToSlide(index)}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-white" : "bg-white/30"
-                                        }`}
-                                />
-                            ))}
-                        </div> */}
 
+                {/* Bottom Navigation */}
+                <div className="bottom-16 left-0 right-0 z-30 max-w-7xl w-full mx-auto">
+                    <div className="flex items-center justify-between px-8">
+                        <div className="flex items-center space-x-8">
                             {/* Progress Bar */}
                             <div className="flex items-center space-x-4 text-white/60 text-sm">
                                 <span>{String(currentSlide + 1).padStart(2, "0")}</span>

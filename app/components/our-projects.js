@@ -1,7 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import image1 from "@/public/images/projecs slideshow/428.jpg"
 import image418 from "@/public/images/418.jpg"
 import image590 from "@/public/images/590.jpg"
 import image1717 from "@/public/images/1717.jpg"
