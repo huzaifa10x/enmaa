@@ -26,7 +26,7 @@ const slides = [
 export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [isMounted, setIsMounted] = useState(false)
-    
+
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
@@ -58,7 +58,7 @@ export default function DiscoverSlider() {
 
     const animateSlideChange = (newIndex) => {
         if (!titleRef.current || !subtitleRef.current) return;
-        
+
         gsap.to([titleRef.current, subtitleRef.current], {
             opacity: 0,
             y: -30,
@@ -87,7 +87,7 @@ export default function DiscoverSlider() {
     // Autoplay logic - Only start after mounted to prevent main thread blocking early on
     useEffect(() => {
         if (!isMounted) return;
-        
+
         const interval = setInterval(() => {
             const nextIndex = (currentSlide + 1) % slides.length
             animateSlideChange(nextIndex)
@@ -98,12 +98,12 @@ export default function DiscoverSlider() {
 
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
-            
+
             {/* Desktop Images */}
             <div className="hidden lg:block absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    <div 
-                        key={slide.id} 
+                    <div
+                        key={slide.id}
                         className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     >
                         <Image
@@ -122,16 +122,18 @@ export default function DiscoverSlider() {
             {/* Mobile Images */}
             <div className="lg:hidden absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    <div 
-                        key={`mob-${slide.id}`} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    <div
+                        key={`mob-${slide.id}`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            }`}
                     >
                         <Image
                             src={slide.mobBg}
                             alt={slide.title}
                             fill
                             priority={index === 0}
-                            sizes="100vw"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover object-center"
                         />
                     </div>
@@ -144,7 +146,7 @@ export default function DiscoverSlider() {
             {/* Main Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
                 <div></div>
-                
+
                 {/* LCP Text */}
                 <div className="text-center">
                     {/* Add content-visibility or ensure no initial styles hide this */}
@@ -157,7 +159,7 @@ export default function DiscoverSlider() {
                 </div>
 
                 <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent z-10"></div>
-                
+
                 <div className="lg:max-w-4xl w-full mx-auto z-20">
                     <div className="bottom-20 grid grid-cols-3">
                         {/* Counters omitted for brevity, keep them exactly as you had them */}

@@ -5,17 +5,16 @@ const easeOutExpo = (t) => {
 };
 
 /**
- * Custom hook to manage the counter animation effect.
+ * Custom hook to manage the counter animation effect with LCP/Mobile optimization.
  * @param {HTMLDivElement} counterRef - A ref to the counter element.
  * @param {number} duration - The duration of the animation in milliseconds.
+ * @param {boolean} isReady - Flag from parent component to delay until page is settled.
  */
-const useCounterAnimation = (counterRef, duration = 1000) => {
+const useCounterAnimation = (counterRef, duration = 1000, isReady = true) => {
     const observerRef = useRef(null);
-    const hasBeenVisibleRef = useRef(false);
 
     const animateCounter = useCallback((element, targetValue) => {
         const startTimestamp = performance.now();
-        const startValue = 0; 
 
         const step = (timestamp) => {
             const elapsed = timestamp - startTimestamp;
@@ -37,13 +36,25 @@ const useCounterAnimation = (counterRef, duration = 1000) => {
         const element = counterRef.current;
         if (!element) return;
 
+        const targetValue = parseInt(element.getAttribute('data-value'), 10) || 0;
+
+        // 🚀 CRITICAL MOBILE OPTIMIZATION:
+        // Agar mobile screen hai ya component abhi ready nahi hai, toh animation bypass karo.
+        // Direct final value HTML mein set kar do taake CPU block na ho.
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+            element.textContent = targetValue.toLocaleString();
+            return; // No heavy loops on mobile!
+        }
+
+        // Desktop par tab tak animation roko jab tak initial paint settled na ho jaye
+        if (!isReady) {
+            element.textContent = '0';
+            return;
+        }
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    const targetValue = parseInt(
-                        element.getAttribute('data-value'),
-                        10
-                    );
                     animateCounter(element, targetValue);
                 } else {
                     element.textContent = '0';
@@ -63,7 +74,7 @@ const useCounterAnimation = (counterRef, duration = 1000) => {
                 observerRef.current.unobserve(element);
             }
         };
-    }, [counterRef, animateCounter]);
+    }, [counterRef, animateCounter, isReady]);
 };
 
 export default useCounterAnimation;
