@@ -2,7 +2,6 @@ import ServiceCard from "./service-card";
 import Image from "next/image";
 import engservicesText from "@/public/images/Services.webp";
 import arabicservicesText from "@/public/images/خدمات.png";
-import servicesProject from "@/public/images/projects/448...1.jpg";
 import engineering from "@/public/images/Services-images/Engineering Service/25.jpg";
 import design from "@/public/images/Services-images/Engineering Service/24.jpg";
 import tender from "@/public/images/Services-images/Tendering-Services/453.jpg";
@@ -498,8 +497,8 @@ export default function ServiceSection({ lang = "en" }) {
             />
           </div>
         </div>
-          {/* Services Grid */}
-            {/* <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${isArabic ? "" : ""}`}>
+        {/* Services Grid */}
+        {/* <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${isArabic ? "" : ""}`}>
                 {services.map((service) => (
                         <ServiceCard key={service.id} service={service} isArabic={isArabic} />
                 ))}

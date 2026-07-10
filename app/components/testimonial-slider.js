@@ -97,7 +97,7 @@ const testimonials = [
 
 gsap.registerPlugin(ScrollTrigger)
 
-function    TestimonialSlider() {
+function TestimonialSlider() {
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const goToPrevious = () => {
@@ -127,8 +127,8 @@ function    TestimonialSlider() {
                     <PillTitle title={'Testimonials'} />
 
                     <div className="mb-">
-                        <h2 className="text-2xl md:text-5xl mb-4 text-balance">What
-                            <span className="text-primary font-bold"> Our Client’s </span>Say</h2>
+                        <p className="text-2xl md:text-5xl mb-4 text-balance">What
+                            <span className="text-primary font-bold"> Our Client’s </span>Say</p>
                     </div>
                 </div>
 
@@ -147,7 +147,7 @@ function    TestimonialSlider() {
                     {/* Testimonial Content */}
                     <div className="text-center mb-8">
                         <p className="text-lg text-foreground mb-6 leading-relaxed">{currentTestimonial.text}</p>
-                        <h3 className="text-xl font-semibold text-foreground">{currentTestimonial.author}</h3>
+                        <p className="text-xl font-semibold text-foreground">{currentTestimonial.author}</p>
                     </div>
 
                     {/* Navigation Arrows */}
