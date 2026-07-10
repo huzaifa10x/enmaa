@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Logoengish from "@/public/images/Enmaa-footer.webp"
-import Logoarabic from "@/public/images/image10.webp"
+import Logoarabic from "@/public/images/image10.png"
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
