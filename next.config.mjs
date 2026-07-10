@@ -13,6 +13,16 @@ const nextConfig = {
     // images: {
     //     unoptimized: true,
     // },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'yellow-termite-327315.hostingersite.com',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
     async redirects() {
         return [
             {
@@ -30,7 +40,7 @@ const nextConfig = {
                 destination: "/our-projects/",
                 permanent: true,
             },
- 
+
             {
                 source: "/engineering-consultants/project-map/",
                 destination: "/project-map/",
@@ -41,13 +51,13 @@ const nextConfig = {
                 destination: "/ar/project-map/",
                 permanent: true,
             },
- 
+
             {
                 source: "/services/:slug(residential-design-2|commercial-design-2|office-design)/",
                 destination: "/our-services/",
                 permanent: true,
             },
- 
+
             {
                 source: "/ar/projects-2/",
                 destination: "/our-projects/",
@@ -63,7 +73,7 @@ const nextConfig = {
                 destination: "/ar/our-projects/",
                 permanent: true,
             },
- 
+
             {
                 source: "/contact/",
                 destination: "/contact-us/",
@@ -74,7 +84,7 @@ const nextConfig = {
                 destination: "/ar/contact-us/",
                 permanent: true,
             },
- 
+
             {
                 source: "/awards/",
                 destination: "/",
@@ -85,7 +95,7 @@ const nextConfig = {
                 destination: "/",
                 permanent: true,
             },
- 
+
             {
                 source: "/%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D8%A7%D8%A8%D9%88%D8%B8%D8%A8%D9%8A/",
                 destination: "/ar/استشارات-هندسية-ابوظبي/",
@@ -95,4 +105,3 @@ const nextConfig = {
     },
 };
 export default nextConfig;
- 
