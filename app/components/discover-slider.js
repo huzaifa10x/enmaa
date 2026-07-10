@@ -46,14 +46,12 @@ export default function DiscoverSlider() {
     }, []);
 
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [isReady, setIsReady] = useState(false) // Controls JS-heavy animations initially
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
 
     useGsapPin(sectionRef)
-
-    // REMOVED: Initial GSAP mount animation that was hiding the text on load.
-    // Text will now be immediately visible in raw HTML.
 
     const date = new Date();
     const currentYear = date.getFullYear()
@@ -72,12 +70,22 @@ export default function DiscoverSlider() {
         fontFamily: "system-ui",
     };
 
+    // Delays interaction and autoplay to let browser finish LCP paint first
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsReady(true)
+        }, 3000) // 3 seconds delay before any heavy JS triggers
+        return () => clearTimeout(timer)
+    }, [])
+
     const nextSlide = () => {
+        if (!isReady) return
         const next = (currentSlide + 1) % slides.length
         animateSlideChange(next)
     }
 
     const prevSlide = () => {
+        if (!isReady) return
         const prev = currentSlide === 0 ? slides.length - 1 : currentSlide - 1
         animateSlideChange(prev)
     }
@@ -105,32 +113,36 @@ export default function DiscoverSlider() {
         })
     }
 
-    // Autoplay logic
+    // Autoplay logic - only kicks in after 3 seconds ready state
     useEffect(() => {
+        if (!isReady) return
+
         const interval = setInterval(() => {
             const nextIndex = (currentSlide + 1) % slides.length
             animateSlideChange(nextIndex)
         }, 5000)
 
         return () => clearInterval(interval)
-    }, [currentSlide])
+    }, [currentSlide, isReady])
 
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
             
-            {/* LCP FIX: Fixed Conditional Rendering. Server will pre-render all first-slide elements */}
             {/* Desktop Images */}
             <div className="hidden lg:block absolute inset-0 z-0">
                 {slides.map((slide, index) => (
                     <div 
                         key={slide.id} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${
+                            index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
                     >
                         <Image
                             src={slide.background}
                             alt={slide.title}
                             fill
-                            priority={index === 0} // Preloads the first slide instantly
+                            priority={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
                             sizes="100vw"
                             className="object-cover object-center"
                         />
@@ -144,13 +156,16 @@ export default function DiscoverSlider() {
                 {slides.map((slide, index) => (
                     <div 
                         key={`mob-${slide.id}`} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${
+                            index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
                     >
                         <Image
                             src={slide.mobBg}
                             alt={slide.title}
                             fill
-                            priority={index === 0} // Preloads the first mobile slide instantly
+                            priority={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
                             sizes="100vw"
                             className="object-cover object-center"
                         />
@@ -165,9 +180,9 @@ export default function DiscoverSlider() {
             <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
                 <div></div>
                 
-                {/* Text is rendered instantly from the Server and isn't hidden by GSAP initially */}
-                <div className="text-center">
-                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block">
+                {/* Text Block - Rendered with pure CSS initially, no inline hidden properties */}
+                <div className="text-center will-change-transform">
+                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block fallback-font-fix">
                         {slides[currentSlide].title}
                     </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
@@ -242,10 +257,10 @@ export default function DiscoverSlider() {
 
                         {/* Navigation Buttons */}
                         <div className="flex items-center space-x-6">
-                            <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
+                            <Button variant="ghost" disabled={!isReady} onClick={prevSlide} className="text-white text-sm tracking-wider font-light disabled:opacity-50">
                                 PREV
                             </Button>
-                            <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
+                            <Button variant="ghost" disabled={!isReady} onClick={nextSlide} className="text-white text-sm tracking-wider font-light disabled:opacity-50">
                                 NEXT
                             </Button>
                         </div>
