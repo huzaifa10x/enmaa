@@ -1,182 +1,178 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useTransition } from "react"
 import Image from "next/image"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
+
+// Images standard import
 import image1 from "@/public/images/home-services/home1.jpg"
 import image2 from "@/public/images/home-services/home2.jpg"
 import image3 from "@/public/images/home-services/home3.jpg"
-
 import mobImage1 from "@/public/images/home-services/home1-mob.jpg"
 import mobImage2 from "@/public/images/home-services/home2-mob.jpg"
 import mobImage3 from "@/public/images/home-services/home3-mob.jpg"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 import Navbar from "../Navbar"
 import useGsapPin from "./hooks/useGsapPin"
 import useCounterAnimation from "./useCounterAnimation"
 
 const slides = [
-    {
-        id: 1,
-        title: "DISCOVER",
-        subtitle: "DISCOVER CASE",
-        background: image1,
-        mobBg: mobImage1
-    },
-    {
-        id: 2,
-        title: "EXPLORE",
-        subtitle: "EXPLORE CASE",
-        background: image2,
-        mobBg: mobImage2
-    },
-    {
-        id: 3,
-        title: "CREATE",
-        subtitle: "CREATE CASE",
-        background: image3,
-        mobBg: mobImage3
-    },
+    { id: 1, title: "DISCOVER", subtitle: "DISCOVER CASE", background: image1, mobBg: mobImage1 },
+    { id: 2, title: "EXPLORE", subtitle: "EXPLORE CASE", background: image2, mobBg: mobImage2 },
+    { id: 3, title: "CREATE", subtitle: "CREATE CASE", background: image3, mobBg: mobImage3 },
 ]
 
 export default function DiscoverSlider() {
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-    }, []);
-
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [isMounted, setIsMounted] = useState(false)
+    const [isPending, startTransition] = useTransition()
+    
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
 
     useGsapPin(sectionRef)
 
-    // REMOVED: Initial GSAP mount animation that was hiding the text on load.
-    // Text will now be immediately visible in raw HTML.
-
-    const date = new Date();
-    const currentYear = date.getFullYear()
-    const yearExp = currentYear - 2015
-
-    const counterV1Ref = useRef(null);
-    const counterV2Ref = useRef(null);
-    const counterV3Ref = useRef(null);
-
-    useCounterAnimation(counterV1Ref, 400);
-    useCounterAnimation(counterV2Ref, 900);
-    useCounterAnimation(counterV3Ref, 900);
-
     const counterStyle = {
         WebkitTextStroke: "2px #fff",
         fontFamily: "system-ui",
     };
 
-    const nextSlide = () => {
-        const next = (currentSlide + 1) % slides.length
-        animateSlideChange(next)
-    }
+    // Experience Years Calculation
+    const currentYear = new Date().getFullYear()
+    const yearExp = currentYear - 2015
 
-    const prevSlide = () => {
-        const prev = currentSlide === 0 ? slides.length - 1 : currentSlide - 1
-        animateSlideChange(prev)
-    }
+    // Dynamic counter references
+    const counterV1Ref = useRef(null)
+    const counterV2Ref = useRef(null)
+    const counterV3Ref = useRef(null)
+
+    useCounterAnimation(counterV1Ref, 400)
+    useCounterAnimation(counterV2Ref, 900)
+    useCounterAnimation(counterV3Ref, 900)
+
+    // Hydration aur GSAP initialization safety check
+    useEffect(() => {
+        setIsMounted(true)
+        const initGsap = async () => {
+            const { ScrollTrigger } = await import("gsap/ScrollTrigger")
+            gsap.registerPlugin(ScrollTrigger)
+        }
+        initGsap()
+    }, [])
 
     const animateSlideChange = (newIndex) => {
+        if (!titleRef.current || !subtitleRef.current) return
+
         gsap.to([titleRef.current, subtitleRef.current], {
             opacity: 0,
-            y: -30,
-            duration: 0.3,
-            ease: "power2.in",
+            y: -15,
+            duration: 0.2,
+            ease: "power1.in",
             onComplete: () => {
-                setCurrentSlide(newIndex)
+                startTransition(() => {
+                    setCurrentSlide(newIndex)
+                })
                 gsap.fromTo(
                     [titleRef.current, subtitleRef.current],
-                    { opacity: 0, y: 30 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.5,
-                        ease: "power2.out",
-                        stagger: 0.1,
-                    },
+                    { opacity: 0, y: 15 },
+                    { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", stagger: 0.05 }
                 )
             },
         })
     }
 
-    // Autoplay logic
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const nextIndex = (currentSlide + 1) % slides.length
-            animateSlideChange(nextIndex)
-        }, 5000)
+    const nextSlide = () => animateSlideChange((currentSlide + 1) % slides.length)
+    const prevSlide = () => animateSlideChange(currentSlide === 0 ? slides.length - 1 : currentSlide - 1)
 
+    // Autoplay Loop
+    useEffect(() => {
+        if (!isMounted) return
+        const interval = setInterval(() => {
+            nextSlide()
+        }, 5000)
         return () => clearInterval(interval)
-    }, [currentSlide])
+    }, [currentSlide, isMounted])
+
+    // SSR Stable placeholders to prevent layout shifts
+    const displayTitle = isMounted ? slides[currentSlide].title : slides[0].title
+    const displaySubtitle = isMounted ? slides[currentSlide].subtitle : slides[0].subtitle
 
     return (
-        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
+        <div ref={sectionRef} className="relative py-70 md:py-0 md:h-screen w-full overflow-hidden bg-black will-change-transform">
             
-            {/* LCP FIX: Fixed Conditional Rendering. Server will pre-render all first-slide elements */}
-            {/* Desktop Images */}
+            {/* Desktop Wallpaper Section */}
             <div className="hidden lg:block absolute inset-0 z-0">
-                {slides.map((slide, index) => (
-                    <div 
-                        key={slide.id} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    >
-                        <Image
-                            src={slide.background}
-                            alt={slide.title}
-                            fill
-                            priority={index === 0} // Preloads the first slide instantly
-                            sizes="100vw"
-                            className="object-cover object-center"
-                        />
-                    </div>
-                ))}
+                {slides.map((slide, index) => {
+                    // Speed Index Booster: Don't render non-active images until client is fully ready/mounted
+                    if (!isMounted && index !== 0) return null;
+                    return (
+                        <div
+                            key={slide.id}
+                            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                                index === currentSlide ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"
+                            }`}
+                        >
+                            <Image
+                                src={slide.background}
+                                alt={slide.title}
+                                fill
+                                priority={index === 0} 
+                                loading={index === 0 ? "eager" : "lazy"}
+                                sizes="100vw"
+                                quality={75} 
+                                className="object-cover object-center transform-gpu"
+                            />
+                        </div>
+                    )
+                })}
                 <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
 
-            {/* Mobile Images */}
+            {/* Mobile Wallpaper Section */}
             <div className="lg:hidden absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    <div 
-                        key={`mob-${slide.id}`} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    >
-                        <Image
-                            src={slide.mobBg}
-                            alt={slide.title}
-                            fill
-                            priority={index === 0} // Preloads the first mobile slide instantly
-                            sizes="100vw"
-                            className="object-cover object-center"
-                        />
-                    </div>
+                    // Server par pehla mobile banner hi pre-render hoga baki code hydration k bad ayenge
+                    (!isMounted && index !== 0) ? null : (
+                        <div
+                            key={`mob-${slide.id}`}
+                            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                                index === currentSlide ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"
+                            }`}
+                        >
+                            <Image
+                                src={slide.mobBg}
+                                alt={slide.title}
+                                fill
+                                priority={index === 0}
+                                loading={index === 0 ? "eager" : "lazy"}
+                                sizes="100vw"
+                                quality={70}
+                                className="object-cover object-center transform-gpu"
+                            />
+                        </div>
+                    )
                 ))}
                 <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
 
             <Navbar />
 
-            {/* Main Content */}
+            {/* Content Area */}
             <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
                 <div></div>
-                
-                {/* Text is rendered instantly from the Server and isn't hidden by GSAP initially */}
-                <div className="text-center">
-                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block">
-                        {slides[currentSlide].title}
+                <div className="text-center min-h-[140px] flex flex-col justify-center">
+                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block transition-transform">
+                        {displayTitle}
                     </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
-                        {slides[currentSlide].subtitle}
+                        {displaySubtitle}
                     </p>
                 </div>
 
                 <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent z-10"></div>
-                
+
                 <div className="lg:max-w-4xl w-full mx-auto z-20">
                     <div className="bottom-20 grid grid-cols-3">
                         {/* Counter 1 */}

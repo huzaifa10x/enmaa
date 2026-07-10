@@ -7,7 +7,6 @@ import HeroSection from "../ArComponents/ArHome/components/Hero-section"
 
 export default function ProjectMap() {
 
-
     return (
         <>
             <HeroSection
