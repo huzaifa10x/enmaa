@@ -2,8 +2,10 @@
 @import "tw-animate-css";
 
 @media (max-width:768px) {
-  
-  div, p, span{
+
+  div,
+  p,
+  span {
     font-family: 'system-ui';
     font-weight: 400;
     font-style: normal;
@@ -180,6 +182,18 @@ body {
   font-family: var(--font-product-sans), system-ui, -apple-system, sans-serif !important;
 }
 
-.svg-hover{
+.fallback-font-fix {
+  font-display: swap !important;
+  content-visibility: auto;
+}
+
+h1[ref="titleRef"],
+p[ref="subtitleRef"] {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.svg-hover {
   color: black;
 }
