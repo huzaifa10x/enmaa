@@ -2,10 +2,10 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import React, { useState, useEffect } from 'react'
-import image1 from "@/public/images/person/professional-man-with-glasses-in-pink-shirt-smilin.jpg"
-import image2 from "@/public/images/person/professional-man-in-pink-shirt-smiling - Copy.jpg"
-import image3 from "@/public/images/person/smiling-curly-woman.png"
-import image4 from "@/public/images/person/smiling-professional-woman.png"
+import image1 from "@/public/images/person/professional-man-with-glasses-in-pink-shirt-smilin.webp"
+import image2 from "@/public/images/person/professional-man-in-pink-shirt-smiling - Copy.webp"
+import image3 from "@/public/images/person/smiling-curly-woman.webp"
+import image4 from "@/public/images/person/smiling-professional-woman.webp"
 import Image from 'next/image'
 import male from "@/public/images/male-placeholder.webp"
 import female from "@/public/images/female-placeholder.webp"

@@ -1,8 +1,8 @@
-import projects from "@/public/images/المشاريع.png"
+import projects from "@/public/images/المشاريع.webp"
 import Image from "next/image"
 // import HeroSection from "@/app/components/Hero-section"
 import GalleryPage from "@/app/project-map/Gallery"
-import image3 from "@/public/images/projects/1438-17.jpg"
+import image3 from "@/public/images/projects/1438-17.webp"
 import HeroSection from "../ArComponents/ArHome/components/Hero-section"
 
 export default function ProjectMap() {

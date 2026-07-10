@@ -35,7 +35,7 @@ import projects from "@/public/images/projects.webp"
 import Image from "next/image"
 import GalleryPage from "./Gallery"
 import HeroSection from "../components/Hero-section"
-import image3 from "@/public/images/projects/1438-17.jpg"
+import image3 from "@/public/images/projects/1438-17.webp"
 import Footer from "../components/footer"
 export default function page() {
 

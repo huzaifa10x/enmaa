@@ -155,7 +155,7 @@ export default function ProjectSlider() {
             className="relative py-16 md:py-24"
             style={{
                 backgroundImage:
-                    "linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.92)), url('/images/projects-blueprint-bg.png')",
+                    "linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.92)), url('/images/projects-blueprint-bg.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}

@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
-import faqImg from "@/public/images/inspiration/28.jpg"
+import faqImg from "@/public/images/inspiration/28.webp"
 import PillTitle from "./pill-title"
 import useGsapPin from "./hooks/useGsapPin"
 

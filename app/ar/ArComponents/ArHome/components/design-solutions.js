@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import image1 from "@/public/images/projects/1855-02.jpg";
-import image2 from "@/public/images/p43ews.jpg";
-import image3 from "@/public/images/projecs slideshow/431.jpg";
+import image1 from "@/public/images/projects/1855-02.webp";
+import image2 from "@/public/images/p43ews.webp";
+import image3 from "@/public/images/projecs slideshow/431.webp";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useGsapPin from "@/app/components/hooks/useGsapPin";

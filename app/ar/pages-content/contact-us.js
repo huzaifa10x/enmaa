@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import image3 from "@/public/images/projects/1438-17.jpg";
+import image3 from "@/public/images/projects/1438-17.webp";
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTiktok, FaUser } from 'react-icons/fa6';
 import { IoMail } from 'react-icons/io5';
 import ArContactForm from '@/app/contact-us/ArContactForm';

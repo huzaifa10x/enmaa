@@ -1,8 +1,8 @@
 import ServicesBanner from "@/app/components/services-banner"
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
-import image1 from "@/public/images/Services-images/Supervision/20.jpg"
-import image2 from "@/public/images/Services-images/Supervision/21.jpg"
-import image3 from "@/public/images/Services-images/Supervision/23.jpg"
+import image1 from "@/public/images/Services-images/Supervision/20.webp"
+import image2 from "@/public/images/Services-images/Supervision/21.webp"
+import image3 from "@/public/images/Services-images/Supervision/23.webp"
 import Image from 'next/image'
 import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 

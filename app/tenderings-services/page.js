@@ -33,9 +33,9 @@ export const metadata = {
 }
 import ServicesBanner from "../components/services-banner"
 import Testimonial from "../components/Testimonial"
-import image1 from "@/public/images/Services-images/Tendering-Services/43.jpg"
-import image2 from "@/public/images/Services-images/Tendering-Services/453.jpg"
-import image3 from "@/public/images/Services-images/Tendering-Services/e5w.jpg"
+import image1 from "@/public/images/Services-images/Tendering-Services/43.webp"
+import image2 from "@/public/images/Services-images/Tendering-Services/453.webp"
+import image3 from "@/public/images/Services-images/Tendering-Services/e5w.webp"
 import ServicesPageSlider from "../components/services-page-slider"
 import Footer from "../components/footer"
 

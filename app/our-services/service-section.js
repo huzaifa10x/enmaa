@@ -1,15 +1,15 @@
 import ServiceCard from "./service-card";
 import Image from "next/image";
 import engservicesText from "@/public/images/Services.webp";
-import arabicservicesText from "@/public/images/خدمات.png";
-import engineering from "@/public/images/Services-images/Engineering Service/25.jpg";
-import design from "@/public/images/Services-images/Engineering Service/24.jpg";
-import tender from "@/public/images/Services-images/Tendering-Services/453.jpg";
-import supervision from "@/public/images/Services-images/Supervision/21.jpg";
-import clientEng from "@/public/images/Services-images/Client-Engineer-Representative/27.jpg";
-import program from "@/public/images/Services-images/Program-Management-Services/554.jpg";
-import designBuild from "@/public/images/Services-images/Design-Build-Project/46445.jpg";
-import GIS from "@/public/images/Services-images/GIS-Services/65.jpg";
+import arabicservicesText from "@/public/images/خدمات.webp";
+import engineering from "@/public/images/Services-images/Engineering Service/25.webp";
+import design from "@/public/images/Services-images/Engineering Service/24.webp";
+import tender from "@/public/images/Services-images/Tendering-Services/453.webp";
+import supervision from "@/public/images/Services-images/Supervision/21.webp";
+import clientEng from "@/public/images/Services-images/Client-Engineer-Representative/27.webp";
+import program from "@/public/images/Services-images/Program-Management-Services/554.webp";
+import designBuild from "@/public/images/Services-images/Design-Build-Project/46445.webp";
+import GIS from "@/public/images/Services-images/GIS-Services/65.webp";
 
 export default function ServiceSection({ lang = "en" }) {
   const isArabic = lang === "ar";

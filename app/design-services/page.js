@@ -37,9 +37,9 @@ export const metadata = {
 };
 import Testimonial from '../components/Testimonial'
 import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/Services-images/Design Services/565.jpg"
-import image2 from "@/public/images/Services-images/Design Services/876.jpg"
-import image3 from "@/public/images/Services-images/Design Services/9878.jpg"
+import image1 from "@/public/images/Services-images/Design Services/565.webp"
+import image2 from "@/public/images/Services-images/Design Services/876.webp"
+import image3 from "@/public/images/Services-images/Design Services/9878.webp"
 import ServicesPageSlider from '../components/services-page-slider'
 import Footer from '../components/footer';
 

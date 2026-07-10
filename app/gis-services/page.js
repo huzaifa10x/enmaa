@@ -37,10 +37,10 @@ export const metadata = {
 };
 import Testimonial from '../components/Testimonial'
 import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/Services-images/GIS-Services/43.jpg"
-import image2 from "@/public/images/Services-images/GIS-Services/54.jpg"
-import image3 from "@/public/images/Services-images/GIS-Services/65.jpg"
-import image4 from "@/public/images/Services-images/GIS-Services/76.jpg"
+import image1 from "@/public/images/Services-images/GIS-Services/43.webp"
+import image2 from "@/public/images/Services-images/GIS-Services/54.webp"
+import image3 from "@/public/images/Services-images/GIS-Services/65.webp"
+import image4 from "@/public/images/Services-images/GIS-Services/76.webp"
 import ServicesPageSlider from '../components/services-page-slider'
 import Footer from '../components/footer';
 

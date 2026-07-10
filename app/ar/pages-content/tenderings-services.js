@@ -1,7 +1,7 @@
 import ServicesBanner from '@/app/components/services-banner'
-import image1 from "@/public/images/Services-images/Tendering-Services/43.jpg"
-import image2 from "@/public/images/Services-images/Tendering-Services/453.jpg"
-import image3 from "@/public/images/Services-images/Tendering-Services/e5w.jpg"
+import image1 from "@/public/images/Services-images/Tendering-Services/43.webp"
+import image2 from "@/public/images/Services-images/Tendering-Services/453.webp"
+import image3 from "@/public/images/Services-images/Tendering-Services/e5w.webp"
 import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'
 

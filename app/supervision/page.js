@@ -32,12 +32,12 @@ export const metadata = {
   },
 }
 import Testimonial from '../components/Testimonial'
-import image1 from "@/public/images/Services-images/Supervision/20.jpg"
-import image2 from "@/public/images/Services-images/Supervision/21.jpg"
-import image3 from "@/public/images/Services-images/Supervision/23.jpg"
-import image4 from "@/public/images/Services-images/Supervision/25.jpg"
-import image5 from "@/public/images/Services-images/Supervision/26.jpg"
-import image6 from "@/public/images/Services-images/Supervision/27.jpg"
+import image1 from "@/public/images/Services-images/Supervision/20.webp"
+import image2 from "@/public/images/Services-images/Supervision/21.webp"
+import image3 from "@/public/images/Services-images/Supervision/23.webp"
+import image4 from "@/public/images/Services-images/Supervision/25.webp"
+import image5 from "@/public/images/Services-images/Supervision/26.webp"
+import image6 from "@/public/images/Services-images/Supervision/27.webp"
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
 import ServicesPageSlider from '../components/services-page-slider'

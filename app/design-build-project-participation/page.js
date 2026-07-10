@@ -36,10 +36,10 @@ export const metadata = {
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/Services-images/Design-Build-Project/345.jpg"
-import image2 from "@/public/images/Services-images/Design-Build-Project/534.jpg"
-import image3 from "@/public/images/Services-images/Design-Build-Project/3456.jpg"
-import image4 from "@/public/images/Services-images/Design-Build-Project/46445.jpg"
+import image1 from "@/public/images/Services-images/Design-Build-Project/345.webp"
+import image2 from "@/public/images/Services-images/Design-Build-Project/534.webp"
+import image3 from "@/public/images/Services-images/Design-Build-Project/3456.webp"
+import image4 from "@/public/images/Services-images/Design-Build-Project/46445.webp"
 import ServicesPageSlider from '../components/services-page-slider'
 import Footer from '../components/footer';
 

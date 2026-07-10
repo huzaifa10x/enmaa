@@ -34,7 +34,7 @@ export const metadata = {
 import Footer from "../components/footer";
 import HeroSection from "../components/Hero-section";
 import ServiceSection from "./service-section";
-import image3 from "@/public/images/projects/1438-17.jpg"
+import image3 from "@/public/images/projects/1438-17.webp"
 
 export default function OurProjects() {
   return (

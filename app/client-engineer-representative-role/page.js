@@ -36,10 +36,10 @@ export const metadata = {
     },
 };
 import Testimonial from '../components/Testimonial'
-import image1 from "@/public/images/Services-images/Client-Engineer-Representative/23.jpg"
-import image2 from "@/public/images/Services-images/Client-Engineer-Representative/25.jpg"
-import image3 from "@/public/images/Services-images/Client-Engineer-Representative/26.jpg"
-import image4 from "@/public/images/Services-images/Client-Engineer-Representative/27.jpg"
+import image1 from "@/public/images/Services-images/Client-Engineer-Representative/23.webp"
+import image2 from "@/public/images/Services-images/Client-Engineer-Representative/25.webp"
+import image3 from "@/public/images/Services-images/Client-Engineer-Representative/26.webp"
+import image4 from "@/public/images/Services-images/Client-Engineer-Representative/27.webp"
 import ServicesBanner from '../components/services-banner'
 import ServicesPageSlider from '../components/services-page-slider'
 import Image from 'next/image'

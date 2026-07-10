@@ -35,14 +35,14 @@ export const metadata = {
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/projects/448...1.jpg"
-import image2 from "@/public/images/projects/1438-07.jpg"
-import image3 from "@/public/images/projects/1438-17.jpg"
-import image4 from "@/public/images/projects/1438-19.jpg"
-import image5 from "@/public/images/projects/1841-01.jpg"
-import image7 from "@/public/images/projects/1841-02.jpg"
-import image8 from "@/public/images/projects/1855-01.jpg"
-import image12 from "@/public/images/projects/1902.jpg"
+import image1 from "@/public/images/projects/448...1.webp"
+import image2 from "@/public/images/projects/1438-07.webp"
+import image3 from "@/public/images/projects/1438-17.webp"
+import image4 from "@/public/images/projects/1438-19.webp"
+import image5 from "@/public/images/projects/1841-01.webp"
+import image7 from "@/public/images/projects/1841-02.webp"
+import image8 from "@/public/images/projects/1855-01.webp"
+import image12 from "@/public/images/projects/1902.webp"
 import ServicesPageSlider from '../components/services-page-slider'
 import Footer from '../components/footer'
 export default function page() {

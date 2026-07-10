@@ -6,22 +6,22 @@ import { MdOutlineEngineering } from "react-icons/md"
 import { BsBuildings } from "react-icons/bs"
 import { SiAffinitydesigner } from "react-icons/si"
 import { FaRegHandshake } from "react-icons/fa6"
-import image1 from "@/public/images/home-services/3.jpg"
-import image2 from "@/public/images/home-services/4.jpg"
-import image3 from "@/public/images/home-services/5.jpg"
-import image4 from "@/public/images/home-services/6.jpg"
-import image5 from "@/public/images/home-services/7.jpg"
-import image6 from "@/public/images/home-services/558.jpg"
-import image7 from "@/public/images/home-services/8145.jpg"
-import image8 from "@/public/images/home-services/ae.jpg"
-import engineering from "@/public/images/Services-images/Engineering Service/25.jpg";
-import design from "@/public/images/Services-images/Engineering Service/24.jpg";
-import tender from "@/public/images/Services-images/Tendering-Services/453.jpg";
-import supervision from "@/public/images/Services-images/Supervision/21.jpg";
-import clientEng from "@/public/images/Services-images/Client-Engineer-Representative/27.jpg";
-import program from "@/public/images/Services-images/Program-Management-Services/554.jpg";
-import designBuild from "@/public/images/Services-images/Design-Build-Project/46445.jpg";
-import GIS from "@/public/images/Services-images/GIS-Services/65.jpg";
+import image1 from "@/public/images/home-services/3.webp"
+import image2 from "@/public/images/home-services/4.webp"
+import image3 from "@/public/images/home-services/5.webp"
+import image4 from "@/public/images/home-services/6.webp"
+import image5 from "@/public/images/home-services/7.webp"
+import image6 from "@/public/images/home-services/558.webp"
+import image7 from "@/public/images/home-services/8145.webp"
+import image8 from "@/public/images/home-services/ae.webp"
+import engineering from "@/public/images/Services-images/Engineering Service/25.webp";
+import design from "@/public/images/Services-images/Engineering Service/24.webp";
+import tender from "@/public/images/Services-images/Tendering-Services/453.webp";
+import supervision from "@/public/images/Services-images/Supervision/21.webp";
+import clientEng from "@/public/images/Services-images/Client-Engineer-Representative/27.webp";
+import program from "@/public/images/Services-images/Program-Management-Services/554.webp";
+import designBuild from "@/public/images/Services-images/Design-Build-Project/46445.webp";
+import GIS from "@/public/images/Services-images/GIS-Services/65.webp";
 
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import ServicesSliderMobile from "./ServicesSliderMobile"

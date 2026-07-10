@@ -1,8 +1,8 @@
-import image1 from "@/public/images/Services-images/Engineering Service/20.jpg"
-import image2 from "@/public/images/Services-images/Engineering Service/21.jpg"
-import image3 from "@/public/images/Services-images/Engineering Service/23.jpg"
-import image4 from "@/public/images/Services-images/Engineering Service/24.jpg"
-import image5 from "@/public/images/Services-images/Engineering Service/25.jpg"
+import image1 from "@/public/images/Services-images/Engineering Service/20.webp"
+import image2 from "@/public/images/Services-images/Engineering Service/21.webp"
+import image3 from "@/public/images/Services-images/Engineering Service/23.webp"
+import image4 from "@/public/images/Services-images/Engineering Service/24.webp"
+import image5 from "@/public/images/Services-images/Engineering Service/25.webp"
 import ServicesBanner from "@/app/components/services-banner"
 import ServicesPageSlider from "@/app/components/services-page-slider"
 import Testimonial from '../ArComponents//ArHome/components/Testimonial'

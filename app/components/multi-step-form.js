@@ -216,7 +216,7 @@ export default function QuoteModal({ text, isArabic, open, onClose }) {
                 name: values.fullName,
                 email: values.email,
                 message: JSON.stringify(structuredMessage),
-                image: values.pinterestLink || "https://example.com/default.png",
+                image: values.pinterestLink || "https://example.com/default.webp",
                 budget: Number(values.budget) || 0,
                 recaptchaToken: token,
             };

@@ -2,10 +2,10 @@
 import Testimonial from '../components/Testimonial'
 import Image from 'next/image'
 import ServicesBanner from '../components/services-banner'
-import image1 from "@/public/images/Services-images/Program-Management-Services/34.jpg"
-import image2 from "@/public/images/Services-images/Program-Management-Services/76.jpg"
-import image3 from "@/public/images/Services-images/Program-Management-Services/87.jpg"
-import image4 from "@/public/images/Services-images/Program-Management-Services/554.jpg"
+import image1 from "@/public/images/Services-images/Program-Management-Services/34.webp"
+import image2 from "@/public/images/Services-images/Program-Management-Services/76.webp"
+import image3 from "@/public/images/Services-images/Program-Management-Services/87.webp"
+import image4 from "@/public/images/Services-images/Program-Management-Services/554.webp"
 import ServicesPageSlider from '../components/services-page-slider'
 import Footer from '../components/footer'
 
