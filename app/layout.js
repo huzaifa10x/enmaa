@@ -56,14 +56,14 @@ export default async function RootLayout({ children, params }) {
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <SmoothScroll>
+        {/* <SmoothScroll> */}
           <FloatingSocials />
           <DialogProvider>
-            <ScrollAnimationProvider>
+            {/* <ScrollAnimationProvider> */}
               {children}
-            </ScrollAnimationProvider>
+            {/* </ScrollAnimationProvider> */}
           </DialogProvider>
-        </SmoothScroll>
+        {/* </SmoothScroll> */}
       </body>
     </html>
   );

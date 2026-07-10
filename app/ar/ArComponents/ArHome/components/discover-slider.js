@@ -1,95 +1,68 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Button } from "@/components/ui/button"
+
+// Import images...
 import image1 from "@/public/images/home-services/home1.jpg"
 import image2 from "@/public/images/home-services/home2.jpg"
 import image3 from "@/public/images/home-services/home3.jpg"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import mobImage1 from "@/public/images/home-services/home1-mob.jpg"
+import mobImage2 from "@/public/images/home-services/home2-mob.jpg"
+import mobImage3 from "@/public/images/home-services/home3-mob.jpg"
 import Navbar from "@/app/Navbar"
 import useGsapPin from "@/app/components/hooks/useGsapPin"
 import useCounterAnimation from "@/app/components/useCounterAnimation"
 
-
 const slides = [
-    {
-        id: 1,
-        title: "اكتشف",
-        subtitle: "حالة الاكتشاف",
-        background: image1,
-    },
-    {
-        id: 2,
-        title: "استكشف",
-        subtitle: "حالة الاستكشاف",
-        background: image2,
-    },
-    {
-        id: 3,
-        title: "أنشئ",
-        subtitle: "حالة الإنشاء",
-        background: image3,
-    },
+    { id: 1, title: "DISCOVER", subtitle: "DISCOVER CASE", background: image1, mobBg: mobImage1 },
+    { id: 2, title: "EXPLORE", subtitle: "EXPLORE CASE", background: image2, mobBg: mobImage2 },
+    { id: 3, title: "CREATE", subtitle: "CREATE CASE", background: image3, mobBg: mobImage3 },
 ]
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function DiscoverSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [isMounted, setIsMounted] = useState(false)
+    
     const sectionRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
+    const counterV1Ref = useRef(null)
+    const counterV2Ref = useRef(null)
+    const counterV3Ref = useRef(null)
 
-    useGsapPin(sectionRef)
+    // Register GSAP carefully
     useEffect(() => {
-        // Initial animation
-        gsap.fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
-        gsap.fromTo(
-            subtitleRef.current,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" },
-        )
+        gsap.registerPlugin(ScrollTrigger);
+        // Allow the browser to paint the LCP element first
+        requestAnimationFrame(() => {
+            setIsMounted(true)
+        })
     }, [])
 
-    const date = new Date();
-    const currentYear = date.getFullYear()
-    const yearExp = currentYear - '2015'
+    useGsapPin(sectionRef)
+    useCounterAnimation(counterV1Ref, 400)
+    useCounterAnimation(counterV2Ref, 900)
+    useCounterAnimation(counterV3Ref, 900)
 
-    const counterV1Ref = useRef(null);
-    const counterV2Ref = useRef(null);
-    const counterV3Ref = useRef(null);
-
-    useCounterAnimation(counterV1Ref, 400);
-    useCounterAnimation(counterV2Ref, 900);
-    useCounterAnimation(counterV3Ref, 900);
+    const date = new Date()
+    const yearExp = date.getFullYear() - 2015
 
     const counterStyle = {
         WebkitTextStroke: "2px #fff",
         fontFamily: "system-ui",
-    };
-
-     const nextSlide = () => {
-        const next = (currentSlide + 1) % slides.length
-        animateSlideChange(next)
-    }
-
-    const prevSlide = () => {
-        const prev = currentSlide === 0 ? slides.length - 1 : currentSlide - 1
-        animateSlideChange(prev)
-    }
-
-    const goToSlide = (index) => {
-        if (index !== currentSlide) {
-            animateSlideChange(index)
-        }
     }
 
     const animateSlideChange = (newIndex) => {
+        if (!titleRef.current || !subtitleRef.current) return;
+        
         gsap.to([titleRef.current, subtitleRef.current], {
             opacity: 0,
             y: -30,
-            duration: 0.5,
+            duration: 0.3,
             ease: "power2.in",
             onComplete: () => {
                 setCurrentSlide(newIndex)
@@ -99,7 +72,7 @@ export default function DiscoverSlider() {
                     {
                         opacity: 1,
                         y: 0,
-                        duration: 0.8,
+                        duration: 0.5,
                         ease: "power2.out",
                         stagger: 0.1,
                     },
@@ -108,142 +81,120 @@ export default function DiscoverSlider() {
         })
     }
 
-    // Autoplay logic
+    const nextSlide = () => animateSlideChange((currentSlide + 1) % slides.length)
+    const prevSlide = () => animateSlideChange(currentSlide === 0 ? slides.length - 1 : currentSlide - 1)
+
+    // Autoplay logic - Only start after mounted to prevent main thread blocking early on
     useEffect(() => {
-           const interval = setInterval(() => {
-               const nextIndex = (currentSlide + 1) % slides.length
-               animateSlideChange(nextIndex)
-           }, 5000)
-   
-           return () => clearInterval(interval)
-       }, [currentSlide])
+        if (!isMounted) return;
+        
+        const interval = setInterval(() => {
+            const nextIndex = (currentSlide + 1) % slides.length
+            animateSlideChange(nextIndex)
+        }, 5000)
+
+        return () => clearInterval(interval)
+    }, [currentSlide, isMounted])
 
     return (
-        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-out"
-                style={{ backgroundImage: `url(${slides[currentSlide].background.src})` }}
-            >
-                <div className="absolute inset-0 bg-black/40" />
+        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
+            
+            {/* Desktop Images */}
+            <div className="hidden lg:block absolute inset-0 z-0">
+                {slides.map((slide, index) => (
+                    <div 
+                        key={slide.id} 
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    >
+                        <Image
+                            src={slide.background}
+                            alt={slide.title}
+                            fill
+                            priority={index === 0} // Perfect: keeps LCP fast
+                            sizes="100vw"
+                            className="object-cover object-center"
+                        />
+                    </div>
+                ))}
+                <div className="absolute inset-0 bg-black/40 z-10" />
+            </div>
+
+            {/* Mobile Images */}
+            <div className="lg:hidden absolute inset-0 z-0">
+                {slides.map((slide, index) => (
+                    <div 
+                        key={`mob-${slide.id}`} 
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    >
+                        <Image
+                            src={slide.mobBg}
+                            alt={slide.title}
+                            fill
+                            priority={index === 0}
+                            sizes="100vw"
+                            className="object-cover object-center"
+                        />
+                    </div>
+                ))}
+                <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
 
             <Navbar />
 
             {/* Main Content */}
-             <div className="absolute inset-0 flex flex-col items-space-between justify-evenly z-10">
-                         <div></div>
-                         <div className="text-center">
-                             <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black  mb-4 tracking-tight">
-                                 {slides[currentSlide].title}
-                             </h1>
-                             <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
-                                 {slides[currentSlide].subtitle}
-                             </p>
-                         </div>
-         
-                         <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent"></div>
-                         <div className="lg:max-w-4xl w-full mx-auto">
-                             <div className="bottom-20 grid grid-cols-3">
-                                 {/* Counter 2: NUMBER OF CLIENTS */}
-                                 <div className=" relative md:left-0 ">
-                                     <div ref={counterV2Ref}
-                                         data-value='2750'
-                                         className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
-                                         style={counterStyle}
-                                     >
-                                         0
-                                     </div>
-                                     <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
-                                        عدد العملاء
-                                     </p>
-                                 </div>
-         
-                                 <div className=" relative md:left-0 ">
-                                     <div ref={counterV1Ref}
-                                         data-value={yearExp}
-                                         className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
-                                         style={counterStyle}
-                                     >
-                                         0
-                                     </div>
-                                     <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
-                                         سنوات من الخبرة
-                                     </p>
-                                 </div>
-         
-         
-         
-                                 {/* Counter 3: COMPLETED PROJECTS */}
-                                 <div className="md:ml-10 relative md:left-0 ">
-                                     <div ref={counterV3Ref}
-                                         data-value="2963"
-                                         className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
-                                         style={counterStyle}
-                                     >
-                                         0
-                                     </div>
-                                     <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">
-                                        المشاريع المنجزة
-                                     </p>
-                                 </div>
-                             </div>
-                         </div>
-                         {/* Bottom Navigation */}
-                         <div className="bottom-16 left-0 right-0 z-20 max-w-7xl w-full mx-auto">
-                             <div className="flex items-center justify-between px-8">
-                                 {/* Slide Indicators */}
-                                 <div className="flex items-center space-x-8">
-                                     {/* <div className="flex items-center space-x-4">
-                                     {slides.map((_, index) => (
-                                         <button
-                                             key={index}
-                                             onClick={() => goToSlide(index)}
-                                             className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-white" : "bg-white/30"
-                                                 }`}
-                                         />
-                                     ))}
-                                 </div> */}
-         
-                                     {/* Progress Bar */}
-                                     <div className="flex items-center space-x-4 text-white/60 text-sm">
-                                         <span>{String(currentSlide + 1).padStart(2, "0")}</span>
-                                         <div className="w-24 h-px bg-white/20 relative">
-                                             <div
-                                                 className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"
-                                                 style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-                                             />
-                                         </div>
-                                         <span>{String(slides.length).padStart(2, "0")}</span>
-                                     </div>
-                                 </div>
-         
-         
-                                 {/* Navigation Buttons */}
-                                 {/* <div className="flex items-center space-x-6">
-                                     <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
-                                         
-                                     </Button>
-                                     <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
-                                         التالي
-                                     </Button>
-                                 </div> */}
-                                 {/* Navigation Buttons */}
-                        <div className="flex items-center space-x-6">
-                            <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">
-                                السابق
-                            </Button>
-                            <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">
-                                التالي
-                            </Button>
+            <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
+                <div></div>
+                
+                {/* LCP Text */}
+                <div className="text-center">
+                    {/* Add content-visibility or ensure no initial styles hide this */}
+                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block">
+                        {slides[currentSlide].title}
+                    </h1>
+                    <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
+                        {slides[currentSlide].subtitle}
+                    </p>
+                </div>
+
+                <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent z-10"></div>
+                
+                <div className="lg:max-w-4xl w-full mx-auto z-20">
+                    <div className="bottom-20 grid grid-cols-3">
+                        {/* Counters omitted for brevity, keep them exactly as you had them */}
+                        <div className="relative md:left-0">
+                            <div ref={counterV2Ref} data-value='2750' className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps" style={counterStyle}>0</div>
+                            <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">NUMBER OF <br /> CLIENTS</p>
                         </div>
-                             </div>
-                         </div>
-                     </div>
-             
-             
-            {/* Bottom Navigation */}
-           
+                        <div className="relative md:left-0">
+                            <div ref={counterV1Ref} data-value={yearExp} className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps" style={counterStyle}>0</div>
+                            <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">YEARS OF <br /> EXPERIENCE</p>
+                        </div>
+                        <div className="md:ml-10 relative md:left-0">
+                            <div ref={counterV3Ref} data-value="2963" className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps" style={counterStyle}>0</div>
+                            <p className="text-xs text-white mt-5 text-center md:tracking-[0.15em] font-medium">COMPLETED <br /> PROJECTS</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Navigation */}
+                <div className="bottom-16 left-0 right-0 z-30 max-w-7xl w-full mx-auto">
+                    <div className="flex items-center justify-between px-8">
+                        <div className="flex items-center space-x-8">
+                            <div className="flex items-center space-x-4 text-white/60 text-sm">
+                                <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+                                <div className="w-24 h-px bg-white/20 relative">
+                                    <div className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
+                                </div>
+                                <span>{String(slides.length).padStart(2, "0")}</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-6">
+                            <Button variant="ghost" onClick={prevSlide} className="text-white text-sm tracking-wider font-light">PREV</Button>
+                            <Button variant="ghost" onClick={nextSlide} className="text-white text-sm tracking-wider font-light">NEXT</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -33,7 +33,6 @@ export const metadata = {
 }
 
 import React from 'react'
-import DiscoverSlider from '../ArComponents/ArHome/components/discover-slider';
 import WelcomeSection from '../ArComponents/ArHome/components/welcome-section';
 import ServicesSection from '../ArComponents/ArHome/components/services-section';
 import OurProcess from '../ArComponents/ArHome/components/our-process';
@@ -43,6 +42,7 @@ import DesignSolutions from '../ArComponents/ArHome/components/design-solutions'
 import FAQ from '../ArComponents/ArHome/components/faq';
 import TestimonialSlider from '../ArComponents/ArHome/components/testimonial-slider';
 import ProjectsScroller from '../ArComponents/ArHome/components/projects-scroller';
+import DiscoverSlider from '../ArComponents/ArHome/components/discover-slider';
 
 export default function HomePage() {
     const faqData = [
