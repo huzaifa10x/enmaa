@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image" // Added for LCP optimization
+import Image from "next/image"
 import { gsap } from "gsap"
 import { Button } from "@/components/ui/button"
 import image1 from "@/public/images/home-services/home1.jpg"
@@ -52,15 +52,8 @@ export default function DiscoverSlider() {
 
     useGsapPin(sectionRef)
 
-    // Initial load animation for Text
-    useEffect(() => {
-        gsap.fromTo(titleRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
-        gsap.fromTo(
-            subtitleRef.current,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" },
-        )
-    }, [])
+    // REMOVED: Initial GSAP mount animation that was hiding the text on load.
+    // Text will now be immediately visible in raw HTML.
 
     const date = new Date();
     const currentYear = date.getFullYear()
@@ -70,7 +63,6 @@ export default function DiscoverSlider() {
     const counterV2Ref = useRef(null);
     const counterV3Ref = useRef(null);
 
-    // Using your custom counter hooks safely
     useCounterAnimation(counterV1Ref, 400);
     useCounterAnimation(counterV2Ref, 900);
     useCounterAnimation(counterV3Ref, 900);
@@ -94,7 +86,7 @@ export default function DiscoverSlider() {
         gsap.to([titleRef.current, subtitleRef.current], {
             opacity: 0,
             y: -30,
-            duration: 0.4,
+            duration: 0.3,
             ease: "power2.in",
             onComplete: () => {
                 setCurrentSlide(newIndex)
@@ -104,7 +96,7 @@ export default function DiscoverSlider() {
                     {
                         opacity: 1,
                         y: 0,
-                        duration: 0.6,
+                        duration: 0.5,
                         ease: "power2.out",
                         stagger: 0.1,
                     },
@@ -126,36 +118,43 @@ export default function DiscoverSlider() {
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
             
-            {/* LCP Fix: Desktop Images Preloaded dynamically */}
+            {/* LCP FIX: Fixed Conditional Rendering. Server will pre-render all first-slide elements */}
+            {/* Desktop Images */}
             <div className="hidden lg:block absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    index === currentSlide && (
+                    <div 
+                        key={slide.id} 
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    >
                         <Image
-                            key={slide.id}
                             src={slide.background}
                             alt={slide.title}
                             fill
-                            priority={index === 0} // Highest priority for the first slide
-                            className="object-cover object-center transition-opacity duration-1000"
+                            priority={index === 0} // Preloads the first slide instantly
+                            sizes="100vw"
+                            className="object-cover object-center"
                         />
-                    )
+                    </div>
                 ))}
                 <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
 
-            {/* LCP Fix: Mobile Images Preloaded dynamically */}
+            {/* Mobile Images */}
             <div className="lg:hidden absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    index === currentSlide && (
+                    <div 
+                        key={`mob-${slide.id}`} 
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    >
                         <Image
-                            key={`mob-${slide.id}`}
                             src={slide.mobBg}
                             alt={slide.title}
                             fill
-                            priority={index === 0}
-                            className="object-cover object-center transition-opacity duration-1000"
+                            priority={index === 0} // Preloads the first mobile slide instantly
+                            sizes="100vw"
+                            className="object-cover object-center"
                         />
-                    )
+                    </div>
                 ))}
                 <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
@@ -166,11 +165,11 @@ export default function DiscoverSlider() {
             <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
                 <div></div>
                 
-                {/* Single H1 Wrapper */}
+                {/* Text is rendered instantly from the Server and isn't hidden by GSAP initially */}
                 <div className="text-center">
-                    <p ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight">
+                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block">
                         {slides[currentSlide].title}
-                    </p>
+                    </h1>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
                         {slides[currentSlide].subtitle}
                     </p>

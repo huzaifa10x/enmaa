@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "./components/footer";
 import SmoothScroll from "./components/SmoothScroll";
 import FloatingSocials from "./components/FloatingSocials";
 import { DialogProvider } from "@/context/DialogContex";
@@ -10,11 +10,19 @@ import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+});
+
+const productSans = localFont({
+  src: "../public/fonts/ProductSans-Medium.ttf",
+  variable: "--font-product-sans",
+  display: "swap",
 });
 
 export const metadata = {
@@ -29,8 +37,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
       <head>
-        {/* Google Tag Manager - Script Tag */}
-        <Script id="google-tag-manager" strategy="beforeInteractive">
+        <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -40,8 +47,7 @@ export default async function RootLayout({ children, params }) {
           `}
         </Script>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Google Tag Manager (noscript) - Immediately after body opening */}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${productSans.variable} antialiased`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MSWQQTJ"

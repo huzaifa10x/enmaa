@@ -10,9 +10,9 @@ const nextConfig = {
     trailingSlash: true,
     // output: 'export',
     // assetPrefix: './',
-    images: {
-        unoptimized: true,
-    },
+    // images: {
+    //     unoptimized: true,
+    // },
     async redirects() {
         return [
             {

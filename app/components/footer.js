@@ -9,6 +9,7 @@ import Link from "next/link"
 import WPIcon from "@/public/images/WP-icon.png"
 import { usePathname } from "next/navigation"
 import FooterForm from "./footerForm"
+import { BsWhatsapp } from "react-icons/bs"
 
 export default function Footer() {
     const pathname = usePathname();
@@ -57,15 +58,13 @@ export default function Footer() {
             {isArabic ?
                 <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-0" target="_blank" href='https://api.whatsapp.com/send/?phone=%2B+971506185529&text=مرحباً شركة إنما للاستشارات الهندسية، أتواصل معكم للاستفسار عن بعض التفاصيل المتعلقة بخدماتكم.&type=phone_number&app_absent=0'>
                     <button className="btn rounded btn-warning border-warning rounded-5 shadow">
-                        <Image src={WPIcon} width={25} height={25} alt="WPICon" />
-
+                        <BsWhatsapp size={26} />
                     </button>
                 </Link>
                 :
                 <Link className="fixed right-0 bg-primary grid rounded-full p-2 md:p-4 m-8 bottom-0" target="_blank" href='https://api.whatsapp.com/send/?phone=%2B+971506185529&text=Hi Enmaa Engineering Consultancy, I’m checking in to request some details about your services.&type=phone_number&app_absent=0'>
                     <button className="btn rounded btn-warning border-warning rounded-5 shadow">
-                        <Image src={WPIcon} width={25} height={25} alt="WPICon" />
-
+                        <BsWhatsapp size={26} />
                     </button>
                 </Link>
             }
