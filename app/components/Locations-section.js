@@ -99,9 +99,9 @@ export default function LocationsSection() {
                     {/* Left Section - Location Tabs */}
                     <div className="space-y-4">
                         <div className="mb-6">
-                            <h2 className="text-4xl md:text-5xl text-foreground mb-2">
+                            <p className="text-4xl md:text-5xl text-foreground mb-2">
                                 Office <span className="text-primary font-bold">Locations</span>
-                            </h2>
+                            </p>
                             <p className="text-sm text-muted-foreground">
                                 Choose from our premium business jurisdictions
                             </p>

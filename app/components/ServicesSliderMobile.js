@@ -26,7 +26,7 @@ export default function ServicesSliderMobile({ services }) {
                                     <div className="mb-3 font-ps text-3xl relative -top-50">{`0${item.id}`}</div>
 
                                     <div className="mb-4">{item.icon}</div>
-                                    <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+                                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                                     <div
                                         className="text-sm opacity-90 leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.items), }}

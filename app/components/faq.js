@@ -21,9 +21,9 @@ export default function FAQ({ faqData }) {
                 <div className="flex flex-wrap md:justify-between items-start lg:gap-0 gap-4">
                     <PillTitle title={'faq'} />
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-5xl mb-4 text-balance">
+                        <h3 className="text-3xl md:text-5xl mb-4 text-balance">
                             Quick and clear <span className="text-primary font-bold">answers <br className="lg:block hidden" /> to your key</span> questions
-                        </h2>
+                        </h3>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@ export default function FAQ({ faqData }) {
                             />
                         </div>
                         <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Still Looking For Answers?</h3>
+                            <p className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Still Looking For Answers?</p>
                             <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-sm">
                                 Our team will guide you through our design process,
                                 project specifications and cost estimate.
