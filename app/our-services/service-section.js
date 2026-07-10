@@ -1,7 +1,7 @@
 import ServiceCard from "./service-card";
 import Image from "next/image";
 import engservicesText from "@/public/images/Services.webp";
-import arabicservicesText from "@/public/images/خدمات.png";
+import arabicservicesText from "@/public/images/خدمات.webp";
 import engineering from "@/public/images/Services-images/Engineering Service/25.jpg";
 import design from "@/public/images/Services-images/Engineering Service/24.jpg";
 import tender from "@/public/images/Services-images/Tendering-Services/453.jpg";
