@@ -59,7 +59,7 @@ export default function EngineeringService() {
                 </section>
 
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                    <h1 className='text-2xl font-semibold mb-5'>Transforming Vision into Solutions for Construction</h1>
+                    <h2 className='text-2xl font-semibold mb-5'>Transforming Vision into Solutions for Construction</h2>
                     <p className="text-foreground text-base leading-relaxed mb-6">
                         Enmaa&apos;s services include the whole design process, from collecting background data to completion of construction documentation. We ensure that each project takes advantage of our approach, which balances a systematic with a creative methodology. Our process begins during site surveys and stakeholder discussions. Here we use data and stakeholder engagement to inform smart design decisions. We develop creative concepts that are compatible with the aesthetic desires of stakeholders as well as the building functionality.
                     </p>

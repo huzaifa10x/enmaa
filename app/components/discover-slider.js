@@ -127,15 +127,14 @@ export default function DiscoverSlider() {
 
     return (
         <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
-            
+
             {/* Desktop Images */}
             <div className="hidden lg:block absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    <div 
-                        key={slide.id} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                            index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                        }`}
+                    <div
+                        key={slide.id}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            }`}
                     >
                         <Image
                             src={slide.background}
@@ -154,11 +153,10 @@ export default function DiscoverSlider() {
             {/* Mobile Images */}
             <div className="lg:hidden absolute inset-0 z-0">
                 {slides.map((slide, index) => (
-                    <div 
-                        key={`mob-${slide.id}`} 
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                            index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                        }`}
+                    <div
+                        key={`mob-${slide.id}`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            }`}
                     >
                         <Image
                             src={slide.mobBg}
@@ -179,19 +177,19 @@ export default function DiscoverSlider() {
             {/* Main Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-evenly z-20">
                 <div></div>
-                
+
                 {/* Text Block - Rendered with pure CSS initially, no inline hidden properties */}
                 <div className="text-center will-change-transform">
-                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block fallback-font-fix">
+                    <p ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block fallback-font-fix">
                         {slides[currentSlide].title}
-                    </h1>
+                    </p>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
                         {slides[currentSlide].subtitle}
                     </p>
                 </div>
 
                 <div className="absolute bottom-0 w-full h-[200px] bg-gradient-to-t from-black via-black/55 to-transparent z-10"></div>
-                
+
                 <div className="lg:max-w-4xl w-full mx-auto z-20">
                     <div className="bottom-20 grid grid-cols-3">
                         {/* Counter 1 */}

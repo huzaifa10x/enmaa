@@ -60,7 +60,7 @@ export default function page() {
                 </section>
 
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                    <h1 className='text-2xl font-semibold mb-5'>Achieving Success Through Engineering Strategy and Excellence</h1>
+                    <h2 className='text-2xl font-semibold mb-5'>Achieving Success Through Engineering Strategy and Excellence</h2>
                     <p className="text-foreground text-base leading-relaxed mb-6">
                         Enmaa Engineering Consultant operates throughout the UAE to deliver diverse engineering services to realize your project vision. We offer our expertise in engineering and planning with a multidisciplinary perspective on services. Our expertise ranges from feasibility studies, strategic planning, and programming. We ensure each project relies on a solid technical basis. We utilize the principles of value engineering to optimize project costs. Typically, we deliver product value in the range of a 10-15% savings.
                     </p>

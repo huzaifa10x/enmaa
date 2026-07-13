@@ -161,10 +161,10 @@ export default function ProjectSlider() {
             }}
         >
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-balance font-sans font-semibold leading-tight text-4xl md:text-6xl">
+                <p className="text-center text-balance font-sans font-semibold leading-tight text-4xl md:text-6xl">
                     {"Creative "}
                     <span className="font-extrabold text-[hsl(var(--brand))]">{"Projects That Define"}</span> {"Our Style"}
-                </h2>
+                </p>
 
                 <div
                     ref={containerRef}

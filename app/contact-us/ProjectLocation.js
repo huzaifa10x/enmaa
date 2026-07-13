@@ -275,25 +275,24 @@ export default function ProjectLocation({ isArabic }) {
                         </div>
                         <div className="space-y-4">
                             {isArabic ?
-                            <div className="mb-6 text-right">
-                            <h2 className="text-xl font-semibold text-foreground mb-2">
-                                نظرة عامة على الموقع
-                            </h2>
-                            <p className="text-sm text-muted-foreground">
-                                خريطة جوجل تعرض الموقع الذي اخترته
-                            </p>
-                        </div>
-                        :
-                        
-                            <div className="mb-6">
-                                <h2 className="text-xl font-semibold text-foreground mb-2">
-                                    Location Overview
-                                </h2>
-                                <p className="text-sm text-muted-foreground">
-                                    A real Google Map showing the selected location
-                                </p>
-                            </div>
-                        }
+                                <div className="mb-6 text-right">
+                                    <h2 className="text-xl font-semibold text-foreground mb-2">
+                                        نظرة عامة على الموقع
+                                    </h2>
+                                    <p className="text-sm text-muted-foreground">
+                                        خريطة جوجل تعرض الموقع الذي اخترته
+                                    </p>
+                                </div>
+                                :
+                                <div className="mb-6">
+                                    <p className="text-xl font-semibold text-foreground mb-2">
+                                        Location Overview
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        A real Google Map showing the selected location
+                                    </p>
+                                </div>
+                            }
 
                             <Card className="p-2 h-[370px] relative overflow-hidden">
                                 <iframe

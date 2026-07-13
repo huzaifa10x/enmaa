@@ -60,7 +60,7 @@ export default function EngineeringService() {
                 </section>
 
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                    <h1 className='text-2xl font-semibold mb-5'>Accelerating Delivery Through Collaborative Innovation</h1>
+                    <h2 className='text-2xl font-semibold mb-5'>Accelerating Delivery Through Collaborative Innovation</h2>
                     <p className="text-foreground text-base leading-relaxed mb-6">
                         Enmaa Engineering Consultant brings sought-after expertise to design-build projects. We collaborate with contractors to create effective value engineering ideas and creatively-designed solutions. Our solutions are aimed at improving the end result of the project. When working in a design-build configuration, we take our technical capabilities and construction experience and utilize them to improve designs for constructability, cost, and schedule. We establish project lifecycle schedules that account for design, procurement, and construction. While doing this, we are always focused on managing costs within the schedule.
                     </p>
