@@ -123,7 +123,7 @@ export default function page() {
                         Our Ajman engineering company focuses on three fundamental principles such as utility, aesthetics, and sustainability. Our designs are developed to guarantee that every space is useful and practical. We consider every element including structural integrity and user experience.
                     </p>
 
-                    <p className='text-xl font-semibold mb-5'>Contact us today</p>
+                    <h3 className='text-xl font-semibold mb-5'>Contact us today</h3>
                     <p className="text-neutral-500 text-base leading-relaxed mb-6">
                         Enmaa Engineering Consultants gives you what you have been looking for. You will receive what you desire thanks to our expertise, creativity, and dedication to perfection.
                         <br />
