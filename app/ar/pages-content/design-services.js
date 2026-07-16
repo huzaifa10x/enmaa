@@ -25,9 +25,9 @@ export default function DesignServices() {
 
             {/* Main Content */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-end">
-                <h1 className='text-2xl font-semibold mb-5'>
+                <h2 className='text-2xl font-semibold mb-5'>
                     تحويل الرؤية إلى حلول في مجال البناء
-                </h1>
+                </h2>
 
                 <p className="text-foreground text-base leading-relaxed mb-6">
                     تشمل خدمات إنماء العملية الكاملة للتصميم، بدءًا من جمع البيانات

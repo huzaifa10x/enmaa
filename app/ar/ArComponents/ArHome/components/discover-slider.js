@@ -150,9 +150,9 @@ export default function DiscoverSlider() {
                 {/* LCP Text */}
                 <div className="text-center">
                     {/* Add content-visibility or ensure no initial styles hide this */}
-                    <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block">
+                    <p ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block">
                         {slides[currentSlide].title}
-                    </h1>
+                    </p>
                     <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
                         {slides[currentSlide].subtitle}
                     </p>

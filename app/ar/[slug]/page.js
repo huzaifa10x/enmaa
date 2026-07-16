@@ -78,13 +78,11 @@ const metaDataBySlug = {
     },
 };
 
-// --- ADD THIS FUNCTION FOR STATIC EXPORT ---
 export function generateStaticParams() {
-    // Collect all unique slugs from your metadata and your switch cases
     const slugs = [
-        "home", // from your switch case
-        "engineering-service", // from your switch case
-        "design-services", // from your switch case
+        "home",
+        "engineering-service",
+        "design-services",
         ...Object.keys(metaDataBySlug)
     ];
 
@@ -92,10 +90,8 @@ export function generateStaticParams() {
         slug: slug,
     }));
 }
-// -------------------------------------------
 
 export async function generateMetadata({ params }) {
-    // Await the params before using them
     const { slug } = await params;
     const decodedSlug = decodeURIComponent(slug);
     const data = metaDataBySlug[decodedSlug];
@@ -139,9 +135,9 @@ export async function generateMetadata({ params }) {
 export default async function page({ params }) {
     const { slug } = await params;
     const decodedSlug = decodeURIComponent(slug);
-    
+
     let content;
- 
+
     switch (decodedSlug) {
         case "home":
             content = <HomePage />;
