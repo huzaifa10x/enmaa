@@ -95,7 +95,11 @@ const nextConfig = {
                 destination: "/",
                 permanent: true,
             },
-
+            {
+                source: "/ar/engineering-consultant-in-abu-dhabi/",
+                destination: "/ar/استشارات-هندسية-ابوظبي/",
+                permanent: true,
+            },
             {
                 source: "/%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D8%A7%D8%A8%D9%88%D8%B8%D8%A8%D9%8A/",
                 destination: "/ar/استشارات-هندسية-ابوظبي/",
