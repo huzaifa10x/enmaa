@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { MdOutlineEngineering } from "react-icons/md"
 import { BsBuildings } from "react-icons/bs"
-// import { SiAffinitydesigner } from "react-icons/si"
 import { FaRegHandshake } from "react-icons/fa6"
 import image1 from "@/public/images/home-services/3.webp"
 import image2 from "@/public/images/home-services/4.webp"
@@ -145,7 +144,6 @@ const services = [
         icon: <FaRegHandshake className="text-white" size={60} />,
     },
 ]
-
 
 export default function ServicesSection() {
     const [activeImg, setActiveImg] = useState(image1)

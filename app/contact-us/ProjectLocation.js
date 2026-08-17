@@ -125,9 +125,9 @@ export default function ProjectLocation({ isArabic }) {
                                     </p>
                                 </div> :
                                 <div className="mb-6">
-                                    <h2 className="text-4xl md:text-5xl text-foreground mb-2">
+                                    <p className="text-4xl md:text-5xl text-foreground mb-2">
                                         Office <span className="text-primary font-bold">Locations</span>
-                                    </h2>
+                                    </p>
                                     <p className="text-sm text-muted-foreground">
                                         Choose from our premium business locations
                                     </p>
@@ -276,9 +276,9 @@ export default function ProjectLocation({ isArabic }) {
                         <div className="space-y-4">
                             {isArabic ?
                                 <div className="mb-6 text-right">
-                                    <h2 className="text-xl font-semibold text-foreground mb-2">
+                                    <p className="text-xl font-semibold text-foreground mb-2">
                                         نظرة عامة على الموقع
-                                    </h2>
+                                    </p>
                                     <p className="text-sm text-muted-foreground">
                                         خريطة جوجل تعرض الموقع الذي اخترته
                                     </p>

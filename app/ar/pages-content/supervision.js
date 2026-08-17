@@ -7,7 +7,7 @@ import Image from 'next/image'
 import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 
 export default function Supervision() {
-     const images = [image1, image2, image3]
+    const images = [image1, image2, image3]
 
     return (
         <main className="">
@@ -42,15 +42,15 @@ export default function Supervision() {
                     </div>
                 </div>
             </section> */}
-               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-                            <ServicesPageSlider images={images} />
-                        </section>
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+                <ServicesPageSlider images={images} />
+            </section>
 
             {/* Arabic Content */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-end">
-                <h1 className='text-2xl font-semibold mb-5'>
+                <h2 className='text-2xl font-semibold mb-5'>
                     ضمان الجودة من خلال خدمات إدارة الإنشاءات الشاملة
-                </h1>
+                </h2>
 
                 <p className="text-foreground text-base leading-relaxed mb-6">
                     نقدم خدمات ضمان الجودة التي توفر إشرافًا مستمرًا على مراحل المشروع أثناء التنفيذ، مع التأكد من أن أعمال البناء تتم وفقًا للتصاميم المعتمدة، والمواصفات، وإجراءات ضبط الجودة. يشرف فريقنا الميداني ذو الخبرة على أنشطة البناء بشكل يومي، ويتأكد من أن جودة العمل مطابقة للمعايير التعاقدية. كما يتم فحص المواد المستخدمة لضمان توافقها مع الفحوصات المعتمدة. نطور بروتوكولات ضمان الجودة من خلال بروتوكولات فحص واختبار يتم تنفيذها بالتنسيق مع مختبرات معتمدة. ومن خلال إجراءاتنا الاستباقية لمراقبة الوقت والتكلفة، نتابع تقدم المشروع مقابل الجدول الزمني الأساسي المعتمد، مع تحديد أي انحرافات ومعالجتها مبكرًا للحفاظ على أهداف المشروع.

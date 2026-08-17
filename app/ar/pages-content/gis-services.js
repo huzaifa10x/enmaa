@@ -25,9 +25,9 @@ export default function GisArabic() {
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-end">
-                <h1 className='text-2xl font-semibold mb-5'>
+                <h2 className='text-2xl font-semibold mb-5'>
                     تسخير الذكاء المكاني لدعم القرارات الذكية
-                </h1>
+                </h2>
 
                 <p className="text-foreground text-base leading-relaxed mb-6">
                     تقدم إنماء للاستشارات الهندسية مجموعة متكاملة من خدمات نظم المعلومات الجغرافية (GIS). تُمكّن خدماتنا المؤسسات من الاستفادة من المعلومات المكانية، مما يؤدي إلى تحسين عملية اتخاذ القرارات، ورفع كفاءة الأداء التشغيلي، وتعزيز التخطيط الاستراتيجي.</p>

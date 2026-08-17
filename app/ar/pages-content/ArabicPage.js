@@ -35,7 +35,7 @@ export default function ArabicPage() {
                 </div>
             </section>
             <section className="max-w-7xl mx-auto px-4 sm:px-6 rtl text-right space-y-5 lg:px-8 mb-16">
-                <h1 className="text-3xl font-bold"> </h1>
+                {/* <h1 className="text-3xl font-bold"> </h1> */}
                 <p>
                     اختيار إنما كشركة استشارات هندسية في ابوظبي يأتي مع العديد من المزايا التي تجعلها الخيار الأمثل لنجاح مشاريعك الهندسية. إليك الأسباب التي تميز “إنما” وتدفعك لاختيارها:
                 </p>

@@ -176,9 +176,9 @@ export default function LocationsSection() {
                     {/* Right Section - Google Map Iframe */}
                     <div className="space-y-4">
                         <div className="mb-6">
-                            <h2 className="text-xl font-semibold text-foreground mb-2">
+                            <p className="text-xl font-semibold text-foreground mb-2">
                                 Location Overview
-                            </h2>
+                            </p>
                             <p className="text-sm text-muted-foreground">
                                 Real Google Map showing your selected location
                             </p>

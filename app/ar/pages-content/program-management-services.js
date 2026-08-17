@@ -30,9 +30,9 @@ export default function ProgramManagementServices() {
 
             {/* Content */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                <h1 className='text-2xl font-semibold mb-5  text-right'>
+                <h2 className='text-2xl font-semibold mb-5  text-right'>
                     الإشراف على المشاريع المعقدة لتحقيق النجاح الاستراتيجي
-                </h1>
+                </h2>
 
                 <p className="text-foreground text-base leading-relaxed mb-6 text-right">
                     تقدم شركة إنماء خدمات إدارة البرامج لضمان الإشراف والتنسيق الفعّال على المشاريع المعقدة

@@ -8,7 +8,7 @@ import ServicesBanner from "@/app/components/services-banner"
 import ServicesPageSlider from "@/app/ar/ArComponents/ArHome/components/services-page-slider"
 
 export default function ClientEngineerRepresentativeRole() {
-     const images = [image1, image2, image3, image4]
+    const images = [image1, image2, image3, image4]
     return (
         <main className="rtl text-end" dir="rtl">
             <ServicesBanner />
@@ -44,14 +44,14 @@ export default function ClientEngineerRepresentativeRole() {
                     </div>
                 </div>
             </section> */}
-               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <ServicesPageSlider images={images} />
             </section>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 ">
-                <h1 className='text-2xl font-semibold mb-5 text-right'>
+                <h2 className='text-2xl font-semibold mb-5 text-right'>
                     ممثلك التقني الملتزم لضمان نجاح المشروع
-                </h1>
+                </h2>
 
                 <p className="text-foreground text-base leading-relaxed mb-6 text-right">
                     تقدم شركة إنماء للاستشارات الهندسية خدمة ممثل المهندس لدى العميل من خلال
