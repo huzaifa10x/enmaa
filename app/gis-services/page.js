@@ -1,13 +1,14 @@
+// /Users/macbook/Documents/Next Projects/enmaa/app/gis-services/page.js
 export const metadata = {
     title: "GIS Services | Enma Engineering Companies",
     description: "Enma Engineering Companies provide advanced GIS services, offering accurate mapping, spatial analysis, and data-driven solutions for engineering and construction projects.",
 
     alternates: {
-        canonical: "https://www.enmaaengcon.com/design-services",
+        canonical: "https://www.enmaaengcon.com/gis-services/",
         languages: {
-            "x-default": "https://www.enmaaengcon.com/design-services",
-            en: "https://www.enmaaengcon.com/design-services",
-            ar: "https://www.enmaaengcon.com/ar/design-services",
+            "x-default": "https://www.enmaaengcon.com/gis-services/",
+            en: "https://www.enmaaengcon.com/gis-services/",
+            ar: "https://www.enmaaengcon.com/ar/gis-services/",
         },
     },
 
@@ -15,7 +16,7 @@ export const metadata = {
         title: "GIS Services | Enma Engineering Companies",
         description: "Enma Engineering Companies provide advanced GIS services, offering accurate mapping, spatial analysis, and data-driven solutions for engineering and construction projects.",
         type: "website",
-        url: "https://www.enmaaengcon.com/design-services",
+        url: "https://www.enmaaengcon.com/gis-services/",
     },
 
     twitter: {

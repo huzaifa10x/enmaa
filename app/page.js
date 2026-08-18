@@ -1,10 +1,12 @@
+// /Users/macbook/Documents/Next Projects/enmaa/app/page.js
 export const metadata = {
+  metadataBase: new URL("https://www.enmaaengcon.com"),
   title: "Civil Engineering Consultants in Sharjah | Architecture Companies & Firms",
   description: "Enmaa Engineering Consultants deliver high-quality, innovative designs, blending natural and modern styles for personalized home solutions.",
   alternates: {
     canonical: 'https://www.enmaaengcon.com/',
     languages: {
-      "x-default": "https://www.enmaaengcon.com/ar/",
+      "x-default": "https://www.enmaaengcon.com/",
       en: "https://www.enmaaengcon.com/",
       ar: "https://www.enmaaengcon.com/ar/",
     },
@@ -13,7 +15,7 @@ export const metadata = {
     title: "Civil Engineering Consultants in Sharjah | Architecture Companies & Firms",
     description: "Enmaa Engineering Consultants deliver high-quality, innovative designs, blending natural and modern styles for personalized home solutions.",
     type: "website",
-    url: "https://www.enmaaengcon.com/"
+    url: "https://www.enmaaengcon.com/",
   },
   twitter: {
     card: "summary_large_image",
@@ -30,7 +32,7 @@ export const metadata = {
       noimageindex: false,
     },
   },
-}
+};
 
 import DiscoverSlider from "./components/discover-slider";
 import WelcomeSection from "./components/welcome-section";
