@@ -37,6 +37,8 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
       <head>
+        <meta name="google-site-verification" content="fcrg72wrG9dofZnsEp6vfiaxnI29j-b7TOGJO1l0FDA" />
+
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -57,12 +59,12 @@ export default async function RootLayout({ children, params }) {
           />
         </noscript>
         {/* <SmoothScroll> */}
-          <FloatingSocials />
-          <DialogProvider>
-            {/* <ScrollAnimationProvider> */}
-              {children}
-            {/* </ScrollAnimationProvider> */}
-          </DialogProvider>
+        <FloatingSocials />
+        <DialogProvider>
+          {/* <ScrollAnimationProvider> */}
+          {children}
+          {/* </ScrollAnimationProvider> */}
+        </DialogProvider>
         {/* </SmoothScroll> */}
       </body>
     </html>

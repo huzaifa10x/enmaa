@@ -6,8 +6,8 @@ export const metadata = {
         canonical: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
         languages: {
             "x-default": "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
-            en: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
-            ar: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي",
+            "en": "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+            "ar": "https://www.enmaaengcon.com/ar/engineering-consultant-in-abu-dhabi/",
         },
     },
 
