@@ -114,7 +114,7 @@ function TestimonialSlider() {
     useGsapPin(sectionRef)
 
     return (
-        <section className="bg-stone-100 px-6 h-screen relative flex flex-col justify-center md:rounded-t-[50px] !z-[90]">
+        <section className="bg-stone-100 px-6 lg:h-screen relative flex flex-col justify-center md:rounded-t-[50px] !z-[90]">
             <Image
                 src={bg}
                 width={200}
