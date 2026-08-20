@@ -126,7 +126,7 @@ export default function DiscoverSlider() {
     }, [currentSlide, isReady])
 
     return (
-        <div ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
+        <div className="relative h-screen w-full overflow-hidden bg-black">
 
             {/* Desktop Images */}
             <div className="hidden lg:block absolute inset-0 z-0">
@@ -180,10 +180,10 @@ export default function DiscoverSlider() {
 
                 {/* Text Block - Rendered with pure CSS initially, no inline hidden properties */}
                 <div className="text-center will-change-transform">
-                    <p ref={titleRef} className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block fallback-font-fix">
+                    <p className="text-5xl md:text-6xl lg:text-9xl text-white font-black mb-4 tracking-tight block fallback-font-fix">
                         {slides[currentSlide].title}
                     </p>
-                    <p ref={subtitleRef} className="text-white/80 text-lg tracking-[0.3em] font-light">
+                    <p className="text-white/80 text-lg tracking-[0.3em] font-light">
                         {slides[currentSlide].subtitle}
                     </p>
                 </div>
@@ -194,7 +194,7 @@ export default function DiscoverSlider() {
                     <div className="bottom-20 grid grid-cols-3">
                         {/* Counter 1 */}
                         <div className="relative md:left-0">
-                            <div ref={counterV2Ref}
+                            <div
                                 data-value='2750'
                                 className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
                                 style={counterStyle}
@@ -208,7 +208,7 @@ export default function DiscoverSlider() {
 
                         {/* Counter 2 */}
                         <div className="relative md:left-0">
-                            <div ref={counterV1Ref}
+                            <div
                                 data-value={yearExp}
                                 className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
                                 style={counterStyle}
@@ -222,7 +222,7 @@ export default function DiscoverSlider() {
 
                         {/* Counter 3 */}
                         <div className="md:ml-10 relative md:left-0">
-                            <div ref={counterV3Ref}
+                            <div
                                 data-value="2963"
                                 className="text-4xl lg:text-6xl xl:text-[60px] text-center font-light text-transparent lg:-mb-2 font-ps"
                                 style={counterStyle}
