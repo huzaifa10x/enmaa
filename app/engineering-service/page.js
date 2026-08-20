@@ -1,12 +1,13 @@
+// /Users/macbook/Documents/Next Projects/enmaa/app/engineering-service/page.js
 export const metadata = {
     title: "Engineering Service | Enma Engineering Companies",
     description: "Enma Engineering Companies provide expert engineering services, including civil, structural, and architectural solutions, ensuring high-quality results for your projects.",
     alternates: {
-        canonical: "https://www.enmaaengcon.com/engineering-services",
+        canonical: "https://www.enmaaengcon.com/engineering-service/",
         languages: {
-            "x-default": "https://www.enmaaengcon.com/engineering-services",
-            en: "https://www.enmaaengcon.com/engineering-services",
-            ar: "https://www.enmaaengcon.com/ar/engineering-services",
+            "x-default": "https://www.enmaaengcon.com/engineering-service/",
+            en: "https://www.enmaaengcon.com/engineering-service/",
+            ar: "https://www.enmaaengcon.com/ar/engineering-service/",
         },
     },
 
@@ -14,7 +15,7 @@ export const metadata = {
         title: "Engineering Service | Enma Engineering Companies",
         description: "Enma Engineering Companies provide expert engineering services, including civil, structural, and architectural solutions, ensuring high-quality results for your projects.",
         type: "website",
-        url: "https://www.enmaaengcon.com/engineering-services",
+        url: "https://www.enmaaengcon.com/engineering-service/",
     },
 
     twitter: {

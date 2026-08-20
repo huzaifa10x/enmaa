@@ -1,13 +1,14 @@
+// /Users/macbook/Documents/Next Projects/enmaa/app/contact-us/page.js
 export const metadata = {
     title: "Contact Us | Engineering Companies",
     description: "Contact our engineering company for expert architectural design, civil engineering, and project consultation. Our team is ready to support your next project.",
 
     alternates: {
-        canonical: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+        canonical: "https://www.enmaaengcon.com/contact-us/",
         languages: {
-            "x-default": "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
-            en: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
-            ar: "https://www.enmaaengcon.com/ar/استشارات-هندسية-ابوظبي",
+            "x-default": "https://www.enmaaengcon.com/contact-us/",
+            en: "https://www.enmaaengcon.com/contact-us/",
+            ar: "https://www.enmaaengcon.com/ar/contact-us/",
         },
     },
 
@@ -15,7 +16,7 @@ export const metadata = {
         title: "Contact Us | Engineering Companies",
         description: "Contact our engineering company for expert architectural design, civil engineering, and project consultation. Our team is ready to support your next project.",
         type: "website",
-        url: "https://www.enmaaengcon.com/engineering-consultant-in-abu-dhabi/",
+        url: "https://www.enmaaengcon.com/contact-us/",
     },
 
     twitter: {

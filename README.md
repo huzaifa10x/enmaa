@@ -61,3 +61,13 @@ find . -type f -name "index.html" -print0 | while IFS= read -r -d '' file; do
 
   mv "$file" "$dir/$base.html"
 done
+
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "convert-webp": "node scripts/convert-to-webp.js"  // <--- Yeh line add karein
+}
+
+npm run convert-webp
