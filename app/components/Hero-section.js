@@ -15,14 +15,14 @@ export default function HeroSection({ title, desc, bg }) {
     return (
         <>
             <Navbar />
-            <section className='relative h-[600px]'>
+            <section className='relative h-125'>
                 <Image
                     src={bg}
                     width={800}
                     height={200}
                     priority
                     alt='image'
-                    className='w-full h-[600px] object-cover brightness-[0.7] absolute'
+                    className='w-full h-125 object-cover brightness-[0.7] absolute'
                 />
 
                 <div className='relative z-10 flex flex-wrap items-center h-full text-white'>
@@ -35,7 +35,7 @@ export default function HeroSection({ title, desc, bg }) {
                         }
                     </div>
                 </div>
-                <div className='bg-black/40 w-full h-[600px] top-0 absolute '></div>
+                <div className='bg-black/40 w-full h-125 top-0 absolute '></div>
             </section>
         </>
     )

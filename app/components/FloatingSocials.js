@@ -11,7 +11,7 @@ export default function FloatingSocials({ lang }) {
     ];
 
     return (
-        <div className="fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col space-y-2 bg-primary rounded-l-3xl p-1 py-3 z-[110]">
+        <div className="fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col space-y-2 bg-primary rounded-l-3xl p-1 py-3 z-999">
             {socials.map((social) => (
                 <a
                     key={social.name}

@@ -116,10 +116,12 @@ export default function DiscoverSlider() {
     // Autoplay logic - only kicks in after 3 seconds ready state
     useEffect(() => {
         if (!isReady) return
+
         const interval = setInterval(() => {
             const nextIndex = (currentSlide + 1) % slides.length
             animateSlideChange(nextIndex)
         }, 5000)
+
         return () => clearInterval(interval)
     }, [currentSlide, isReady])
 

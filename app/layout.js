@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import SmoothScroll from "./components/SmoothScroll";
 import FloatingSocials from "./components/FloatingSocials";
 import { DialogProvider } from "@/context/DialogContex";
+import ScrollAnimationProvider from "./components/ScrollAnimationProvider";
 import Script from "next/script";
 
 const geistSans = Geist({

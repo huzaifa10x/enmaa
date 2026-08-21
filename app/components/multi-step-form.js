@@ -51,7 +51,7 @@ function CustomDialog({ open, onClose, children, dir }) {
             <div
                 dir={dir}
                 onClick={(e) => e.stopPropagation()}
-                className="fixed w-full md:max-w-150 max-w-[500px] max-h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-300"
+                className="fixed w-full md:max-w-150 max-w-90 max-h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-300"
             >
                 {children}
             </div>

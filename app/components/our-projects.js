@@ -149,20 +149,20 @@ export default function OurProjects() {
             case 0: // main (center)
                 return "z-30 lg:scale-125 md:scale-75 scale-50 opacity-100 drop-shadow-2xl shadow-2xl translate-x-0"
             case 1: // right
-                return "z-20 lg:scale-100 md:scale-50 scale-[0.3] opacity-100 brightness-50 translate-x-[13rem] md:translate-x-[21rem] lg:translate-x-[38rem]"
+                return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 translate-x-[13rem] md:translate-x-[21rem] lg:translate-x-[38rem]"
             case 2: // far right
-                return "z-10 lg:scale-0 md:scale-[0.4] scale-0 opacity-80 brightness-50 translate-x-[6rem] md:translate-x-[20rem] lg:translate-x-[48rem]"
+                return "z-10 lg:scale-0 md:scale-40 scale-0 opacity-80 brightness-50 translate-x-[6rem] md:translate-x-[20rem] lg:translate-x-[48rem]"
             case items.length - 1: // left
-                return "z-20 lg:scale-100 md:scale-50 scale-[0.3] opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
+                return "z-20 lg:scale-100 md:scale-50 scale-30 opacity-100 brightness-50 -translate-x-[13rem] md:-translate-x-[21rem] lg:-translate-x-[38rem]"
             case items.length - 2: // far left
-                return "z-10 lg:scale-0 md:scale-[0.4] scale-0 opacity-80 brightness-50 -translate-x-[6rem] md:-translate-x-[20rem] lg:-translate-x-[48rem]"
+                return "z-10 lg:scale-0 md:scale-40 scale-0 opacity-80 brightness-50 -translate-x-[6rem] md:-translate-x-[20rem] lg:-translate-x-[48rem]"
             default:
-                return "opacity-0 lg:scale-50 md:scale-[0.3]"
+                return "opacity-0 lg:scale-50 md:scale-30"
         }
     }
 
     return (
-        <section ref={sectionRef} className="relative w-full flex flex-col py-10 overflow-hidden items-center justify-center rounded-t-[50px] z-50 bg-neutral-200 -mt-10">
+        <section ref={sectionRef} className="relative w-full flex flex-col py-10 overflow-hidden items-center justify-center rounded-t-[50px] z-60! bg-neutral-200 -mt-10">
             <div className="flex flex-wrap md:justify-between w-full max-w-7xl items-start lg:gap-0 gap-4 px-6">
                 <PillTitle title={'OUR PROJECTS'} />
                 <div className="md:mb-16 max-w-125">
@@ -182,12 +182,12 @@ export default function OurProjects() {
                     {items.map((item, i) => (
                         <li
                             key={item.id}
-                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800 transform ${getPositionClass(
+                            className={`absolute transition-all duration-500 ease-in-out w-[500px] h-[281px] bg-gray-800  transform ${getPositionClass(
                                 i
                             )}`}
                         >
                             <div className="relative">
-                                <div className="relative w-full max-h-72 h-72">
+                                <div className="relative w-full h-75">
                                     <Image
                                         src={item.src}
                                         alt={`Slide ${item.id}`}
@@ -195,7 +195,7 @@ export default function OurProjects() {
                                         // height={481}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="w-full h-full object-cover brightness-75"
+                                        className="w-full h-full object-cover brightness-75 "
                                     />
                                 </div>
                                 {/* Overlay Text */}
@@ -210,7 +210,10 @@ export default function OurProjects() {
             </div>
 
             {/* Buttons */}
-            <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center md:mt-40 gap-9 w-full max-w-7xl">
+            <div className="relative z-10 flex flex-wrap items-center md:justify-between justify-center md:mt-38 gap-9 w-full max-w-7xl">
+                {/* <div></div>
+                <div></div> */}
+
                 <div className="flex items-center gap-4 lg-mt-0 mt-5">
                     <button
                         onClick={prev}
